@@ -1,0 +1,10 @@
+
+lemmas
+
+exists-shift:
+(_∃(Pa) * P)(H) ↔ ∃ a. (Pa(a) * P)(H);
+used for: s;
+
+exists-shiftw:
+(_∃(Pa) -* P)(H) ↔ ∀ a. (Pa(a) -* P)(H);
+used for: s;

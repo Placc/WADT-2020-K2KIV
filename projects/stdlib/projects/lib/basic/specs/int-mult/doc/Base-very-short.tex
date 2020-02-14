@@ -1,0 +1,273 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+\item	abs-eqall:  \Fol abs(i $*$ j) = abs(i) $*$ abs(j)
+
+\item	abs-eqneg:  \Fol j $<$ 0 \And i $<$ 0 \Imp abs(i) $*$ abs(j) = i $*$ j
+
+\item	abs-ls:  \Fol j $<$ 0 \And i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ 0 \Imp abs($\mbox{j}_{0}$) $<$ i $*$ j
+
+\item	associativity:  \Fol i $*$ j $*$ $\mbox{j}_{0}$ = (i $*$ j) $*$ $\mbox{j}_{0}$
+
+\item	commutativity:  \Fol i $*$ j = j $*$ i
+
+\item	dist-lsplit:  \Fol (i + $\mbox{i}_{0}$) $*$ j = i $*$ j + $\mbox{i}_{0}$ $*$ j
+
+\item	dist-rmerge:  \Fol i $*$ j + i $*$ $\mbox{j}_{0}$ = i $*$ (j + $\mbox{j}_{0}$)
+
+\item	dist-rsplit:  \Fol i $*$ (j + $\mbox{j}_{0}$) = i $*$ j + i $*$ $\mbox{j}_{0}$
+
+\item	dist-sub-merge:  \Fol i $*$ j - i $*$ $\mbox{j}_{0}$ = i $*$ (j - $\mbox{j}_{0}$)
+
+\item	dist-sub-split:  \Fol (i - j) $*$ $\mbox{j}_{0}$ = i $*$ $\mbox{j}_{0}$ - j $*$ $\mbox{j}_{0}$
+
+\item	eq-dist:  \Fol (i + j) $*$ $\mbox{i}_{0}$ = $\mbox{j}_{0}$ + j $*$ $\mbox{i}_{0}$ \Equiv i $*$ $\mbox{i}_{0}$ = $\mbox{j}_{0}$
+
+\item	eq-neg:  \Fol i $<$ 0 \Imp (i $*$ j = i $*$ $\mbox{j}_{0}$ \Equiv j = $\mbox{j}_{0}$)
+
+\item	eq-nonzero:  \Fol i $\neq$ 0 \Imp (i $*$ j = i $*$ $\mbox{j}_{0}$ \Equiv j = $\mbox{j}_{0}$)
+
+\item	eq-one:  \Fol i $*$ j = 1 \Equiv abs(i) = 1 \And i = j
+
+\item	eq-pos:  \Fol 0 $<$ i \Imp (i $*$ j = i $*$ $\mbox{j}_{0}$ \Equiv j = $\mbox{j}_{0}$)
+
+\item	eq-succ:  \Fol i $*$ ($\mbox{i}_{0}$ + 1) + j = i + $\mbox{j}_{0}$ \Equiv i $*$ $\mbox{i}_{0}$ + j = $\mbox{j}_{0}$
+
+\item	four:  \Fol (1 + 1) $*$ (1 + 1) = 1 + 1 + 1 + 1
+
+\item	le-neg:  \Fol i $<$ 0 \Imp (i $*$ j $\le$ i $*$ $\mbox{i}_{0}$ \Equiv $\mbox{i}_{0}$ $\le$ j)
+
+\item	le-pos:  \Fol 0 $<$ i \Imp (i $*$ j $\le$ i $*$ $\mbox{i}_{0}$ \Equiv j $\le$ $\mbox{i}_{0}$)
+
+\item	le-pos-01:  \Fol 0 $<$ i \Imp (j $*$ i $\le$ $\mbox{i}_{0}$ $*$ i \Equiv j $\le$ $\mbox{i}_{0}$)
+
+\item	le-same:  \Fol 0 $<$ i \Imp (i $*$ j $\le$ i \Equiv j $\le$ 1)
+
+\item	le-same-01:  \Fol 0 $<$ i \Imp (i $\le$ i $*$ j \Equiv 1 $\le$ j)
+
+\item	le-same-02:  \Fol i $<$ 0 \Imp (i $*$ j $\le$ i \Equiv 1 $\le$ j)
+
+\item	le-same-03:  \Fol i $<$ 0 \Imp (i $\le$ i $*$ j \Equiv j $\le$ 1)
+
+\item	ls-add:  \Fol 0 $\le$ $\mbox{j}_{1}$ \And $\mbox{j}_{1}$ $<$ j \Imp ($\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$ $<$ j \Equiv $\mbox{i}_{0}$ $\le$ 0)
+
+\item	ls-add-02:  \Fol i $*$ (j + $\mbox{j}_{1}$) + $\mbox{i}_{0}$ $<$ i $*$ j + $\mbox{j}_{0}$ \Equiv i $*$ $\mbox{j}_{1}$ + $\mbox{i}_{0}$ $<$ $\mbox{j}_{0}$
+
+\item	ls-add-03:  \Fol i $*$ j + $\mbox{i}_{0}$ $<$ i $*$ (j + $\mbox{j}_{1}$) + $\mbox{j}_{0}$ \Equiv $\mbox{i}_{0}$ $<$ i $*$ $\mbox{j}_{1}$ + $\mbox{j}_{0}$
+
+\item	ls-forward:  \Fol i $*$ j $<$ i $*$ $\mbox{j}_{0}$ \Imp i $\neq$ 0
+
+\item	ls-neg:  \Fol i $<$ 0 \Imp (i $*$ j $<$ i $*$ $\mbox{j}_{0}$ \Equiv $\mbox{j}_{0}$ $<$ j)
+
+\item	ls-pos:  \Fol 0 $<$ i \Imp (i $*$ j $<$ i $*$ $\mbox{j}_{0}$ \Equiv j $<$ $\mbox{j}_{0}$)
+
+\item	ls-pos-01:  \Fol 0 $<$ j \Imp (i $*$ j $<$ $\mbox{i}_{0}$ $*$ j \Equiv i $<$ $\mbox{i}_{0}$)
+
+\item	ls-pos-02:  \Fol abs($\mbox{j}_{0}$) $<$ j \Imp (i $*$ j $<$ $\mbox{i}_{0}$ $*$ j \Equiv i $<$ $\mbox{i}_{0}$)
+
+\item	ls-same:  \Fol 0 $<$ i \Imp (i $*$ j $<$ i \Equiv j $<$ 1)
+
+\item	ls-same-01:  \Fol 0 $<$ i \Imp (i $<$ i $*$ j \Equiv 1 $<$ j)
+
+\item	ls-same-02:  \Fol i $<$ 0 \Imp (i $*$ j $<$ i \Equiv 1 $<$ j)
+
+\item	ls-same-03:  \Fol i $<$ 0 \Imp (i $<$ i $*$ j \Equiv j $<$ 1)
+
+\item	ls-sub:  \Fol $\mbox{i}_{0}$ $<$ i \Imp ((i - $\mbox{i}_{0}$) $*$ j $<$ (i - $\mbox{i}_{0}$) $*$ $\mbox{j}_{0}$ \Equiv j $<$ $\mbox{j}_{0}$)
+
+\item	minus-left:  \Fol $\tildesym$ i $*$ j = $\tildesym$(i $*$ j)
+
+\item	minus-one:  \Fol i + 1 = 0 \Imp i $*$ j = $\tildesym$ j
+
+\item	minus-one-01:  \Fol i $*$ $\tildesym$1 = $\tildesym$ i
+
+\item	minus-one-02:  \Fol $\tildesym$1 $*$ i = $\tildesym$ i
+
+\item	modeqp: i $*$ j + $\mbox{j}_{0}$ = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j, 0 $\le$ $\mbox{j}_{1}$, $\mbox{j}_{1}$ $<$ j \Fol i = $\mbox{i}_{0}$ \And $\mbox{j}_{0}$ = $\mbox{j}_{1}$
+
+\item	modeqp-copied: i $*$ j + $\mbox{j}_{0}$ = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j, 0 $\le$ $\mbox{j}_{1}$, $\mbox{j}_{1}$ $<$ j \Fol i = $\mbox{i}_{0}$ \And $\mbox{j}_{0}$ = $\mbox{j}_{1}$
+
+\item	modlep: j $*$ i $\le$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlep-01: j $*$ i $\le$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlep-02: j $*$ i + $\mbox{j}_{0}$ $\le$ j $*$ $\mbox{i}_{0}$, abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlep-03: j $*$ i + $\mbox{j}_{0}$ $\le$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{1}$, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j, abs($\mbox{j}_{1}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlsp: j $*$ i $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlsp-01: j $*$ i $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlsp-02: j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$, abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlsp-03: j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{1}$, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j, abs($\mbox{j}_{1}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\item	modlsp-04: j $*$ i $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, j $<$ 0, abs($\mbox{j}_{0}$) $<$ abs(j) \Fol $\mbox{i}_{0}$ $\le$ i
+
+\item	modlsp-05: j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$, j $<$ 0, abs($\mbox{j}_{0}$) $<$ abs(j) \Fol $\mbox{i}_{0}$ $\le$ i
+
+\item	modlsp-06: j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{1}$, j $<$ $\mbox{j}_{1}$, $\mbox{j}_{1}$ $\le$ 0, abs($\mbox{j}_{0}$) $<$ abs(j) \Fol $\mbox{i}_{0}$ $\le$ i
+
+\item	modneqp: i $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$ = $\mbox{i}_{1}$ $*$ j + $\mbox{j}_{1}$, 0 $\le$ $\mbox{j}_{1}$, $\mbox{j}_{1}$ $<$ j, 0 $\le$ $\mbox{j}_{0}$, $\mbox{j}_{0}$ $<$ j, 0 $\le$ $\mbox{i}_{0}$, $\mbox{i}_{0}$ $\le$ j, 0 $\le$ i, i $<$ $\mbox{i}_{1}$ \Fol 
+
+\item	mods-eq: \Fol \tabi 0 $\le$ i \And 0 $\le$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{1}$ \And $\mbox{j}_{0}$ $<$ j \And $\mbox{j}_{1}$ $<$ j \\
+\tab{mods-eq: } \tabf \Imp (i $*$ j + $\mbox{j}_{0}$ = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$ \Equiv i = $\mbox{i}_{0}$ \And $\mbox{j}_{0}$ = $\mbox{j}_{1}$)
+
+\item	mods-ls:  \Fol i $<$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j \Imp i $*$ j $<$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$
+
+\item	mods-ls-01:  \Fol i $<$ $\mbox{i}_{0}$ \And abs($\mbox{j}_{0}$) $<$ j \Imp i $*$ j $<$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$
+
+\item	mods-ls-02:  \Fol i $<$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ $\mbox{i}_{0}$ $*$ j
+
+\item	mods-ls-03:  \Fol i $<$ $\mbox{i}_{0}$ \And abs($\mbox{j}_{0}$) $<$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ $\mbox{i}_{0}$ $*$ j
+
+\item	mods-ls-04:  \Fol $\mbox{j}_{0}$ $<$ j \And 0 $\le$ i \And 0 $\le$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \Imp (i $*$ j + $\mbox{j}_{0}$ $<$ $\mbox{i}_{0}$ $*$ j \Equiv i $<$ $\mbox{i}_{0}$)
+
+\item	modzero:  \Fol 0 $<$ i \And abs($\mbox{j}_{0}$) $<$ j \Imp \Not i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\item	modzero-01:  \Fol i $<$ 0 \And $\mbox{j}_{0}$ $<$ j \And 0 $\le$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\item	modzero-02:  \Fol i $<$ 0 \And $\mbox{j}_{0}$ $<$ j \And 0 $<$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\item	modzero-03:  \Fol i $<$ 0 \And $\mbox{j}_{0}$ $<$ j \And 0 $<$ j \Imp \Not 0 $\le$ i $*$ j + $\mbox{j}_{0}$
+
+\item	modzero-04:  \Fol i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And j $<$ 0 \Imp \Not i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\item	modzero-05:  \Fol i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And j $<$ 0 \Imp 0 $\le$ i $*$ j + $\mbox{j}_{0}$
+
+\item	modzero-06:  \Fol i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And j $<$ 0 \Imp 0 $<$ i $*$ j + $\mbox{j}_{0}$
+
+\item	neq-two:  \Fol (1 + 1) $*$ i $\neq$ 1
+
+\item	noeth-ls-pos:  \Fol \All $\mbox{i}_{0}$. abs($\mbox{i}_{0}$) $<$ i \Imp (0 $<$ abs($\mbox{i}_{0}$) \Imp (abs($\mbox{i}_{0}$) $*$ j $<$ abs($\mbox{i}_{0}$) $*$ $\mbox{j}_{0}$ \Equiv j $<$ $\mbox{j}_{0}$))
+
+\item	noeth-modlep:  \Fol abs(j) $<$ $\mbox{j}_{1}$ \Imp (abs(j) $*$ i $\le$ abs(j) $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ abs(j) \Imp i $\le$ $\mbox{i}_{0}$)
+
+\item	noeth-zero-ls: abs(i) $<$ $\mbox{i}_{0}$, 0 $<$ abs(i), 0 $<$ j \Fol 0 $<$ abs(i) $*$ j
+
+\item	one:  \Fol 1 $*$ i = i
+
+\item	one-01:  \Fol i = 1 \Imp i $*$ j = j
+
+\item	ple-neg: i $<$ 0, j $<$ 0, $\mbox{i}_{0}$ $\le$ i, $\mbox{j}_{0}$ $<$ j \Fol i $*$ j $\le$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\item	ple-pos: 0 $<$ i, 0 $<$ j, i $\le$ $\mbox{i}_{0}$, j $\le$ $\mbox{j}_{0}$ \Fol i $*$ j $\le$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\item	pls-neg: i $<$ 0, j $<$ 0, $\mbox{i}_{0}$ $\le$ i, $\mbox{j}_{0}$ $<$ j \Fol i $*$ j $<$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\item	pls-pos: 0 $<$ i, 0 $<$ j, i $\le$ $\mbox{i}_{0}$, j $<$ $\mbox{j}_{0}$ \Fol i $*$ j $<$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\item	pred-rmerge:  \Fol i $*$ j - i = i $*$ (j - 1)
+
+\item	pzero-gr: 0 $<$ i \And 0 $<$ j \Or i $<$ 0 \And j $<$ 0 \Fol 0 $<$ i $*$ j
+
+\item	pzero-ls: 0 $<$ i \And j $<$ 0 \Or i $<$ 0 \And 0 $<$ j \Fol i $*$ j $<$ 0
+
+\item	square-abs:  \Fol abs(i $*$ i) = i $*$ i
+
+\item	square-eq:  \Fol i $*$ i = j $*$ j \Equiv abs(i) = abs(j)
+
+\item	square-gez:  \Fol 0 $\le$ i $*$ i
+
+\item	square-gez-01:  \Fol 0 $\le$ i $*$ i + j $*$ j
+
+\item	square-gez-02:  \Fol 0 $\le$ i + i $*$ i
+
+\item	square-le:  \Fol i $*$ i $\le$ j $*$ j \Equiv abs(i) $\le$ abs(j)
+
+\item	square-le-01:  \Fol i $\le$ i $*$ i
+
+\item	square-le-02:  \Fol abs(i) $\le$ i $*$ i
+
+\item	square-le-03:  \Fol $\mbox{i}_{0}$ $\le$ i \Imp $\mbox{i}_{0}$ $\le$ i + j $*$ j
+
+\item	square-lez:  \Fol \Not i $*$ i $<$ 0
+
+\item	square-lez-01:  \Fol i $*$ i $\le$ 0 \Equiv i = 0
+
+\item	square-ls:  \Fol i $*$ i $<$ j $*$ j \Equiv abs(i) $<$ abs(j)
+
+\item	square-ls-01:  \Fol i $<$ $\mbox{i}_{0}$ \Imp i $<$ $\mbox{i}_{0}$ + j $*$ j
+
+\item	square-minus:  \Fol $\tildesym$(i $*$ i) $<$ 0 \Equiv i $\neq$ 0
+
+\item	square-one-le:  \Fol i $*$ i $\le$ 1 \Equiv i = 0 \Or i = 1 \Or i = $\tildesym$1
+
+\item	square-zero:  \Fol i $*$ i = 0 \Equiv i = 0
+
+\item	succ-lsplit:  \Fol (i + 1) $*$ j = i $*$ j + j
+
+\item	succ-rmerge:  \Fol i $*$ j + i = i $*$ (j + 1)
+
+\item	succ-rsplit:  \Fol i $*$ (j + 1) = i $*$ j + i
+
+\item	zero-eq:  \Fol i $*$ j = 0 \Equiv i = 0 \Or j = 0
+
+\item	zero-ge:  \Fol 0 $<$ i \Imp (0 $\le$ i $*$ j \Equiv 0 $\le$ j)
+
+\item	zero-ge-01:  \Fol i $<$ 0 \Imp (0 $\le$ i $*$ j \Equiv j $\le$ 0)
+
+\item	zero-ge-02:  \Fol 0 $\le$ i \Imp (0 $\le$ i $*$ j \Equiv \Not \Not (i = 0 \Or 0 $\le$ j))
+
+\item	zero-ge-03:  \Fol i $\le$ 0 \Imp (0 $\le$ i $*$ j \Equiv \Not \Not (i = 0 \Or j $\le$ 0))
+
+\item	zero-ge-add:  \Fol 0 $\le$ $\mbox{j}_{1}$ \And $\mbox{j}_{1}$ $<$ j \Imp (0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$ \Equiv 0 $\le$ $\mbox{i}_{0}$)
+
+\item	zero-ge-add-01:  \Fol 0 $\le$ j \And 0 $\le$ $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{i}_{0}$ \Imp 0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$
+
+\item	zero-ge-add-02:  \Fol 0 $\le$ i + j \And 0 $<$ $\mbox{j}_{0}$ \Imp 0 $\le$ i $*$ $\mbox{j}_{0}$ + j $*$ $\mbox{j}_{0}$
+
+\item	zero-ge-case:  \Fol 0 $\le$ i $*$ j \Equiv i = 0 \Or j = 0 \Or 0 $\le$ i \And 0 $\le$ j \Or i $\le$ 0 \And j $\le$ 0
+
+\item	zero-gr:  \Fol 0 $<$ i \Imp (0 $<$ i $*$ j \Equiv 0 $<$ j)
+
+\item	zero-gr-01:  \Fol i $<$ 0 \Imp (0 $<$ i $*$ j \Equiv j $<$ 0)
+
+\item	zero-gr-02:  \Fol 0 $\le$ i \Imp (0 $<$ i $*$ j \Equiv \Not \Not (0 $<$ j \And i $\neq$ 0))
+
+\item	zero-gr-03:  \Fol i $\le$ 0 \Imp (0 $<$ i $*$ j \Equiv \Not \Not (j $<$ 0 \And i $\neq$ 0))
+
+\item	zero-gr-add:  \Fol 0 $<$ j \Imp (0 $<$ i $*$ j + j \Equiv 0 $\le$ i)
+
+\item	zero-gr-case:  \Fol 0 $<$ i $*$ j \Equiv 0 $<$ i \And 0 $<$ j \Or i $<$ 0 \And j $<$ 0
+
+\item	zero-le:  \Fol 0 $<$ i \Imp (i $*$ j $\le$ 0 \Equiv j $\le$ 0)
+
+\item	zero-le-01:  \Fol i $<$ 0 \Imp (i $*$ j $\le$ 0 \Equiv 0 $\le$ j)
+
+\item	zero-le-02:  \Fol 0 $\le$ i \Imp (i $*$ j $\le$ 0 \Equiv \Not \Not (i = 0 \Or j $\le$ 0))
+
+\item	zero-le-03:  \Fol i $\le$ 0 \Imp (i $*$ j $\le$ 0 \Equiv \Not \Not (i = 0 \Or 0 $\le$ j))
+
+\item	zero-le-case:  \Fol i $*$ j $\le$ 0 \Equiv i = 0 \Or j = 0 \Or 0 $\le$ i \And j $\le$ 0 \Or i $\le$ 0 \And 0 $\le$ j
+
+\item	zero-le-two:  \Fol (1 + 1) $*$ i $\le$ 0 \Equiv i $\le$ 0
+
+\item	zero-left:  \Fol 0 $*$ i = 0
+
+\item	zero-ls:  \Fol 0 $<$ i \Imp (i $*$ j $<$ 0 \Equiv j $<$ 0)
+
+\item	zero-ls-01:  \Fol i $<$ 0 \Imp (i $*$ j $<$ 0 \Equiv 0 $<$ j)
+
+\item	zero-ls-02:  \Fol 0 $\le$ i \Imp (i $*$ j $<$ 0 \Equiv \Not \Not (j $<$ 0 \And i $\neq$ 0))
+
+\item	zero-ls-03:  \Fol i $\le$ 0 \Imp (i $*$ j $<$ 0 \Equiv \Not \Not (0 $<$ j \And i $\neq$ 0))
+
+\item	zero-ls-case:  \Fol i $*$ j $<$ 0 \Equiv 0 $<$ i \And j $<$ 0 \Or i $<$ 0 \And 0 $<$ j
+
+\item	zero-ls-sub:  \Fol i $<$ j \Imp ((i - j) $*$ $\mbox{j}_{0}$ $<$ 0 \Equiv 0 $<$ $\mbox{j}_{0}$)
+
+\item	zero-ls-two:  \Fol (1 + 1) $*$ i $<$ 0 \Equiv i $<$ 0
+
+
+
+\end{document}
+

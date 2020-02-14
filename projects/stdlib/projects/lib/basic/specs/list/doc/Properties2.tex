@@ -1,0 +1,254 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,amssymb}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+Spec theorems: 
+
+
+
+
+
+Simplifier rules: 
+
+
+{\bf Specification nat-basic1:}
+
+less-1: 
+ \Fol \Not n $<$ 0
+
+
+
+lf-01: 
+ \Fol m $<$ n \And n = \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+one-01: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+ref-1: 
+ \Fol \Not n $<$ n
+
+
+
+{\bf Specification list-data:}
+
+less-02: 
+ \Fol \Var{x}{0} $<$ a + x \Equiv \Var{x}{0} = x \Or \Var{x}{0} $<$ x
+
+
+
+size-02: 
+ \Fol \#(a + x) = (\# x)+1
+
+
+
+lf-01: 
+ \Fol \# x = 1 \Equiv x = x.first + []
+
+
+
+size-01: 
+ \Fol \# [] = 0
+
+
+
+fr-02: 
+ \Fol x $\neq$ [] \Imp x.first + x.rest = x
+
+
+
+elim-1: 
+ \Fol x $\neq$ [] \Imp (a = x.first \And \Var{x}{0} = x.rest \Equiv x = a + \Var{x}{0})
+
+
+
+l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+disj-1: 
+ \Fol [] $\neq$ a + x
+
+
+
+sel-1: 
+ \Fol (a + x).first = a
+
+
+
+sel-2: 
+ \Fol (a + x).rest = x
+
+
+
+elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+inj-1: 
+ \Fol a + x = \Var{a}{0} + \Var{x}{0} \Equiv a = \Var{a}{0} \And x = \Var{x}{0}
+
+
+
+f: 
+ \Fol a + x = a + y \Equiv x = y
+
+
+
+{\bf Specification nat:}
+
+ls-03: 
+\Var{n}{0} $\le$ n
+ \Fol n - \Var{n}{0} $\le$ m \Equiv n $\le$ m + \Var{n}{0}
+
+
+
+elim-sub: 
+n $\le$ m
+ \Fol \Var{n}{0} = m - n \Equiv m = \Var{n}{0} + n
+
+
+
+lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+pred-03: 
+ \Fol n -1 = n - 1
+
+
+
+lez: 
+ \Fol 0 $\le$ m
+
+
+
+leprf: 
+ \Fol m $\le$ m - 1 \Imp m = 0
+
+
+
+le-one: 
+ \Fol m $\le$ n + 1 \And n $<$ \Var{n}{0} \Imp m $\le$ \Var{n}{0}
+
+
+
+fle: 
+ \Fol m $<$ n \And n $\le$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+fle-01: 
+ \Fol m $\le$ n \And n $<$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+lep: 
+ \Fol m $\le$ m + n
+
+
+
+eq-02: 
+n $\le$ m
+ \Fol (m - n) + \Var{n}{0} = \Var{n}{1} \Equiv m + \Var{n}{0} = n + \Var{n}{1}
+
+
+
+lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+lep-02: 
+ \Fol m + n $\le$ m + \Var{n}{0} \Equiv n $\le$ \Var{n}{0}
+
+
+
+le-num-02: 
+\Var{n}{0} $<$ n
+ \Fol m + (* n) $\le$ \Var{m}{0} + (* \Var{n}{0}) \Equiv m + (n - \Var{n}{0}) $\le$ \Var{m}{0}
+
+
+
+lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+{\bf Specification nat-basic2:}
+
+l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+z: 
+ \Fol 0 + m = m
+
+
+
+succ: 
+ \Fol m +1 = m + 1
+
+
+
+eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+c: 
+ \Fol m + n = n + m
+
+
+
+
+
+
+
+
+\end{document}
+

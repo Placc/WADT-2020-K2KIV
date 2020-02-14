@@ -1,0 +1,17 @@
+;;;****************************************************************************************
+;;;
+;;; This file contains an enriched specification
+;;;
+;;;****************************************************************************************
+
+enrich elem with
+
+predicates . < . : elem × elem;
+
+axioms
+
+irreflexivity : ¬ a < a;               used for : s,ls,kodkodaxstrong;
+transitivity  : a < b ∧ b < c → a < c; used for : f,lf,kodkodaxstrong;
+totality      : a < b ∨ a = b ∨ b < a; used for : kodkodaxstrong;
+
+end enrich

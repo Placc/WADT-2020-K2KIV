@@ -1,0 +1,15 @@
+;;;****************************************************************************************
+;;;
+;;; This file contains a generic data specification
+;;;
+;;;****************************************************************************************
+
+generic data specification
+
+       parameter elemdata
+data types       
+	pair = . × . (. .1 : elem; . .2 : data);
+
+variables p, p0, p1, p2 : pair;
+
+end generic data specification

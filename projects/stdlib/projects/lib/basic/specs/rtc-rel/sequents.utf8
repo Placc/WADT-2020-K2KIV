@@ -1,0 +1,43 @@
+
+;; variables m : nat;
+
+lemmas
+
+rtc1:
+rtc(1,a,b) ↔ p(a,b);
+used for: s,ls;
+
+rtc-refl:
+p*(a,a);
+used for: s,ls;
+
+rtc-trans:
+p*(a,b) ∧ p*(b,c) → p*(a,c);
+used for: f,lf;
+
+rtc-one:
+p(a,b)
+  → (¬ p*(a,b) ↔ false);
+used for: s,ls;
+
+rtc-last:
+n ≠ 0 → (rtc(n,a,b) ↔ ∃ c. rtc(n - 1,a,c) ∧ p(c,b));
+
+rtc-unfold:
+p*(a,b) ↔ a = b ∨ p+(a,b);
+
+rtc+-unfold:
+p+(a,b) ↔ ∃ c. p(a,c) ∧ p*(c,b);
+
+rtc+-unfold-last:
+p+(a,b) ↔ ∃ c. p*(a,c) ∧ p(c,b);
+
+inv-propagate:
+Pelem(a),
+∀ a,b. Pelem(a) ∧ p(a,b) → Pelem(b)
+⊦ inv(a, Pelem);
+
+invx:
+inv(a, Pelem) ∧ p*(a, b)
+  → Pelem(b);
+used for: f,lf;

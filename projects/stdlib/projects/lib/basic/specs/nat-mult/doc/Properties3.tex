@@ -1,0 +1,680 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide}
+
+% The definition of \ifundefined is exercise 7.7 in the \TeX book
+% \csname <Tokens> \endcsname is essentially \<Tokens>, i.e.
+% some kind of evaluation. However, <Tokens> may contain tex-commands
+% that are evaluated.
+% \relax does nothing. Does this mean that \ifx\csname#1\endcsname
+% is not evaluated when defining \ifundefined ?
+% \expandafter evaluates everything after \ifx and then puts \ifx
+% again in front.
+% \ifndef{x}{y} tests whether x is defined. If yes, \x is carried out
+% (the else part \csname#1\endcsname) otherwise y is the result.
+% \ifdef{x} does \x if defined, nothing otherwise
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\newcommand{\ifndef}[2]{\ifundefined{#1}{#2}\else{\csname#1\endcsname}\fi}
+\newcommand{\ifdef}[1]{\ifndef{#1}{}}
+
+\newenvironment{fma}%
+{\begin{equation}\begin{minipage}{0.85\linewidth}\raggedright}%
+{\end{minipage}\end{equation}}
+
+\newcommand{\udo}{$\langle$}
+\newcommand{\udc}{$\rangle$}
+\newcommand{\ubo}{$[$}
+\newcommand{\ubc}{$]$}
+\newcommand{\mkdia}[1]{\mbox{$\langle$#1$\rangle$}}
+\newcommand{\mkbox}[1]{\mbox{$[$#1$]$}}
+\newcommand{\tildesym}{\raisebox{-4pt}{\bf\~{}}}
+\newcommand{\hatsym}{\mbox{\bf\^{} }}
+
+\newcommand{\Fol}{\mbox{$\vdash\ $}}
+\newcommand{\Not}{\mbox{$\neg\ $}}
+\newcommand{\And}{\mbox{$\wedge\ $}}
+\newcommand{\Or}{\mbox{$\vee\ $}}
+\newcommand{\Imp}{\mbox{$\rightarrow\ $}}
+\newcommand{\Equiv}{\mbox{$\leftrightarrow\ $}}
+\newcommand{\All}{\mbox{$\forall\ $}}
+\newcommand{\Ex}{\mbox{$\exists\ $}}
+
+\newcommand{\tab}[1]{\mbox{$\phantom{\mbox{#1}}$}}
+\newcommand{\tabx}[1]{\hspace*{#1ex}}
+\newcommand{\tabif}{\tab{{\bf if}}}
+\newcommand{\tabbe}{\tab{{\bf be}}}
+\newcommand{\taball}{\mbox{$\phantom{\forall\ }$}}
+\newcommand{\tabex}{\mbox{$\phantom{\exists\ }$}}
+\newcommand{\taba}{\mbox{$\phantom{\wedge\ }$}}
+\newcommand{\tabbo}{\mbox{$\phantom{(}$}}
+\newcommand{\tabe}{\mbox{$\phantom{\leftrightarrow\ }$}}
+\newcommand{\tabi}{\mbox{$\phantom{\rightarrow\ }$}}
+\newcommand{\tabn}{\mbox{$\phantom{\neg\ }$}}
+\newcommand{\tabo}{\mbox{$\phantom{\vee\ }$}}
+\newcommand{\tabf}{\mbox{$\phantom{\vdash\ }$}}
+\newcommand{\tabudo}{\mbox{$\phantom{\langle}$}}
+\newcommand{\tabudc}{\mbox{$\phantom{\langle\ }$}}
+\newcommand{\tabubo}{\mbox{$\phantom{[}$}}
+\newcommand{\tabubc}{\mbox{$\phantom{]\ }$}}
+
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+Spec theorems: 
+
+
+{\bf Specification nat-lec:}
+
+two-01: 
+ \Fol m $\neq$ 0 \And n $\neq$ 0 \Imp (m + n = 1 + 1 \Equiv m = 1 \And n = 1)
+
+
+
+two-01
+
+\bigskip
+
+three: 
+\begin{flushleft}
+
+
+\Fol
+
+m $\neq$ 0 \And n $\neq$ 0 \And m $\neq$ 1 \Imp (m + n = 1 + 1 + 1 \Equiv m = 1 + 1 \And n = 1)
+
+\end{flushleft}
+
+
+
+three
+
+\bigskip
+
+let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+square-less
+
+\bigskip
+
+fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+modls-01
+
+\bigskip
+
+ax-06: 
+ \Fol m $\le$ n \Equiv \Not n $<$ m
+
+
+
+le2-01
+
+\bigskip
+
+{\bf Specification nat-basic2:}
+
+less: 
+\Not $\mbox{m}_{0}$ $<$ $\mbox{n}_{0}$, 
+n $<$ m
+ \Fol n + $\mbox{n}_{0}$ $<$ m + $\mbox{m}_{0}$
+
+
+
+addle-01
+
+\bigskip
+
+{\bf Specification nat-basic1:}
+
+trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+sqls
+
+\bigskip
+
+ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+square-less, sqle, ls-06
+
+\bigskip
+
+
+
+
+Simplifier rules: 
+
+
+{\bf Specification nat-lec:}
+
+tls-01: 
+ \Fol m + 2 $\le$ n + 1 \Equiv m + 1 $\le$ n
+
+
+
+two-succ-04
+
+\bigskip
+
+ax-05: 
+ \Fol 2 $\neq$ 1
+
+
+
+two-one-01
+
+\bigskip
+
+two-02: 
+ \Fol m + m + m $\neq$ 1 + 1
+
+
+
+two-01
+
+\bigskip
+
+teq: 
+ \Fol m + 2 = n + 1 \Equiv m + 1 = n
+
+
+
+two-succ-03, three-01
+
+\bigskip
+
+even: 
+ \Fol m + m $\neq$ n + n + 1
+
+
+
+two-succ-05, two-succ-02, three
+
+\bigskip
+
+ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+two-zero-01, two-ls-01, two-les-01, two-le-01, two-eq-01, sqr-08
+
+\bigskip
+
+lels-02: 
+ \Fol m $\neq$ n \Imp (m $\le$ n \Equiv m $<$ n)
+
+
+
+sqr-08
+
+\bigskip
+
+lep: 
+ \Fol m $\le$ m + n
+
+
+
+sqr-04
+
+\bigskip
+
+one-01: 
+ \Fol m $\neq$ 0 \Imp (m + n $\le$ 1 \Equiv m = 1 \And n = 0)
+
+
+
+sqr-03
+
+\bigskip
+
+anti: 
+ \Fol m $\le$ n \Imp (n $\le$ m \Equiv m = n)
+
+
+
+sqr-08, sqr-04, sqr-02, sqls
+
+\bigskip
+
+one-02: 
+ \Fol m $\neq$ 0 \Imp (m $\le$ 1 \Equiv m = 1)
+
+
+
+succ-01, sqls, sqle
+
+\bigskip
+
+one: 
+ \Fol m $\neq$ 1 \Imp (m + n = 1 \Equiv m = 0 \And n = 1)
+
+
+
+one-01
+
+\bigskip
+
+les: 
+ \Fol m $<$ n \Imp (n $\le$ m + 1 \Equiv n = m + 1)
+
+
+
+mod-neq-03
+
+\bigskip
+
+ler: 
+ \Fol m $\le$ m
+
+
+
+sqp, sqls, mod-neq-03
+
+\bigskip
+
+succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+sqr-08, sqr-04, sqr-02, modls, mod-neq-05, mod-neq-03, mod-neq
+
+\bigskip
+
+let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+sqr-04, sqp, sqls, sqle-02, modls-01, mod-nle, mod-neq-01, mod-neq
+
+\bigskip
+
+two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+two-succ-03, two-03, two-02, three-01, sqr-08, ls2-01
+
+\bigskip
+
+lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+square-less, sqr-02, ls-06
+
+\bigskip
+
+zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+sqr-08, sqr-04, sqr-03, sqr-02, sqr-01, sqp, sqls, sqle, ls-07, ls-04
+
+\bigskip
+
+lez: 
+ \Fol 0 $\le$ m
+
+
+
+twole, two-succ-04, two-succ-01, sqr-03, sqr-01, modls, ls2-01, ls2, ls-04, ls-03, ls, le
+
+\bigskip
+
+succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+two-succ-04, two-succ-01, sqr-04, sqr-03, sqr-02, sqr-01, sqp, modls, ls2, ls-04, ls-03, le
+
+\bigskip
+
+oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+sqr-02, sqp, modp, modls-03, modls, modeq, mod-neq-03, ls-08, ls-03, ls-01, le-02, le-01, le
+
+\bigskip
+
+ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+zero-03, zero-01, two-one, two-01, succ-01, sqzero, sqr-03, sqr-02, sqp, sqls, sqle, one-01, modp, ls-07, eq-01
+
+\bigskip
+
+succ: 
+ \Fol m +1 = m + 1
+
+
+
+zero-03, zero-01, zero, two-succ-04, two-succ-01, two-one, two-02, two-01, three, sqzero, sqr-08, sqr-04, sqr-03, sqr-02, sqr-01, sqp, sqls, sqle, rsucc-02, rsucc-01, rsucc, rdist, one-01, one, mult-c, mult-a, modp, modls-03, modls-01, modls, modeq, mod-neq-03, ls2-01, ls2, ls-08, ls-04, ls-03, ls-01, le2, le-02, le-01, le, eq
+
+\bigskip
+
+lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+twole, sqr-04, ls-04, addtwo-01, addtwo
+
+\bigskip
+
+lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+two-succ-01, sqr-03, sqr-02, sqr-01, sqp, modp, modls-01, modls, ls-03, letwo-01, letwo, lesucc-01, lesucc, le2-01, le2, addle-03, addle-02
+
+\bigskip
+
+lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+two-succ-04, two-succ-01, two-ls, two-le-01, two-le, succ-01, square-less, sqr-08, sqr-07, sqr-06, sqr-04, sqr-03, sqr-02, sqr-01, sqp, sqls, sqle, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-03, mod-neq-02, mod-neq-01, mod-neq, lstwo-01, lstwo, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-07, ls-06, ls-05, ls-04, ls-03, ls-02, ls, leone, le2-01, le2, le, addtwo-01, addtwo, addls-01, addls, addle-01
+
+\bigskip
+
+fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+two-succ-04, two-succ-01, two-ls, two-le-01, two-le, square-less, sqr-07, sqr-06, sqp, sqls, sqle-02, sqle-01, sqle, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-03, mod-neq-02, mod-neq-01, mod-neq, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-07, ls-06, ls-05, ls-03, ls-02, ls, lesucc-01, lesucc, leone, le2, le, addls-01, addls, addle-03, addle-02, addle-01
+
+\bigskip
+
+fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+two-succ-04, two-succ-01, two-ls, two-le-01, two-le, square-less, sqr-07, sqr-06, sqls, sqle, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-03, mod-neq-02, mod-neq-01, mod-neq, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-07, ls-06, ls-03, ls-02, ls, lesucc-01, lesucc, leone, le2, le, addls-01, addls, addle-03, addle-02, addle-01
+
+\bigskip
+
+lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+two-succ-04, two-succ-01, two-les-01, two-les, two-le-01, two-le, square-less, sqr-08, sqr-07, sqr-06, sqr-04, sqr-03, sqr-02, sqr-01, sqr, sqp, sqls, sqle-02, sqle-01, sqle, modp, modls-02, modls-01, modls, mod-nle, mod-neq-05, mod-neq-03, mod-neq-01, mod-neq, ls2-01, ls-08, ls-07, ls-04, ls, letwo-01, letwo, lesucc-01, lesucc, leone, le2-01, le2, le-02, le-01, le, addle-03, addle-02, addle
+
+\bigskip
+
+{\bf Specification nat-basic2:}
+
+even: 
+ \Fol n + n = m + m \Equiv n = m
+
+
+
+two-eq, two-01
+
+\bigskip
+
+eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+zero-03, two-one, two-01, three, sqp, one-01, modp
+
+\bigskip
+
+l-05: 
+ \Fol m + $\mbox{m}_{0}$ $<$ n \Imp \Not n + $\mbox{n}_{0}$ $<$ m
+
+
+
+sqr-08, modeq
+
+\bigskip
+
+l-06: 
+ \Fol m = $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \And n $<$ $\mbox{n}_{0}$ \Imp $\mbox{m}_{0}$ + n $<$ m
+
+
+
+mod-neq-03
+
+\bigskip
+
+l-04: 
+ \Fol m + $\mbox{m}_{0}$ $<$ n + $\mbox{n}_{0}$ \Imp (\Not m + $\mbox{m}_{0}$ $<$ n + $\mbox{n}_{0}$ \Equiv false)
+
+
+
+le2
+
+\bigskip
+
+even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+two-succ-01, two-ls, two-le, ls2-01, ls2, le2
+
+\bigskip
+
+l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+twols, two-les, sqr-08, sqr-04, sqp, sqls, modp, mod-neq-03, mod-neq, ls-08, ls-01, le-02, le-01
+
+\bigskip
+
+z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+zero-01, two-zero, two-one, two-01, three, sqzero, sqr-04, sqr-02, sqr-01, mod-neq-05, le2, le, eq-01, eq, addtwo-01, addtwo
+
+\bigskip
+
+l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+sqr-04, sqls, modp, modls-03, modls-02, modls-01, modls, mod-nle, mod-neq-01, mod-neq, lstwo-01, lstwo, lssucc-01, lssucc, ls2-01, ls2, le2-01, le, addls-01, addls
+
+\bigskip
+
+z: 
+ \Fol 0 + m = m
+
+
+
+zero-03, zero-01, zero, two-zero, two-succ-01, two-one, two-02, two-01, three, succ-01, sqzero, sqr-08, sqr-04, sqr-03, sqr-01, sqp, rsucc-01, rdist, modp, modls-03, modls, modeq, mod-neq-05, mod-neq-02, ls2-01, ls-08, le2, addtwo, addle-01
+
+\bigskip
+
+a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+zero-03, zero-01, zero, twols, twole, two-zero, two-succ-05, two-succ-04, two-succ-03, two-succ-02, two-succ-01, two-succ, two-one, two-ls, two-les-01, two-les, two-le, two-eq, two-04, two-03, two-02, two-01, two, three-01, three, succ-01, succ, sqzero, sqr-08, sqr-07, sqr-04, sqr-03, sqr-02, sqr-01, sqp, sqls, sqle, rsucc-01, rsucc, rdist, one-01, one, mult-c, mult-a, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-05, mod-neq-04, mod-neq-03, mod-neq-02, mod-neq-01, mod-neq, mod-ls, ltwo, lstwo-01, lstwo, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-04, ls-03, ls-01, letwo-01, letwo, lesucc-01, lesucc, le2-01, le2, le-02, le-01, le, eqsucc, eq2, eq-01, eq, dist, addtwo-02, addtwo-01, addtwo, addls-01, addls, addle-03, addle-02, addle-01, addle, addeq
+
+\bigskip
+
+c: 
+ \Fol m + n = n + m
+
+
+
+zero-03, zero-01, zero, twols, twole, two-zero, two-succ-05, two-succ-04, two-succ-03, two-succ-02, two-succ-01, two-succ, two-one, two-ls, two-les-01, two-les, two-le, two-eq, two-04, two-03, two-02, two-01, two, three-01, three, succ-01, succ, sqzero, sqr-08, sqr-07, sqr-04, sqr-03, sqr-02, sqr-01, sqp, sqls, sqle, rsucc-01, rsucc, rdist, one-01, one, mult-c, mult-a, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-05, mod-neq-04, mod-neq-03, mod-neq-02, mod-neq-01, mod-neq, mod-ls, ltwo, lstwo-01, lstwo, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-04, ls-03, ls-01, letwo-01, letwo, lesucc-01, lesucc, le2-01, le2, le-02, le-01, le, eqsucc, eq2, eq-01, eq, dist, addtwo-02, addtwo-01, addtwo, addls-01, addls, addle-03, addle-02, addle-01, addle, addeq
+
+\bigskip
+
+eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+two-succ-03, two-succ, two-02, two-01, two, three, succ, rsucc-01, rsucc, rdist, one, mult-c, mult-a, modeq, ltwo, eqsucc, eq2, eq, dist, addtwo-02, addeq
+
+\bigskip
+
+{\bf Specification nat-basic1:}
+
+psh-01: 
+ \Fol m $<$ $\mbox{n}_{0}$ \Imp (n $<$ $\mbox{n}_{0}$ -1 \Equiv n +1 $<$ $\mbox{n}_{0}$)
+
+
+
+modp
+
+\bigskip
+
+psh-02: 
+ \Fol m $\neq$ 0 \Imp (m -1 $<$ n \Equiv \Not n $<$ m)
+
+
+
+modls
+
+\bigskip
+
+psh-03: 
+ \Fol m $\neq$ 0 \Imp (m -1 = n \Equiv m = n +1)
+
+
+
+modp, modeq
+
+\bigskip
+
+trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+sqr-08, modls-02, modls-01, mod-nle, mod-neq-03, mod-neq-01, mod-neq
+
+\bigskip
+
+ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+sqr-08, modls-02, modls-01, mod-nle, mod-neq-03, mod-neq-01, mod-neq
+
+\bigskip
+
+elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+modp, modls-03, modls, modeq, ls-03, le, eq
+
+\bigskip
+
+zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+succ-01, modp, modls-03, mod-neq-05, mod-neq-02, ls-01, le2, le, addtwo-01, addtwo
+
+\bigskip
+
+f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+two-succ-04, two-succ-01, two-ls, two-le-01, two-le, square-less, sqr-08, sqr-07, sqr-06, sqr-04, sqr-02, sqp, sqls, sqle-02, sqle-01, sqle, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-03, mod-neq-02, mod-neq-01, mod-neq, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-07, ls-06, ls-05, ls-03, ls-02, ls-01, ls, lesucc-01, lesucc, leone, le2, le-02, le-01, le, addls-01, addls, addle-03, addle-02, addle-01
+
+\bigskip
+
+zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+sqr-08, sqr-04, sqr-03, sqp, modls-03, modls, addle-01
+
+\bigskip
+
+ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+two-succ-04, two-succ-01, two-ls, two-le-01, two-le, square-less, sqr-07, sqr-06, sqle, modp, modls-03, modls-02, modls-01, modls, modeq, mod-nle, mod-neq-05, mod-neq-02, mod-neq-01, mod-neq, lssucc-01, lssucc, ls2-01, ls2, ls-08, ls-06, ls-03, ls-02, ls, lesucc-01, lesucc, leone, le2, le, addls-01, addls, addle-03, addle-02, addle-01
+
+\bigskip
+
+lf-02: 
+ \Fol m $<$ n \And m = $\mbox{n}_{0}$ \Imp $\mbox{n}_{0}$ $<$ n
+
+
+
+sqle, modeq, mod-neq-01, mod-neq, addle-01
+
+\bigskip
+
+lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+sqls, sqle, mod-neq-03, mod-neq-01, mod-neq, addle-01
+
+\bigskip
+
+ls-02: 
+ \Fol m $<$ n \Imp \Not n $<$ m
+
+
+
+modls-02, mod-neq-03, addle-01
+
+\bigskip
+
+
+
+
+
+
+\end{document}
+

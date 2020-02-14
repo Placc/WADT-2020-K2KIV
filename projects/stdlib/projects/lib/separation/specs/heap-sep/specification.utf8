@@ -1,0 +1,83 @@
+;; file: /quadly/swt/kiv/v6/projects/lib/separation/specs/heap-sep/specification
+enrich heap with
+
+functions
+. * .  : (heap → bool) × (heap → bool) → (heap → bool) prio 10 right;
+. ⊗ .  : (heap → bool) × (heap → bool) → (heap → bool) prio 10 right;
+. -* . : (heap → bool) × (heap → bool) → (heap → bool) prio 9 right;
+. -⊗ . : (heap → bool) × (heap → bool) → (heap → bool) prio 9 right;
+  ¬ .  : (heap → bool) → (heap → bool);
+. ∧ .  : (heap → bool) × (heap → bool) → (heap → bool) prio 4;
+. ∨ .  : (heap → bool) × (heap → bool) → (heap → bool) prio 3;
+. → .  : (heap → bool) × (heap → bool) → (heap → bool) prio 2;
+⌜ . ⌝  :  bool → (heap → bool);
+{.}    :  heap → heap → bool;
+
+ite    : bool × (heap → bool) × (heap → bool) → (heap → bool);
+
+predicates
+emp     : heap;
+true    : heap;
+false   : heap;
+precise : (heap → bool);
+. ⊆ .   : (heap → bool) × (heap → bool);
+
+variables
+P,P0,P1,P2 : heap → bool;
+bv : bool;
+
+axioms
+
+ite:
+ite(bv, P0, P1)
+  = (bv ⊃ P0 ; P1);
+used for: ls;
+
+emp:
+emp(H) ↔ H = ∅;
+used for: ls;
+
+true:  true  = ⌜true⌝;  used for: ls;
+false: false = ⌜false⌝; used for: ls;
+
+sep:
+(P0 * P1)(H)
+  ↔ ∃ H0, H1.   H0 ⊥ H1
+              ∧ H = H0 ∪ H1
+              ∧ P0(H0) ∧ P1(H1);
+
+sharing:
+(P0 ⊗ P1)(H)
+  ↔ ∃ H0, H1, H2.   H0 ⊥ H2 ∧ H0 ⊥ H1 ∧ H1 ⊥ H2
+                  ∧ H = H0 ∪ H1 ∪ H2
+                  ∧ P0(H0 ∪ H2)
+                  ∧ P1(H1 ∪ H2);
+
+wand:
+(P0 -* P1)(H)
+  ↔ ∀ H1. H1 ⊥ H ∧ P0(H1) → P1(H1 ∪ H);
+
+septract:
+(P0 -⊗ P1)(H)
+  ↔ ∃ H0, H1.   H0 ⊥ H
+              ∧ H1 = H0 ∪ H
+              ∧ P0(H0) ∧ P1(H1);
+
+not:  (¬ P0)(H)    ↔ ¬ P0(H);       used for: s,ls;
+and:  (P0 ∧ P1)(H) ↔ (P0(H) ∧ P1(H)); used for: s,ls;
+or:   (P0 ∨ P1)(H) ↔ (P0(H) ∨ P1(H)); used for: s,ls;
+imp:  (P0 → P1)(H) ↔ (P0(H) → P1(H)); used for: s,ls;
+prop: ⌜bv⌝(H) ↔ bv;                   used for: s,ls;
+this: {H}(H0) ↔ H = H0; used for: s,ls;
+
+precise:
+precise(P)
+    ↔ ∀ H,H0,H1,H2.
+        P(H) ∧ P(H0) ∧ H ⊥ H1 ∧ H0 ⊥ H2
+      ∧ H ∪ H1 = H0 ∪ H2
+        → H = H0;
+
+Imp:
+P0 ⊆ P1 ↔ ∀ H. P0(H) → P1(H);
+
+end enrich

@@ -1,0 +1,43 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+minmax-03
+min-two-02
+min-two
+min-sub-01
+min-q
+min-ls
+min-less
+min-insert
+min-ins-04
+min-ins-02
+min-ins-01
+max-q
+max-ifins
+ls-rm
+ls-add
+butmin-ins
+bmin-two-08
+bmin-two-07
+bmin-two-05
+bmin-two-04
+bmin-two
+bmin-sub-05
+bmin-sub-02
+bmin-sub-01
+bmin-size-02
+bmin-size
+bmin-intempty
+bmin-in-01
+bmin-bneq
+
+
+*** Failures: ***
+
+

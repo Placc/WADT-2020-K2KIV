@@ -1,0 +1,20 @@
+enrich monotone-set-fixpoint, nat with
+
+functions . ^ . : ((elem → bool) → (elem → bool)) × nat → ((elem → bool) → (elem → bool));
+
+predicates cont : ((elem → bool) → (elem → bool));
+           chain : (nat → (elem → bool));
+variables Sn : nat → (elem → bool);
+
+axioms
+
+chain-def:
+chain(Sn) ↔ ∀ m, n. Sn(m) ⊆ Sn(n) ∨ Sn(n) ⊆ Sn(m);
+
+iterate-base: (f ^ 0)(S) = S;
+
+iterate-rec: (f ^ (n + 1))(S) = f((f ^ n) (S));
+
+cont-def: cont(f) ↔ ∀ Sn. chain(Sn) → ∀ x. f (λ x0. ∃ n. Sn(n)(x0)) (x) ↔ ∃ n. f(Sn(n))(x);
+
+end enrich

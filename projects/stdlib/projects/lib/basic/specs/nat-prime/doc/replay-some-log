@@ -1,0 +1,138 @@
+: successful
+### No save necessary ###
+### Next replay: cong-equiv ###
+cong-equiv: successful
+### No save necessary ###
+### Next replay: dist-add ###
+dist-add: successful
+### No save necessary ###
+### Next replay: dist-add-01 ###
+dist-add-01: successful
+### No save necessary ###
+### Next replay: dist-c ###
+dist-c: successful
+### No save necessary ###
+### Next replay: dist-eq ###
+dist-eq: successful
+### No save necessary ###
+### Next replay: dist-mult ###
+dist-mult: successful
+### No save necessary ###
+### Next replay: dist-same ###
+dist-same: successful
+### No save necessary ###
+### Next replay: div-multadd ###
+div-multadd: successful
+### No save necessary ###
+### Next replay: divi-add ###
+divi-add: successful
+### No save necessary ###
+### Next replay: divi-dist ###
+divi-dist: successful
+### No save necessary ###
+### Next replay: divi-ref ###
+divi-ref: successful
+### No save necessary ###
+### Next replay: divi-same ###
+divi-same: successful
+### No save necessary ###
+### Next replay: divi-sub ###
+divi-sub: successful
+### No save necessary ###
+### Next replay: divi-sym ###
+divi-sym: successful
+### No save necessary ###
+### Next replay: divi-three ###
+divi-three: successful
+### No save necessary ###
+### Next replay: divi-two-01 ###
+divi-two-01: successful
+### No save necessary ###
+### Next replay: gcd-add ###
+gcd-add: successful
+### No save necessary ###
+### Next replay: gcd-alldiv ###
+gcd-alldiv: successful
+### No save necessary ###
+### Next replay: gcd-alldiv-h ###
+gcd-alldiv-h: successful
+### No save necessary ###
+### Next replay: gcd-conq-one ###
+gcd-conq-one: successful
+### No save necessary ###
+### Next replay: gcd-div-both ###
+gcd-div-both: successful
+### No save necessary ###
+### Next replay: gcd-div-both-h ###
+gcd-div-both-h: successful
+### No save necessary ###
+### Next replay: gcd-div-one ###
+gcd-div-one: successful
+### No save necessary ###
+### Next replay: gcd-eq ###
+gcd-eq: successful
+### No save necessary ###
+### Next replay: gcd-id ###
+gcd-id: successful
+### No save necessary ###
+### Next replay: gcd-le ###
+gcd-le: successful
+### No save necessary ###
+### Next replay: gcd-le-both ###
+gcd-le-both: successful
+### No save necessary ###
+### Next replay: gcd-le-both-h ###
+gcd-le-both-h: successful
+### No save necessary ###
+### Next replay: gcd-max ###
+gcd-max: successful
+### No save necessary ###
+### Next replay: gcd-mod ###
+gcd-mod: successful
+### No save necessary ###
+### Next replay: gcd-mod-one ###
+gcd-mod-one: successful
+### No save necessary ###
+### Next replay: gcd-mult ###
+gcd-mult: successful
+### No save necessary ###
+### Next replay: gcd-one ###
+gcd-one: successful
+### No save necessary ###
+### Next replay: gcd-rec2 ###
+gcd-rec2: successful
+### No save necessary ###
+### Next replay: gcd-zero-01 ###
+gcd-zero-01: successful
+### No save necessary ###
+### Next replay: gcd-zero-01-h ###
+gcd-zero-01-h: successful
+### No save necessary ###
+### Next replay: gcdex ###
+gcdex: successful
+### No save necessary ###
+### Next replay: gcdex-dist ###
+gcdex-dist: successful
+### No save necessary ###
+### Next replay: gcdexh ###
+gcdexh: successful
+### No save necessary ###
+### Next replay: modprime ###
+modprime: successful
+### No save necessary ###
+### Next replay: not-prime ###
+not-prime: successful
+### No save necessary ###
+### Next replay: prime-prime ###
+prime-prime: successful
+### No save necessary ###
+### Next replay: prime-smallest ###
+prime-smallest: successful
+### No save necessary ###
+### Next replay: succ ###
+succ: failed
+### No save necessary ###
+### Next replay: twodiv-01 ###
+twodiv-01: failed
+### Done ###
+### Saving lemmas next ###

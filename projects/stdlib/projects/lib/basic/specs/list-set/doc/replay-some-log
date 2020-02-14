@@ -1,0 +1,213 @@
+: successful
+### No save necessary ###
+### Next replay: commsize ###
+commsize: successful
+### No save necessary ###
+### Next replay: del1 ###
+del1: successful
+### No save necessary ###
+### Next replay: del1-01 ###
+del1-01: successful
+### No save necessary ###
+### Next replay: diff-app-01 ###
+diff-app-01: successful
+### No save necessary ###
+### Next replay: diff-consnotin2 ###
+diff-consnotin2: successful
+### No save necessary ###
+### Next replay: diff-dups ###
+diff-dups: successful
+### No save necessary ###
+### Next replay: diff-empty-all ###
+diff-empty-all: successful
+### No save necessary ###
+### Next replay: diff-in ###
+diff-in: successful
+### No save necessary ###
+### Next replay: diff-onenonmember ###
+diff-onenonmember: successful
+### No save necessary ###
+### Next replay: diff-twice-append ###
+diff-twice-append: successful
+### No save necessary ###
+### Next replay: diff-twice-append-rev ###
+diff-twice-append-rev: successful
+### No save necessary ###
+### Next replay: diff-unchanged ###
+diff-unchanged: successful
+### No save necessary ###
+### Next replay: diff-union ###
+diff-union: successful
+### No save necessary ###
+### Next replay: diff-wfrec ###
+diff-wfrec: successful
+### No save necessary ###
+### Next replay: diffgetn-nodupssize ###
+diffgetn-nodupssize: successful
+### No save necessary ###
+### Next replay: diffone-nodupsget ###
+diffone-nodupsget: successful
+### No save necessary ###
+### Next replay: diffone-nodupssize ###
+diffone-nodupssize: successful
+### No save necessary ###
+### Next replay: dups-app ###
+dups-app: successful
+### No save necessary ###
+### Next replay: emptyunion ###
+emptyunion: successful
+### No save necessary ###
+### Next replay: filt-dups ###
+filt-dups: successful
+### No save necessary ###
+### Next replay: filter-all ###
+filter-all: successful
+### No save necessary ###
+### Next replay: filter-dups ###
+filter-dups: successful
+### No save necessary ###
+### Next replay: filter-empty ###
+filter-empty: successful
+### No save necessary ###
+### Next replay: filter-empty-app ###
+filter-empty-app: successful
+### No save necessary ###
+### Next replay: filter-empty-app-01 ###
+filter-empty-app-01: successful
+### No save necessary ###
+### Next replay: filter-empty-app-02 ###
+filter-empty-app-02: successful
+### No save necessary ###
+### Next replay: filter-empty-app-03 ###
+filter-empty-app-03: successful
+### No save necessary ###
+### Next replay: filter-empty-app-04 ###
+filter-empty-app-04: successful
+### No save necessary ###
+### Next replay: filter-empty-cons ###
+filter-empty-cons: successful
+### No save necessary ###
+### Next replay: filter-empty-def ###
+filter-empty-def: successful
+### No save necessary ###
+### Next replay: filter-empty-in ###
+filter-empty-in: successful
+### No save necessary ###
+### Next replay: filter-notempty ###
+filter-notempty: successful
+### No save necessary ###
+### Next replay: filter-notin ###
+filter-notin: successful
+### No save necessary ###
+### Next replay: firstsub ###
+firstsub: successful
+### No save necessary ###
+### Next replay: in-01-01 ###
+in-01-01: successful
+### No save necessary ###
+### Next replay: in-03 ###
+in-03: successful
+### No save necessary ###
+### Next replay: insub ###
+insub: successful
+### No save necessary ###
+### Next replay: insub-01 ###
+insub-01: successful
+### No save necessary ###
+### Next replay: k-union-rec-n ###
+k-union-rec-n: successful
+### No save necessary ###
+### Next replay: le ###
+le: successful
+### No save necessary ###
+### Next replay: notin-01 ###
+notin-01: successful
+### No save necessary ###
+### Next replay: notin-02 ###
+notin-02: successful
+### No save necessary ###
+### Next replay: onenotin-diff ###
+onenotin-diff: successful
+### No save necessary ###
+### Next replay: rmdup ###
+rmdup: successful
+### No save necessary ###
+### Next replay: rmdup-01 ###
+rmdup-01: successful
+### No save necessary ###
+### Next replay: rotsize ###
+rotsize: successful
+### No save necessary ###
+### Next replay: size-le ###
+size-le: successful
+### No save necessary ###
+### Next replay: size-nle ###
+size-nle: successful
+### No save necessary ###
+### Next replay: size-nls ###
+size-nls: successful
+### No save necessary ###
+### Next replay: size-nls-01 ###
+size-nls-01: successful
+### No save necessary ###
+### Next replay: sub ###
+sub: successful
+### No save necessary ###
+### Next replay: sub-01 ###
+sub-01: successful
+### No save necessary ###
+### Next replay: sub-03 ###
+sub-03: successful
+### No save necessary ###
+### Next replay: sub-04 ###
+sub-04: successful
+### No save necessary ###
+### Next replay: sub-05 ###
+sub-05: successful
+### No save necessary ###
+### Next replay: sub-06 ###
+sub-06: successful
+### No save necessary ###
+### Next replay: sub-07 ###
+sub-07: successful
+### No save necessary ###
+### Next replay: sub-size ###
+sub-size: successful
+### No save necessary ###
+### Next replay: suband ###
+suband: successful
+### No save necessary ###
+### Next replay: subset-app-02 ###
+subset-app-02: successful
+### No save necessary ###
+### Next replay: subset-app-03 ###
+subset-app-03: successful
+### No save necessary ###
+### Next replay: subset-app-04 ###
+subset-app-04: successful
+### No save necessary ###
+### Next replay: subset-append ###
+subset-append: successful
+### No save necessary ###
+### Next replay: subset-append-01 ###
+subset-append-01: successful
+### No save necessary ###
+### Next replay: subset-append-02 ###
+subset-append-02: successful
+### No save necessary ###
+### Next replay: subset-diff-union ###
+subset-diff-union: successful
+### No save necessary ###
+### Next replay: subset-perm ###
+subset-perm: successful
+### No save necessary ###
+### Next replay: subset-rec ###
+subset-rec: successful
+### No save necessary ###
+### Next replay: subsub ###
+subsub: successful
+### No save necessary ###
+### Next replay: subsub-01 ###
+subsub-01: successful
+### Done ###
+### Saving lemmas next ###

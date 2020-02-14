@@ -1,0 +1,22 @@
+specification
+
+  using lexical-param 
+  
+predicates lex< : elem1 × elem2 × elem1 × elem2;
+variables IHPQ : elem1 × elem2 → bool;
+
+axioms
+lex-def: lex<(a0,b0,a,b) ↔ a0 ≪1 a ∨ a0 = a ∧ b0 ≪2 b;
+
+theorems
+
+lexirrefl:
+¬ lex<(a,b,a,b);
+used for: s,ls;
+
+lextrans: lex<(a,b,a0,b0) ∧ lex<(a0,b0,a1,b1) → lex<(a,b,a1,b1);
+used for: f,lf;
+
+wflex: ∀ a,b. (∀ a0, b0. lex<(a0,b0,a,b) → IHPQ(a0, b0)) → IHPQ(a,b) ⊦ IHPQ(a,b);
+
+end specification

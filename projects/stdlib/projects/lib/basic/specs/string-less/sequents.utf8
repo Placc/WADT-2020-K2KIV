@@ -1,0 +1,127 @@
+lemmas
+
+append-eqlen        : ⊦   # str = # str1
+                        → (  str + str0 = str1 + str2
+                           ↔ str = str1 ∧ str0 = str2) ;
+           used for : s, ls ;
+            remarks : proved ;
+append-eqlen-01     : ⊦   # str0 = # str2
+                        → (  str + str0 = str1 + str2
+                           ↔ str = str1 ∧ str0 = str2) ;
+           used for : s, ls ;
+            remarks : proved ;
+eq-one              : # str = 1, # str0 = 1
+                      ⊦   (* str) = (* str0) + str1
+                        ↔ str = str0 ∧ str1 = "" ;
+           used for : s, ls ;
+            remarks : proved ;
+eqpos               : ⊦   pos(char1, str) < # str
+                        → (  pos(char1, str) = pos(char2, str)
+                           ↔ char1 = char2) ;
+           used for : s, ls ;
+            remarks : proved, used ;
+exlarger            :  ⊦ ∃ str. str0 < str ;
+            remarks : proved, used by proved unit ;
+insorted            : ⊦   pos(char, sortedchars) < # sortedchars ↔ true ;
+           used for : ss, lss ;
+            remarks : proved, used ;
+len-app             :  ⊦ #(str + str0) = # str + # str0 ;
+           used for : s, ls ;
+            remarks : proved, used by proved unit ;
+len-str             :  ⊦ str ≠ "" → # (* str) = # str.rstring + 1 ;
+           used for : s, ls ;
+            remarks : proved, used ;
+len-str-01          : str ≠ "" ⊦ # (* str) = # str.rstring + 1 ;
+           used for : s, ls ;
+            remarks : proved, used, used by proved unit ;
+len-zero            :  ⊦ # str = 0 ↔ str = "" ;
+           used for : s, ls ;
+            remarks : proved, used by proved unit ;
+length-one          :  ⊦ # char ' = 1 ;
+           used for : s, ls ;
+            remarks : proved, used ;
+less-append         :  ⊦ str < str + str0 ↔ str0 ≠ "" ;
+           used for : s, ls ;
+            remarks : proved, used ;
+less-empty          :  ⊦ "" < str ↔ str ≠ "" ;
+           used for : s, ls ;
+            remarks : proved, used ;
+neq-length          :  ⊦ # str ≠ # str0 → str ≠ str0 ;
+            remarks : proved ;
+neq-one             : # str = 1, 1 < # str0
+                      ⊦ (* str) ≠ (* str0) + str1 ;
+           used for : s, ls ;
+            remarks : proved ;
+pos-0               :  ⊦ pos(`0`, sortedchars) = 13 ;
+            remarks : proved ;
+pos-1               :  ⊦ pos(`1`, sortedchars) = 14 ;
+            remarks : proved ;
+pos-2               :  ⊦ pos(`2`, sortedchars) = 15 ;
+            remarks : proved ;
+pos-a               :  ⊦ pos(`a`, sortedchars) = 59 ;
+            remarks : proved ;
+pos-b               :  ⊦ pos(`b`, sortedchars) = 60 ;
+            remarks : proved ;
+pos-c               :  ⊦ pos(`c`, sortedchars) = 61 ;
+            remarks : proved ;
+pos-capital-a       :  ⊦ pos(`A`, sortedchars) = 29 ;
+            remarks : proved ;
+pos-capital-b       :  ⊦ pos(`B`, sortedchars) = 30 ;
+            remarks : proved ;
+pos-capital-c       :  ⊦ pos(`C`, sortedchars) = 31 ;
+            remarks : proved ;
+pos-capital-z       :  ⊦ pos(`Z`, sortedchars) = 54 ;
+            remarks : proved ;
+pos-one             :  ⊦ pos(char, char ') = 0 ;
+           used for : s, ls ;
+            remarks : proved ;
+pos-range           :  ⊦ pos(char, str) ≤ # str ;
+            remarks : proved ;
+pos-str             : ⊦   str ≠ "" ∧ char = str.char1
+                        → pos((* char), (* str)) = 0 ;
+           used for : s, ls ;
+            remarks : proved ;
+pos-str-01          : ⊦   str ≠ "" ∧ char ≠ str.char1
+                        →   pos((* char), (* str))
+                          = pos(char, str.rstring) + 1 ;
+           used for : s, ls ;
+            remarks : proved ;
+pos-str-02          : str ≠ "", char ≠ str.char1
+                      ⊦   pos((* char), (* str))
+                        = pos(char, str.rstring) + 1 ;
+           used for : ls ;
+            remarks : proved, used ;
+pos-str-03          : str ≠ "", char = str.char1
+                      ⊦ pos((* char), (* str)) = 0 ;
+           used for : ls ;
+            remarks : proved, used ;
+pos-z               :  ⊦ pos(`z`, sortedchars) = 84 ;
+            remarks : proved ;
+sortedchars-divided : ⊦   sortedchars
+                        =   " !#$%&()*+-" + "./0123456789:<=>?@"
+                          + "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ"
+                          + "[]^_abcdefghi" + "jklmnopqrs"
+                          + "tuvwxyz|~" ;
+            remarks : proved ;
+val-irref           :  ⊦ ¬ str1 < str1 ;
+            comment :  validation ;
+            remarks : proved ;
+val-irref-01        :  ⊦ ¬ char1 < char1 ;
+            comment :  validation ;
+            remarks : proved ;
+val-total           :  ⊦ str < str2 ∨ str = str2 ∨ str2 < str ;
+            comment :  validation ;
+            remarks : proved ;
+val-total-01        :  ⊦ char < char2 ∨ char = char2 ∨ char2 < char ;
+            comment :  validation ;
+            remarks : proved ;
+val-trans           :  ⊦ str < str2 ∧ str2 < str3 → str < str3 ;
+            comment :  validation ;
+            remarks : proved ;
+val-trans-01        :  ⊦ char < char2 ∧ char2 < char3 → char < char3 ;
+            comment :  validation ;
+            remarks : proved ;
+
+
+;;; END
+

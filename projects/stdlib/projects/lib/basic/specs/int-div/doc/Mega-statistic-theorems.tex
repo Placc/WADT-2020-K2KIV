@@ -1,0 +1,1356 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,multicol,supertabular}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+\bigskip
+
+{\large\bf abs}
+
+\medskip
+
+j $\neq$ 0 \Fol abs(i / j) = abs(i) / abs(j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos, div-elim1, div-elim2, div-elim3, neg, neg-01
+\item       used by      : abs-01, abs-02, abs-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf abs-01}
+
+\medskip
+
+j $\neq$ 0 \Fol abs(i / abs(j)) = abs(i / j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : abs
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf abs-02}
+
+\medskip
+
+j $\neq$ 0 \Fol abs(abs(i) / j) = abs(i / j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : abs
+\item       used by      : abs-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf abs-03}
+
+\medskip
+
+0 $\neq$ j \Fol abs(i) / j $*$ abs(i) / j = i / j $*$ i / j
+
+\begin{itemize}
+
+
+\item       used lemmas  : abs-02, abs
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-elim}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $<$ i \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew, div-elim-pos
+\item       used by      : div-elim2, div-elim3, div-rec, div2-nle, div2-zero, ls, mod-rec, mod-two, mult, zero-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-elim-pos}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : modeq-pos, diveq-pos, mod-zero, mod-ls-same, divmod-rew
+\item       used by      : abs, div-elim, div-elim1, div-rec, div-zero, ls, ls-01, ls-02, mod-rec, mod-zero-03, mult-ls, mult-ls-01, one, sub-ls-01, zero-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-elim1}
+
+\medskip
+
+ \Fol j $<$ 0 \And 0 $\le$ i \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ abs(j))
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew, neg, mod-neg, div-elim-pos
+\item       used by      : abs
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-elim2}
+
+\medskip
+
+ \Fol 0 $<$ j \And i $<$ 0 \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $\le$ 0 \And abs($\mbox{j}_{0}$) $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew, neg-01, mod-neg-01, div-elim
+\item       used by      : abs, div2-zero, ls-02, mod-less-01, mult-ls, mult-ls-01, one, sub-ls, zero-01, zero-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-elim3}
+
+\medskip
+
+ \Fol j $<$ 0 \And i $<$ 0 \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $\le$ 0 \And j $<$ $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew, neg-01, neg, mod-neg-01, mod-neg, div-elim
+\item       used by      : abs, zero-06
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-rec}
+
+\medskip
+
+0 $<$ j, \\
+j $\le$ i \Fol i / j = (i - j) / j + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim, div-elim-pos
+\item       used by      : div-rec-01, div-same, div53
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-rec-01}
+
+\medskip
+
+j $<$ 0, \\
+i $\le$ j \Fol i / j = (i - j) / j + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-add, neg-01, neg, div-rec
+\item       used by      : div-same
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-same}
+
+\medskip
+
+i $\neq$ 0 \Fol i / i = 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero, div-rec-01, div-rec
+\item       used by      : mod-same
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div-zero}
+
+\medskip
+
+0 $<$ j, \\
+0 $\le$ i, \\
+i $<$ j \Fol i / j = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos
+\item       used by      : div2-one, div53
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2-neg}
+
+\medskip
+
+ \Fol i / (1 + 1) $<$ 0 \Imp i $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero, zero-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2-nle}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp \Not i $\le$ i / (1 + 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2-nle-01}
+
+\medskip
+
+ \Fol 1 $<$ i \Imp \Not i / (1 + 1) $\le$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div2-zero, zero-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2-one}
+
+\medskip
+
+ \Fol 1 / (1 + 1) = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-zero
+\item       used by      : div2-zero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2-zero}
+
+\medskip
+
+ \Fol i / (1 + 1) = 0 \Equiv i = 0 \Or i = 1 \Or i = $\tildesym$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg-01, div2-one, zero, div-elim, div-elim2
+\item       used by      : div2-nle-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2one}
+
+\medskip
+
+ \Fol i \% (1 + 1) = 1 \And 0 $<$ i \Imp i / (1 + 1) $*$ (1 + 1) + 1 = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div2zero}
+
+\medskip
+
+ \Fol i \% (1 + 1) $\neq$ 1 \And 0 $<$ i \Imp i / (1 + 1) $*$ (1 + 1) = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-two, divmult
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf div53}
+
+\medskip
+
+ \Fol (1 + 1 + 1 + 1 + 1) / (1 + 1 + 1) = 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-zero, div-rec
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diveq-pos}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j \Fol ($\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$) / j = $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : Div-def
+\item       used by      : div-elim-pos, modeq-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf divmod-rew}
+
+\medskip
+
+j $\neq$ 0 \Fol i / j $*$ j + i \% j = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : Mod-def
+\item       used by      : div-elim, div-elim-pos, div-elim1, div-elim2, div-elim3, div2one, mod-neg, mod-neg-01, mod-rew
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf divmult}
+
+\medskip
+
+j $\neq$ 0 \Fol i \% j = 0 \Imp i / j $*$ j = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-rew
+\item       used by      : div2zero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$, \\
+0 $<$ i, \\
+0 $<$ j, \\
+$\mbox{i}_{0}$ / i $<$ $\mbox{i}_{0}$ / j \Fol j $<$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero, div-elim, div-elim-pos
+\item       used by      : ls-succ, lsf-01, lsf-02, lsfc, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-01}
+
+\medskip
+
+$\mbox{i}_{0}$ $\neq$ 0, \\
+$\mbox{j}_{0}$ $\neq$ 0, \\
+0 $\le$ i, \\
+0 $\le$ $\mbox{i}_{0}$, \\
+i $\le$ j, \\
+$\mbox{i}_{0}$ $\le$ $\mbox{j}_{0}$ \Fol i / $\mbox{j}_{0}$ $\le$ j / $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos
+\item       used by      : ls-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-02}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$, \\
+i / $\mbox{i}_{0}$ $<$ j / $\mbox{i}_{0}$ \Fol i $<$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim2, div-elim-pos, neg-01, ls-01
+\item       used by      : lsf, lsfc-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same-pos}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp i / j $*$ j $\le$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : Div-def
+\item       used by      : ls-same-pos-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same-pos-01}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp i $<$ (i / j + 1) $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-same-pos, Div-def
+\item       used by      : mod-ls-same
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same-pos-02}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp \Not i $<$ i / j $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : Div-def
+\item       used by      : mod-zero, mod-zero-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-succ}
+
+\medskip
+
+ \Fol 0 $<$ i \And 0 $<$ j \Imp i / (j + 1) $\le$ i / j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lsf}
+
+\medskip
+
+ \Fol i / $\mbox{i}_{0}$ $<$ j / $\mbox{i}_{0}$ \And 0 $<$ $\mbox{i}_{0}$ \Imp i $<$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lsf-01}
+
+\medskip
+
+ \Fol $\mbox{i}_{0}$ / i $<$ $\mbox{i}_{0}$ / j \And 0 $\le$ $\mbox{i}_{0}$ \And 0 $<$ i \And 0 $<$ j \Imp j $<$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lsf-02}
+
+\medskip
+
+ \Fol i / j $<$ i / $\mbox{i}_{0}$ \And 0 $<$ j \And 0 $<$ $\mbox{i}_{0}$ \And i $<$ 0 \Imp j $<$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg-01, ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lsfc}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$, \\
+0 $<$ i, \\
+0 $<$ j \Fol $\mbox{i}_{0}$ / i $<$ $\mbox{i}_{0}$ / j \Imp j $<$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lsfc-01}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$ \Fol i / $\mbox{i}_{0}$ $<$ j / $\mbox{i}_{0}$ \Imp i $<$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lsfc-02}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$ \Fol i / $\mbox{i}_{0}$ + j / $\mbox{i}_{0}$ $<$ 0 \Imp i + j $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf minus-add}
+
+\medskip
+
+$\mbox{j}_{0}$ $\neq$ 0 \Fol (i - j) / $\mbox{j}_{0}$ + (j - i) / $\mbox{j}_{0}$ = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg-01
+\item       used by      : div-rec-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-add}
+
+\medskip
+
+ \Fol 0 $<$ i \And 0 $\le$ j \Imp (i + j) \% i = j \% i
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-rec
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-less-01}
+
+\medskip
+
+ \Fol 0 $<$ j \Imp i \% j $<$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim2, mod-ls-same
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-ls-same}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp i \% j $<$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-same-pos-01, mod-rew
+\item       used by      : div-elim-pos, mod-less-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neg}
+
+\medskip
+
+j $\neq$ 0 \Fol i \% $\tildesym$ j = i \% j
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew, Div-right, mod-rew
+\item       used by      : div-elim1, div-elim3, mod-rec-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neg-01}
+
+\medskip
+
+j $\neq$ 0 \Fol $\tildesym$ i \% j = $\tildesym$(i \% j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew, Div-left, mod-rew
+\item       used by      : div-elim2, div-elim3, mod-rec-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-rec}
+
+\medskip
+
+0 $<$ j, \\
+j $\le$ i \Fol i \% j = (i - j) \% j
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos, div-elim
+\item       used by      : mod-add, mod-rec-01, mod53, mod62
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-rec-01}
+
+\medskip
+
+i $\le$ j, \\
+j $<$ 0 \Fol i \% j = (i - j) \% j
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-neg-01, mod-neg, mod-rec
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-rew}
+
+\medskip
+
+j $\neq$ 0 \Fol i \% j = i - i / j $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : divmod-rew
+\item       used by      : divmult, mod-ls-same, mod-neg, mod-neg-01, mod-same, mod-zero, mod-zero-01, mod-zero-04, modeq-pos, one-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-same}
+
+\medskip
+
+i $\neq$ 0 \Fol i \% i = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-same, mod-rew
+\item       used by      : mod62
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-two}
+
+\medskip
+
+ \Fol i \% (1 + 1) $\neq$ 1 \And 0 $<$ i \Imp i \% (1 + 1) = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim
+\item       used by      : div2zero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-zero}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp 0 $\le$ i \% j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-same-pos-02, mod-rew
+\item       used by      : div-elim-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-zero-01}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp \Not i \% j $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-same-pos-02, mod-rew
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-zero-03}
+
+\medskip
+
+0 $<$ j, \\
+0 $\le$ i, \\
+i $<$ j \Fol i \% j = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos
+\item       used by      : mod53
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-zero-04}
+
+\medskip
+
+j $\neq$ 0 \Fol 0 \% j = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero, mod-rew
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod53}
+
+\medskip
+
+ \Fol (1 + 1 + 1 + 1 + 1) \% (1 + 1 + 1) = 1 + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-zero-03, mod-rec
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod62}
+
+\medskip
+
+ \Fol (1 + 1 + 1 + 1 + 1 + 1) \% (1 + 1) = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-same, mod-rec
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modeq-pos}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j \Fol ($\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$) \% j = $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : diveq-pos, mod-rew
+\item       used by      : div-elim-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mult}
+
+\medskip
+
+ \Fol 0 $\le$ $\mbox{i}_{0}$ \And $\mbox{i}_{0}$ $<$ j \And 0 $\le$ i \Imp (i $*$ j + $\mbox{i}_{0}$) / j = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero, div-elim
+\item       used by      : mult-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mult-01}
+
+\medskip
+
+ \Fol 0 $\le$ $\mbox{i}_{0}$ \And $\mbox{i}_{0}$ $<$ abs(j) \And j $<$ 0 \And 0 $\le$ i \Imp (i $*$ abs(j) + $\mbox{i}_{0}$) / j = $\tildesym$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg, mult
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mult-ls}
+
+\medskip
+
+ \Fol 0 $<$ j \And i / j $<$ $\mbox{i}_{0}$ \Imp i $<$ $\mbox{i}_{0}$ $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos, div-elim2
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mult-ls-01}
+
+\medskip
+
+ \Fol 0 $<$ j \And $\mbox{i}_{0}$ $<$ i / j \Imp $\mbox{i}_{0}$ $*$ j $<$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos, div-elim2
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf neg}
+
+\medskip
+
+j $\neq$ 0 \Fol i / $\tildesym$ j = $\tildesym$(i / j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Div-right
+\item       used by      : abs, div-elim1, div-elim3, div-rec-01, mult-01, zero, zero-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf neg-01}
+
+\medskip
+
+j $\neq$ 0 \Fol $\tildesym$ i / j = $\tildesym$(i / j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Div-left
+\item       used by      : abs, div-elim2, div-elim3, div-rec-01, div2-zero, ls-02, lsf-02, minus-add, zero-05, zero-07
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf neqf}
+
+\medskip
+
+ \Fol i / j $\neq$ i / $\mbox{i}_{0}$ \Imp j $\neq$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       no used lemmas.
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one}
+
+\medskip
+
+ \Fol i / 1 = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim2, div-elim-pos
+\item       used by      : one-01, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one-01}
+
+\medskip
+
+ \Fol i = 1 \Imp j \% i = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, mod-rew
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf pos}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp 0 $\le$ i / j
+
+\begin{itemize}
+
+
+\item       used lemmas  : Div-def
+\item       used by      : zero-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-ls}
+
+\medskip
+
+ \Fol 0 $<$ $\mbox{i}_{0}$ \And i $<$ j \Imp (i - j) / $\mbox{i}_{0}$ $\le$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim2
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-ls-01}
+
+\medskip
+
+ \Fol 0 $<$ $\mbox{i}_{0}$ \And j $\le$ i \Imp 0 $\le$ (i - j) / $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero}
+
+\medskip
+
+j $\neq$ 0 \Fol 0 / j = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg, Div-def
+\item       used by      : div-same, div2-neg, div2-zero, ls, mod-zero-04, mult
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-01}
+
+\medskip
+
+ \Fol 0 $<$ j \And i $<$ 0 \Imp i / j $\le$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim2
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-02}
+
+\medskip
+
+ \Fol 0 $<$ i \And j $<$ 0 \Imp i / j $\le$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg, zero-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-03}
+
+\medskip
+
+ \Fol 0 $<$ i \And 0 $<$ j \Imp 0 $\le$ i / j
+
+\begin{itemize}
+
+
+\item       used lemmas  : pos
+\item       used by      : div2-neg, div2-nle-01, zero-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-04}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$, \\
+i / $\mbox{i}_{0}$ + j / $\mbox{i}_{0}$ $<$ 0 \Fol i + j $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim-pos, div-elim2, div-elim
+\item       used by      : lsfc-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-05}
+
+\medskip
+
+j $\neq$ 0 \Fol i $<$ 0 \Imp i $\le$ i / j
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, neg-01, ls, zero-06
+\item       used by      : zero-07
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-06}
+
+\medskip
+
+j $\neq$ 0 \Fol i $<$ 0 \And j $<$ 0 \Imp 0 $\le$ i / j
+
+\begin{itemize}
+
+
+\item       used lemmas  : div-elim3
+\item       used by      : zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-07}
+
+\medskip
+
+j $\neq$ 0 \Fol 0 $<$ i \Imp i / j $\le$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : neg-01, zero-05
+
+\end{itemize}
+
+\medskip
+
+
+
+\end{document}
+

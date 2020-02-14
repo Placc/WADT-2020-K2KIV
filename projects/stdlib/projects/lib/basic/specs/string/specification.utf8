@@ -1,0 +1,19 @@
+actualize list-del with char by morphism
+
+elem → char;
+[] → "";
+list → string;
+x → str;
+y → str0;
+z → str1;
+x0 → str2;
+x1 → str3;
+a → char;
+b → char0;
+c → char1;
+a0 → char2;
+< :: (list × list → bool) → ⊏ prio 0;
+.head → .char1;
+.tail → .rstring;
+
+end actualize

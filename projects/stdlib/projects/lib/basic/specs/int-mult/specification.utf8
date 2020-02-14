@@ -1,0 +1,18 @@
+enrich int-abs with
+
+comment: useful spec-lemmas are mod(ls,le,eq,neq)... for stuff about 
+i * j + j0 < i * j1 + j2 and p(le,ls) for i * j < i0 * j0
+global simplification doesn't distribute, i.e. i * j + i * j0 => i * (j + j0), 
+local does;
+
+functions
+
+	. * . : int × int → int prio 10;
+
+axioms
+
+Mult-zero : i * 0 = 0; used for : s,ls;
+Mult-succ : i * j +1 = i * j + i;
+Mult-pred : i * j -1 = i * j - i;
+
+end enrich

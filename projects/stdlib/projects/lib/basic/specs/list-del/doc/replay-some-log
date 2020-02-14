@@ -1,0 +1,24 @@
+: successful
+### No save necessary ###
+### Next replay: put-at ###
+put-at: successful
+### No save necessary ###
+### Next replay: put-del1-in ###
+put-del1-in: successful
+### No save necessary ###
+### Next replay: put-in ###
+put-in: successful
+### No save necessary ###
+### Next replay: put-in-01 ###
+put-in-01: successful
+### No save necessary ###
+### Next replay: put-in-02 ###
+put-in-02: successful
+### No save necessary ###
+### Next replay: put-length ###
+put-length: successful
+### No save necessary ###
+### Next replay: put-one-01 ###
+put-one-01: successful
+### Done ###
+### Saving lemmas next ###

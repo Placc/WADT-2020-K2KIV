@@ -1,0 +1,29 @@
+(: must be identical to nat-basic2 in system/basicrules! :)
+
+specification 
+
+data types
+		  nat = 0 | . +1 ( . -1 : nat) ;
+	     
+		  variables n,m : nat ;
+	     
+		  order predicates . < . : nat, nat ; (: default for infixprd is 5 :)
+
+
+(:    constants 1 : nat; :)
+    functions . + . : nat,nat → nat ; (: default for infixfct is 9 :)
+
+
+    variables m,n0 : nat ;
+              
+    axioms
+
+      add-base:  n + 0 = n;
+      used for : s, ls;
+      add-rec:  m + n +1 = (m + n) +1;
+      used for : s, ls;
+      less-total:  n < n0 or n = n0 or n0 < n;
+      
+
+end specification
+

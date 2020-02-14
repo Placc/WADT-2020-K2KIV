@@ -1,0 +1,4328 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,multicol,supertabular}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+
+
+{\parindent0cm
+
+\begin{multicols}{3}
+Div-def, \pageref{lemma-Div-def}\\
+Div-left, \pageref{lemma-Div-left}\\
+Div-right, \pageref{lemma-Div-right}\\
+Mod-def, \pageref{lemma-Mod-def}\\
+abs, \pageref{lemma-abs}\\
+abs-01, \pageref{lemma-abs-01}\\
+abs-02, \pageref{lemma-abs-02}\\
+abs-03, \pageref{lemma-abs-03}\\
+div-elim, \pageref{lemma-div-elim}\\
+div-elim-pos, \pageref{lemma-div-elim-pos}\\
+div-elim1, \pageref{lemma-div-elim1}\\
+div-elim2, \pageref{lemma-div-elim2}\\
+div-elim3, \pageref{lemma-div-elim3}\\
+div-rec, \pageref{lemma-div-rec}\\
+div-rec-01, \pageref{lemma-div-rec-01}\\
+div-same, \pageref{lemma-div-same}\\
+div-zero, \pageref{lemma-div-zero}\\
+div2-neg, \pageref{lemma-div2-neg}\\
+div2-nle, \pageref{lemma-div2-nle}\\
+div2-nle-01, \pageref{lemma-div2-nle-01}\\
+div2-one, \pageref{lemma-div2-one}\\
+div2-zero, \pageref{lemma-div2-zero}\\
+div2one, \pageref{lemma-div2one}\\
+div2zero, \pageref{lemma-div2zero}\\
+div53, \pageref{lemma-div53}\\
+diveq-pos, \pageref{lemma-diveq-pos}\\
+divmod-rew, \pageref{lemma-divmod-rew}\\
+divmult, \pageref{lemma-divmult}\\
+ls, \pageref{lemma-ls}\\
+ls-01, \pageref{lemma-ls-01}\\
+ls-02, \pageref{lemma-ls-02}\\
+ls-same-pos, \pageref{lemma-ls-same-pos}\\
+ls-same-pos-01, \pageref{lemma-ls-same-pos-01}\\
+ls-same-pos-02, \pageref{lemma-ls-same-pos-02}\\
+ls-succ, \pageref{lemma-ls-succ}\\
+lsf, \pageref{lemma-lsf}\\
+lsf-01, \pageref{lemma-lsf-01}\\
+lsf-02, \pageref{lemma-lsf-02}\\
+lsfc, \pageref{lemma-lsfc}\\
+lsfc-01, \pageref{lemma-lsfc-01}\\
+lsfc-02, \pageref{lemma-lsfc-02}\\
+minus-add, \pageref{lemma-minus-add}\\
+mod-add, \pageref{lemma-mod-add}\\
+mod-less-01, \pageref{lemma-mod-less-01}\\
+mod-ls-same, \pageref{lemma-mod-ls-same}\\
+mod-neg, \pageref{lemma-mod-neg}\\
+mod-neg-01, \pageref{lemma-mod-neg-01}\\
+mod-rec, \pageref{lemma-mod-rec}\\
+mod-rec-01, \pageref{lemma-mod-rec-01}\\
+mod-rew, \pageref{lemma-mod-rew}\\
+mod-same, \pageref{lemma-mod-same}\\
+mod-two, \pageref{lemma-mod-two}\\
+mod-zero, \pageref{lemma-mod-zero}\\
+mod-zero-01, \pageref{lemma-mod-zero-01}\\
+mod-zero-03, \pageref{lemma-mod-zero-03}\\
+mod-zero-04, \pageref{lemma-mod-zero-04}\\
+mod53, \pageref{lemma-mod53}\\
+mod62, \pageref{lemma-mod62}\\
+modeq-pos, \pageref{lemma-modeq-pos}\\
+mult, \pageref{lemma-mult}\\
+mult-01, \pageref{lemma-mult-01}\\
+mult-ls, \pageref{lemma-mult-ls}\\
+mult-ls-01, \pageref{lemma-mult-ls-01}\\
+neg, \pageref{lemma-neg}\\
+neg-01, \pageref{lemma-neg-01}\\
+neqf, \pageref{lemma-neqf}\\
+one, \pageref{lemma-one}\\
+one-01, \pageref{lemma-one-01}\\
+pos, \pageref{lemma-pos}\\
+sub-ls, \pageref{lemma-sub-ls}\\
+sub-ls-01, \pageref{lemma-sub-ls-01}\\
+zero, \pageref{lemma-zero}\\
+zero-01, \pageref{lemma-zero-01}\\
+zero-02, \pageref{lemma-zero-02}\\
+zero-03, \pageref{lemma-zero-03}\\
+zero-04, \pageref{lemma-zero-04}\\
+zero-05, \pageref{lemma-zero-05}\\
+zero-06, \pageref{lemma-zero-06}\\
+zero-07, \pageref{lemma-zero-07}\\
+
+\end{multicols}}
+
+\pagebreak
+
+{\LARGE\bf Mod-def}\label{lemma-Mod-def}
+
+\medskip
+
+ \Fol j $\neq$ 0 \Imp i = i / j $*$ j + i \% j
+
+\begin{itemize}
+
+\item Type: an axiom
+
+\item not used by any units in proved state.
+\item       no proof exists
+\item       used by      : divmod-rew
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf Div-right}\label{lemma-Div-right}
+
+\medskip
+
+ \Fol j $\neq$ 0 \Imp i / $\tildesym$ j = $\tildesym$(i / j)
+
+\begin{itemize}
+
+\item Type: an axiom
+
+\item is local simplifierrule : T
+\item not used by any units in proved state.
+\item       no proof exists
+\item       used by      : mod-neg, neg
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf Div-left}\label{lemma-Div-left}
+
+\medskip
+
+ \Fol j $\neq$ 0 \Imp $\tildesym$ i / j = $\tildesym$(i / j)
+
+\begin{itemize}
+
+\item Type: an axiom
+
+\item is local simplifierrule : T
+\item not used by any units in proved state.
+\item       no proof exists
+\item       used by      : mod-neg-01, neg-01
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf Div-def}\label{lemma-Div-def}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp i / j $*$ j $\le$ i \And i $<$ (i / j)+1 $*$ j
+
+\begin{itemize}
+
+\item Type: an axiom
+
+\item not used by any units in proved state.
+\item       no proof exists
+\item       used by      : diveq-pos, ls-same-pos, ls-same-pos-01, ls-same-pos-02, pos, zero
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf abs}\label{lemma-abs}
+
+\medskip
+
+j $\neq$ 0 \Fol abs(i / j) = abs(i) / abs(j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification bitops)
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos, div-elim1, div-elim2, div-elim3, neg, neg-01
+\item       used by      : abs-01, abs-02, abs-03
+\item       interactions : 3
+\item       proof steps  : 14
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 7 & 50.0 \% \\
+elimination & 4 & 28.5 \% \\
+Interactive & 3 & 21.4 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 7 & 50.0 \% \\
+insert elim lemma & 4 & 28.5 \% \\
+insert rewrite lemma & 3 & 21.4 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+neg & 2 & 28.5 \% \\
+div-elim-pos & 1 & 14.2 \% \\
+neg-01 & 1 & 14.2 \% \\
+div-elim1 & 1 & 14.2 \% \\
+div-elim3 & 1 & 14.2 \% \\
+div-elim2 & 1 & 14.2 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf abs-01}\label{lemma-abs-01}
+
+\medskip
+
+j $\neq$ 0 \Fol abs(i / abs(j)) = abs(i / j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : abs
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+abs & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf abs-02}\label{lemma-abs-02}
+
+\medskip
+
+j $\neq$ 0 \Fol abs(abs(i) / j) = abs(i / j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : abs
+\item       used by      : abs-03
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+abs & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf abs-03}\label{lemma-abs-03}
+
+\medskip
+
+0 $\neq$ j \Fol abs(i) / j $*$ abs(i) / j = i / j $*$ i / j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification int-square
+\item       a complete proof exists
+\item       used lemmas  : abs-02, abs
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+abs-02 & 1 & 50.0 \% \\
+abs & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-elim}\label{lemma-div-elim}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $<$ i \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew, div-elim-pos
+\item       used by      : div-elim2, div-elim3, div-rec, div2-nle, div2-zero, ls, mod-rec, mod-two, mult, zero-04
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+case distinction & 1 & 25.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 50.0 \% \\
+div-elim-pos & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-elim-pos}\label{lemma-div-elim-pos}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : modeq-pos, diveq-pos, mod-zero, mod-ls-same, divmod-rew
+\item       used by      : abs, div-elim, div-elim1, div-rec, div-zero, ls, ls-01, ls-02, mod-rec, mod-zero-03, mult-ls, mult-ls-01, one, sub-ls-01, zero-04
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert rewrite lemma & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+modeq-pos & 1 & 20.0 \% \\
+divmod-rew & 1 & 20.0 \% \\
+diveq-pos & 1 & 20.0 \% \\
+mod-ls-same & 1 & 20.0 \% \\
+mod-zero & 1 & 20.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-elim1}\label{lemma-div-elim1}
+
+\medskip
+
+ \Fol j $<$ 0 \And 0 $\le$ i \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ abs(j))
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew, neg, mod-neg, div-elim-pos
+\item       used by      : abs
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+case distinction & 1 & 25.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 25.0 \% \\
+div-elim-pos & 1 & 25.0 \% \\
+neg & 1 & 25.0 \% \\
+mod-neg & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-elim2}\label{lemma-div-elim2}
+
+\medskip
+
+ \Fol 0 $<$ j \And i $<$ 0 \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $\le$ 0 \And abs($\mbox{j}_{0}$) $<$ j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew, neg-01, mod-neg-01, div-elim
+\item       used by      : abs, div2-zero, ls-02, mod-less-01, mult-ls, mult-ls-01, one, sub-ls, zero-01, zero-04
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+case distinction & 1 & 25.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 25.0 \% \\
+div-elim & 1 & 25.0 \% \\
+neg-01 & 1 & 25.0 \% \\
+mod-neg-01 & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-elim3}\label{lemma-div-elim3}
+
+\medskip
+
+ \Fol j $<$ 0 \And i $<$ 0 \Imp ($\mbox{i}_{0}$ = i / j \And $\mbox{j}_{0}$ = i \% j \Equiv i = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $\le$ 0 \And j $<$ $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew, neg-01, neg, mod-neg-01, mod-neg, div-elim
+\item       used by      : abs, zero-06
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+case distinction & 1 & 25.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 16.6 \% \\
+div-elim & 1 & 16.6 \% \\
+neg-01 & 1 & 16.6 \% \\
+mod-neg & 1 & 16.6 \% \\
+neg & 1 & 16.6 \% \\
+mod-neg-01 & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-rec}\label{lemma-div-rec}
+
+\medskip
+
+0 $<$ j, \\
+j $\le$ i \Fol i / j = (i - j) / j + 1
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim, div-elim-pos
+\item       used by      : div-rec-01, div-same, div53
+\item       interactions : 1
+\item       proof steps  : 8
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 4 & 50.0 \% \\
+elimination & 3 & 37.5 \% \\
+Interactive & 1 & 12.5 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 4 & 50.0 \% \\
+insert elim lemma & 3 & 37.5 \% \\
+insert spec-lemma & 1 & 12.5 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim & 1 & 50.0 \% \\
+div-elim-pos & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-rec-01}\label{lemma-div-rec-01}
+
+\medskip
+
+j $<$ 0, \\
+i $\le$ j \Fol i / j = (i - j) / j + 1
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : minus-add, neg-01, neg, div-rec
+\item       used by      : div-same
+\item       interactions : 3
+\item       proof steps  : 6
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 3 & 50.0 \% \\
+Interactive & 3 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 3 & 50.0 \% \\
+insert equation & 1 & 16.6 \% \\
+insert lemma & 1 & 16.6 \% \\
+cut formula & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+minus-add & 1 & 25.0 \% \\
+div-rec & 1 & 25.0 \% \\
+neg-01 & 1 & 25.0 \% \\
+neg & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-same}\label{lemma-div-same}
+
+\medskip
+
+i $\neq$ 0 \Fol i / i = 1
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : zero, div-rec-01, div-rec
+\item       used by      : mod-same
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert rewrite lemma & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+zero & 2 & 50.0 \% \\
+div-rec & 1 & 25.0 \% \\
+div-rec-01 & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div-zero}\label{lemma-div-zero}
+
+\medskip
+
+0 $<$ j, \\
+0 $\le$ i, \\
+i $<$ j \Fol i / j = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos
+\item       used by      : div2-one, div53
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+elimination & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert elim lemma & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2-neg}\label{lemma-div2-neg}
+
+\medskip
+
+ \Fol i / (1 + 1) $<$ 0 \Imp i $<$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item used by units in proved state:
+
+Project java (Specification bitops)
+\item       a complete proof exists
+\item       used lemmas  : zero, zero-03
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+zero & 1 & 50.0 \% \\
+zero-03 & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2-nle}\label{lemma-div2-nle}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp \Not i $\le$ i / (1 + 1)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification bitops)
+\item       a complete proof exists
+\item       used lemmas  : div-elim
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert spec-lemma & 1 & 25.0 \% \\
+insert elim lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2-nle-01}\label{lemma-div2-nle-01}
+
+\medskip
+
+ \Fol 1 $<$ i \Imp \Not i / (1 + 1) $\le$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification bitops)
+\item       a complete proof exists
+\item       used lemmas  : div2-zero, zero-03
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert rewrite lemma & 1 & 25.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div2-zero & 1 & 50.0 \% \\
+zero-03 & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2-one}\label{lemma-div2-one}
+
+\medskip
+
+ \Fol 1 / (1 + 1) = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-zero
+\item       used by      : div2-zero
+\item       interactions : 1
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert rewrite lemma & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-zero & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2-zero}\label{lemma-div2-zero}
+
+\medskip
+
+ \Fol i / (1 + 1) = 0 \Equiv i = 0 \Or i = 1 \Or i = $\tildesym$ 1
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : neg-01, div2-one, zero, div-elim, div-elim2
+\item       used by      : div2-nle-01
+\item       interactions : 5
+\item       proof steps  : 6
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 5 & 83.3 \% \\
+simplifier & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+case distinction & 2 & 33.3 \% \\
+insert elim lemma & 2 & 33.3 \% \\
+simplifier & 1 & 16.6 \% \\
+cut formula & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div2-one & 2 & 33.3 \% \\
+neg-01 & 1 & 16.6 \% \\
+div-elim2 & 1 & 16.6 \% \\
+zero & 1 & 16.6 \% \\
+div-elim & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2one}\label{lemma-div2one}
+
+\medskip
+
+ \Fol i \% (1 + 1) = 1 \And 0 $<$ i \Imp i / (1 + 1) $*$ (1 + 1) + 1 = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification bitops)
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert equation & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div2zero}\label{lemma-div2zero}
+
+\medskip
+
+ \Fol i \% (1 + 1) $\neq$ 1 \And 0 $<$ i \Imp i / (1 + 1) $*$ (1 + 1) = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification bitops)
+\item       a complete proof exists
+\item       used lemmas  : mod-two, divmult
+\item       interactions : 1
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 66.6 \% \\
+Interactive & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 66.6 \% \\
+insert rewrite lemma & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+mod-two & 1 & 50.0 \% \\
+divmult & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf div53}\label{lemma-div53}
+
+\medskip
+
+ \Fol (1 + 1 + 1 + 1 + 1) / (1 + 1 + 1) = 1
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : div-zero, div-rec
+\item       interactions : 2
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert rewrite lemma & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-zero & 1 & 50.0 \% \\
+div-rec & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf diveq-pos}\label{lemma-diveq-pos}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j \Fol ($\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$) / j = $\mbox{i}_{0}$
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : Div-def
+\item       used by      : div-elim-pos, modeq-pos
+\item       interactions : 3
+\item       proof steps  : 6
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 3 & 50.0 \% \\
+Interactive & 3 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 3 & 50.0 \% \\
+insert spec-lemma & 2 & 33.3 \% \\
+insert lemma & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-def & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf divmod-rew}\label{lemma-divmod-rew}
+
+\medskip
+
+j $\neq$ 0 \Fol i / j $*$ j + i \% j = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : Mod-def
+\item       used by      : div-elim, div-elim-pos, div-elim1, div-elim2, div-elim3, div2one, mod-neg, mod-neg-01, mod-rew
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Mod-def & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf divmult}\label{lemma-divmult}
+
+\medskip
+
+j $\neq$ 0 \Fol i \% j = 0 \Imp i / j $*$ j = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : mod-rew
+\item       used by      : div2zero
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+mod-rew & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls}\label{lemma-ls}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$, \\
+0 $<$ i, \\
+0 $<$ j, \\
+$\mbox{i}_{0}$ / i $<$ $\mbox{i}_{0}$ / j \Fol j $<$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : zero, div-elim, div-elim-pos
+\item       used by      : ls-succ, lsf-01, lsf-02, lsfc, zero-05
+\item       interactions : 2
+\item       proof steps  : 6
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 3 & 50.0 \% \\
+Interactive & 2 & 33.3 \% \\
+elimination & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 3 & 50.0 \% \\
+insert elim lemma & 2 & 33.3 \% \\
+insert spec-lemma & 1 & 16.6 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+zero & 1 & 33.3 \% \\
+div-elim-pos & 1 & 33.3 \% \\
+div-elim & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls-01}\label{lemma-ls-01}
+
+\medskip
+
+$\mbox{i}_{0}$ $\neq$ 0, \\
+$\mbox{j}_{0}$ $\neq$ 0, \\
+0 $\le$ i, \\
+0 $\le$ $\mbox{i}_{0}$, \\
+i $\le$ j, \\
+$\mbox{i}_{0}$ $\le$ $\mbox{j}_{0}$ \Fol i / $\mbox{j}_{0}$ $\le$ j / $\mbox{i}_{0}$
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos
+\item       used by      : ls-02
+\item       interactions : 2
+\item       proof steps  : 7
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 3 & 42.8 \% \\
+Interactive & 2 & 28.5 \% \\
+elimination & 2 & 28.5 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 3 & 42.8 \% \\
+insert elim lemma & 2 & 28.5 \% \\
+insert spec-lemma & 1 & 14.2 \% \\
+cut formula & 1 & 14.2 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 2 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls-02}\label{lemma-ls-02}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$, \\
+i / $\mbox{i}_{0}$ $<$ j / $\mbox{i}_{0}$ \Fol i $<$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim2, div-elim-pos, neg-01, ls-01
+\item       used by      : lsf, lsfc-01
+\item       interactions : 4
+\item       proof steps  : 12
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 6 & 50.0 \% \\
+Interactive & 4 & 33.3 \% \\
+elimination & 2 & 16.6 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 6 & 50.0 \% \\
+insert elim lemma & 2 & 16.6 \% \\
+cut formula & 2 & 16.6 \% \\
+insert lemma & 2 & 16.6 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-01 & 2 & 40.0 \% \\
+neg-01 & 1 & 20.0 \% \\
+div-elim2 & 1 & 20.0 \% \\
+div-elim-pos & 1 & 20.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls-same-pos}\label{lemma-ls-same-pos}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp i / j $*$ j $\le$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : Div-def
+\item       used by      : ls-same-pos-01
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-def & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls-same-pos-01}\label{lemma-ls-same-pos-01}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp i $<$ (i / j + 1) $*$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls-same-pos, Div-def
+\item       used by      : mod-ls-same
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-same-pos & 1 & 50.0 \% \\
+Div-def & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls-same-pos-02}\label{lemma-ls-same-pos-02}
+
+\medskip
+
+ \Fol 0 $\le$ i \And 0 $<$ j \Imp \Not i $<$ i / j $*$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : Div-def
+\item       used by      : mod-zero, mod-zero-01
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-def & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf ls-succ}\label{lemma-ls-succ}
+
+\medskip
+
+ \Fol 0 $<$ i \And 0 $<$ j \Imp i / (j + 1) $\le$ i / j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf lsf}\label{lemma-lsf}
+
+\medskip
+
+ \Fol i / $\mbox{i}_{0}$ $<$ j / $\mbox{i}_{0}$ \And 0 $<$ $\mbox{i}_{0}$ \Imp i $<$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls-02
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-02 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf lsf-01}\label{lemma-lsf-01}
+
+\medskip
+
+ \Fol $\mbox{i}_{0}$ / i $<$ $\mbox{i}_{0}$ / j \And 0 $\le$ $\mbox{i}_{0}$ \And 0 $<$ i \And 0 $<$ j \Imp j $<$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : ls
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf lsf-02}\label{lemma-lsf-02}
+
+\medskip
+
+ \Fol i / j $<$ i / $\mbox{i}_{0}$ \And 0 $<$ j \And 0 $<$ $\mbox{i}_{0}$ \And i $<$ 0 \Imp j $<$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : neg-01, ls
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+neg-01 & 1 & 50.0 \% \\
+ls & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf lsfc}\label{lemma-lsfc}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$, \\
+0 $<$ i, \\
+0 $<$ j \Fol $\mbox{i}_{0}$ / i $<$ $\mbox{i}_{0}$ / j \Imp j $<$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls
+\item       interactions : 1
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert lemma & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf lsfc-01}\label{lemma-lsfc-01}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$ \Fol i / $\mbox{i}_{0}$ $<$ j / $\mbox{i}_{0}$ \Imp i $<$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls-02
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-02 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf lsfc-02}\label{lemma-lsfc-02}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$ \Fol i / $\mbox{i}_{0}$ + j / $\mbox{i}_{0}$ $<$ 0 \Imp i + j $<$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : zero-04
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+zero-04 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf minus-add}\label{lemma-minus-add}
+
+\medskip
+
+$\mbox{j}_{0}$ $\neq$ 0 \Fol (i - j) / $\mbox{j}_{0}$ + (j - i) / $\mbox{j}_{0}$ = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : neg-01
+\item       used by      : div-rec-01
+\item       interactions : 2
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 33.3 \% \\
+insert equation & 1 & 33.3 \% \\
+cut formula & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+neg-01 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-add}\label{lemma-mod-add}
+
+\medskip
+
+ \Fol 0 $<$ i \And 0 $\le$ j \Imp (i + j) \% i = j \% i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : mod-rec
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+mod-rec & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-less-01}\label{lemma-mod-less-01}
+
+\medskip
+
+ \Fol 0 $<$ j \Imp i \% j $<$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim2, mod-ls-same
+\item       interactions : 1
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+elimination & 1 & 25.0 \% \\
+Interactive & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert elim lemma & 1 & 25.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim2 & 1 & 50.0 \% \\
+mod-ls-same & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-ls-same}\label{lemma-mod-ls-same}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp i \% j $<$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls-same-pos-01, mod-rew
+\item       used by      : div-elim-pos, mod-less-01
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+insert rewrite lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-same-pos-01 & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-neg}\label{lemma-mod-neg}
+
+\medskip
+
+j $\neq$ 0 \Fol i \% $\tildesym$ j = i \% j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew, Div-right, mod-rew
+\item       used by      : div-elim1, div-elim3, mod-rec-01
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 33.3 \% \\
+mod-rew & 1 & 33.3 \% \\
+Div-right & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-neg-01}\label{lemma-mod-neg-01}
+
+\medskip
+
+j $\neq$ 0 \Fol $\tildesym$ i \% j = $\tildesym$(i \% j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew, Div-left, mod-rew
+\item       used by      : div-elim2, div-elim3, mod-rec-01
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 33.3 \% \\
+mod-rew & 1 & 33.3 \% \\
+Div-left & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-rec}\label{lemma-mod-rec}
+
+\medskip
+
+0 $<$ j, \\
+j $\le$ i \Fol i \% j = (i - j) \% j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos, div-elim
+\item       used by      : mod-add, mod-rec-01, mod53, mod62
+\item       interactions : 1
+\item       proof steps  : 8
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 4 & 50.0 \% \\
+elimination & 3 & 37.5 \% \\
+Interactive & 1 & 12.5 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 4 & 50.0 \% \\
+insert elim lemma & 3 & 37.5 \% \\
+insert spec-lemma & 1 & 12.5 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 1 & 50.0 \% \\
+div-elim & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-rec-01}\label{lemma-mod-rec-01}
+
+\medskip
+
+i $\le$ j, \\
+j $<$ 0 \Fol i \% j = (i - j) \% j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : mod-neg-01, mod-neg, mod-rec
+\item       interactions : 3
+\item       proof steps  : 8
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 4 & 50.0 \% \\
+Interactive & 3 & 37.5 \% \\
+elimination & 1 & 12.5 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 4 & 50.0 \% \\
+insert elim lemma & 1 & 12.5 \% \\
+insert lemma & 1 & 12.5 \% \\
+insert equation & 1 & 12.5 \% \\
+cut formula & 1 & 12.5 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+mod-neg-01 & 2 & 50.0 \% \\
+mod-rec & 1 & 25.0 \% \\
+mod-neg & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-rew}\label{lemma-mod-rew}
+
+\medskip
+
+j $\neq$ 0 \Fol i \% j = i - i / j $*$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : divmod-rew
+\item       used by      : divmult, mod-ls-same, mod-neg, mod-neg-01, mod-same, mod-zero, mod-zero-01, mod-zero-04, modeq-pos, one-01
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+divmod-rew & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-same}\label{lemma-mod-same}
+
+\medskip
+
+i $\neq$ 0 \Fol i \% i = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-same, mod-rew
+\item       used by      : mod62
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-same & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-two}\label{lemma-mod-two}
+
+\medskip
+
+ \Fol i \% (1 + 1) $\neq$ 1 \And 0 $<$ i \Imp i \% (1 + 1) = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim
+\item       used by      : div2zero
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert elim lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-zero}\label{lemma-mod-zero}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp 0 $\le$ i \% j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : ls-same-pos-02, mod-rew
+\item       used by      : div-elim-pos
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+insert rewrite lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-same-pos-02 & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-zero-01}\label{lemma-mod-zero-01}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp \Not i \% j $<$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : ls-same-pos-02, mod-rew
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert lemma & 1 & 25.0 \% \\
+insert rewrite lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+ls-same-pos-02 & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-zero-03}\label{lemma-mod-zero-03}
+
+\medskip
+
+0 $<$ j, \\
+0 $\le$ i, \\
+i $<$ j \Fol i \% j = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos
+\item       used by      : mod53
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+elimination & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert elim lemma & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod-zero-04}\label{lemma-mod-zero-04}
+
+\medskip
+
+j $\neq$ 0 \Fol 0 \% j = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : zero, mod-rew
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+zero & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod53}\label{lemma-mod53}
+
+\medskip
+
+ \Fol (1 + 1 + 1 + 1 + 1) \% (1 + 1 + 1) = 1 + 1
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : mod-zero-03, mod-rec
+\item       interactions : 2
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert rewrite lemma & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+mod-zero-03 & 1 & 50.0 \% \\
+mod-rec & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mod62}\label{lemma-mod62}
+
+\medskip
+
+ \Fol (1 + 1 + 1 + 1 + 1 + 1) \% (1 + 1) = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : mod-same, mod-rec
+\item       interactions : 2
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert rewrite lemma & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+mod-rec & 2 & 66.6 \% \\
+mod-same & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf modeq-pos}\label{lemma-modeq-pos}
+
+\medskip
+
+0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j \Fol ($\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$) \% j = $\mbox{j}_{0}$
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : diveq-pos, mod-rew
+\item       used by      : div-elim-pos
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert rewrite lemma & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+diveq-pos & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mult}\label{lemma-mult}
+
+\medskip
+
+ \Fol 0 $\le$ $\mbox{i}_{0}$ \And $\mbox{i}_{0}$ $<$ j \And 0 $\le$ i \Imp (i $*$ j + $\mbox{i}_{0}$) / j = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : zero, div-elim
+\item       used by      : mult-01
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert spec-lemma & 1 & 25.0 \% \\
+insert elim lemma & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+zero & 1 & 50.0 \% \\
+div-elim & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mult-01}\label{lemma-mult-01}
+
+\medskip
+
+ \Fol 0 $\le$ $\mbox{i}_{0}$ \And $\mbox{i}_{0}$ $<$ abs(j) \And j $<$ 0 \And 0 $\le$ i \Imp (i $*$ abs(j) + $\mbox{i}_{0}$) / j = $\tildesym$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : neg, mult
+\item       interactions : 1
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert lemma & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+neg & 1 & 50.0 \% \\
+mult & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mult-ls}\label{lemma-mult-ls}
+
+\medskip
+
+ \Fol 0 $<$ j \And i / j $<$ $\mbox{i}_{0}$ \Imp i $<$ $\mbox{i}_{0}$ $*$ j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos, div-elim2
+\item       interactions : 4
+\item       proof steps  : 11
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 5 & 45.4 \% \\
+Interactive & 4 & 36.3 \% \\
+elimination & 2 & 18.1 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 5 & 45.4 \% \\
+insert elim lemma & 2 & 18.1 \% \\
+insert spec-lemma & 2 & 18.1 \% \\
+case distinction & 1 & 9.0 \% \\
+cut formula & 1 & 9.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 1 & 50.0 \% \\
+div-elim2 & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf mult-ls-01}\label{lemma-mult-ls-01}
+
+\medskip
+
+ \Fol 0 $<$ j \And $\mbox{i}_{0}$ $<$ i / j \Imp $\mbox{i}_{0}$ $*$ j $<$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos, div-elim2
+\item       interactions : 4
+\item       proof steps  : 11
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 5 & 45.4 \% \\
+Interactive & 4 & 36.3 \% \\
+elimination & 2 & 18.1 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 5 & 45.4 \% \\
+insert elim lemma & 2 & 18.1 \% \\
+insert spec-lemma & 2 & 18.1 \% \\
+case distinction & 1 & 9.0 \% \\
+cut formula & 1 & 9.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 1 & 50.0 \% \\
+div-elim2 & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf neg}\label{lemma-neg}
+
+\medskip
+
+j $\neq$ 0 \Fol i / $\tildesym$ j = $\tildesym$(i / j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat \\
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : Div-right
+\item       used by      : abs, div-elim1, div-elim3, div-rec-01, mult-01, zero, zero-02
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-right & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf neg-01}\label{lemma-neg-01}
+
+\medskip
+
+j $\neq$ 0 \Fol $\tildesym$ i / j = $\tildesym$(i / j)
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat \\
+Project java (Specification progs)
+\item       a complete proof exists
+\item       used lemmas  : Div-left
+\item       used by      : abs, div-elim2, div-elim3, div-rec-01, div2-zero, ls-02, lsf-02, minus-add, zero-05, zero-07
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-left & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf neqf}\label{lemma-neqf}
+
+\medskip
+
+ \Fol i / j $\neq$ i / $\mbox{i}_{0}$ \Imp j $\neq$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       no used lemmas.
+\item       interactions : 0
+\item       proof steps  : 1
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf one}\label{lemma-one}
+
+\medskip
+
+ \Fol i / 1 = i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : div-elim2, div-elim-pos
+\item       used by      : one-01, zero-05
+\item       interactions : 2
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+insert elim lemma & 2 & 66.6 \% \\
+simplifier & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim2 & 1 & 50.0 \% \\
+div-elim-pos & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf one-01}\label{lemma-one-01}
+
+\medskip
+
+ \Fol i = 1 \Imp j \% i = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : one, mod-rew
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert rewrite lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+one & 1 & 50.0 \% \\
+mod-rew & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf pos}\label{lemma-pos}
+
+\medskip
+
+ \Fol 0 $<$ j \And 0 $\le$ i \Imp 0 $\le$ i / j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : Div-def
+\item       used by      : zero-03
+\item       interactions : 1
+\item       proof steps  : 3
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 66.6 \% \\
+Interactive & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 66.6 \% \\
+insert lemma & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-def & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf sub-ls}\label{lemma-sub-ls}
+
+\medskip
+
+ \Fol 0 $<$ $\mbox{i}_{0}$ \And i $<$ j \Imp (i - j) / $\mbox{i}_{0}$ $\le$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim2
+\item       interactions : 0
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+elimination & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert elim lemma & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim2 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf sub-ls-01}\label{lemma-sub-ls-01}
+
+\medskip
+
+ \Fol 0 $<$ $\mbox{i}_{0}$ \And j $\le$ i \Imp 0 $\le$ (i - j) / $\mbox{i}_{0}$
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos
+\item       interactions : 0
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+elimination & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert elim lemma & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero}\label{lemma-zero}
+
+\medskip
+
+j $\neq$ 0 \Fol 0 / j = 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : neg, Div-def
+\item       used by      : div-same, div2-neg, div2-zero, ls, mod-zero-04, mult
+\item       interactions : 3
+\item       proof steps  : 5
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 3 & 60.0 \% \\
+simplifier & 2 & 40.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 40.0 \% \\
+insert lemma & 2 & 40.0 \% \\
+cut formula & 1 & 20.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+Div-def & 2 & 66.6 \% \\
+neg & 1 & 33.3 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-01}\label{lemma-zero-01}
+
+\medskip
+
+ \Fol 0 $<$ j \And i $<$ 0 \Imp i / j $\le$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : div-elim2
+\item       interactions : 0
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+elimination & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert elim lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim2 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-02}\label{lemma-zero-02}
+
+\medskip
+
+ \Fol 0 $<$ i \And j $<$ 0 \Imp i / j $\le$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : neg, zero-03
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+neg & 1 & 50.0 \% \\
+zero-03 & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-03}\label{lemma-zero-03}
+
+\medskip
+
+ \Fol 0 $<$ i \And 0 $<$ j \Imp 0 $\le$ i / j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item used by units in proved state:
+
+Specification intnat
+\item       a complete proof exists
+\item       used lemmas  : pos
+\item       used by      : div2-neg, div2-nle-01, zero-02
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+pos & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-04}\label{lemma-zero-04}
+
+\medskip
+
+0 $<$ $\mbox{i}_{0}$, \\
+i / $\mbox{i}_{0}$ + j / $\mbox{i}_{0}$ $<$ 0 \Fol i + j $<$ 0
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim-pos, div-elim2, div-elim
+\item       used by      : lsfc-02
+\item       interactions : 2
+\item       proof steps  : 14
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 7 & 50.0 \% \\
+elimination & 5 & 35.7 \% \\
+Interactive & 2 & 14.2 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 7 & 50.0 \% \\
+insert elim lemma & 5 & 35.7 \% \\
+cut formula & 2 & 14.2 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim-pos & 2 & 40.0 \% \\
+div-elim2 & 2 & 40.0 \% \\
+div-elim & 1 & 20.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-05}\label{lemma-zero-05}
+
+\medskip
+
+j $\neq$ 0 \Fol i $<$ 0 \Imp i $\le$ i / j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : one, neg-01, ls, zero-06
+\item       used by      : zero-07
+\item       interactions : 2
+\item       proof steps  : 4
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+Interactive & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 2 & 50.0 \% \\
+insert lemma & 2 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+one & 1 & 25.0 \% \\
+zero-06 & 1 & 25.0 \% \\
+neg-01 & 1 & 25.0 \% \\
+ls & 1 & 25.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-06}\label{lemma-zero-06}
+
+\medskip
+
+j $\neq$ 0 \Fol i $<$ 0 \And j $<$ 0 \Imp 0 $\le$ i / j
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : div-elim3
+\item       used by      : zero-05
+\item       interactions : 0
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+elimination & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert elim lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+div-elim3 & 1 & 100.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+\pagebreak
+
+{\LARGE\bf zero-07}\label{lemma-zero-07}
+
+\medskip
+
+j $\neq$ 0 \Fol 0 $<$ i \Imp i / j $\le$ i
+
+\begin{itemize}
+
+\item Type: created by user
+
+\item is local simplifierrule : T
+\item is simplifierrule : T
+\item not used by any units in proved state.
+\item       a complete proof exists
+\item       used lemmas  : neg-01, zero-05
+\item       interactions : 1
+\item       proof steps  : 2
+\end{itemize}
+
+\medskip
+
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+Interactive & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 1 & 50.0 \% \\
+insert lemma & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+neg-01 & 1 & 50.0 \% \\
+zero-05 & 1 & 50.0 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+
+
+\end{document}
+

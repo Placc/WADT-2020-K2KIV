@@ -1,0 +1,26 @@
+enrich map-basic with
+
+functions
+  . [ . ] : map × elem × elem → map;
+  . [ . ] : map × elem → elem;
+  . -- .  : map × elem → map prio 9 left;
+
+axioms
+  insert-empty:   ∅[a, b]         = (a |-> b);                                   used for: s, ls;
+  insert-single1: (a |-> b)[a, c] = (a |-> c);                                   used for: s, ls;
+  insert-single2: a ≠ c ⊦ (a |-> b)[c, d] = (a |-> b) ⊕ (c |-> d);               used for: s, ls;
+  insert-plus1:   haskey(a, map1)   ⊦ (map1 ⊕ map2)[a, b] = map1[a, b] ⊕ map2;   used for: s, ls;
+  insert-plus2:   ¬ haskey(a, map1) ⊦ (map1 ⊕ map2)[a, b] = map1 ⊕ map2[a, b];   used for: s, ls;
+
+  ;; lookup-empty: unspecified
+  lookup-single1: (a |-> b)[a] = b;                                              used for: s, ls;
+  lookup-single2: c ≠ a ⊦ (a |-> b)[c] = ∅[c];                                   used for: s, ls;
+  lookup-plus1:   ¬ haskey(a, map1)                ⊦ (map1 ⊕ map2)[a] = map2[a]; used for: s, ls;
+  lookup-plus2:   ¬ haskey(a, map2)                ⊦ (map1 ⊕ map2)[a] = map1[a]; used for: s, ls;
+  lookup-plus3:   haskey(a, map1), haskey(a, map2) ⊦ (map1 ⊕ map2)[a] = ∅[a];    used for: s, ls;
+
+  remove-empty:   (∅ :: map) -- a = ∅;                                           used for: s, ls;
+  remove-single1: (a |-> b)  -- a = ∅;                                           used for: s, ls;
+  remove-single2: a ≠ c ⊦ (a |-> b) -- c = (a |-> b);                            used for: s, ls;
+  remove-plus:    (map1 ⊕ map2) -- a = (map1 -- a) ⊕ (map2 -- a);                used for: s, ls;
+end enrich

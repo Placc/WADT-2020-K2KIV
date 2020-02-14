@@ -1,0 +1,87 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+square-neq-prime
+square-neq-pos
+square-neq-any-pos-02
+square-neq-any-pos-01
+square-neq-any-pos
+square-neq-any
+prime-two
+prime-three
+prime-odd-01
+prime-odd
+prime-not-odd
+prime-ex-max
+prime-def-prime
+prime-def-mod
+prime-abs
+prime-83
+prime-7
+prime-631
+prime-5
+prime-43
+prime-317
+prime-23
+prime-163
+prime-13
+prime-1259
+prime-11
+num-gcd-pos
+max_prime_divisor-nls-03
+max_prime_divisor-nls-02
+max_prime_divisor-nls-01
+max_prime_divisor-nls
+max_prime_divisor-nle-zero-01
+max_prime_divisor-nle-01
+max_prime_divisor-nle
+max_prime_divisor-ge2
+max_prime_divisor-abs-01
+gcdhex
+gcdex-smallest-pos
+gcdex-pos
+gcdex
+gcd-zero-02
+gcd-rec-sub-03
+gcd-rec-sub-01
+gcd-rec-sub
+gcd-rec
+gcd-prime
+gcd-pos
+gcd-one-eq
+gcd-one
+gcd-nls-zero
+gcd-mult-pos
+gcd-mod-one-01
+gcd-mod-one
+gcd-less-eq-zero
+gcd-less
+gcd-ge-one
+gcd-divides-both-h
+gcd-divides-both
+gcd-div-gcd-pos
+gcd-conq-one
+gcd-com
+gcd-abs-rew-02
+gcd-abs
+divides-prime
+divides-abs-02
+divides-abs-01
+div-one-one-neg
+div-not-ls
+div-mod
+div-gcd-zero
+div-gcd-is-neg
+div-abs-02
+div-abs
+
+
+*** Failures: ***
+
+

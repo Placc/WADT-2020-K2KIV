@@ -1,0 +1,21 @@
+enrich oelem with
+
+;; sorts ;
+
+;; constants ;
+
+functions
+min : elem × elem → elem;
+max: elem × elem → elem;
+
+;; predicates ;
+
+;; variables ;
+
+;; induction ;
+
+axioms
+min-def: min(a,b) = ((a < b) ⊃ a ; b);
+max-def :max(a,b) = ((b < a) ⊃ a ; b);
+
+end enrich

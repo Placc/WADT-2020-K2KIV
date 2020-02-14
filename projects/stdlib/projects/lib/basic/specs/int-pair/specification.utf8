@@ -1,0 +1,47 @@
+enrich nat-pair with
+
+functions
+
+   . × .    : int × int → int; comment: encode arbitrary pairs of integers (bijective).;
+   encode   : int → nat; comment: encode positive and negative integers (bijective).;
+   decode   : nat → int; 
+   encode   : nat → int; comment: encode nats as all integers (bijective).;
+   decode   : int → nat;
+   . .1     : int → int; comment: (i × j).1 = i;
+   . .2     : int → int; comment: (i × j).2 = j;
+
+axioms
+(: ************************************************************************************* :)
+enc-int-pos   : 0 ≤ i → encode(i) = 2 * i→n(i);               used for : ls;
+enc-int-neg   : i < 0 → encode(i) = 2 * i→n(i) - 1;           used for : ls;
+
+enc-nat-pos   : n % 2 = 0 → encode(n) = n→i(n / 2);           used for : ls;
+enc-nat-neg   : n % 2 ≠ 0 → encode(n) = ~ (n→i((n + 1) / 2)); used for : ls;
+
+encode-pair   : i × j = encode(encode(encode(i), encode(j))); used for : ls;
+
+dec-int-pos   : n % 2 = 0 → decode(n) = n→i(n / 2);           used for : ls;
+dec-int-neg   : n % 2 ≠ 0 → decode(n) = ~ n→i((n + 1) / 2);   used for : ls;
+
+dec-nat-pos   : 0 ≤ i → decode(i) = 2 * i→n(i);               used for : ls;
+dec-nat-neg   : i < 0 → decode(i) = 2 * i→n(i) - 1;           used for : ls;
+
+dec-fst       :  i.1 = decode(decode(i).1);                   used for : ls;
+dec-snd       :  i.2 = decode(decode(i).2);                   used for : ls;
+(:
+dec-fst-neg :  i→n(i).1 % 2 ≠ 0 → i.1 = ~ n→i(i→n(i).1 / 2);
+
+dec-snd-pos :  i→n(i).2 % 2 = 0 → i.2 =   n→i(i→n(i).2 / 2);
+dec-snd-neg :  i→n(i).2 % 2 ≠ 0 → i.2 = ~ n→i(i→n(i).2 / 2);
+
+enc-pos   : 0 ≤ i → enc(i) = encode(0,i→n(i)); used for : s,ls;
+enc-neg   : i < 0 → enc(i) = encode(1,i→n(i)); used for : s,ls;
+
+dec-fst-pos :  i→n(i).1.1 = 0 → i.1 =   n→i(i→n(i).1.2);
+dec-fst-neg :  i→n(i).1.1 ≠ 0 → i.1 = ~ n→i(i→n(i).1.2);
+
+dec-snd-pos :  i→n(i).2.1 = 0 → i.2 =   n→i(i→n(i).2.2);
+dec-snd-neg :  i→n(i).2.1 ≠ 0 → i.2 = ~ n→i(i→n(i).2.2);
+:)
+(: ************************************************************************************* :)
+end enrich

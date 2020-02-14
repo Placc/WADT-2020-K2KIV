@@ -1,0 +1,376 @@
+
+lemmas
+
+constrrew            : a + [] = a ';
+comment: needed as a constructor rewrite, unnecessary as a simplifier rule;
+
+in-def : 	a ∈ x ↔ ∃ y,z. x = y + a + z;
+;;;END
+
+in-append0-not-left:
+a ' + x = x0 + x1 → (¬ a ∈ x0 ↔ x0 = []);
+used for: s;
+
+longest-common-prefix:
+⊦ ∃ z,x0,y0.   x = z + x0 ∧ y = z + y0
+             ∧ (x0 ≠ [] ∧ y0 ≠ [] → x0.first ≠ y0.first);
+
+some-element:
+x = [] ↔ ¬ ∃ a. a ∈ x;
+
+;;; END
+length :
+# (x + a ' + z) = # x + # z + 1;
+
+
+;; KODKOD BEGIN
+
+
+k-Last-base: [] + a = a '; used for : kodkodax;
+k-Last-rec: (a + x) + b = a + (x + b); used for : kodkodax;
+k-Two: a + b = a + b '; used for : kodkodax;
+k-In: a ∈ x ↔ x ≠ [] ∧ (a = x.first ∨ a ∈ x.rest); used for : kodkodax;
+
+;; KODKOD END
+
+append-size-less:
+# x < # x1 → (x + x0 = x1 + x2 ↔ ∃ y. x1 = x + y ∧ x0 = y + x2);
+
+one : y ≠ [] → (a ' = x + y ↔ x = [] ∧ a ' = y); used for : s, ls;
+elim-first : x = [] ↔ ¬ ∃ a, y. x = a ' + y;
+inapp    : ⊦ 
+              ¬ a ∈ x ∧ ¬ a ∈ y → (x + a ' + y = z + a ' + y0 ↔ y = y0 ∧ x = z) ;
+   used for : s, ls ;
+    remarks : proved ;
+
+;;; END
+firstrest : (x + a ').first ' + (x + a ').rest = x + a ';used for : s,ls;
+first-app : a ∈ x → (x + y).first = x.first; used for : s,ls;
+firstoc-rew : ⊦ a ∈ x ↔ (∃ y, z. x = y + (a ' + z) ∧ ¬ a ∈ y) ;
+lastoc-rew  : ⊦ a ∈ x ↔ (∃ y, z. x = y + (a ' + z) ∧ ¬ a ∈ z) ;
+lastdiv-rew : ⊦ x ≠ [] ↔ (∃ y, a. x = y + a ') ;
+;;; END
+
+onein       : ⊦ # x = 1 ∧ a ∈ x → x = a '; 
+   used for : f,lf;
+len-last-rest : ⊦ # (x + a ').rest = # x; 
+   used for : s,ls;
+in-last-rest  : ⊦ x ≠ [] → (a ∈ (x + b ').rest ↔ a = b ∨ a ∈ x.rest); 
+   used for : s,ls;
+
+Noassoc     :  ⊦ (a ' + x) + y = a ' + (x + y) ;
+    remarks : proved ;
+a           :  ⊦ (x + y) + z = x + (y + z) ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+app         :  ⊦ x + [] = x ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+app-01      :  ⊦ x + y = x + z ↔ y = z ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+app-02      :  ⊦ x + y = [] ↔ x = [] ∧ y = [] ;
+   used for : ls ;
+    remarks : proved, used ;
+app-02-ant  :  ⊦ ¬ x + y ≠ [] ↔ x = [] ∧ y = [] ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+app-03      :  ⊦ x + y = z + y ↔ x = z ;
+   used for : s, ls ;
+    remarks : proved, used ;
+app-04      :  ⊦ x = x + y ↔ y = [] ;
+   used for : s, ls ;
+    remarks : proved, used ;
+app-05      :  ⊦ x = y + x ↔ y = [] ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+app-06      :  ⊦ x + a ' = y + b ' ↔ x = y ∧ a = b ;
+   used for : s, ls ;
+    remarks : used ;
+app-07      :  ⊦ a ' + x = b ' + x ↔ a = b ;
+   used for : s, ls ;
+    remarks : proved ;
+app-08      :  ⊦ a ' + x = a ' + y ↔ x = y ;
+   used for : s, ls ;
+    remarks : proved ;
+app-09      :  ⊦ y ≠ a + (x + y) ;
+   used for : s, ls ;
+    remarks : proved ;
+c           :  ⊦ a + x = a ' + x ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+c-01        :  ⊦ x + (a + y) = x + (a ' + y) ;
+   used for : s, ls ;
+    remarks : proved ;
+c-02        :  ⊦ y ≠ [] → (a ' + x = y + z ↔ a = y .first ∧ x = y .rest + z) ;
+   used for : c, lc ;
+    remarks : proved ;
+c-03        :  ⊦ a ' = b ' + x ↔ a = b ∧ x = [] ;
+   used for : s, ls ;
+    remarks : proved, used ;
+c-04        :  ⊦ a ' = b ' ↔ a = b ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+c-05        :  ⊦ a ' = x + b ' ↔ a = b ∧ x = [] ;
+   used for : s, ls ;
+    remarks : proved, used ;
+c-06        :  ⊦ a ' + x = b ' + y ↔ a = b ∧ x = y ;
+   used for : s, ls ;
+    remarks : proved, used ;
+c-07        :  ⊦ (a ' + x) .rest = x ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+c-08        :  ⊦ (a ' + x) .first = a ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+c-09        :  ⊦ x = [] ∨ x = x .first ' + x .rest ;
+    remarks : proved ;
+e           :  ⊦ a ' ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+e-01        :  ⊦ a ' + x ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+e-02        :  ⊦ x + a ' ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+e-03        :  ⊦ x + (a ' + y) ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+e-04        :  ⊦ x = z0 + (y + z) ∧ # x = # y → z0 = [] ∧ z = [] ;
+    remarks : proved, invalid ;
+eq          :  ⊦ c ' + z = x0 + a ' ∧ x + (c ' + z) = b ' + (y0 + a0 ') → a = a0 ;
+   used for : f, lf ;
+    remarks : proved ;
+eq-01       :  ⊦ x + (a ' + y) = b ' + z ∧ x + (a ' + y0) = b0 ' + z0 → b = b0 ;
+   used for : f, lf ;
+    remarks : proved ;
+eq-02       :  ⊦ c ' + z = x0 + a ' ∧ x + (b0 ' + (c ' + z)) = b ' + (y0 + a0 ') → a = a0 ;
+   used for : f, lf ;
+    remarks : proved ;
+eq-03       :  ⊦ x = y + a ' ∧ x = z + b ' → a = b ∧ y = z ;
+   used for : f, lf ;
+    remarks : proved ;
+eq-04       :  ⊦ x + (a ' + y) = b ' ↔ x = [] ∧ a = b ∧ y = [] ;
+   used for : s, ls ;
+    remarks : proved ;
+eq-05       :  ⊦ x = a ' + y ∧ x = b ' + z → a = b ∧ y = z ;
+   used for : f, lf ;
+    remarks : proved ;
+first       :  ⊦ a ' .first = a ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+first-01    :  ⊦ x ≠ [] → (x + y) .first = x .first ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+first-02    :  ⊦ (x + (a ' + y)) .first = (x + a ') .first ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+firsteq     : y ≠ [] ⊦ a ' + x = y + z ↔ a = y .first ∧ x = y .rest + z ;
+    remarks : proved ;
+firsteq-01  : y ≠ [] ⊦ y + z = a ' + x ↔ a = y .first ∧ x = y .rest + z ;
+    remarks : proved ;
+firstoc     :  ⊦ a ∈ x → (∃ y, z. x = y + (a ' + z) ∧ ¬ a ∈ y) ;
+fr          :  ⊦ x ≠ [] → x .first ' + x .rest = x ;
+   used for : s, ls ;
+    remarks : proved ;
+if-in       :  ⊦ a ∈ b ' + x ↔ (a = b ⊃ true; a ∈ x) ;
+    remarks : proved ;
+in          :  ⊦ x + a ' = y + (b ' + z) ∧ a ≠ b → (∃ z0. z = z0 + a ') ;
+   used for : f ;
+in-01       :  ⊦ a ' + x = y + (b ' + z) ∧ a ≠ b → (∃ y0. y = a ' + y0) ;
+    remarks : proved ;
+(:
+in-02       :  ⊦ a ' + x = y → (∃ y0. y = a ' + y0) ;
+    remarks : proved ;
+:)
+(:
+in-02-01    :  ⊦ a ∈ x + y ↔ ¬ ¬ (a ∈ x ∨ a ∈ y) ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+:)
+(:
+in-03       :  ⊦ x + a ' = y → (∃ y0. y = y0 + a ') ;
+    remarks : proved ;
+:)
+(:
+in-03-01    :  ⊦ a ∈ a ' + x ;
+   used for : s, ls ;
+    remarks : proved ;
+:)
+(:
+in-04-01    :  ⊦ a ≠ b → (a ∈ b ' + x ↔ a ∈ x) ;
+   used for : s, ls, lc ;
+    remarks : proved ;
+:)
+(:
+in-05       :  ⊦ ¬ a ∈ [] ;
+   used for : s, ls ;
+    remarks : used, used by proved unit ;
+:)
+(:
+in-05-01    :  ⊦ a ∈ b ' + x ↔ ¬ ¬ (a = b ∨ a ∈ x) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+:)
+in-06       :  ⊦ ¬ a ∈ b ' + x ↔ a ≠ b ∧ ¬ a ∈ x ;
+   used for : s, ls ;
+    remarks : proved, used ;
+in-07       :  ⊦ ¬ a ∈ x ∧ x ≠ [] → ¬ a ∈ x .rest ;
+   used for : s, ls ;
+    remarks : proved ;
+in-08       :  ⊦ x .first ∈ x ↔ x ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, used ;
+in-09       :  ⊦ ¬ a ∈ x .rest → (a ∈ x ↔ a = x .first ∧ x ≠ []) ;
+   used for : s, ls ;
+    remarks : proved ;
+in-10       :  ⊦ ¬ a ∈ x → (a ∈ b ' + x ↔ a = b) ;
+   used for : s, ls ;
+    remarks : used ;
+in-11       :  ⊦ a ∈ x → a ∈ x + y ;
+   used for : s, ls ;
+    remarks : proved, used ;
+in-12       :  ⊦ a ∈ y → a ∈ x + y ;
+   used for : s, ls ;
+    remarks : used ;
+in-13       :  ⊦ x = y + (a ' + z) → a ∈ x ;
+   used for : s, ls, f ;
+    remarks : proved, used by proved unit ;
+in-14       :  ⊦ a ' + x = y → a ∈ y ;
+   used for : ls, f, lf ;
+    remarks : proved, used ;
+in-15       :  ⊦ x + a ' = y → a ∈ y ;
+   used for : ls, f, lf ;
+    remarks : proved, used, used by proved unit ;
+in-16       :  ⊦ x + a ' = y + (b ' + z) ∧ a ≠ b → a ∈ z ;
+   used for : ls, f, lf ;
+    remarks : proved ;
+in-17       :  ⊦ a ∈ b ' ↔ a = b ;
+   used for : s, ls ;
+    remarks : used, used by proved unit ;
+inapp       :  ⊦ ¬ a ∈ x → (x + a ' = y + (a ' + z) ↔ y = x ∧ z = []) ;
+   used for : s, ls ;
+inapp-01    : ⊦ 
+              ¬ a ∈ x ∧ ¬ a ∈ z → (x + (a ' + y) = z + (a ' + y0) ↔ y = y0 ∧ x = z) ;
+   used for : s, ls ;
+    remarks : proved ;
+inapp-02    :  ⊦ ¬ a ∈ y → (y + (c ' + z) = a ' + z0 ↔ y = [] ∧ c = a ∧ z = z0) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+inapp-03    :  ⊦ ¬ a ∈ y ∧ ¬ b ∈ x → (x + (a ' + z) = y + (b ' + y0) ↔ a = b ∧ x = y ∧ z = y0) ;
+   used for : s, ls ;
+    remarks : used ;
+inapp-04    :  ⊦ ¬ a ∈ x → (a ' + x = y + (a ' + z) ↔ y = [] ∧ z = x) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+inapp-05    :  ⊦ a ≠ b ∧ ¬ b ∈ x ∧ ¬ b ∈ x0 → (a ' + (x + (b ' + y)) = x0 + (b ' + y0) ↔ a ' + x = x0 ∧ y = y0) ;
+   used for : s, ls ;
+    remarks : proved ;
+inapp-06    :  ⊦ ¬ b ∈ y ∧ ¬ a ∈ z → (x + (a ' + y) = x0 + (b ' + z) ↔ x = x0 ∧ a = b ∧ y = z) ;
+   used for : s, ls ;
+inapp-07    :  ⊦ a ' + x = y + b ' ∧ x ≠ [] → a ∈ y ∧ b ∈ x ;
+   used for : f, lf ;
+    remarks : proved, used ;
+inapp-08    :  ⊦ a ' + x = y + b ' ∧ y ≠ [] → a ∈ y ∧ b ∈ x ;
+   used for : f, lf ;
+    remarks : proved, used ;
+inapp-09    :  ⊦ x + y = z + a ' ∧ c ' + x = x0 + b ' ∧ x0 ≠ [] ∧ a ≠ b → b ∈ z ;
+   used for : f, lf ;
+    remarks : proved ;
+inapp-10    :  ⊦ a ' + x = y + b ' ∧ a ≠ b → a ∈ y ∧ b ∈ x ;
+   used for : f, lf ;
+    remarks : proved ;
+inapp-11    :  ⊦ x + y = z + a ' ∧ b ∈ x ∧ a ≠ b → b ∈ z ;
+   used for : f, lf ;
+    remarks : used ;
+inapp-12    :  ⊦ x + y = z + a ' ∧ b ∈ x ∧ y ≠ [] → b ∈ z ;
+   used for : f, lf ;
+inapp-13    :  ⊦ a ' + x = y + b ' ∧ c ∈ x ∧ c ≠ b → c ∈ y ;
+   used for : f, lf ;
+    remarks : proved, used ;
+ins         :  ⊦ x + a ' = y → x + (a ' + z) = y + z ;
+    remarks : proved ;
+ins-01      :  ⊦ a ' + x = z → a ' + (x + y) = z + y ;
+    remarks : proved ;
+isin        :  ⊦ a ' + x = y + (b ' + z) ∧ y ≠ [] → b ∈ x ;
+   used for : s, ls ;
+    remarks : proved, used ;
+isin-01     :  ⊦ c ' + (x + b ') = y + (a ' + (a ' + z)) ∧ a ≠ b → a ∈ x ;
+   used for : s, ls ;
+last        :  ⊦ x + a ' = b ' + y → (a ∈ y ↔ y ≠ []) ;
+    remarks : proved ;
+last-01     :  ⊦ x + b ' = a ' + y → (a ∈ x ↔ x ≠ []) ;
+    remarks : proved ;
+lastdiv     :  ⊦ x ≠ [] → (∃ y, a. x = y + a ') ;
+    remarks : proved ;
+lastoc      :  ⊦ a ∈ x → (∃ y, z. x = y + (a ' + z) ∧ ¬ a ∈ z) ;
+lasttwo     :  a ∈ x, a0 ∈ x ⊦ ∃ b, y, z. x = y + (b ' + z) ∧ (b = a ∨ b = a0) ∧ ¬ a ∈ z ∧ ¬ a0 ∈ z ;
+len         :  ⊦ # (x + y) = # x + # y ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit, invalid ;
+len-01      :  ⊦ # x = # z → (x + y = z + y0 ↔ x = z ∧ y = y0) ;
+   used for : s, ls ;
+len-02      :  ⊦ # a ' = 1 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit, invalid ;
+len-03      :  ⊦ a ' + x = y + (b ' + z) → ¬ # x < # z ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+len-04      :  ⊦ a ' + x0 = x + (b ' + (y + (c ' + z))) → # x + # z < # x0 ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+len-05      :  ⊦ # (a ' + x) = (# x) + 1 ;
+   used for : s, ls ;
+    remarks : proved, used, invalid ;
+len-06      :  ⊦ # y = # y0 → (x + y = z + y0 ↔ x = z ∧ y = y0) ;
+   used for : s ;
+less-append :  ⊦ x < a ' + y ↔ x = y ∨ x < y ;
+   used for : s, ls ;
+    remarks : proved ;
+neq         :  ⊦ ¬ a ∈ x → x ≠ y + (a ' + z) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+neq-01      :  ⊦ ¬ a ∈ y ∧ ¬ a ∈ z ∧ a ≠ c → y + (c ' + z) ≠ y1 + (a ' + x) ;
+   used for : s, ls ;
+    remarks : used ;
+neq-02      :  ⊦ ¬ a ∈ z ∧ a ≠ c → c ' + z ≠ y1 + (a ' + x) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+neq-03      :  ⊦ ¬ c ∈ y ∧ c ≠ b → y + b ' ≠ y0 + (c ' + z) ;
+   used for : s, ls ;
+neq-04      :  ⊦ a ∈ y0 ∧ ¬ a ∈ y ∧ a ≠ b → y + b ' ≠ y0 + (c ' + z) ;
+   used for : s, ls ;
+    remarks : proved ;
+neq-05      :  ⊦ ¬ b ∈ x → c ' + x ≠ y + (a ' + (b ' + z)) ;
+   used for : s, ls ;
+    remarks : proved ;
+neq-06      :  ⊦ ¬ a ∈ x ∧ a ≠ b → b ' + (x + a ') ≠ y + (a ' + (b ' + z)) ;
+   used for : s, ls ;
+neq-07      :  ⊦ a ≠ a0 ∧ a1 ≠ a0 ∧ a ≠ a1 ∧ ¬ a ∈ y1 ∧ ¬ a1 ∈ y0 → y1 + (a0 ' + (y0 + a ')) ≠ y2 + (a ' + (a1 ' + z0)) ;
+   used for : s, ls ;
+neq-09      :  ⊦ ¬ a ∈ y ∧ a ≠ c ∧ ¬ a ∈ z → y + (c ' + z) ≠ y1 + (c ' + (a ' + z0)) ;
+   used for : s, ls ;
+    remarks : proved ;
+ni          :  ⊦ x + a ' = y + z ∧ ¬ a ∈ z → z = [] ;
+   used for : f, lf ;
+    remarks : used ;
+one         :  ⊦ x + y = a ' ∧ b ∈ x → a = b ∧ x = a ' ∧ y = [] ;
+   used for : f, lf ;
+    remarks : proved ;
+rest        :  ⊦ a ' .rest = [] ;
+   used for : s, ls ;
+    remarks : proved ;
+rest-01     :  ⊦ x ≠ [] → (x + y) .rest = x .rest + y ;
+   used for : s, ls ;
+    remarks : proved ;
+rewlem      :  ⊦ x + y = z → x + (y + y0) = z + y0 ;
+    remarks : proved ;
+split-first : n ≤ # x ⊦ ∃ y, z. x = y + z ∧ # y = n ;
+    remarks : proved, used, invalid ;
+split-rest  : n ≤ # x ⊦ ∃ y, z. x = y + z ∧ # z = n ;
+    remarks : proved, invalid ;
+two         :  ⊦ a ' + b ' = x + (a0 ' + (c ' + y)) ↔ x = [] ∧ y = [] ∧ a = a0 ∧ b = c ;
+   used for : s, ls ;
+    remarks : proved ;
+unequal     : # x = # y, x ≠ y ⊦ ∃ z, a, b, z0, z1. a ≠ b ∧ x = z + (a ' + z0) ∧ y = z + (b ' + z1) ;

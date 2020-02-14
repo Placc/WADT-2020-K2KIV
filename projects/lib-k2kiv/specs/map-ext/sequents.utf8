@@ -1,0 +1,44 @@
+
+lemmas
+
+  delete-legal:      legal(map) ⊦ legal(map \ s);
+  restrict-legal:    legal(map) ⊦ legal(map | s);
+  valueDiff-legal:   legal(map1), legal(map2) ⊦ legal(valueDiff(map1, map2));
+  difference-legal:  legal(map1), legal(map2) ⊦ legal(difference(map1, map2));
+  updateAll-legal:   legal(map1), legal(map2) ⊦ legal(updateAll(map1, map2));
+
+  legal-size:        legal(map) ⊦ size(map) = size(keys(map));
+
+  delete-haskey1:     a ∈ s   ⊦ ¬ haskey(a, map \ s);
+  delete-haskey2:     ¬ a ∈ s ⊦ haskey(a, map \ s) ↔ haskey(a, map);
+  delete-lookup:     ¬ a ∈ s ⊦ (map \ s)[a] = map[a];
+  delete-union:       (map \ s1) \ s2 = map \ (s2 ∪ s1);
+  delete-plus:        (map1 ⊕ map2) \ s = (map1 \ s) ⊕ (map2 \ s);
+
+  restrict-haskey1:   ¬ a ∈ s ⊦ ¬ haskey(a, map | s);
+  restrict-haskey2:   a ∈ s ⊦ haskey(a, map | s) ↔ haskey(a, map);
+  restrict-lookup:   a ∈ s   ⊦ (map | s)[a] = map[a];
+  restrict-intersect: ((map | s1) | s2) = (map | (s1 ∩ s2));
+
+  delete-remove1:   (map \ s) -- a = (map -- a) \ s;
+  delete-remove2:    map -- a = map \ { a };
+
+  updateAll-haskey:  haskey(a, updateAll(map1, map2)) ↔ haskey(a, map1);
+  updateAll-lookup1: ¬ haskey(a, map2) ⊦ updateAll(map1, map2)[a] = map1[a];
+  updateAll-lookup2: haskey(a, map1), haskey(a, map2) ⊦ updateAll(map1, map2)[a] = map2[a];
+
+  difference-haskey1: legal(map1), legal(map2), haskey(a, map1), ¬ haskey(a, map2) ⊦ haskey(a, difference(map1, map2));
+  difference-haskey2: legal(map1), legal(map2), haskey(a, map1), haskey(a, map2), map1[a] = map2[a] ⊦ ¬ haskey(a, difference(map1, map2));
+  difference-haskey3: legal(map1), legal(map2), haskey(a, map1), haskey(a, map2), map1[a] ≠ map2[a] ⊦ haskey(a, difference(map1, map2));
+  difference-lookup:  legal(map1), legal(map2), haskey(a, difference(map1, map2)) ⊦ difference(map1, map2)[a] = map1[a];
+
+  ;; helper lemmas
+
+  keyCount-difference: legal(map1), legal(map2) ⊦ keyCount(difference(map1, map2), a) = (haskey(a, map1) ∧ (¬ haskey(a, map2) ∨ map1[a] ≠ map2[a]) ⊃ 1; 0);
+  keyCount-valueDiff: legal(map1), legal(map2) ⊦ keyCount(valueDiff(map1, map2), a) = ((haskey(a, map1) ∧ haskey(a, map2) ∧ map1[a] ≠ map2[a]) ⊃ keyCount(map1, a); 0);
+
+  keyCount-restrict: keyCount(map | s, a) = (a ∈ s ⊃ keyCount(map, a); 0);
+  keys-delete:       keys(map \ s) = keys(map) \ s;
+
+  keyCount-delete:  keyCount(map \ s, a) = (a ∈ s ⊃ 0 ; keyCount(map, a));
+  keys-restrict:     keys(map | s) = keys(map) ∩ s;

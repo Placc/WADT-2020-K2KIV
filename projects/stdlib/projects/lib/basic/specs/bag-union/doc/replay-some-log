@@ -1,0 +1,36 @@
+: successful
+### No save necessary ###
+### Next replay: bag-rm-add-eq ###
+bag-rm-add-eq: successful
+### No save necessary ###
+### Next replay: diff-add-sw ###
+diff-add-sw: successful
+### No save necessary ###
+### Next replay: difference ###
+difference: successful
+### No save necessary ###
+### Next replay: exin ###
+exin: successful
+### No save necessary ###
+### Next replay: subset-one ###
+subset-one: successful
+### No save necessary ###
+### Next replay: subset-plusminus ###
+subset-plusminus: successful
+### No save necessary ###
+### Next replay: subset-plusplus ###
+subset-plusplus: successful
+### No save necessary ###
+### Next replay: subset-size ###
+subset-size: successful
+### No save necessary ###
+### Next replay: subset-smaller ###
+subset-smaller: successful
+### No save necessary ###
+### Next replay: subset-trans ###
+subset-trans: successful
+### No save necessary ###
+### Next replay: union-diff-distr ###
+union-diff-distr: successful
+### Done ###
+### Saving lemmas next ###

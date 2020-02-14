@@ -1,0 +1,48 @@
+
+;; variables m : nat;
+
+lemmas
+
+infinite-append-prefixnextli: (: ∀ nextli. :)
+      ∀ x. x ⊑ nextli(x) 
+      ⊦ ∃ σ, ii.   ii(0) = 0
+                 ∧ (∀ n.   ¬ # σ < ⌜ii(n + 1)⌝
+                         ∧ σ to ii(n + 1) = ⌜nextli((σ to ii(n)).l)⌝
+                         ∧ (# σ = ⌜ii(n)⌝ ⊃ ii(n) = ii(n + 1); ii(n) < ii(n + 1))
+                    )
+                 ∧ (∀ m, n. m ≤ n → ii(m) ≤ ii(n))
+                 ∧ (finp(σ) ⊃ (∃ n.   # σ = ⌜ii(n)⌝ 
+                                   ∧ ⌜nextli(σ.l)⌝ = σ 
+                                   ∧ ∀ m. (n ≤ m ⊃ ii(m) = ii(n); ii(m) < ii(m + 1)))
+                            ; ∀ n. ∃ m. ii(m) ≤ n ∧ n < ii(m + 1));
+
+
+infinite-append-prefixnextnli: (: ∀ nextnli. :)
+      ∀ x,n. x ⊑ nextnli(x,n) 
+      ⊦ ∃ σ, ii.   ii(0) = 0
+                 ∧ (∀ n.   ii(n) ≤ ii(n + 1) ∧ ¬ # σ < ⌜ii(n + 1)⌝
+                         ∧ σ to ii(n + 1) = ⌜nextnli((σ to ii(n)).l,n)⌝
+                    )
+                 ∧ (∀ m, n. m ≤ n → ii(m) ≤ ii(n))
+                 ∧ (finp(σ) ⊃ (∃ n.    # σ = ⌜ii(n)⌝ ∧ ⌜nextnli(σ.l,n)⌝ = σ ∧ ∀ m. n ≤ m → ii(m) = ii(n))
+                            ; ∀ n. ∃ m. ii(m) ≤ n ∧ n < ii(m + 1));
+
+nextli-lemma : (: ∀ nextli :: list → list :)
+               ∃ lf. lf(0) = [] ∧ ∀ n. lf(n + 1) = nextli(lf(n));
+
+nextnli-lemma : (: ∀ nextnli :: list × nat → list :)
+               ∃ lf. lf(0) = x ∧ ∀ n. lf(n + 1) = nextnli(lf(n),n);
+
+
+infinite-append-prefixnextli-weak: (: ∀ nextli. :)
+      ∀ x. x ⊑ nextli(x) 
+      ⊦ ∃ σ, ii.   ii(0) = 0
+                 ∧ (∀ n.   ii(n) ≤ ii(n + 1) ∧ ¬ # σ < ⌜ii(n + 1)⌝
+                         ∧ σ to ii(n + 1) = ⌜nextli((σ to ii(n)).l)⌝
+                    )
+                 ∧ (∀ m, n. m ≤ n → ii(m) ≤ ii(n))
+                 ∧ (finp(σ) ⊃ (∃ n.    # σ = ⌜ii(n)⌝ ∧ ⌜nextli(σ.l)⌝ = σ ∧ ∀ m. n ≤ m → ii(m) = ii(n))
+                            ; ∀ n. ∃ m. ii(m) ≤ n ∧ n < ii(m + 1));
+
+;;; END
+

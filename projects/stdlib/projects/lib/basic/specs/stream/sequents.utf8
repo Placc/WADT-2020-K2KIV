@@ -1,0 +1,459 @@
+lemmas
+
+constrrew            : ⌜a + x⌝  = ⌜a ' ⌝ + ⌜x⌝ ;
+comment: needed as a constructor rewrite, unnecessary as a simplifier rule;
+
+;;;END
+
+inf-size-from:
+# σ = ∞
+  → # (σ from n) = ∞;
+used for: s,ls;
+
+append-from-ge-01 : # x ≤ m → (⌜x⌝  + σ)  from m = σ from (m - # x); used for: s, ls;
+append-from-ge-02 : ¬ ⌜m⌝ < # σ0  → (σ0  + σ)  from m = σ from (m - (# σ0).n);
+
+append-notsmallersize1:
+σ + σ0 = σ1 → (# σ1 < # σ ↔ false);
+used for: s,ls;
+
+append-notsmallersize2:
+σ + σ0 = σ1 → (# σ1 < # σ0 ↔ false);
+used for: s,ls;
+
+
+contractinf-from1: ⌜nf(0) '⌝  + ⌜nf from 1⌝ = ⌜nf⌝;
+contractinf-tl: ⌜nf(0) '⌝  + tl(⌜nf⌝) = ⌜nf⌝;
+
+
+appendend-equal:
+σ + σ0 = σ ↔ ¬ ¬ (σ0 = [] ∨ # σ = ∞);
+used for: s,ls;
+
+
+toinf-add: σ to∞ (⌜n⌝  + ⌜m⌝) = σ to (n  + m);
+used for: s,ls;
+
+toinf-empty3: n∞ < # σ → σ to∞ (n∞ + ⌜1⌝) ≠ []; used for: s,ls;
+toinflen: # σ = n∞ → (σ to∞ n∞) = σ; used for: s,ls;
+inf-not-toinf-exceptinf: ⌜nf⌝ = σ to∞ n∞ ↔ ¬ ¬ (n∞ = ∞ ∧ ⌜nf⌝ = σ); used for: s,ls;
+append-toinf-ls: ¬ # σ < n∞ → (σ + σ0) to∞ n∞ = σ to∞ n∞;used for: s,ls;
+
+toinfto-append-add: ¬ # σ < n∞ ∧ ¬ # σ0 < ⌜n1⌝ → ((σ to∞ n∞) + σ0) to∞ (⌜n1⌝ + n∞) = (σ to∞ n∞) + (σ0 to n1);used for: s,ls;
+
+toinftoinf-append-add: ¬ # σ < n∞ ∧ ¬ # σ0 < n∞1 → ((σ to∞ n∞) + σ0) to∞ n∞1 + n∞ = (σ to∞ n∞) + (σ0 to∞ n∞1);used for: s,ls;
+
+from-append-toinffrom: ¬ # σ < ⌜n⌝ + n∞1  → (σ to n) + ((σ from n) to∞ n∞1) = σ to∞ (⌜n⌝ + n∞1); used for : s,ls;
+
+
+
+
+toinf-empty-inf: ⌜nf⌝ to∞ n∞ = [] ↔ n∞ = ⌜0⌝;used for: s, ls;
+toinf-empty: n∞ < # σ → (σ to∞ n∞ = [] ↔ n∞ = ⌜0⌝);used for: s, ls;
+toinf-empty2: ¬ # σ < n∞ → (σ to∞ n∞ = [] ↔ n∞ = ⌜0⌝);used for: s, ls;
+
+size-toinf : ¬ # σ < n∞ ⊦ # (σ to∞ n∞) = n∞;  used for: s, ls;
+
+
+
+get-inftoinf: ⌜m⌝ < n∞ ⊦ (⌜nf⌝ to∞ n∞)[m] = nf(m);used for: s,ls;
+get-fintoinf: ¬ ⌜# x⌝ < n∞, ⌜m⌝ < n∞ ⊦ (⌜x⌝ to∞ n∞)[m] = x[m];used for: s,ls;
+get-toinf: ⌜m⌝ < n∞, ¬ # σ < n∞ ⊦ (σ  to∞ n∞)[m] = σ[m];used for: s,ls;
+fin-toinf : finp(σ to∞ n∞) ↔ n∞ ≠ ∞ ∨ finp(σ);  used for: s,ls;
+
+toinf-to-ls : ¬ # σ < n∞  ⊦ ⌜m⌝ < n∞ → (σ to∞ n∞) to m = σ to m;  used for: s,ls;
+toinf-to-leq : ¬ # σ < n∞ ⊦ ¬ n∞ < ⌜m⌝ → (σ to∞ n∞) to m = σ to m; used for: s,ls;
+
+
+toinf-to-leq-inf : ¬ n∞ < ⌜m⌝  → (⌜nf⌝ to∞ n∞) to m = ⌜nf to m⌝; used for: s,ls;
+toinf-to-eq : ¬ # σ < n∞ ⊦ (σ to∞ n∞) to∞ n∞ = σ to∞ n∞; used for: s,ls;
+toinf-to-eq-inf : ⊦ (⌜nf⌝ to∞ n∞) to∞ n∞ = ⌜nf⌝ to∞ n∞; used for: s,ls;
+
+
+
+
+size-inf-toinf : # (⌜nf⌝ to∞ n∞) = n∞;used for: s,ls;
+
+
+from-infto-exchange : ¬ # σ < ⌜m⌝ + n∞ →  (σ to∞ (⌜m⌝ + n∞)) from m = (σ from m) to∞ n∞;
+
+
+to-empty3: ⌜n⌝ < # σ → σ to (n + 1) ≠ []; used for: s,ls;
+to-empty4: σ ≠ [] → σ to 1 ≠ []; used for: s,ls;
+
+from-from-inf : (nf from m) from n = nf from (m + n);
+swap-from-to: ¬ # σ < ⌜m⌝ + ⌜n⌝  → ((σ from m) to n) = ((σ to m + n) from m);
+swap-to-from: m ≤ n ∧ ¬ # σ < ⌜n⌝  → ((σ to n) from m) = ((σ from m) to (n - m));
+swap-to-from-app: m ≤ n ∧ ¬ # σ < ⌜n⌝  → (((σ to n) + σ0) from m) = (((σ from m)  to (n - m)) + σ0);
+
+swap-inf-from-to: ((nf from m) to n) = ((nf to m + n) from m);
+swap-inf-to-from: m ≤ n → ((nf to n) from m) = ((nf from m) to (n - m));
+swap-inf-to-from-app: m ≤ n   → ((⌜nf to n⌝ + σ0) from m) = (⌜(nf from m)  to (n - m)⌝ + σ0);
+
+
+nlslen-lslensn-eqlensn: ⌜n⌝  < # σ ∧ (¬ ⌜n⌝ + ⌜1⌝ < # σ) → # σ = ⌜n⌝  + ⌜1⌝;used for: f,lf;
+
+fin-finlen-tolen: # x = n → (x to n) = x; used for: s,ls;
+finlen-tolen: # σ = ⌜n⌝ → (σ to n) = σ; used for: s,ls;
+
+ton-fromn: ¬ # σ < ⌜n⌝ → (σ to n) from n  = [];used for: s,ls;
+ton-fromn-inf: (nf to n) from n  = [];used for: s,ls;
+ton-fromn-fin: ¬ # x < n → (x  to n) from n  = [];used for: s,ls;
+
+lslen-fromnotempty: ⌜n⌝ < # σ → (σ from n = [] ↔ false); used for: s,ls;
+lslen-fromnotempty-list: n < # x → (x from n = [] ↔ false); used for: s,ls;
+inf-not-to: ⌜nf⌝ ≠ σ to n; used for: s,ls;
+append-to-ls: ¬ # σ < ⌜n⌝ → (σ + σ0) to n = σ to n;used for: s,ls;
+from-append-add: ¬ # σ < ⌜n⌝ ∧ ¬ # σ0 < ⌜n1⌝ → ((σ to n) + σ0) from n1 + n = σ0 from n1;used for: s,ls;
+to-append-add: ¬ # σ < ⌜n⌝ ∧ ¬ # σ0 < ⌜n1⌝ → ((σ to n) + σ0) to n1 + n = (σ to n) + (σ0 to n1);used for: s,ls;
+
+size-from-less: ¬ # σ < ⌜n⌝ → (# (σ from n) < ⌜n0⌝ ↔ # σ < ⌜n + n0⌝); used for: s,ls;
+from-append-tofrom: ¬ # σ < ⌜n + n1⌝  → (σ to n) + ((σ from n) to n1) = σ to (n + n1); used for : s,ls;
+
+to-unwind-begin: ⌜n⌝ < # σ ⊦ σ to (n + 1) =  σ[0] + (tl(σ) to n) ;
+to-unwind-begin-fin: m < # x ⊦ x to m + 1 = x.head + (x.tail to m);
+;; gleich wie Axiom to-succ-nf
+;;;to-unwind-begin-inf: ⊦ nf to m + 1 = nf(0) + ((λ n. nf(n +1)) to m) ;
+
+
+to-empty-inf: nf to n = [] ↔ n = 0;used for: s, ls;
+to-empty: ⌜n⌝ < # σ → (σ to n = [] ↔ n = 0);used for: s, ls;
+to-empty2: ¬ # σ < ⌜n⌝ → (σ to n = [] ↔ n = 0);used for: s, ls;
+
+to-empty-fin : n < # x → (x to n = [] ↔ n = 0);used for: s, ls;
+to-empty-fin2 : n ≤ # x → (x to n = [] ↔ n = 0);used for: s, ls;
+
+size-to : ¬ # σ < ⌜n⌝ ⊦ # (σ to n) = ⌜n⌝;  used for: s, ls;
+size-to-02 : ¬ # σ < ⌜n⌝ ⊦ # (σ to n) .l = n;  used for: s, ls;
+
+
+
+get-infto: m < n ⊦ (nf to n)[m] = nf(m);used for: s,ls;
+get-finto: ¬ # x < n, m < n ⊦ (x to n)[m] = x[m];used for: s,ls;
+get-to: m < n, ¬ # σ < ⌜n⌝ ⊦ (σ  to n)[m] = σ[m];used for: s,ls;
+get-to-02: m < n, ¬ # σ < ⌜n⌝ ⊦ (σ  to n) .l[m] = σ[m];used for: s,ls;
+
+
+cons-extract-list: finp(σ) ⊦ (⌜a '⌝  + σ).l = (a '  + σ .l);
+used for : s,ls;
+append-extract-list: finp(σ) ⊦ (⌜x⌝  + σ).l = (x  + σ .l); 
+used for : s,ls;
+append-extract-list-2: finp(σ), finp(σ0) ⊦ (σ0  + σ) .l = (σ0 .l  + σ .l); 
+used for : s,ls;
+
+fin-to : finp(σ to m);  used for: s,ls;
+
+;;; do not rewrite with these rules, since we sometimes have to cut the equation
+to-plus-from: ¬ # σ < ⌜n⌝ → (σ to n) + (σ from n) = σ; 
+to-plus-from-fin: n ≤ # x → (x to n) + (x from n) = x;
+to-plus-from-inf : ⌜nf to n⌝ + ⌜nf from n⌝ = ⌜nf⌝;
+
+to-plus-from-simp: ¬ # σ < ⌜n⌝  ⊦ ((σ to n) + (σ from n) ≠ σ ↔ false); used for: s,ls;
+to-plus-from-fin-simp : ¬ # x < n → ((x to n) + (x from n) ≠ x ↔ false); used for: s,ls;
+to-plus-from-inf-simp : (⌜(nf to n)⌝ + ⌜nf from n⌝ ≠ ⌜nf⌝ ↔ false); used for: s,ls;
+
+
+to-to-ls : ¬ # σ < ⌜n⌝  ⊦ m < n → (σ to n) to m = σ to m;  used for: s,ls;
+to-to-leq : ¬ # σ < ⌜n⌝ ⊦ m ≤ n → (σ to n) to m = σ to m; used for: s,ls;
+
+to-to-leq-inf : m ≤ n  → (nf to n) to m = nf to m; used for: s,ls;
+to-to-eq : ¬ # σ < ⌜n⌝ ⊦ (σ to n) to n = σ to n; used for: s,ls;
+to-to-eq-inf : ⊦ (nf to n) to n = nf to n; used for: s,ls;
+
+
+leq-trans : σ ≤ σ1 ∧ σ1 ≤ σ2 → σ ≤ σ2;
+leq-refl : σ ≤ σ; used for: s,ls;
+leq-symm : σ1 ≤ σ2 ∧ σ2 ≤ σ1 → σ1 = σ2;
+leq-symm-2 : σ1 ≤ σ2 → (σ2 ≤ σ1 ↔ σ1 = σ2); used for : s,ls;
+leq-empty : [] ≤ σ; used for : s,ls;
+leq-prefix: σ1 ≤ σ2 → σ1 = σ2 ∨ ∃ n. ⌜n⌝ < # σ2 ∧ σ2 to n = σ1;
+
+
+empty-leq : σ ≤ [] ↔ σ = []; used for : s,ls;
+leq-append-left : σ0 + σ1 ≤ σ → (¬ σ0 ≤ σ ↔ false); used for: s,ls;
+
+leq-append-right: σ1 ≤ σ1 + σ2; used for : s,ls;
+leq-append-both: ⌜x⌝ + σ1 ≤ ⌜x⌝ + σ2 ↔ σ1 ≤ σ2 ; used for : s,ls;
+
+
+elim-fromto : ¬ # σ < ⌜n⌝ → (σ0 = σ to n ∧ σ1 = σ from n ↔ σ = σ0 + σ1 ∧ # σ0  = ⌜n⌝); 
+elim-fromto-fin : ¬ # x < n → (x0 = x to n ∧ x1 = x from n ↔ x = x0 + x1 ∧ # x0  = n); 
+elim-fromto-inf : x0 = nf to n ∧ nf0 = nf from n ↔ nf = (⌜x0⌝ + ⌜nf0⌝) .f ∧ # x0  = n; 
+
+
+size-empty-equiv : # σ = ⌜0⌝ ↔ σ = []; used for : ls, s;
+get-from-01 : m + m0 < # x ⊦ (x from m)[m0] = x[m + m0]; used for: s, ls;
+get-from :  ⌜n⌝ + ⌜m⌝ < # σ → (σ from n)[m] = σ[n + m]; used for: s, ls;
+get-from-zero :  ⌜n⌝ < # σ → (σ from n)[0] = σ[n]; used for: s, ls;
+get-from-inf : ⊦ (nf from n)(m) = nf(m + n); used for: s, ls;
+get-from-inf-zero : ⊦ (nf from n)(0) = nf(n); used for: s, ls;
+
+
+
+toone-equal : σ ≠ [] ⊦ σ to 1 =  ⌜ a '⌝ ↔ σ[0] = a;used for: s,ls;
+toone-cons : ⌜a '⌝ + σ  to 1 =  ⌜ a '⌝ ;used for: s,ls;
+toone-one : ⌜a '⌝ to 1 =  ⌜ a '⌝ ;used for: s,ls;
+toone-cons-fin: a ' + y to 1 = a ';used for: s,ls;
+
+
+
+append-cancel-l : ⌜x⌝ + σ0 = ⌜x⌝ + σ1 ↔ σ0 = σ1;
+append-cancel-r-02: finp(σ) ⊦ (σ0 + σ = σ ↔ σ0 = []); used for : s,ls;
+append-cancel-r-01 : finp(σ) → (⌜x⌝ + σ = ⌜y⌝ + σ ↔ ⌜x⌝ = ⌜y⌝); used for: s,ls;
+append-cancel-l-02 : σ0 + σ = σ0 ↔ ¬ ¬ (σ = [] ∨ ¬ finp(σ0)); used for : s,ls;
+;; append-cancel-r-02 : ⌜x⌝ + ⌜z⌝ = ⌜y⌝ + ⌜z⌝ ↔ ⌜x⌝ = ⌜y⌝; used for: s,ls;
+;; append-cancel-r-03 : ⌜z⌝  = ⌜y⌝  + ⌜z⌝ ↔ ⌜y⌝ = []; used for: s,ls;
+;; append-cancel-r-02 : finp(σ) →  (⌜z⌝  = σ + ⌜z⌝ ↔ σ = []); used for: s,ls;
+
+
+to-unwind-end: ⌜n⌝ < # σ ⊦ σ to (n + 1) = (σ to n) + ⌜σ[n] '⌝; (: ??? Warum nicht  σ[n] statt ⌜σ[n] '⌝ :)
+to-unwind-end-fin: m < # x ⊦ x to m + 1 = (x to m) + x[m] ';
+to-unwind-end-inf: ⊦ nf to m + 1 = (nf to m) + nf(m) ';
+
+single-to-one: a '  to 1 = a ' ;
+
+finp-to:  ¬ # σ < ⌜n⌝ ⊦ finp(σ to n); used for: s,ls;
+fin-size-from: ⌜n⌝ < # σ ∧ finp(σ) → # (σ from n) = ⌜(# σ) .n  - n⌝;
+fin-size-from2: ¬ # σ < ⌜n⌝ ∧ finp(σ) → # (σ from n) = ⌜(# σ) .n  - n⌝;
+
+from-succ: ⌜n⌝ < # σ → σ from n = σ[n] + (σ from (n + 1)); 
+
+
+cons-eq-inf : ⌜nf⌝  = a0 + σ ↔ nf(0) = a0 ∧ ⌜λ n. nf(n + 1)⌝  = σ ;
+cons-eq : ⌜a '⌝ + σ = ⌜a0 '⌝ + σ0 ↔ a = a0 ∧ σ = σ0 ; used for : ls, s;
+
+
+
+append-from-le : n ≤ # x →  (x + y) from n  = (x from n) + y ; used for : s,ls;
+append-from-gt : # x < n →  (x + y) from n  = y from (n - # x); used for : s,ls;
+append-from-addsize : (x1 + x0) from (n + # x1) = x0 from n; used for : s,ls;
+append-from-size : (x + y) from # x = y; used for : s,ls;
+
+
+append-to-le :  n ≤ # x → (x + y) to n = x to n; used for : s,ls;
+append-to-gr :  # x < n → (x + y) to n = x + (y to (n - # x)); used for : s,ls;
+append-to-addsize : (x + y) to (n + # x) = x + (y to n); used for : s,ls;
+append-to-size : (x + y) to # x = x ; used for : s,ls;
+
+
+append-to-le-01 : m ≤ # x → (⌜x⌝  + σ) to m = ⌜x to m⌝; used for: s, ls;
+append-to-gr-01 : # x < m → (⌜x⌝  + σ)  to m = ⌜x⌝ + (σ to (m - # x)); used for: s, ls;
+append-to-addsize-01 : (⌜x⌝  + σ)  to (m + # x) = ⌜x⌝ +  (σ to m); used for: s, ls;
+append-to-size-01 : (⌜x⌝  + σ)  to # x = ⌜x⌝ ; used for: s, ls;
+
+append-from-le-01 : m ≤ # x → (⌜x⌝  + σ) from m = ⌜x from m⌝ + σ; used for: s, ls;
+append-from-gr-01 : # x < m → (⌜x⌝  + σ)  from m = σ from (m - # x); used for: s, ls;
+append-from-gr-02 : # σ0 < ⌜m⌝ → (σ0  + σ)  from m = σ from (m - (# σ0).n);
+append-from-addsize-01 : (⌜x⌝  + σ)  from (m + # x) = σ from m; used for: s, ls;
+append-from-size-01 : (⌜x⌝  + σ)  from # x = σ; used for: s, ls;
+
+
+get-append2-fin: (⌜x⌝  + ⌜x0⌝ )[m] = (x  + x0 )[m]; used for: s, ls;
+get-append3-fin: (⌜x⌝  + ⌜x0⌝ + ⌜x1⌝)[m] = (x  + x0 + x1)[m]; used for: s, ls;
+
+one-inf : ⌜a '⌝ + ⌜nf⌝ =  ⌜ λ n. n = 0 ⊃ a; nf(n -1)⌝;
+
+hd-one : hd(⌜a '⌝ ) = a; used for : s,ls;
+to-inf-one : nf to 1 = nf(0) '; used for: s,ls;
+from-cons-one : (⌜a '⌝ + σ) from 1 = σ; used for: s,ls;
+from-cons-one-fin:  a ' + x from 1 = x;used for: s,ls;
+from-nf-zero : nf from 0 = nf; used for: s,ls;
+
+
+
+length-from : ¬ # x < n ⊦ # (x from n) = # x - n; used for: s, ls;
+length-to : ¬ # x < n ⊦ # (x to n) = n; used for: s, ls;
+
+size-inf-to : # (nf to n) = n;used for: s,ls;
+notfin-sizeinf : ¬ finp(σ) → # σ = ∞; used for: s,ls;
+inf-size-to : # (⌜nf to n⌝) = ⌜n⌝; used for: s,ls;
+
+
+less-size-from : ⌜n⌝ < # σ ⊦ (⌜n0⌝ < # (σ from n) ↔ ⌜n0 + n⌝ < # σ); used for : s,ls;
+
+size-succ: # σ < ⌜n⌝  + ⌜1⌝ ↔ ¬ ⌜n⌝ < # σ;
+
+cons-append : a + σ = ⌜a '⌝ + σ; used for: s,ls;
+
+append-empty : σ + [] = σ;
+append-empty-01 : σ0 + σ1 = [] ↔ σ0 = [] ∧ σ1 = [];used for: s,ls;
+hd-fin-lem : hd(⌜a '⌝ + ⌜x⌝) = a;used for: s,ls;
+tl-fin-lem : tl(⌜a '⌝ + ⌜x⌝) = ⌜x⌝;used for: s,ls;
+tl-one : tl(⌜a '⌝) = [];used for: s,ls;
+hd-lem : hd(⌜a '⌝ + σ) = a;used for: s,ls;
+tl-lem : tl(⌜a '⌝ + σ) = σ;used for: s,ls;
+neq-fin-inf-01 : ⌜x⌝  ≠ σ  + ⌜nf0⌝; used for: s,ls;
+neq-fin-inf-02 : σ0 + ⌜x⌝  = σ  + ⌜nf0⌝ ↔ σ0 = σ  + ⌜nf0⌝; used for: s,ls;
+neq-fin-inf-03 : σ0 + ⌜x⌝  = ⌜nf0⌝ ↔ σ0 = ⌜nf0⌝; used for: s,ls;
+
+
+
+
+
+eq-stream-to-list-2-1: ⌜x⌝ + ⌜y⌝ = ⌜z⌝ ↔ x + y = z;used for: s,ls;
+eq-stream-to-list-3-1: ⌜x⌝ + ⌜y⌝ + ⌜z⌝ = ⌜x0⌝ ↔ x + y + z = x0;used for: s,ls;
+eq-stream-to-list-2-2: ⌜x⌝ + ⌜y⌝ = ⌜x0⌝ + ⌜z⌝ ↔ x + y = x0 + z;used for: s,ls;
+eq-stream-to-list-3-2: ⌜x1⌝ + ⌜x⌝ + ⌜y⌝ = ⌜x0⌝ + ⌜z⌝ ↔ x1 + x + y = x0 + z;used for: s,ls;
+eq-stream-to-list-3-3: ⌜x1⌝ + ⌜x⌝ + ⌜y⌝ = ⌜x2⌝ + ⌜x0⌝ + ⌜z⌝ ↔ x1 + x + y = x2 + x0 + z;used for: s,ls;
+
+
+
+to-zero : σ to 0 = [];  used for: s,ls;
+to-succ-cons : (⌜a '⌝ + σ) to n + 1 =  a + (σ to n);  used for: s,ls;
+from-succ-cons : (⌜a '⌝ + σ) from n + 1 = σ from n;  used for: s,ls;
+
+
+from-succ-cons-l-lem : (a ' + x) from n + 1 = x from n;  used for: s,ls;
+to-succ-cons-l-lem : (a ' + x) to n + 1 =  a + (x to n);  used for: s,ls;
+
+
+from-zero : σ from 0 = σ; used for: s,ls;
+
+
+
+
+append-eq-inf : ⌜nf⌝ = σ + ⌜x⌝ ↔ ⌜nf⌝ = σ;
+
+
+extensionality-to : σ0 = σ1 ↔ # σ0 = # σ1 ∧ ∀ n. ¬ # σ0 < ⌜n⌝ → σ0 to n = σ1 to n;
+extensionality : σ0 = σ1 ↔ # σ0 = # σ1 ∧ ∀ n. ⌜n⌝ < # σ0 → σ0[n] = σ1[n];
+
+
+
+from-to-exchange : ¬ # σ < ⌜m⌝ + ⌜n⌝ →  (σ to (m + n)) from m = (σ from m) to n;
+
+
+
+cons-to-num: n ≠ 0 → (⌜a '⌝ + σ) to (* n) = ⌜a '⌝ + (σ to (n - 1)); used for : s,ls;
+cons-from-num: n ≠ 0 → (⌜a '⌝ + σ) from (* n) = σ from (n - 1); used for : s,ls;
+cons-to-addnum: n ≠ 0 → (⌜a '⌝ + σ) to ((* n) + m) = ⌜a '⌝ + (σ to ((n - 1) + m)); used for : s,ls;
+cons-from-addnum: n ≠ 0 → (⌜a '⌝ + σ) from ((* n) + m) = σ from ((n - 1) + m); used for : s,ls;
+
+append-split: finp(σ) ∧ # σ = # σ1 → (σ + σ0 = σ1 + σ2 ↔ σ = σ1 ∧ σ0 = σ2);
+
+
+to-from-01 : ⌜n⌝ < # σ ⊦ (σ to n) from n = []; used for : s,ls;
+finp-infto: finp(⌜nf to n⌝); used for: s,ls;
+
+
+
+zero-len  : ⌜0⌝  < # σ ↔ σ ≠ []; used for : s,ls;
+
+
+
+
+
+fin-neq-inf: a + ⌜nf⌝  ≠ ⌜x⌝; used for : s,ls;
+get-cons-num : n ≠ 0 ⊦ (⌜a '⌝ + σ)[(* n)] = σ[n - 1];used for : s,ls;
+
+
+
+
+
+
+
+
+
+elim-hd-tl : σ ≠ [] → (a = hd(σ) ∧ σ0 = tl(σ) ↔ σ = a + σ0);
+used for: e;
+
+extract-empty: [] .l = [];
+used for : s,ls;
+
+get-append-ls : ⌜m⌝ < # σ →  (σ + σ1)[m] = σ[m]; used for : s,ls;
+get-append-notls : ¬ ⌜m⌝ < # σ →  (σ + σ1)[m] = σ1[m - (# σ) .n]; used for : s,ls;
+
+
+
+
+;; get-append-ls + get-append-grt in list-del
+;; get-append-fin-ls : m < # x → (x + x0)[m] = x[m]; used for : s,ls;
+;; get-append-fin-notls : ¬ m < # x → (x + x0)[m] = x0[m - # x]; used for : s,ls;
+
+
+
+
+size-from-inf : # (⌜nf⌝ from n) = ∞; used for : s, ls;
+expand-cons : σ ≠ [] → ∃ a, σ0. σ = ⌜a '⌝ + σ0; 
+
+from-from : ¬ # σ < ⌜m + n⌝ → (σ from m) from n = σ from (m + n);
+
+
+to-all : x  to # x = x; used for : s, ls;
+from-all : x from # x = []; used for : s, ls;
+to-attach: ⌜x + a '⌝  to # x = ⌜x⌝ ; used for : s,ls;
+
+
+finp-empty : finp([]); used for : s, ls;
+
+fin-empty : ⌜x⌝  = [] ↔ x = []; used for : s,ls;
+stream-empty : [] = σ1 + σ2 ↔ σ1 = [] ∧ σ2 = [];
+intrace-expand : ⌜nf⌝ = nf(0) + ⌜λ n. nf(n + 1)⌝;
+empty-append : [] + σ = σ;
+
+append-assoc : (σ + σ1) + σ2 = σ + (σ1 + σ2); used for: s,ls;
+
+append-cut1 : σ + σ1 = σ + σ2 ↔ σ1 = σ2 ∨ # σ = ∞;
+
+(: so falsch (1) + (1,1,....) = (1,1) + (1,1....) :)
+(: append-cut2 : σ1 + σ = σ2 + σ ↔ σ1 = σ2 ; :)
+
+size-append : # (σ + σ1) = (# σ) + # σ1;
+finp-append-01 : finp(σ) ∧ finp(σ1) → finp(σ + σ1);
+finp-append-02 : finp(⌜x⌝ + σ) ↔ finp(σ);
+ 
+get-cons-zero : (⌜a '⌝ + σ)[0] = a;used for : ls, s;
+get-cons-succ : (⌜a '⌝ + σ)[n + 1] = σ[n];used for : ls, s;
+size-empty : # [] = ⌜0⌝; used for : ls, s;
+
+
+cons-empty : ⌜a '⌝ + σ ≠ [] ;  used for : ls, s;
+fun-nonempty : ¬ [] = ⌜nf⌝;  used for : ls, s;
+
+
+;;; hmm wierum das verwenden??
+from-appfin: ⌜x⌝ + ⌜y⌝ from n = ⌜x + y from n⌝;
+to-appfin: ⌜x⌝ + ⌜y⌝ to n = ⌜x + y to n⌝;
+
+
+
+;;; END
+
+
+;;; aussortiert bei Umstellung quine out -> quine in
+;;; to-addone: false ⊦ ⌜m + 1⌝ < # σ → (σ to m) + ⌜σ[m] '⌝ = σ to (m + 1); 
+;;; to-recend-weak:  false ⊦ ⌜n + 1⌝ < # σ → σ to (n + 1) = (σ to n) + ⌜σ[n] '⌝;
+;;; add-cons : false ⊦ a + σ = ⌜a0 ' + y⌝  + σ0 ↔ a = a0 ∧  σ = ⌜y⌝  + σ0;used for: s,ls;
+;;; add-append : false ⊦ ⌜x⌝ + σ = ⌜x + y⌝  + σ0 ↔ σ = ⌜y⌝  + σ0; used for: s,ls;
+;;; 
+;;; to-succ-cons-01 : false ⊦ ⌜a ' + x⌝  to 1 =  ⌜ a '⌝ ;used for: s,ls;
+;;; to-succ-cons-app : false ⊦ (⌜a ' + x⌝  + σ) to 1 =  ⌜ a '⌝;used for: s,ls;
+;;; from-succ-cons-01 : false ⊦ ⌜a ' + x⌝ from 1 = ⌜x⌝;used for: s,ls;
+;;; from-succ-cons-app : false ⊦ (⌜a ' + x⌝  + σ) from 1 = ⌜x⌝ + σ;used for: s,ls;
+;;; finp-cons : finp(a + σ) ↔ finp(σ);
+;;; from-fin : n < # x → ⌜x⌝ from n = ⌜restn(n,x)⌝;
+;;; from-fin-1 : ¬ # x < n  → ⌜x⌝ from n = ⌜restn(n,x)⌝;
+;;; from-inf : ⌜nf⌝ from n = ⌜λ m. nf(m + n)⌝;
+;;; 
+;;; to-fin : n < # x → ⌜x⌝ to n = ⌜x to n⌝; used for: s,ls;
+;;; to-fin-1 : ¬ # x < n → ⌜x⌝ to n = ⌜x to n⌝;used for: s,ls;
+;;; to-fin-2 : ⌜n⌝ < # σ → ⌜nf⌝  ≠ σ to n; used for: s,ls;
+;;; from-succ-cons-fin : ⌜a '⌝ + ⌜x⌝ from n + 1 = ⌜x⌝ from n;
+;;; to-succ-cons-fin : ⌜a '⌝ + ⌜x⌝ to n + 1 = a + (⌜x⌝ to n); 
+;;; hd-inf-1 : hd(a + ⌜nf⌝) = a; used for : s,ls;
+;;; tl-inf-1 : tl(a + ⌜nf⌝) =  ⌜nf⌝; used for : s,ls;
+;;; hd-fin-1 : hd(⌜a ' + x⌝) = a; used for : s,ls;
+;;; tl-fin-1 : tl(⌜a ' + x⌝) = ⌜x⌝; used for : s,ls;
+;;; hd-cons : hd(a + σ) = a; used for : s,ls;
+;;; tl-cons : tl(a + σ) = σ; used for : s,ls;
+;;; cons-eq-01 : a + σ1 = a + σ2 ↔ σ1 = σ2;
+;;; length-from-fin : n ≤ # x  ⊦ # (⌜x⌝ from n) = ⌜# x - n⌝; used for : s, ls;
+;;; cons-expand : ⌜a '⌝  + σ =  ⌜a0 ' + x⌝ ↔ a = a0 ∧ σ =  ⌜x⌝;
+;;; consappend-assoc :  (a + σ1) + σ2 = a + (σ1 + σ2);
+;;; size-cons : # (a + σ) =  ⌜1⌝ + # σ; used for : s;
+;;; eq-cons-fin : ⌜a1 ' + x⌝  = a0 + σ ↔ a1 = a0 ∧ ⌜x⌝  = σ ;
+;;; ;; gleich wie Axiom to-succ-nf
+;;; ;; to-inf : nf to n + 1 = nf(0) + ((λ m. nf(m + 1)) to n);
+;;; 
+;;; cons-extract-list-2: finp(σ) → (a + σ) ' = (a '  + σ ');
+;;; used for : s,ls;

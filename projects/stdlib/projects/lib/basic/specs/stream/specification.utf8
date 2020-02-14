@@ -1,0 +1,90 @@
+enrich stream-basic, nat-inf with
+
+constants [] : stream;
+
+functions  
+           . + . : elem × stream → stream;
+           . + . : stream × stream → stream;
+           # . : stream → natinf;            
+
+
+           . to .  : (nat → elem) × nat  → list prio 8 left;
+           . from .  : (nat → elem) × nat  → (nat → elem) prio 8 left; 
+
+
+predicates . ≤ .  : stream × stream; 
+
+
+variables σ1, σ2 : stream;
+
+partial functions
+           hd : stream → elem with λ σ1. σ1 ≠ [];
+           tl : stream → stream with λ σ1. σ1 ≠ [];
+           . [ . ] : stream × nat → elem with λ σ1, n. (finp(σ1) → (⌜ n ⌝ < # σ1)) ;
+           . [ . ] : stream × nat × elem → stream with λ σ1, n, a. (finp(σ1) → (⌜ n ⌝ < # σ1));
+           . to .  : stream × nat  → stream prio 8 left with λ σ1, n. (finp(σ1) → (⌜ n ⌝ < # σ1 ∨ ⌜ n ⌝ = # σ1));
+           . to∞ .  : stream × natinf  → stream prio 8 left with λ σ1, n∞ . (finp(σ1) → (n∞ < # σ1 ∨ n∞ = # σ1));
+           . from .  : stream × nat  → stream  prio 8 left with λ σ1, n. (finp(σ1) → (⌜ n ⌝ < # σ1 ∨ ⌜ n ⌝ = # σ1));
+           . to .  : list × nat  → list prio 8 left with λ x, n. n ≤ # x;
+           . from .  : list × nat  → list  prio 8 left with λ x, n. n ≤ # x;
+
+
+;; induction ;
+
+axioms
+
+
+(: hd and tl are not specified for the empty stream :)
+hd-fin : hd(⌜a + x⌝) = a;
+hd-inf : hd(⌜nf⌝) = nf(0);
+tl-fin : tl(⌜a + x⌝) = ⌜x⌝;
+tl-inf : tl(⌜nf⌝) = ⌜λ n. nf(n +1)⌝;
+
+
+prefix-def : σ1 ≤ σ2 ↔ ∃ σ. σ1 + σ = σ2;
+
+sel-fin: ⌜x⌝[n] = x[n]; used for: s,ls;
+sel-inf: ⌜nf⌝[n] = nf(n); used for: s,ls;
+
+modify-fin : ⌜x⌝[n,a] = ⌜x[n,a]⌝; used for: s,ls;
+modify-inf : ⌜nf⌝[n,a] = ⌜λ m. m = n ⊃ a; nf(m)⌝;
+
+empty : ⌜[]⌝ = []; used for: ls, s;
+cons-fin : ⌜a + x⌝ = a + ⌜x⌝;  used for: s,ls;
+cons-inf : a + ⌜nf⌝ =  ⌜ λ n. n = 0 ⊃ a; nf(n -1)⌝;
+
+append-finfin : ⌜x + y⌝ = ⌜x⌝ + ⌜y⌝ ;used for: s,ls;
+append-fininf : ⌜x⌝ + ⌜nf⌝ =  ⌜λ n. n < # x ⊃ x[n]; nf(n - # x)⌝;
+append-inf :  ⌜nf⌝ + σ =  ⌜nf⌝;used for: s;
+
+size-fin: # ⌜x⌝ = ⌜# x⌝;  used for: s,ls;
+size-inf: # ⌜nf⌝ = ∞;  used for: s,ls;
+
+to-fin: ⌜x⌝ to n = ⌜x to n⌝;used for: s,ls;
+to-inf: ⌜nf⌝ to n = ⌜nf to n⌝;used for: s,ls;
+from-fin: ⌜x⌝ from n = ⌜x from n⌝;used for: s,ls;
+from-inf: ⌜nf⌝ from n = ⌜nf from n⌝;used for: s,ls;
+
+
+
+to-zero-nf : nf to 0 = [];  used for: s,ls;
+to-succ-nf : nf to n + 1 =  nf(0) + ((λ n. nf(n + 1)) to n);
+
+from-nf : nf from n = λ m. nf(n + m); 
+
+from-zero-l : x from 0 = x; used for: s,ls;
+from-succ-cons-l : (a + x) from n + 1 = x from n;  used for: s,ls;
+
+to-zero-l : x to 0 = [];  used for: s,ls;
+to-succ-cons-l : (a + x) to n + 1 =  a + (x to n);  used for: s,ls;
+
+toinf-fin:
+σ to∞ ⌜n⌝ = σ to n;
+used for: s,ls;
+
+toinf-inf:
+σ to∞ ∞ = σ;
+used for: s,ls;
+
+
+end enrich

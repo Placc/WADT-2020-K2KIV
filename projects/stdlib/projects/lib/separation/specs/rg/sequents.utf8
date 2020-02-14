@@ -1,0 +1,93 @@
+
+lemmas
+
+owns-one-none:
+a ≠ a0 ∧ owns-one(a, r, rs, g) → owns-none(a, rs, g(r; a0));
+used for : f, lf;
+
+owns-one-map:
+owns-one(a, r, rs, g) → ∀ f. ∃ o. (a[r => o] * true)[rs, f, g];
+
+owns-none-one:
+owns-none(a, rs, g) ∧ r ∈ rs ∧ r ≠ null → owns-one(a, r, rs, g(r; a));
+used for : f;
+
+owns-none-one2:
+owns-none(a, rs, g) ∧ ¬ r ∈ rs ∧ r ≠ null → owns-one(a, r, rs ++ r, g(r; a));
+used for : f;
+
+rely-owns-none:
+rely(a, rs, f, g, rs0, f0, g0) → (owns-none(a, rs, g) ↔ owns-none(a, rs0, g0));
+used for : s, ls; 
+
+rely-owns-one:
+rely(a, rs, f, g, rs0, f0, g0) → (owns-one(a, r, rs, g) ↔ owns-one(a, r, rs0, g0));
+used for : s, ls; 
+
+rely-owned-in-rs:
+rely(a, rs, f, g, rs0, f0, g0) ∧ g(r) = a ∧ r ∈ rs → g0(r) = a ∧ r ∈ rs0;
+used for : f; 
+
+;;; rely-owned-in-rs:
+;;; rely(a, rs, f, g, rs0, f0, g0) ∧ g0(r) = a → (r ∈ rs ↔ r ∈ rs0);
+;;; used for : s;
+
+;;;causes infinite loop if g = g0
+;;; rely-owner-unchgd:
+;;; rely(a, rs, f, g, rs0, f0, g0) → (g(r) = a ↔ g0(r) = a);
+;;; used for : s; 
+
+rely-owned-unchgd:
+rely(a, rs, f, g, rs0, f0, g0) → ((a[P] * true)[rs, f, g] ↔ (a[P] * true)[rs0, f0, g0]);
+used for : s;
+
+;;;  rely(a, rs, f, g, rs0, f0, g0) ∧ (a[P] * R)[rs, f, g] 
+;;; → (a[P] * true)[rs0, f0, g0] ;
+
+;;; rely-owned3-unchgd:
+;;;   rely(a, rs, f, g, rs0, f0, g0) ∧ (a[P] * a0[P0] * a1[P1] * R)[rs, f, g] 
+;;; → (a[P] * a0[P0] * a1[P1] * true)[rs0, f0, g0];
+;;; used for : f;
+
+rely-transfer-owner:
+g(r) ≠ a ∧ a ≠ a0 → rely(a, rs, f, g, rs, f, g(r; a0));
+used for : ss, lss;
+
+rely-map-write-unknown:
+(a[r =>_] * R)[rs, f, g] ∧ a ≠ a0 → rely(a0, rs, f, g, rs, f(r; o), g);
+used for : ss, lss;
+
+rely-map-write-known:
+(a[r => o] * R)[rs, f, g] ∧ a ≠ a0 → rely(a0, rs, f, g, rs, f(r; o0), g);
+used for : ss, lss;
+
+;;; rely-alloc:
+;;; g(r) ≠ a ∧ a0 ≠ a → (¬ rely(a, rs, f, g, rs ++ r, f, g(r; a0)) ↔ false);
+;;; used for : s, ls;
+
+rely-reuse:
+g(r) ≠ a ∧ a0 ≠ a → rely(a, rs, f, g, rs ++ r, f, g(r; a0));
+used for : ss, lss;
+
+rely-alloc:
+¬ r ∈ rs ∧ a0 ≠ a → rely(a, rs, f, g, rs ++ r, f, g(r; a0));
+used for : ss, lss;
+
+rely-refl:
+rely(a,rs,f,g,rs,f,g);
+used for: s, ls;
+
+rely-trans:
+rely(a,rs,f,g,rs0,f0,g0) ∧ rely(a,rs0,f0,g0,rs1,f1,g1) → rely(a,rs,f,g,rs1,f1,g1);
+used for: s;
+
+
+;;;END
+
+;;; rely-owned-merge:
+;;;     rely(a, rs, f, g, rs0, f0, g0) 
+;;;   ∧ (a[P] * R)[rs, f, g] 
+;;;   ∧ (a0[P0] * R0)[rs0, f0, g0] ∧ a ≠ a0 
+;;; → (a[P] * a0[P0] * true)[rs0, f0, g0];
+;;; used for : f, lf;
+;;; 

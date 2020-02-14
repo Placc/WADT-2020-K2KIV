@@ -1,0 +1,15 @@
+: successful
+### No save necessary ###
+### Next replay: clean-sp ###
+clean-sp: successful
+### No save necessary ###
+### Next replay: exec-alloc ###
+exec-alloc: successful
+### No save necessary ###
+### Next replay: exec-assign-sp ###
+exec-assign-sp: successful
+### No save necessary ###
+### Next replay: exec-assign-wp ###
+exec-assign-wp: successful
+### Done ###
+### Saving lemmas next ###

@@ -1,0 +1,65 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+splitlasteq-01
+splitlasteq
+rev-rest
+rev-in
+rev-empty
+rev-dups
+prefix-rec-01
+prefix-one-01
+prefix-more
+prefix-longer
+prefix-in-03
+prefix-in-01
+prefix-in
+prefix-empty-03
+prefix-empty
+prefix-app-03
+prefix-app-02
+postfix-split-stronger
+postfix-rec-right
+postfix-more-01
+postfix-length
+postfix-in-03
+postfix-empty-03
+postfix-empty-02
+postfix-empty-01
+nodups-butlastn
+mklist-rmdup
+mk-succ
+mk-one
+mk-inj
+mk-in
+mk-first
+mk-empty
+lin-01
+lb-01
+last-ex
+last-def
+lapp-05
+lapp-04
+lapp-01
+butlast-len
+butlast-def
+btwo
+blastn-len-0
+blastN-rec-01
+blastN-len
+blastN-all
+blast-first
+bin-02
+b-02
+b-01
+
+
+*** Failures: ***
+
+

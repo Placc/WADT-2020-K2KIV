@@ -1,0 +1,16 @@
+enrich cell-heap, list with
+
+functions
+ls : ref × list → heap → bool;
+
+axioms
+
+ls-base:
+ls(r, []) = (emp ∧ ⌜r = null⌝);
+used for: s,ls;
+
+ls-rec:
+ls(r, a ' + x) = _∃ λ r0. r => a × r0 * ls(r0, x);
+used for: s,ls;
+
+end enrich

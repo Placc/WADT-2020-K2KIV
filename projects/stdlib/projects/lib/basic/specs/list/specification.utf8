@@ -1,0 +1,27 @@
+enrich list-data with
+
+functions
+
+	. '   : elem → list;
+	. + . : list × list → list;
+	. + . : list × elem → list;
+	. +2 . : elem × elem → list;
+
+predicates 
+
+	. ∈ . : elem × list;
+
+
+
+axioms
+
+Nil  : [] + x = x;         used for : s,ls;
+Cons : (a + x) + y = a + (x + y); used for : ls;
+One  : a ' = a + [];       used for : ls;
+Last : x + a = x + a ';   used for : s,ls,nokodkodax;
+Two  : a +2 b = a ' + b '; used for : s,ls,nokodkodax;
+in-empty: ¬ a ∈ []; used for: s,ls;
+in-rec: a ∈ b ' + x ↔ a = b ∨ a ∈ x; used for: s,ls;
+
+
+end enrich

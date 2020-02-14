@@ -1,0 +1,193 @@
+
+;; variables m : nat;
+
+lemmas
+
+
+write-other-true:
+g(r) Ü a ­ ((a[P] * true)[rs, f(r; o), g] ° (a[P] * true)[rs, f, g]); 
+
+;;; aux-other-true:
+;;; g(r) Ü a ¸ (a[P] * true)[rs, f, g] ­ (µ (a[P] * true)[rs, f, g(r; a)] ° false); 
+;;; used for : s, ls;
+
+and-split:
+(R ¸ R0)[rs, f, g] ° R[rs, f, g] ¸ R0[rs, f, g];
+used for : s;
+
+map-unique:
+f(r) = o ¸ (a[r => o0] * R)[rs, f, g]  ­ o = o0;
+
+;;; mod-f-unknown:
+;;; (a[r =>_] * R)[rs, f, g] ­ (µ g(r) = a ° false);
+;;; used for : s;
+
+mod-f-known:
+a Ü a0 ¥ (a[r => o] * R)[rs, f, g] ­ (g(r) = a0 ° false);
+used for : s;
+
+;;; mod-f-known:
+;;; (a[r => o] * R)[rs, f, g] ­ (g(r) = a0 ° a = a0);
+;;; used for : s;
+
+mod-other-both:
+  g(r) Ü a ¸ (a[P] * R)[rs, f, g] 
+­ (µ (a[P] * true)[rs, f(r; o), g(r; a0)] ° false);
+used for : s, ls;
+
+
+mod-other-hp2:
+  g(r) Ü a ¸ g(r) Ü a0 ¸ (a[P] * a0[P0] * R)[rs, f, g] 
+­ (µ (a[P] * a0[P0] * true)[rs, f(r; o), g] ° false);
+used for : s, ls;
+
+
+mod-other-hp:
+  g(r) Ü a ¸ (a[P] * R)[rs, f, g] 
+­ (µ (a[P] * true)[rs, f(r; o), g] ° false);
+used for : s, ls;
+
+mod-other-aux:
+  g(r) Ü a ¸ (a[P] * R)[rs, f, g] 
+­ (µ (a[P] * true)[rs, f, g(r; a0)] ° false);
+used for : s, ls;
+
+mod-other-aux1:
+  g(r) Ü a ¸ (a[P] * R)[rs, f, g] 
+­ ((a[P] * true)[rs, f, g(r; a0)] ° (a[P] * R)[rs, f, g]);
+used for : s, ls;
+
+;;; mod-other-aux2:
+;;;   g(r) Ü a ¸ (a[P] * R)[rs, f, g] 
+;;; ­ (a[P] * true)[rs, f, g(r; a0)];
+
+;;; mod-other1-strng:
+;;;   r ² rs ¸ oh(r) Ü o ¸ (o[ls(r0, x)] * true)[rs, cellf, oh] 
+;;; ­ ((o[ls(r0, x)] * true)[rs, cellf, oh(r; o0)] ° (o[ls(r0, x)] * true)[rs, cellf, oh]);
+;;; used for : s, ls;
+
+;;; merge-owned2:
+;;;   (a[P] * a0[P0] * R)[rs, f, g] ¸ (a1[P1] * R0)[rs, f, g] ¸ a Ü a0 ¸ a Ü a1 ¸ a0 Ü a1 
+;;; ­ (a[P] * a0[P0] * a1[P1] * true)[rs, f, g];
+;;; used for : lf;
+
+split-owned2:
+  (a[P] * a0[P0] * a1[P1] * R)[rs, f, g] ¸ a Ü a0 ¸ a Ü a1 ¸ a0 Ü a1 
+­ (a[P] * true)[rs, f, g] ¸ (a0[P0] * a1[P1] * true)[rs, f, g];
+used for : lf;
+
+
+merge-owned:
+  (a[P] * R)[rs, f, g] ¸ (a0[P0] * R0)[rs, f, g] ¸ a0 Ü a 
+­ (a[P] * a0[P0] * true)[rs, f, g];
+used for : lf;
+
+merge-owned-rewrite:
+  (a[P] * true)[rs, f, g] ¸ a0 Ü a 
+­ ((a0[P0] * true)[rs, f, g] ° (a[P] * a0[P0] * true)[rs, f, g]);
+used for : ls, s;
+
+map-owner-known:
+(a[r => o] * R)[rs, f, g] ¸ a Ü a0 ­ (g(r) = a0 ° false);
+used for : s;
+
+map-owner-unknown:
+(a[r =>_] * R)[rs, f, g] ¸ a Ü a0 ­ (g(r) = a0 ° false) ;
+used for : s;
+
+map2:
+(a[r => o] * R)[rs, f, g] ¸ (a[r => o0] * R0)[rs, f, g] ­ o = o0;
+used for: f, lf;
+
+map-in:
+(a[r => o] * R) [rs, f, g] ­ r ² rs;
+used for : ls, s;
+
+
+map-in0:
+a[r => o][rs, f, g] ­ r ² rs;
+used for : ls, s;
+
+map-same:
+µ (a[r => o] * a0[r => o0] * R)[rs, f, g];
+used for : s;
+
+lift-prop:
+(a[öbv÷] ¸ emp) = (öbv÷ ¸ emp); 
+used for : s;
+
+embed-and:
+a[P0 ¸ P1] = (a[P0] ¸ a[P1]);
+used for: s;
+
+
+
+lift-ex-o:
+a[_´ oP] = _´ ì o,a0. a[oP(o)];
+used for: s,ls;
+
+lift-ex-r:
+a[_´ rP] = _´ ì r. a[rP(r)];
+used for: s,ls;
+
+switch-aux:
+µ r ² rs
+  ­ (R[rs,f,g(r;a)] ° R[rs,f,g]);
+used for: s,ls; ;; ?
+
+switch-obj:
+µ r ² rs
+  ­ (R[rs,f(r;o),g] ° R[rs,f,g]);
+used for: s,ls; ;; ?
+
+embed-split:
+a[P0 * P1] = a[P0] * a[P1];
+used for: s;
+
+alloc:
+r Ü null ¸ µ r ² rs
+  ­ (R[rs,f,g]
+      ° (a[r =>_] * R)[rs ++ r,f,g(r;a)]);
+
+
+write-known:
+  (a[r => o0] * R)[rs,f,g]
+° (a[r => o1] * R)[rs,f(r;o1),g] ¸ f(r) = o0;
+
+write-unknown:
+  (a[r =>_] * R)[rs,f,g]
+° (a[r => o1] * R)[rs,f(r;o1),g];
+
+aux-known:
+  (a0[r => o] * R)[rs,f,g]
+° (a1[r => o] * R)[rs,f,g(r;a1)] ¸ g(r) = a0;
+
+aux-unknown:
+  (a0[r =>_] * R)[rs,f,g]
+° (a1[r =>_] * R)[rs,f,g(r;a1)] ¸ g(r) = a0;
+
+lift-unknown:
+  (r ==>_ * R)[rs,f,g]
+° ´ a. (a[r =>_] * R)[rs,f,g];
+
+get-unknown:
+(a[r =>_] * R)[rs,f,g]
+  ­ (g(r) Ü a ° false);
+used for: s,ls;
+
+get-known:
+(a[r => o] * R)[rs,f,g]
+  ­ (g(r) Ü a ° false);
+used for: s,ls;
+
+lift-true:
+a[true][rs,f,g] ° ³ r. r ² rs ­ g(r) = a;
+used for: s,ls;
+
+lift-false:
+a[false] = false;
+used for: s,ls;
+
+lift-emp:
+a[emp] = emp;
+used for: s,ls;

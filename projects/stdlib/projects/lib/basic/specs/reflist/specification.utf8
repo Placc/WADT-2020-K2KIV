@@ -1,0 +1,14 @@
+actualize list-set with genRef by morphism
+
+elem → Ref;
+a → r;
+b → r0;
+c → r1;
+a0 → r2;
+
+list → reflist;
+.head → hd .;
+.tail → tl .;
+
+end actualize
+           

@@ -1,0 +1,144 @@
+: successful
+### No save necessary ###
+### Next replay: eq-leninv ###
+eq-leninv: successful
+### No save necessary ###
+### Next replay: inv-get-inverse ###
+inv-get-inverse: successful
+### No save necessary ###
+### Next replay: inv-get-inverse-between ###
+inv-get-inverse-between: successful
+### No save necessary ###
+### Next replay: inv-get-inverse-last ###
+inv-get-inverse-last: successful
+### No save necessary ###
+### Next replay: inv-get-inverse-succ ###
+inv-get-inverse-succ: successful
+### No save necessary ###
+### Next replay: inv-get-lslen ###
+inv-get-lslen: successful
+### No save necessary ###
+### Next replay: inv-inverts ###
+inv-inverts: successful
+### No save necessary ###
+### Next replay: inv-inverts-last ###
+inv-inverts-last: successful
+### No save necessary ###
+### Next replay: inv-inverts-leq ###
+inv-inverts-leq: successful
+### No save necessary ###
+### Next replay: inv-ls-notleq ###
+inv-ls-notleq: successful
+### No save necessary ###
+### Next replay: inv-ls-succ ###
+inv-ls-succ: successful
+### No save necessary ###
+### Next replay: leninv-inf ###
+leninv-inf: successful
+### No save necessary ###
+### Next replay: leninv-inf-strong ###
+leninv-inf-strong: successful
+### No save necessary ###
+### Next replay: leninv-succ ###
+leninv-succ: successful
+### No save necessary ###
+### Next replay: leninv-zero ###
+leninv-zero: successful
+### No save necessary ###
+### Next replay: leq-leninv ###
+leq-leninv: successful
+### No save necessary ###
+### Next replay: less-leninv ###
+less-leninv: successful
+### No save necessary ###
+### Next replay: lsleninv-1 ###
+lsleninv-1: successful
+### No save necessary ###
+### Next replay: maxinf-fin ###
+maxinf-fin: successful
+### No save necessary ###
+### Next replay: maxinf-skolemf ###
+maxinf-skolemf: successful
+### No save necessary ###
+### Next replay: min-skolemf ###
+min-skolemf: successful
+### No save necessary ###
+### Next replay: min-stutters ###
+min-stutters: successful
+### No save necessary ###
+### Next replay: mininv-inverts ###
+mininv-inverts: successful
+### No save necessary ###
+### Next replay: mininv-inverts-inner ###
+mininv-inverts-inner: successful
+### No save necessary ###
+### Next replay: mininv-inverts-inner-succ ###
+mininv-inverts-inner-succ: successful
+### No save necessary ###
+### Next replay: mininv-inverts-weak2 ###
+mininv-inverts-weak2: successful
+### No save necessary ###
+### Next replay: mininv-stays-if-not-taken ###
+mininv-stays-if-not-taken: successful
+### No save necessary ###
+### Next replay: mon-eq ###
+mon-eq: successful
+### No save necessary ###
+### Next replay: monle-leq ###
+monle-leq: successful
+### No save necessary ###
+### Next replay: monls-append1 ###
+monls-append1: successful
+### No save necessary ###
+### Next replay: monls-append2 ###
+monls-append2: successful
+### No save necessary ###
+### Next replay: monls-exists-maxleq ###
+monls-exists-maxleq: successful
+### No save necessary ###
+### Next replay: monls-exists-maxls ###
+monls-exists-maxls: successful
+### No save necessary ###
+### Next replay: monls-from ###
+monls-from: successful
+### No save necessary ###
+### Next replay: monls-ls ###
+monls-ls: successful
+### No save necessary ###
+### Next replay: monls-mon-implies-monls ###
+monls-mon-implies-monls: successful
+### No save necessary ###
+### Next replay: monls-notsmall ###
+monls-notsmall: successful
+### No save necessary ###
+### Next replay: monls-to ###
+monls-to: successful
+### No save necessary ###
+### Next replay: monlsinf-notsmall ###
+monlsinf-notsmall: successful
+### No save necessary ###
+### Next replay: not-ls-leninv ###
+not-ls-leninv: successful
+### No save necessary ###
+### Next replay: rem-preserves-monls ###
+rem-preserves-monls: successful
+### No save necessary ###
+### Next replay: stutf-alltaken ###
+stutf-alltaken: successful
+### No save necessary ###
+### Next replay: stutf-invmonls ###
+stutf-invmonls: successful
+### No save necessary ###
+### Next replay: stutf-maxinf-is-fin ###
+stutf-maxinf-is-fin: successful
+### No save necessary ###
+### Next replay: stutf-monle ###
+stutf-monle: successful
+### No save necessary ###
+### Next replay: stutf-notbig ###
+stutf-notbig: successful
+### No save necessary ###
+### Next replay: stutf-slowincrease ###
+stutf-slowincrease: successful
+### Done ###
+### Saving lemmas next ###

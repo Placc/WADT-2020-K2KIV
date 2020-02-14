@@ -1,0 +1,103 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 1999.10.12)  28 NOV 2000 17:33
+**Mega-statistic
+(Mega-statistic.tex
+LaTeX2e <1998/12/01> patch level 1
+Babel <v3.6x> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/base/article.cls
+Document Class: article 1999/01/07 v1.4a Standard LaTeX document class
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/base/size10.clo
+File: size10.clo 1999/01/07 v1.4a Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 29.
+)
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/misc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/ntgclass/a4.sty
+Package: a4 1999/03/03 v1.2f A4 based page layout
+))
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/kiv/logicdefs.sty
+Package: logicdefs 1997/05/01 KIV logical connectives
+
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/kiv/kivxspace.sty
+Package: kivxspace 1997/05/01 KIV Space after command names
+))
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/misc/supertabular.sty
+Package: supertabular 1997/11/07 v4.1c the supertabular environment
+\c@tracingst=\count87
+\ST@wd=\dimen103
+\ST@rightskip=\skip43
+\ST@leftskip=\skip44
+\ST@parfillskip=\skip45
+\ST@pageleft=\dimen104
+\ST@headht=\dimen105
+\ST@tailht=\dimen106
+\ST@pagesofar=\dimen107
+\ST@pboxht=\dimen108
+\ST@lineht=\dimen109
+\ST@stretchht=\dimen110
+\ST@prevht=\dimen111
+\ST@toadd=\dimen112
+\ST@dimen=\dimen113
+\ST@pbox=\box26
+)
+No file Mega-statistic.aux.
+\openout1 = `Mega-statistic.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1998/03/27 v2.5g Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 22.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 22.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 22.
+
+(/local2/linuxtools/apps/teTeX-1.0/texmf/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2eLaTeX symbol font definitions
+) [1
+
+] [2]
+[3] [4] [5] (Mega-statistic.aux) ) 
+Here is how much of TeX's memory you used:
+ 467 strings out of 10901
+ 5193 string characters out of 447152
+ 59852 words of memory out of 1000001
+ 3447 multiletter control sequences out of 10000+0
+ 4597 words of font info for 20 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 24i,6n,19p,186b,213s stack positions out of 300i,100n,500p,50000b,4000s
+
+Output written on Mega-statistic.dvi (5 pages, 22460 bytes).

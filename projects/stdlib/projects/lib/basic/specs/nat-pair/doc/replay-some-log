@@ -1,0 +1,63 @@
+: successful
+### No save necessary ###
+### Next replay: enc-invert ###
+enc-invert: successful
+### No save necessary ###
+### Next replay: encode-zero ###
+encode-zero: successful
+### No save necessary ###
+### Next replay: fst-ls ###
+fst-ls: successful
+### No save necessary ###
+### Next replay: fst-ls-01 ###
+fst-ls-01: successful
+### No save necessary ###
+### Next replay: max-bigger ###
+max-bigger: successful
+### No save necessary ###
+### Next replay: max-def ###
+max-def: successful
+### No save necessary ###
+### Next replay: max-def-01 ###
+max-def-01: successful
+### No save necessary ###
+### Next replay: max-le ###
+max-le: successful
+### No save necessary ###
+### Next replay: max-nls ###
+max-nls: successful
+### No save necessary ###
+### Next replay: max-rev ###
+max-rev: successful
+### No save necessary ###
+### Next replay: max-size-01 ###
+max-size-01: successful
+### No save necessary ###
+### Next replay: max-snd-le ###
+max-snd-le: successful
+### No save necessary ###
+### Next replay: max-snd-nle ###
+max-snd-nle: successful
+### No save necessary ###
+### Next replay: max-snd-nls ###
+max-snd-nls: successful
+### No save necessary ###
+### Next replay: max-square ###
+max-square: successful
+### No save necessary ###
+### Next replay: max-zero ###
+max-zero: successful
+### No save necessary ###
+### Next replay: max-zero-01 ###
+max-zero-01: successful
+### No save necessary ###
+### Next replay: snd-eq ###
+snd-eq: successful
+### No save necessary ###
+### Next replay: snd-le ###
+snd-le: successful
+### No save necessary ###
+### Next replay: snd-ls ###
+snd-ls: successful
+### Done ###
+### Saving lemmas next ###

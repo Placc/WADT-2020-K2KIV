@@ -1,0 +1,29 @@
+lemmas
+
+strengthen-right:
+  P ⊆ Q0 * Q1
+→ P ⊆ Q0 * true;
+
+weaken-left:
+  P0 * true ⊆ Q
+→ P0 * P1 ⊆ Q;
+
+axiom:
+  P0 ⊆ P1
+→ P0 * Q ⊆ P1 * Q;
+
+wand-right:
+  P * Q0 ⊆ Q1
+↔ P ⊆ Q0 -* Q1;
+
+wand-left:
+  Q0 ⊆ P0 ∧ P1 ⊆ Q1
+→ Q0 * (P0 -* P1) ⊆ Q1;
+
+wand-intro:
+  P * Q0 ⊆ Q1
+→ P ⊆ Q0 -* Q1;
+
+wand-elim:
+  P0 ⊆ Q0 -* Q1 ∧ P1 ⊆ Q0
+→ P0 * P1 ⊆ Q1;

@@ -1,0 +1,3006 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,amssymb,multicol,supertabular}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+\bigskip
+
+{\large\bf del-addeq}
+
+\medskip
+
+ \Fol a $\neq$ b \And \Not a $\in$ s \And \Not a $\in$ \Var{s}{0} \Imp (s ++ a -- b = \Var{s}{0} ++ a \Equiv s -- b = \Var{s}{0})
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addeq-01}
+
+\medskip
+
+ \Fol s ++ a -- b -- a = s -- b -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addeq-02}
+
+\medskip
+
+ \Fol a $\in$ s \Imp s -- a ++ a = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, del-addin-01, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addeq-03}
+
+\medskip
+
+ \Fol a $\in$ s \And a $\neq$ b \Imp s -- b ++ a = s -- b
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addeq-04}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s ++ a -- a = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addeq-05}
+
+\medskip
+
+ \Fol s ++ a -- a = s -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+\item       used by      : del-size, one-min
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addeq-06}
+
+\medskip
+
+ \Fol s ++ a ++ b -- a = s ++ b -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addin}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp (a $\in$ s -- \Var{a}{0} ++ b ++ c \Equiv a = b \Or a = c)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-addin-01}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp (a $\in$ s -- b ++ c \Equiv a = c)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete
+\item       used by      : del-addeq-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-d}
+
+\medskip
+
+ \Fol s -- a -- a = s -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-d-01}
+
+\medskip
+
+ \Fol s -- a -- b -- a = s -- b -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-del-one}
+
+\medskip
+
+ \Fol a $\neq$ b \Imp $\emptyset$ ++ a -- b = $\emptyset$ ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-e}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp (s ++ a -- b = $\emptyset$ \Equiv s = $\emptyset$ \And a = b)
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-e-01}
+
+\medskip
+
+ \Fol $\emptyset$ -- a = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+\item       used by      : one-min
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-e-02}
+
+\medskip
+
+ \Fol s -- a = $\emptyset$ \Equiv s = $\emptyset$ \Or s = $\emptyset$ ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-eq}
+
+\medskip
+
+ \Fol a $\in$ s \And a $\in$ \Var{s}{0} \Imp (s -- a = \Var{s}{0} -- a \Equiv s = \Var{s}{0})
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-feq}
+
+\medskip
+
+ \Fol s -- a = \Var{s}{0} ++ b \Imp a $\neq$ b \And b $\in$ s \And \Not a $\in$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-feq-01}
+
+\medskip
+
+ \Fol s ++ a -- b = \Var{s}{0} ++ c \And \Not c $\in$ s \Imp a = c \And b $\neq$ c
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-feq-02}
+
+\medskip
+
+ \Fol s ++ a -- b = \Var{s}{0} ++ c \And a $\neq$ b \And \Not a $\in$ \Var{s}{0} \Imp a = c
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-in}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s -- a = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+\item       used by      : del-in-03, del-size, del-size-02, del-three, diff-del, diff-del-minus, diff-sub-size, size-del-leq, subset-del, undel-05, union-size-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-in-01}
+
+\medskip
+
+ \Fol a $\neq$ b \Imp (\Not a $\in$ s -- b \Equiv \Not a $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete
+\item       used by      : del-rax
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-in-02}
+
+\medskip
+
+ \Fol \Not a $\in$ s -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-in-03}
+
+\medskip
+
+ \Fol s -- a = s \Equiv \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, del-rax, ext
+\item       used by      : diff-add-del-01, undel-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-ne}
+
+\medskip
+
+ \Fol 1 $<$ \# s \Imp s -- a $\neq$ $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-neq}
+
+\medskip
+
+ \Fol s -- a $\neq$ \Var{s}{0} -- a \Imp s $\neq$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       no used lemmas.
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-neq-01}
+
+\medskip
+
+ \Fol a $\neq$ b \Imp s ++ a -- b $\neq$ $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-neq-02}
+
+\medskip
+
+ \Fol s -- a $\neq$ \Var{s}{0} ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-notin}
+
+\medskip
+
+ \Fol \Var{s}{0} = s -- a \Imp \Not a $\in$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-rax}
+
+\medskip
+
+ \Fol a $\in$ s -- b \Equiv \Not \Not (a $\neq$ b \And a $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in-01, Delete
+\item       used by      : del-addeq, del-addeq-01, del-addeq-02, del-addeq-04, del-addeq-05, del-addeq-06, del-d, del-d-01, del-del-one, del-e, del-e-01, del-e-02, del-eq, del-feq, del-feq-01, del-feq-02, del-in, del-in-03, del-ne, del-neq-01, del-neq-02, del-three, del-two, delete-shift, delsw, delsw-01, delsw-02, diff-add-del, diff-del, diff-del-01, diff-del-02, diff-subset-01, equal-add-in, int-del-rew, sub-ade, sub-ade-01, sub-ade-02, sub-ade-03, sub-del, sub-del-01, sub-del-02, sub-del-03, sub-del-04, sub-del-05, subsub-del, undel, undel-01, undel-02, undel-04, undel-06, unindel, uninsubdel, unsubdel, unsubdel-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-size}
+
+\medskip
+
+ \Fol a $\in$ s \Imp \#(s -- a) = \# s - 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, del-addeq-05, ext
+\item       used by      : del-size-01, del-size-02, del-three, diff-sub-size, size-del-leq, union-size-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-size-01}
+
+\medskip
+
+ \Fol a $\in$ s \Imp (\# s = n + 1 \Equiv \#(s -- a) = n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-size
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-size-02}
+
+\medskip
+
+ \Fol a $\in$ s \And a $\neq$ b \Imp \#(s -- b -- a) = \#(s -- b) - 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, del-in, del-size, ext
+\item       used by      : del-three-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-three}
+
+\medskip
+
+ \Fol 2 $<$ \# s \Imp \#(s -- a -- b) $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, Delete, del-size, del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-three-01}
+
+\medskip
+
+ \Fol 2 $<$ \# s \And b $\in$ s \And a $\neq$ b \Imp \#(s -- a -- b) = \#(s -- a) - 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-size-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf del-two}
+
+\medskip
+
+s -- a -- b = $\emptyset$ \Fol s = $\emptyset$ \Or s = $\emptyset$ ++ a \Or s = $\emptyset$ ++ b \Or s = $\emptyset$ ++ a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf delete-insert}
+
+\medskip
+
+ \Fol s -- a ++ a = s ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf delete-shift}
+
+\medskip
+
+ \Fol a $\in$ s \Imp (s -- a = \Var{s}{0} \Equiv s = \Var{s}{0} ++ a \And \Not a $\in$ \Var{s}{0})
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf delete-subset}
+
+\medskip
+
+ \Fol s -- a ++ b $\subseteq$ s ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf delsw}
+
+\medskip
+
+ \Fol a $\neq$ b \Imp s ++ b -- a = s -- a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf delsw-01}
+
+\medskip
+
+ \Fol s -- b -- a = s -- a -- b
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf delsw-02}
+
+\medskip
+
+ \Fol s -- b -- a = s -- a -- b \Equiv true
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-add-del}
+
+\medskip
+
+ \Fol \Var{s}{1} $\backslash$ (\Var{s}{2} ++ a) = (\Var{s}{1} $\backslash$ \Var{s}{2}) -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Difference, ext
+\item       used by      : diff-add-del-01, diff-sub-size
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-add-del-01}
+
+\medskip
+
+ \Fol \Not a $\in$ \Var{s}{1} \Imp \Var{s}{1} $\backslash$ (\Var{s}{2} ++ a) = \Var{s}{1} $\backslash$ \Var{s}{2}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, del-in-03, diff-add-del
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del}
+
+\medskip
+
+ \Fol s = \Var{s}{1} $\backslash$ \Var{s}{2} \And \Not a $\in$ s \Imp (s = \Var{s}{1} -- a $\backslash$ (\Var{s}{2} -- a) \Equiv true)
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, del-rax, Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-01}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s $\backslash$ \Var{s}{0} $\subseteq$ (s $\backslash$ \Var{s}{0}) -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Difference, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-02}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s $\backslash$ \Var{s}{0} $\subseteq$ (s $\backslash$ \Var{s}{0}) -- a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Difference, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-minus}
+
+\medskip
+
+ \Fol s -- a $\backslash$ (\Var{s}{1} -- a) = s -- a $\backslash$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, Delete, Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-minus-2}
+
+\medskip
+
+ \Fol \Not a $\in$ \Var{s}{1} \Imp s -- a $\backslash$ \Var{s}{1} = (s $\backslash$ \Var{s}{1}) -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-minus-3}
+
+\medskip
+
+ \Fol a $\in$ \Var{s}{1} \Imp s -- a $\backslash$ \Var{s}{1} = s $\backslash$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-plus-1}
+
+\medskip
+
+ \Fol a $\in$ \Var{s}{1} \Imp s ++ a $\backslash$ \Var{s}{1} = s $\backslash$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-del-plus-2}
+
+\medskip
+
+ \Fol \Not a $\in$ \Var{s}{1} \Imp s ++ a $\backslash$ \Var{s}{1} = (s $\backslash$ \Var{s}{1}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-e}
+
+\medskip
+
+ \Fol s $\backslash$ $\emptyset$ = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+\item       used by      : diff-sub-size
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-e-01}
+
+\medskip
+
+ \Fol $\emptyset$ $\backslash$ s = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-empty}
+
+\medskip
+
+ \Fol \Var{s}{1} $\backslash$ \Var{s}{2} = $\emptyset$ \And a $\in$ \Var{s}{1} \Imp a $\in$ \Var{s}{2}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-idem}
+
+\medskip
+
+ \Fol s $\backslash$ s = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-int}
+
+\medskip
+
+ \Fol (s $\backslash$ \Var{s}{0}) $\cap$ \Var{s}{0} = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-c, int-a, Difference, Intersect, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-int-01}
+
+\medskip
+
+ \Fol (s $\backslash$ \Var{s}{0} $\cup$ \Var{s}{1}) $\cap$ \Var{s}{0} = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-c, int-a, unc, una, Union, Difference, Intersect, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-nin}
+
+\medskip
+
+ \Fol s = \Var{s}{1} $\backslash$ \Var{s}{2} \And a $\in$ \Var{s}{2} \Imp \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-one}
+
+\medskip
+
+ \Fol $\emptyset$ ++ a $\backslash$ s $\subseteq$ \Var{s}{0} ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-rc}
+
+\medskip
+
+ \Fol (s $\backslash$ \Var{s}{1}) $\backslash$ \Var{s}{2} = (s $\backslash$ \Var{s}{2}) $\backslash$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-sub}
+
+\medskip
+
+ \Fol s $\backslash$ \Var{s}{0} $\subseteq$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-sub-size}
+
+\medskip
+
+s = \Var{s}{0} $\backslash$ \Var{s}{1}, \\
+\Var{s}{1} $\subseteq$ \Var{s}{0} \Fol \# s = \# \Var{s}{0} - \# \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, ext, Difference, del-size, diff-add-del, diff-e, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-subset}
+
+\medskip
+
+ \Fol s $\backslash$ \Var{s}{0} $\cup$ \Var{s}{1} $\subseteq$ s $\backslash$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, Difference, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-subset-01}
+
+\medskip
+
+ \Fol s -- a ++ b $\backslash$ \Var{s}{0} $\subseteq$ (s $\backslash$ \Var{s}{0}) -- a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Delete, Difference, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-union}
+
+\medskip
+
+ \Fol a $\in$ \Var{s}{0} \Imp (a $\in$ (s $\backslash$ \Var{s}{0}) $\cup$ \Var{s}{1} \Equiv a $\in$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Difference, Union
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-union-01}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp (a $\in$ (s $\backslash$ \Var{s}{0}) $\cup$ \Var{s}{1} \Equiv a $\in$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Difference, Union
+\item       used by      : union-difference
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-union-02}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp (a $\in$ ((s $\cup$ \Var{s}{2}) $\backslash$ \Var{s}{0}) $\cup$ \Var{s}{1} \Equiv a $\in$ (\Var{s}{2} $\backslash$ \Var{s}{0}) $\cup$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, Difference, unrax
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf diff-union-03}
+
+\medskip
+
+ \Fol (s $\cup$ \Var{s}{0}) $\backslash$ \Var{s}{1} = (s $\backslash$ \Var{s}{1}) $\cup$ \Var{s}{0} $\backslash$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Union, unc, una, unrax, Difference, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf equal-add-in}
+
+\medskip
+
+ \Fol s ++ a = \Var{s}{0} ++ b \And \Var{s}{0} ++ b = \Var{s}{1} -- c ++ d \And b $\neq$ d \Imp b $\in$ \Var{s}{1} -- c
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Delete, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ext}
+
+\medskip
+
+ \Fol \Var{s}{1} = \Var{s}{2} \Equiv (\All a. a $\in$ \Var{s}{1} \Equiv a $\in$ \Var{s}{2})
+
+\begin{itemize}
+
+
+\item       no used lemmas.
+\item       used by      : del-addeq, del-addeq-01, del-addeq-02, del-addeq-04, del-addeq-05, del-addeq-06, del-d, del-d-01, del-del-one, del-e, del-e-01, del-e-02, del-eq, del-feq, del-feq-01, del-feq-02, del-in, del-in-03, del-ne, del-neq-01, del-neq-02, del-size, del-size-01, del-size-02, del-three, del-two, delete-insert, delete-shift, delsw, delsw-01, delsw-02, diff-add-del, diff-del, diff-del-minus, diff-del-minus-2, diff-del-minus-3, diff-del-plus-1, diff-del-plus-2, diff-e, diff-e-01, diff-empty, diff-idem, diff-int, diff-int-01, diff-rc, diff-sub-size, diff-union-03, equal-add-in, insdel-sub, int-a, int-c, int-del-rew, int-e, int-empty, int-empty-01, int-empty-02, int-empty-one, int-eq, int-idem, int-ins, int-inse, int-inserte, int-notempty, int-notempty-01, intdel-empty, intersection-insert, intersection-shift, intersection-size, intexin, intu-empty, one-min, selsub-diff, size-union, sub-ade, sub-ade-01, sub-ade-02, sub-ade-03, sub-del, sub-del-01, sub-del-03, sub-del-04, sub-union, sub-union-01, subdef, subsub-del, una, unadd, unadd-01, unall, unc, undel, undel-01, undel-02, undel-04, undel-05, undel-06, une, une-01, uneq, unidem, union-difference, union-rewone, union-size-02, union-size-03, union-size-le, union-size-ls-in, union-sizeeq, union-sizele, union-sub, union-sub-01, union-subset-01, union-subset-02, union-subset-03, union-subset-04, union-subset-05, unsub-union-01, unsubdel, unsubdel-01, unsubsub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf insdel-sub}
+
+\medskip
+
+ \Fol \Not s -- a $\subseteq$ \Var{s}{0} \And a $\in$ s \Imp \Not s $\subseteq$ \Var{s}{0} ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, Delete, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-a}
+
+\medskip
+
+ \Fol (s $\cap$ \Var{s}{0}) $\cap$ \Var{s}{1} = s $\cap$ \Var{s}{0} $\cap$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-rax, ext
+\item       used by      : diff-int, diff-int-01, int-c, int-del-rew, int-e, int-empty, int-empty-01, int-empty-02, int-empty-one, int-eq, int-idem, int-ins, int-inse, int-inserte, int-notempty, int-notempty-01, int-subs01, intdel-empty, intersection-insert, intersection-shift, intersection-size, intexin, intu-empty, size-union, union-size-03, union-size-ls-in
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-c}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = \Var{s}{0} $\cap$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+\item       used by      : diff-int, diff-int-01, int-del-rew, int-empty-01, int-empty-02, int-empty-one, int-ins, int-notempty, int-notempty-01, int-subs01, intdel-empty, intersection-insert, intersection-shift, intersection-size, intu-empty, size-union, union-size-03, union-size-ls-in
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-del-rew}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s $\cap$ (\Var{s}{0} -- a) = (s $\cap$ \Var{s}{0}) -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, int-c, int-a, Delete, Intersect, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-e}
+
+\medskip
+
+ \Fol s $\cap$ $\emptyset$ = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+\item       used by      : int-empty-one, intersection-size, union-size-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-empty}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = $\emptyset$ \And \Not a $\in$ s \Imp s $\cap$ (\Var{s}{0} ++ a) = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-empty-01}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = $\emptyset$ \Equiv (\All a. \Not a $\in$ s \Or \Not a $\in$ \Var{s}{0})
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-c, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-empty-02}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = $\emptyset$ \And a $\in$ s \Imp (\Not \Not a $\in$ \Var{s}{0} \Equiv false)
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-c, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-empty-one}
+
+\medskip
+
+ \Fol $\emptyset$ ++ a $\cap$ s = $\emptyset$ \Equiv \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, int-c, int-a, int-e, int-ins
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-eq}
+
+\medskip
+
+ \Fol s = s $\cap$ \Var{s}{0} \Equiv s $\subseteq$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : subdef, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-idem}
+
+\medskip
+
+ \Fol s $\cap$ s = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-ins}
+
+\medskip
+
+ \Fol s $\cap$ (\Var{s}{0} ++ a) = $\emptyset$ \Equiv s $\cap$ \Var{s}{0} = $\emptyset$ \And \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : Intersect, int-c, int-a, int-rax, ext
+\item       used by      : int-empty-one
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-inse}
+
+\medskip
+
+ \Fol s $\cap$ (\Var{s}{0} ++ a) = $\emptyset$ \Imp s $\cap$ \Var{s}{0} = $\emptyset$ \And \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-inserte}
+
+\medskip
+
+ \Fol a $\in$ s \Imp s $\cap$ (\Var{s}{0} ++ a) $\neq$ $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+\item       used by      : int-notempty, int-notempty-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-notempty}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = $\emptyset$ \Imp (s $\cap$ (\Var{s}{0} ++ b) $\neq$ $\emptyset$ \Equiv b $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Intersect, int-inserte, int-c, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-notempty-01}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = $\emptyset$ \Imp (s $\cap$ (\Var{s}{0} -- a ++ b) $\neq$ $\emptyset$ \Equiv b $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, Intersect, int-inserte, int-c, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-rax}
+
+\medskip
+
+ \Fol a $\in$ \Var{s}{1} $\cap$ \Var{s}{2} \Equiv \Not \Not (a $\in$ \Var{s}{1} \And a $\in$ \Var{s}{2})
+
+\begin{itemize}
+
+
+\item       used lemmas  : Intersect
+\item       used by      : int-a, int-c, int-e, int-empty, int-empty-01, int-empty-02, int-eq, int-idem, int-ins, int-inse, int-inserte, int-notempty, int-notempty-01, int-subs01, intdel-empty, intersection-shift, intexin, intu-empty, size-union, union-size-ls-in
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf int-subs01}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} $\subseteq$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-c, int-a, int-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf intdel-empty}
+
+\medskip
+
+ \Fol s -- a $\cap$ \Var{s}{0} $\neq$ $\emptyset$ \Imp s $\cap$ \Var{s}{0} $\neq$ $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : Delete, Intersect, int-c, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf intersection-insert}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s $\cap$ (\Var{s}{0} ++ a) = s $\cap$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-c, int-a, Intersect, ext
+\item       used by      : intersection-size, union-size-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf intersection-shift}
+
+\medskip
+
+ \Fol a $\in$ s \Imp s $\cap$ (\Var{s}{0} ++ a) = (s $\cap$ \Var{s}{0}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-rax, int-c, int-a, Intersect, ext
+\item       used by      : intersection-size, union-size-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf intersection-size}
+
+\medskip
+
+ \Fol \Not \# \Var{s}{0} + \# s $<$ \#(\Var{s}{0} $\cap$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Intersect, ext, intersection-insert, intersection-shift, int-c, int-a, int-e
+\item       used by      : union-size-03, union-size-ls-in
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf intexin}
+
+\medskip
+
+s $\cap$ \Var{s}{0} $\neq$ $\emptyset$ \Fol \Ex a. a $\in$ s \And a $\in$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf intu-empty}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} $\cup$ \Var{s}{1} = $\emptyset$ \Equiv s $\cap$ \Var{s}{0} = $\emptyset$ \And s $\cap$ \Var{s}{1} = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : Intersect, int-c, int-a, unc, una, Union, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one-in}
+
+\medskip
+
+ \Fol a $\in$ \{b\} \Equiv a = b
+
+\begin{itemize}
+
+
+\item       used lemmas  : One
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one-min}
+
+\medskip
+
+ \Fol s = $\emptyset$ ++ a \Imp s -- a = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-e-01, del-addeq-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf selsub-diff}
+
+\medskip
+
+\Var{s}{1} $\subseteq$ \Var{s}{2} \Fol \Var{s}{1} = \Var{s}{2}, \\
+\Ex s. s $\subseteq$ \Var{s}{2} \And \Var{s}{1} = \Var{s}{2} $\backslash$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : Difference, subdef, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf size-del-leq}
+
+\medskip
+
+ \Fol \# s $\le$ \#(s -- a) \Equiv \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, del-size
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf size-union}
+
+\medskip
+
+ \Fol s $\cap$ \Var{s}{0} = $\emptyset$ \Imp \#(s $\cup$ \Var{s}{0}) = \# s + \# \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : unrax, unadd-01, unc, una, une, int-c, int-a, int-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-ade}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s -- a ++ b $\subseteq$ \Var{s}{0} -- a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-ade-01}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s -- a ++ b ++ c $\subseteq$ \Var{s}{0} -- a ++ b ++ c
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-ade-02}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Not a $\in$ s \Imp s $\subseteq$ \Var{s}{0} -- a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-ade-03}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Not a $\in$ s \Imp s $\subseteq$ \Var{s}{0} -- a ++ b ++ c
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-del}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s -- a $\subseteq$ \Var{s}{0} -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-del-01}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Not a $\in$ s \Imp s $\subseteq$ \Var{s}{0} -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-del-02}
+
+\medskip
+
+ \Fol s -- a $\subseteq$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-del-03}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s -- a $\subseteq$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-del-04}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} -- a \Equiv s $\subseteq$ \Var{s}{0} \And \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+\item       used by      : subset-del
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-del-05}
+
+\medskip
+
+ \Fol a $\neq$ b \And \Not a $\in$ s \Imp s -- b $\subseteq$ s -- b -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-union}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s $\subseteq$ \Var{s}{0} $\cup$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, unc, una, Union, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-union-01}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s $\subseteq$ (\Var{s}{0} $\cup$ \Var{s}{1}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, unc, una, Union, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-union-02}
+
+\medskip
+
+ \Fol s $\subseteq$ (s $\cup$ \Var{s}{0}) ++ a ++ b
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-union-03}
+
+\medskip
+
+ \Fol s ++ a $\subseteq$ (s $\cup$ \Var{s}{0}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-union-04}
+
+\medskip
+
+ \Fol s ++ a $\subseteq$ (s $\cup$ \Var{s}{0}) ++ b ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sub-union-05}
+
+\medskip
+
+ \Fol s $\subseteq$ (s $\cup$ \Var{s}{0}) ++ a ++ b ++ c
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf subdef}
+
+\medskip
+
+ \Fol \Var{s}{1} $\subseteq$ \Var{s}{2} \Equiv (\All a. a $\in$ \Var{s}{1} \Imp a $\in$ \Var{s}{2})
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext
+\item       used by      : delete-subset, diff-del-01, diff-del-02, diff-one, diff-sub, diff-sub-size, diff-subset, diff-subset-01, insdel-sub, int-eq, int-subs01, selsub-diff, sub-ade, sub-ade-01, sub-ade-02, sub-ade-03, sub-del, sub-del-01, sub-del-02, sub-del-03, sub-del-04, sub-del-05, sub-union, sub-union-01, sub-union-02, sub-union-03, sub-union-04, sub-union-05, subset-del, subsub-del, uneq, union-difference, union-size, union-size-01, union-sizeeq, union-sizele, union-sizele-01, union-sub-01, union-subset-01, union-subset-02, union-subset-03, union-subset-04, union-subset-05, unsub, unsub-union-01, unsubdel, unsubins, unsubins-01, unsubsub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf subset-del}
+
+\medskip
+
+ \Fol s $\subseteq$ s -- a \Equiv \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, subdef, sub-del-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf subsub-del}
+
+\medskip
+
+ \Fol s -- a $\subseteq$ \Var{s}{0} \And \Not s $\subseteq$ \Var{s}{0} \And a $\in$ s \Imp \Not a $\in$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf una}
+
+\medskip
+
+ \Fol (s $\cup$ \Var{s}{0}) $\cup$ \Var{s}{1} = s $\cup$ \Var{s}{0} $\cup$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : unrax, ext
+\item       used by      : diff-int-01, diff-subset, diff-union, diff-union-01, diff-union-02, diff-union-03, intu-empty, size-union, sub-union, sub-union-01, sub-union-02, sub-union-03, sub-union-04, sub-union-05, unadd, unadd-01, unall, unc, undel, undel-01, undel-02, undel-03, undel-04, undel-06, une, une-01, uneq, unidem, union-del, union-diff, union-difference, union-one, union-rewone, union-size, union-size-01, union-size-02, union-size-03, union-size-insert, union-size-le, union-sizeeq, union-sizele, union-sub, union-sub-01, union-subset, union-subset-01, union-subset-02, union-subset-03, union-subset-04, union-subset-05, unsub, unsub-union-01, unsubdel, unsubdel-01, unsubins, unsubins-01, unsubsub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unadd}
+
+\medskip
+
+ \Fol s ++ a $\cup$ \Var{s}{0} = (s $\cup$ \Var{s}{0}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+\item       used by      : union-one, union-rewone, union-size-03, union-size-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unadd-01}
+
+\medskip
+
+ \Fol s $\cup$ (\Var{s}{0} ++ a) = (s $\cup$ \Var{s}{0}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+\item       used by      : size-union, union-sizele-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unall}
+
+\medskip
+
+ \Fol s = \Var{s}{0} $\cup$ s \Equiv (\All a. a $\in$ \Var{s}{0} \Imp a $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unc}
+
+\medskip
+
+ \Fol s $\cup$ \Var{s}{0} = \Var{s}{0} $\cup$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+\item       used by      : diff-int-01, diff-subset, diff-union, diff-union-01, diff-union-02, diff-union-03, intu-empty, size-union, sub-union, sub-union-01, sub-union-02, sub-union-03, sub-union-04, sub-union-05, undel-01, undel-03, union-del, union-diff, union-difference, union-one, union-rewone, union-size, union-size-01, union-size-02, union-size-03, union-size-insert, union-size-le, union-size-not-less, union-size-not-less-01, union-size-not-less-02, union-sizeeq, union-sizele, union-sub, union-sub-01, union-subset, union-subset-01, union-subset-02, union-subset-03, union-subset-04, union-subset-05, unsubdel
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel}
+
+\medskip
+
+ \Fol a $\in$ s \Imp s $\cup$ (\Var{s}{0} -- a) = s $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, del-rax, unrax, ext
+\item       used by      : undel-01, union-del
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel-01}
+
+\medskip
+
+ \Fol (s $\cup$ \Var{s}{0}) -- a = s $\cup$ (\Var{s}{0} -- a) \Equiv \Not a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, ext, unrax, del-in-03, una, undel, unc
+\item       used by      : undel-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel-02}
+
+\medskip
+
+ \Fol (s $\cup$ \Var{s}{0}) -- a = s -- a $\cup$ (\Var{s}{0} -- a)
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel-03}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp s $\cup$ (\Var{s}{0} -- a) = (s $\cup$ \Var{s}{0}) -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, undel-01
+\item       used by      : union-del, union-size-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel-04}
+
+\medskip
+
+ \Fol s -- a $\cup$ (\Var{s}{0} -- a) = (s $\cup$ \Var{s}{0}) -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, del-rax, ext
+\item       used by      : unsubdel
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel-05}
+
+\medskip
+
+ \Fol \Not a $\in$ s \And \Not a $\in$ \Var{s}{0} \Imp s -- a $\cup$ (\Var{s}{0} -- a) = s $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-in
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf undel-06}
+
+\medskip
+
+ \Fol s -- a -- b $\cup$ \Var{s}{0} $\neq$ s -- b -- a $\cup$ \Var{s}{0} \Equiv false
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, del-rax, unrax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf une}
+
+\medskip
+
+ \Fol s $\cup$ $\emptyset$ = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+\item       used by      : size-union, union-one, union-rewone, union-size-03, union-size-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf une-01}
+
+\medskip
+
+ \Fol \Var{s}{1} $\cup$ \Var{s}{2} = $\emptyset$ \Equiv \Var{s}{1} = $\emptyset$ \And \Var{s}{2} = $\emptyset$
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+\item       used by      : union-size-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf uneq}
+
+\medskip
+
+ \Fol s $\cup$ \Var{s}{0} = \Var{s}{0} \Equiv s $\subseteq$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : subdef, una, unrax, ext
+\item       used by      : union-sub-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unidem}
+
+\medskip
+
+ \Fol s $\cup$ s = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unin}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp (a $\in$ s $\cup$ \Var{s}{0} \Equiv a $\in$ \Var{s}{0})
+
+\begin{itemize}
+
+
+\item       used lemmas  : Union
+\item       used by      : unrax
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unin-01}
+
+\medskip
+
+ \Fol \Not a $\in$ s $\cup$ \Var{s}{0} \Equiv \Not a $\in$ s \And \Not a $\in$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : Union
+\item       used by      : uninsert, unrax
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unindel}
+
+\medskip
+
+ \Fol \Not a $\in$ s $\cup$ \Var{s}{0} \Imp \Not a $\in$ s -- b $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Union
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf uninsert}
+
+\medskip
+
+ \Fol a $\in$ s \Imp (s $\cup$ \Var{s}{0}) ++ a = s $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : unin-01
+\item       used by      : union-size-03, union-size-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf uninsubdel}
+
+\medskip
+
+ \Fol \Not a $\in$ s $\cup$ \Var{s}{0} \And \Var{s}{1} $\subseteq$ s \Imp \Not a $\in$ \Var{s}{1} -- b $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-rax, Union
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-del}
+
+\medskip
+
+ \Fol a $\in$ s -- a $\cup$ \Var{s}{0} \Equiv a $\in$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : undel, Union, Delete, unc, una, undel-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-diff}
+
+\medskip
+
+ \Fol \Not a $\in$ \Var{s}{0} \And \Not a $\in$ \Var{s}{1} \Imp (a $\in$ s $\backslash$ \Var{s}{0} $\cup$ \Var{s}{1} \Equiv a $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, Difference
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-difference}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s $\cup$ \Var{s}{0} $\backslash$ s = \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : subdef, Difference, Union, unc, una, diff-union-01, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-one}
+
+\medskip
+
+ \Fol a $\neq$ b \Imp (a $\in$ \{b\} $\cup$ s \Equiv a $\in$ s)
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, une, unadd, One
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-rewone}
+
+\medskip
+
+ \Fol s ++ a = s $\cup$ \{a\}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, unc, una, une, unadd, One
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size}
+
+\medskip
+
+ \Fol \Not \#(s $\cup$ \Var{s}{0}) $<$ \# s
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, Union, subdef
+\item       used by      : union-sizele
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-01}
+
+\medskip
+
+ \Fol \Not a $\in$ s \Imp \Not \#((s $\cup$ \Var{s}{0}) ++ a) $\le$ \# s
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, una, subdef, union-sizele-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-02}
+
+\medskip
+
+ \Fol \Not a $\in$ s \And a $\in$ \Var{s}{0} \Imp \#(s $\cup$ \Var{s}{0}) = \#(s $\cup$ (\Var{s}{0} -- a)) + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : del-in, une-01, Union, del-size, ext, unc, una, undel-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-03}
+
+\medskip
+
+ \Fol \#(\Var{s}{0} $\cup$ \Var{s}{1}) = \# \Var{s}{0} + \# \Var{s}{1} - \#(\Var{s}{0} $\cap$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : uninsert, Intersect, intersection-shift, ext, intersection-size, intersection-insert, Union, unadd, int-c, int-a, int-e, unc, una, une
+\item       used by      : union-size-ls-in
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-insert}
+
+\medskip
+
+ \Fol \Not a $\in$ s \And \Not a $\in$ \Var{s}{0} \Imp \#((s $\cup$ \Var{s}{0}) ++ a) = \#(s $\cup$ \Var{s}{0}) + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, Union, unc
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-le}
+
+\medskip
+
+ \Fol \#(\Var{s}{0} $\cup$ \Var{s}{1}) $\le$ \# \Var{s}{0} + \# \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : uninsert, ext, Union, unadd, unc, una, une
+\item       used by      : union-size-not-less, union-size-not-less-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-ls-in}
+
+\medskip
+
+ \Fol a $\in$ \Var{s}{0} \And a $\in$ \Var{s}{1} \Imp \#(\Var{s}{0} $\cup$ \Var{s}{1}) $<$ \# \Var{s}{0} + \# \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : int-rax, intersection-size, int-a, int-c, union-size-03, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-not-less}
+
+\medskip
+
+ \Fol \Not \# \Var{s}{0} + \# \Var{s}{1} $<$ \#(\Var{s}{0} $\cup$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, union-size-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-not-less-01}
+
+\medskip
+
+ \Fol \# \Var{s}{0} $\le$ m \And \# \Var{s}{1} $\le$ n \Imp \Not m + n $<$ \#(\Var{s}{0} $\cup$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, union-size-le
+\item       used by      : union-size-not-less-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-size-not-less-02}
+
+\medskip
+
+ \Fol \# \Var{s}{0} $\le$ m \And \# \Var{s}{1} $\le$ n \Imp \Not m + n + 1 $<$ \#(\Var{s}{0} $\cup$ \Var{s}{1})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unc, union-size-not-less-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-sizeeq}
+
+\medskip
+
+ \Fol \#(s $\cup$ \Var{s}{0}) = \# s \Equiv \Var{s}{0} $\subseteq$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : union-sub, unrax, unc, una, Union, ext, subdef
+\item       used by      : union-sizele
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-sizele}
+
+\medskip
+
+ \Fol \#(s $\cup$ \Var{s}{0}) $\le$ \# s \Equiv \Var{s}{0} $\subseteq$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : union-sub, union-size, ext, unc, una, union-sizeeq, subdef
+\item       used by      : union-sizele-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-sizele-01}
+
+\medskip
+
+ \Fol \#((s $\cup$ \Var{s}{0}) ++ a) $\le$ \# s \Equiv \Var{s}{0} $\subseteq$ s \And a $\in$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : subdef, union-sizele, unadd-01
+\item       used by      : union-size-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-sub}
+
+\medskip
+
+ \Fol \Var{s}{0} $\subseteq$ s \Imp s $\cup$ \Var{s}{0} = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, unc, una, union-sub-01
+\item       used by      : union-sizeeq, union-sizele
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-sub-01}
+
+\medskip
+
+ \Fol \Var{s}{0} $\subseteq$ s \Imp \Var{s}{0} $\cup$ s = s
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, unc, una, subdef, uneq
+\item       used by      : union-sub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-subset}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s $\cup$ \Var{s}{1} $\subseteq$ \Var{s}{0} $\cup$ \Var{s}{1}
+
+\begin{itemize}
+
+
+\item       used lemmas  : union-subset-01, unc, una
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-subset-01}
+
+\medskip
+
+ \Fol \Not s $\cup$ \Var{s}{1} $\subseteq$ \Var{s}{0} $\cup$ \Var{s}{1} \Imp \Not s $\subseteq$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, Union, unc, una, unrax, subdef
+\item       used by      : union-subset
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-subset-02}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Var{s}{1} $\subseteq$ \Var{s}{2} \Imp s $\cup$ \Var{s}{1} $\subseteq$ (\Var{s}{0} $\cup$ \Var{s}{2}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, Union, unrax, subdef, unc, una
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-subset-03}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Var{s}{1} $\subseteq$ \Var{s}{2} \And \Var{s}{3} $\subseteq$ \Var{s}{4} \Imp s $\cup$ \Var{s}{1} $\cup$ \Var{s}{3} $\subseteq$ \Var{s}{0} $\cup$ \Var{s}{2} $\cup$ \Var{s}{4}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, Union, unrax, subdef, unc, una
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-subset-04}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Var{s}{1} $\subseteq$ \Var{s}{2} \And \Var{s}{3} $\subseteq$ \Var{s}{4} \Imp s $\cup$ \Var{s}{1} $\cup$ \Var{s}{3} $\subseteq$ (\Var{s}{0} $\cup$ \Var{s}{2} $\cup$ \Var{s}{4}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, Union, unrax, subdef, unc, una
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf union-subset-05}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \Imp s $\cup$ \Var{s}{1} $\subseteq$ (\Var{s}{0} $\cup$ \Var{s}{1}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, Union, unrax, subdef, unc, una
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unrax}
+
+\medskip
+
+ \Fol a $\in$ s $\cup$ \Var{s}{0} \Equiv \Not \Not (a $\in$ s \Or a $\in$ \Var{s}{0})
+
+\begin{itemize}
+
+
+\item       used lemmas  : unin-01, unin
+\item       used by      : diff-union-02, diff-union-03, size-union, una, unadd, unadd-01, unall, unc, undel, undel-01, undel-02, undel-04, undel-06, une, une-01, uneq, unidem, union-sizeeq, union-subset-01, union-subset-02, union-subset-03, union-subset-04, union-subset-05, unsub, unsub-union-01, unsubdel, unsubdel-01, unsubins, unsubins-01, unsubsub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsub}
+
+\medskip
+
+ \Fol s $\subseteq$ s $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsub-union-01}
+
+\medskip
+
+ \Fol \Var{s}{1} $\cup$ \Var{s}{2} $\subseteq$ s \Equiv \Var{s}{1} $\subseteq$ s \And \Var{s}{2} $\subseteq$ s
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, una, unrax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsubdel}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Var{s}{1} $\subseteq$ \Var{s}{2} \And \Not a $\in$ s \And \Not a $\in$ \Var{s}{1} \Imp s $\cup$ \Var{s}{1} $\subseteq$ \Var{s}{0} -- a $\cup$ (\Var{s}{2} -- a)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, del-rax, unrax, unc, una, undel-04, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsubdel-01}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Not a $\in$ s \Imp \Var{s}{0} -- a $\cup$ s = \Var{s}{0} -- a
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, del-rax, ext
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsubins}
+
+\medskip
+
+ \Fol s ++ a $\subseteq$ s $\cup$ \Var{s}{0} \Equiv a $\in$ s $\cup$ \Var{s}{0}
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsubins-01}
+
+\medskip
+
+ \Fol s $\subseteq$ (s $\cup$ \Var{s}{0}) ++ a
+
+\begin{itemize}
+
+
+\item       used lemmas  : una, unrax, subdef
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf unsubsub}
+
+\medskip
+
+ \Fol s $\subseteq$ \Var{s}{0} \And \Var{s}{1} $\subseteq$ \Var{s}{2} \Imp s $\cup$ \Var{s}{1} $\subseteq$ \Var{s}{0} $\cup$ \Var{s}{2}
+
+\begin{itemize}
+
+
+\item       used lemmas  : ext, una, unrax, subdef
+
+\end{itemize}
+
+\medskip
+
+
+
+\end{document}
+

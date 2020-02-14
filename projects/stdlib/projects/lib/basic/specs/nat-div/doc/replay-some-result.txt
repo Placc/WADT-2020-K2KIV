@@ -1,0 +1,52 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+two-padd
+two-ls-03
+two-ls-01
+two-loup-12
+two-loup-11
+two-loup-08
+two-loup-07
+two-loup-04
+two-loup-02
+two-loup-01
+two-le
+square-nle-01-01
+square-nle-01
+square-ls-03
+square-ls
+square-interval
+square-inject
+mult-ls-01
+mult-ls
+mod-once
+mod-neq
+mod-ls
+mod-le-04
+mod-le-03
+mod-le-02
+mod-le-01
+mod-le
+ls-03
+ls-02
+ls-01
+ls
+le-succ
+le-div-to-mult
+le-01
+le
+div-elim
+cond
+add
+
+
+*** Failures: ***
+
+

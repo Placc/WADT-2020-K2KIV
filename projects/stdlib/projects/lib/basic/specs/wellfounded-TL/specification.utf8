@@ -1,0 +1,31 @@
+enrich wellfounded, nat-basic with
+
+;; sorts ;
+
+;; constants ;
+
+;; functions ;
+
+;; predicates ;
+
+;; procedures ;
+
+variables A : elem flexible;
+          N : nat flexible;
+
+;; partial functions ;
+
+;; partial predicates ;
+
+;; induction ;
+
+;; axioms
+
+theorems
+
+not-always-decrease: □ ⟨a := A⟩ ◇ A ≪ a ⊦;
+always-noincrease-stable: □ (A'' ≪ A ∨ A'' = A) ⊦ ◇ □ A'' = A;
+ 
+;; declaration
+
+end enrich

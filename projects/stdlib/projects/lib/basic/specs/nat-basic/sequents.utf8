@@ -1,0 +1,378 @@
+
+lemmas
+
+constrrew: 0 +1 = 1;
+comment: needed as constructor rewrite, not as a simplifier rule;
+
+;;; begin nat-basic1-lemmas
+
+;;; Duplikat zu twols-02
+;;;lstwo : n ≠ 1 → (n < 2 ↔ n = 0); used for : s,ls;
+
+
+twols-01       :  ⊦ m ≠ 1 → (m < 2 ↔ m = 0) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+twols-02       :  ⊦ m ≠ 0 → (m < 2 ↔ m = 1) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+
+elim-pred-c : n ≠ 0 ⊦ m = n -1 ↔ n = m +1 ;
+   used for : e ;
+    remarks : proved, used, used by proved unit ;
+eq          :  ⊦ m < n → (m +1 < n ↔ n ≠ m +1) ;
+   used for : ss ;
+    remarks : proved ;
+f           :  ⊦ m < n → n ≠ 0 ;
+   used for : s, f, lf ;
+    remarks : proved, used, used by proved unit ;
+ilf         :  ⊦ m +1 < m -1 → m = 0 ;
+   used for : f, lf ;
+    remarks : proved ;
+ilf-01      :  ⊦ m < m -1 → m = 0 ;
+   used for : f, lf ;
+    remarks : proved, used ;
+ilf-02      :  ⊦ m = m -1 → m = 0 ;
+   used for : f, lf ;
+    remarks : proved ;
+ilf-03      :  ⊦ ¬ m -1 -1 < m → m = 0 ∨ m = 1 ;
+   used for : f, lf ;
+    remarks : proved ;
+
+trans-01       :  ⊦ n < n0 ∧ n0 < n1 → n +1 < n1 ;
+   used for : f, lf ;
+;; Duplikat zu trans-01
+;;lf          :  ⊦ m < n ∧ n < n0 → m +1 < n0 ;
+ ;;  used for : f ;
+ ;;   remarks : proved ;
+lf-01       :  ⊦ m < n ∧ n = n0 → m < n0 ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+lf-02       :  ⊦ m < n ∧ m = n0 → n0 < n ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+lf-03       :  ⊦ ¬ n < m ∧ n < n0 → m < n0 ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+lf-04       :  ⊦ ¬ n < m ∧ n = n0 → ¬ n0 < m ;
+   used for : f ;
+    remarks : proved ;
+lf-05       :  ⊦ ¬ n < m ∧ m = n0 → ¬ n < n0 ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+lf-06       :  ⊦ ¬ m < n0 ∧ n < n0 → n < m ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+lf-07       :  ⊦ ¬ m < n ∧ ¬ n0 < m → ¬ n0 < n ;
+   used for : f ;
+    remarks : proved ;
+lf-08       :  ⊦ m +1 < n → m < n ;
+   used for : f ;
+    remarks : proved ;
+lrec        :  ⊦ m +1 < n +1 ↔ m < n ;
+   used for : s, ls ;
+    remarks : proved, used ;
+ls          :  ⊦ m < m +1 ;
+   used for : s, ls ;
+    remarks : proved ;
+ls-01       :  ⊦ ¬ m +1 < m ;
+   used for : s, ls ;
+    remarks : proved, used ;
+ls-02       :  ⊦ m < n → ¬ n < m ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+ls-03       :  ⊦ ¬ m < n → (n < m ↔ n ≠ m) ;
+   used for : ss, lss ;
+    remarks : proved, used, used by proved unit ;
+ls-04       :  ⊦ m < n ↔ ¬ (m = n ∨ n < m) ;
+   used for : lss ;
+    remarks : proved, used ;
+neq         :  ⊦ m ≠ n → (m < n +1 ↔ m < n) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+neq-01      :  ⊦ m ≠ n → (m < n ↔ ¬ n < m) ;
+   used for : ss, lss ;
+    remarks : proved, used, used by proved unit ;
+one         :  ⊦ 1 < m ↔ ¬ (m = 0 ∨ m = 1) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+one-01      :  ⊦ m < 1 ↔ m = 0 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+one-02      :  ⊦ m ≠ 0 → (1 < m ↔ m ≠ 1) ;
+   used for : ss, lss ;
+    remarks : proved, used ;
+prop-ls     :  ⊦ m < n ∧ ¬ n0 < n → m < n0 ;
+    remarks : proved ;
+prop-p      :  ⊦ m -1 = n -1 ∧ m ≠ 0 ∧ n ≠ 0 → m = n ;
+    remarks : proved ;
+prop-p-01   :  ⊦ n ≠ 0 ∧ m < n -1 → m < n ;
+    remarks : proved ;
+psh         :  ⊦ m -1 < m ↔ m ≠ 0 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+psh-01      :  ⊦ m < n0 → (n < n0 -1 ↔ n +1 < n0) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+psh-02      :  ⊦ m ≠ 0 → (m -1 < n ↔ ¬ n < m) ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+psh-03      :  ⊦ m ≠ 0 → (m -1 = n ↔ m = n +1) ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+psh-04      :  ⊦ n ≠ 0 → (m < n -1 ↔ m +1 < n) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+psh-05      :  ⊦ n ≠ 0 ∧ n ≠ 1 → (m < n -1 -1 ↔ m +1 +1 < n) ;
+   used for : s, ls ;
+    remarks : proved ;
+psh-06      :  ⊦ n ≠ 0 ∧ n ≠ 1 → (n -1 -1 < m ↔ n < m +1 +1) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+psh-07      :  ⊦ ¬ n < m -1 → ¬ n +1 < m ;
+   used for : s, ls ;
+    remarks : proved, used ;
+psh-08      :  ⊦ ¬ n < m ∧ n ≠ 0 → (n -1 < m ↔ m = n) ;
+   used for : s, ls ;
+    remarks : proved ;
+psh-09      : m ≠ 0 ⊦ m -1 < n ↔ m < n +1 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+psu         :  ⊦ m ≠ 0 → m -1 +1 = m ;
+   used for : s, ls ;
+    remarks : proved, used ;
+psu-01      :  ⊦ m ≠ 0 ∧ m ≠ 1 → m -1 -1 +1 = m -1 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+psu-02      :  ⊦ n -1 +1 = n ↔ n ≠ 0 ;
+   used for : ss, lss ;
+    remarks : proved, used ;
+psu-03      :  ⊦ n < m → m -1 +1 = m ;
+   used for : s, ls ;
+    remarks : proved ;
+psu-04      :  ⊦ ¬ m -1 +1 < m ;
+   used for : s, ls ;
+    remarks : proved ;
+q           : n ≠ 0, n ≠ 1 ⊦ ∃ m. m +1 +1 = n ;
+    remarks : proved ;
+;;;rax         :  ⊦ n0 < n +1 ↔ ¬ ¬ (n0 = n ∨ n0 < n) ;
+;;   used for : ls ;
+;;    remarks : proved, used ;
+s           :  ⊦ m < n +1 ↔ ¬ n < m ;
+   used for : s, ls ;
+    remarks : proved, used ;
+s-01        :  ⊦ m ≠ m +1 +1 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+s-02        :  ⊦ m ≠ m +1 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+s-03        :  ⊦ ¬ n +1 +1 < n ;
+   used for : s, ls ;
+    remarks : proved, used ;
+tot         :  ⊦ n < m ∨ n = m ∨ m < n ;
+    remarks : proved, used ;
+    remarks : proved, used by proved unit ;
+z           :  ⊦ 0 < n ↔ n ≠ 0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+;; Duplikat zu z
+;;zero        :  ⊦ 0 < m ↔ m ≠ 0 ;
+;;   used for : s, ls ;
+;;    remarks : proved, used ;
+;; Duplikat zu Axiom less-1    
+;;zero-01     :  ⊦ ¬ m < 0 ;
+;;   used for : s, ls ;
+;;    remarks : proved, used, used by proved unit ;
+numeral-1   : m ≠ 0 ⊦  (n +1 = (* m) ↔ n = m -1);
+used for : ls;
+numeral-2   : m ≠ 0 ⊦ n +1 < (* m) ↔ n < m -1;
+used for : ls;
+
+;;; end nat-basic1-lemmas
+
+;;;fehlte???
+ls-05: ⊦ (m + n)+1 < m + n0 ↔ n +1 < n0 ;
+
+one-def: 1 = 0 +1;
+zero-neq-one: 0 ≠ 1;
+
+rec       :  ⊦ m +1 + n = (m + n) +1 ;
+  used for : ls ;
+  remarks : proved, used ;
+
+;; KODKOD BEGIN
+
+k-two: 2 = 1 +1; used for : kodkodaxweak;
+
+;; KODKOD END
+
+expand-nat: ⊦ n < n1 → n + m < n1 + m;
+
+neq-02       :  ⊦ m < m0 ∧ n0 < n → m + n0 + 1 ≠ n + m0;
+  used for : s, ls ;
+
+eq-inc-neq : m = m0 + 1 + n → ¬ m = n;
+used for : s, ls;
+
+
+ex-oddeven : ∃ m. m + m = n ∨ m + m + 1 = n;
+
+nls-fst : ¬ m < n → ¬ m + m0 < n; used for : s,ls;
+nls-snd : ¬ m0 < n → ¬ m + m0 < n; used for : s,ls;
+
+
+between : m < n → (n < m + 2 ↔ m + 1 = n); used for : s, ls;
+addex : m < n ↔ ∃ m0. m + m0 = n ∧ m0 ≠ 0;
+
+twols : ⊦ m < n → (m + n < 2 ↔ m = 0 ∧ n = 1); used for : s,ls;
+pls : m < m0, n < n0 ⊦ m + n + 1 < m0 + n0;
+
+a         :  ⊦ (m + n0) + n1 = m + (n0 + n1) ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+c         :  ⊦ m + n = n + m ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+eq-02        :  ⊦ m = m + n ↔ n = 0 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+eq-01     :  ⊦ m + n = m + n0 ↔ n = n0 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+eqs       :  ⊦ m = n + n0 ∧ m = n + n1 → n0 = n1 ;
+  used for : f, lf ;
+  remarks : proved, used by proved unit ;
+even      :  ⊦ n + n = m + m ↔ n = m ;
+  used for : s, ls ;
+  remarks : proved, used ;
+even-01   :  ⊦ m + m ≠ 1 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+even-02   :  ⊦ m + m < n + n ↔ m < n ;
+  used for : s, ls ;
+  remarks : proved, used ;
+even-04   :  ⊦ m + m ≠ 3 ;
+  used for : s, ls ;
+  remarks : proved ;
+even-05   :  ⊦ m + m = (m0 + m0) + n → ¬ m < m0 ;
+  used for : s, ls ;
+  remarks : proved ;
+even-06   :  ⊦ m + m ≠ n + (n + 1) ;
+  used for : s, ls ;
+  remarks : proved ;
+
+l-addone : n < n + 1;
+used for: ls;
+l         :  ⊦ m + n < m + n0 ↔ n < n0 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+l-01      :  ⊦ m < m + n ↔ n ≠ 0 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+l-02      :  ⊦ ¬ m + n < m ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+l-03      :  ⊦ m < m0 ∧ n < n0 → (m + n < m0 + n0 ↔ true) ;
+  used for : ss, lss ;
+  remarks : proved, used, used by proved unit ;
+l-04      :  ⊦ m + m0 < n + n0 → (m + m0 < n + n0 ↔ true) ;
+  used for : ss, lss ;
+  remarks : proved, used ;
+l-05      :  ⊦ m + m0 < n → ¬ n + n0 < m ;
+  used for : s, ls ;
+  remarks : proved ;
+l-06      :  ⊦ m = m0 + n0 ∧ n < n0 → m0 + n < m ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+l-07      :  ⊦ m = m0 + n0 ∧ n < n0 → ¬ m < m0 + n ;
+  used for : s, ls ;
+  remarks : proved ;
+l-08      :  ⊦ m + n < m0 → m + n < m0 + n0 ;
+  used for : s, ls ;
+  remarks : proved ;
+less      : ¬ m0 < n0, n < m ⊦ n + n0 < m + m0 ;
+  remarks : proved, used ;
+less-01   : ¬ n0 < n, ¬ n + m < m0 ⊦ ¬ n0 + m < m0 ;
+  remarks : proved ;
+less-02   :  ⊦ ¬ n0 + (n1 + n2) < m ∧ ¬ n < n2 → ¬ n0 + (n1 + n) < m ;
+  remarks : proved ;
+less-03   : ¬ m0 < n1, n + n0 < m ⊦ n + (n0 + n1) < m + m0 ;
+  remarks : proved ;
+less-04   : m + m0 < n + n0, ¬ m < n ⊦ m0 < n0 ;
+  remarks : proved ;
+less-05   : m < m0, ¬ n0 < n ⊦ m + n < m0 + n0 ;
+  remarks : proved ;
+less-06   : m + n < m0, n0 < n ⊦ m + n0 < m0 ;
+  remarks : proved ;
+lp        :  ⊦ m ≠ 0 → (m + n < m -1 ↔ false) ;
+  used for : s, ls ;
+  remarks : proved ;
+neq-03       :  ⊦ m < m0 ∧ n0 < n + m → n0 + 1 ≠ n + m0 ;
+  used for : s, ls ;
+  remarks : proved ;
+neq-04    :  ⊦ m ≠ n → (m < n + 1 ↔ m < n) ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+one-03       :  ⊦ m + n = 1 ↔ m = 0 ∧ n = 1 ∨ n = 0 ∧ m = 1 ;
+  remarks : proved ;
+one-04    :  ⊦ n ≠ 0 → (m + n = 1 ↔ n = 1 ∧ m = 0) ;
+  used for : s, ls ;
+  remarks : proved ;
+one-05    :  ⊦ m ≠ 1 → (m + n = 1 ↔ m = 0 ∧ n = 1) ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+one-06    :  ⊦ 1 = m + 1 ↔ m = 0 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+oz        :  ⊦ m + 1 ≠ 0 ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+pe        :  ⊦ n ≠ 0 → m + n -1 = (m + n) -1 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+pe-01     :  ⊦ m0 < m → n0 + (m + n) -1 = ((n0 + m) + n) -1 ;
+  used for : s, ls ;
+  remarks : proved ;
+pred      :  ⊦ (m + 1) -1 = m ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+ps        :  ⊦ m ≠ 0 → (m + n) -1 +1 = m + n ;
+  used for : s, ls ;
+  remarks : proved ;
+pse       :  ⊦ n ≠ 0 ∧ n ≠ 1 → m + n -1 -1 = (m + n) -1 -1 ;
+  used for : s, ls ;
+  remarks : proved ;
+q-add         :  ⊦ ∃ n. m = n + n ∨ m = (n + n) +1 ;
+  remarks : proved ;
+q-add-01      : ¬ n < m ⊦ ∃ m0. m + m0 = n ;
+  remarks : proved, used by proved unit ;
+s-04         :  ⊦ m < n + 1 ↔ ¬ n < m ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+succ      :  ⊦ m +1 = m + 1 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+succ-03   :  ⊦ m < n ∧ m + 1 ≠ n → m + 1 < n ;
+  used for : f, lf ;
+  remarks : proved, used by proved unit ;
+three     :  ⊦ m ≠ 0 ∧ n ≠ 0 ∧ m ≠ 1 → (m + n = 3 ↔ m = 2 ∧ n = 1) ;
+  used for : s, ls ;
+  remarks : proved ;
+two       :  ⊦ m + m = 2 ↔ m = 1 ;
+  used for : s, ls ;
+  remarks : proved ;
+two-01 :  ⊦ m ≠ 0 ∧ n ≠ 0 → (m + n = 2 ↔ m = 1 ∧ n = 1) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+two-02    :  ⊦ m + (m + m) ≠ 2 ;
+  used for : s, ls ;
+  remarks : proved ;
+z-02         :  ⊦ 0 + m = m ;
+  used for : s, ls ;
+  remarks : proved, used ;
+z-01      :  ⊦ m + n = 0 ↔ m = 0 ∧ n = 0 ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+
+

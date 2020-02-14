@@ -1,0 +1,286 @@
+;; file: /quadly/swt/kiv/v6/projects/lib/separation/specs/heap-sep/sequents
+
+lemmas
+
+false-Imp:
+false ⊆ P;
+used for: s,ls;
+
+p-Imp:
+(⌜bv⌝ ∧ P0) ⊆ P1
+  ↔ (bv → P0 ⊆ P1);
+used for: s,ls;
+
+And-prop-inj:
+(⌜bv⌝ ∧ P0) = (⌜bv⌝ ∧ P1)
+  ↔ (bv → P0 = P1);
+used for: s,ls;
+
+And-inj:
+P0 = P1
+  → (P ∧ P0) = (P ∧ P1);
+used for: ss,lss;
+
+sep-inj:
+P0 = P1
+  → P * P0 = P * P1;
+
+sep-inj2:
+P0 = P1 ∧ P2 = P3
+  → P0 * P2 = P1 * P3;
+
+sep-inj2-imp:
+P0 ⊆ P1 ∧ P2 ⊆ P3
+  → P0 * P2 ⊆ P1 * P3;
+
+sep-inj3:
+P0 = P1 ∧ P2 = P3 ∧ P4 = P5
+  → P0 * P2 * P4 = P1 * P3 * P5;
+
+imp-ite:
+(⌜bv0⌝ → ite(bv, P0, P1))
+  = ite(bv0 → bv, ⌜bv0⌝ → P0, ⌜bv0⌝ → P1);
+
+Imp-p:
+(⌜bv⌝ ∧ P0) ⊆ (⌜bv⌝ ∧ P1)
+  ↔ (bv → P0 ⊆ P1);
+used for: s,ls;
+
+ite-true:
+ite(true, P0, P1) = P0;
+used for: s,ls;
+
+ite-false:
+ite(false, P0, P1) = P1;
+used for: s,ls;
+
+ite-same:
+ite(bv, P, P) = P;
+used for: s,ls;
+
+stability:
+(P0 * {H})(H0),
+(P1 * {H})(H1),
+(P0 -⊗ P) * P1 ⊆ P
+⊦ P(H0) → P(H1);
+
+Eq-P: P0 = P1 ↔ ∀ P,H. (P0 * P)(H) ↔ (P1 * P)(H);
+
+Imp-refl: P ⊆ P; used for: s,ls;
+Imp-trans: P0 ⊆ P1 ∧ P1 ⊆ P2 → P0 ⊆ P2; used for: f,lf;
+Imp1: P0 ⊆ P1 ∧ P0(H) → P1(H); used for: f,lf;
+Imp2: P0 ⊆ P1 ∧ (P * P0)(H) → (P * P1)(H); used for: s,ls;
+Imp-frame: ∀ P. P * P0 ⊆ P * P1 ⊦ P0 ⊆ P1;
+
+Imp-from-eq: P0 = P1 ↔ P0 ⊆ P1 ∧ P1 ⊆ P0;
+eq-frame: ∀ P. (P * P0) = (P * P1) ⊦ P0 = P1;
+
+imp-mono:  ∀ H. P(H) → P0(H), (P * P1)(H0) ⊦ (P0 * P1)(H0);
+
+sep-split-interactive:
+∀ P0. (P * P0)(H) → ∃ H0,H1. H0 ⊥ H1 ∧ H0 ∪ H1 = H ∧ P(H0) ∧ P0(H1);
+
+split-union:
+P0(H0) ∧ P1(H1) ∧ H0 ⊥ H1
+    → (P0 * P1)(H0 ∪ H1);
+used for: ss,lss;
+
+sep-com:
+P0 * P1 = P1 * P0;
+used for: s,ls;
+
+sep-ass:
+(P0 * P1) * P2 = P0 * P1 * P2;
+used for: s,ls;
+
+wand-flatten:
+(P0 -* (P1 -* P2))
+  = (P0 * P1 -* P2);
+used for: s,ls;
+
+sep-mp:
+(P0 * (P0 -* P1))(H) → P1(H);
+
+contract-wand:
+P0 * (P0 -* P1)
+  = (  P0 * (P0 -* P1)
+     ∧ P1);
+
+;; decompose-wand:
+;; (P * (P0 -* P2))(H)
+;;   → (P * (P1 -* P2))(H);
+
+sep-mp-p:
+(P0 * (P0 -* P1) * P2)(H)
+  → (P1 * P2)(H);
+used for: ss,lss;
+
+sep-partial-mp:
+(P0 * ((P0 * P2) -* P1))(H)
+  → (P2 -* P1)(H);
+used for: ss,lss;
+
+sep-partial-mp-2:
+(P0 * P * ((P0 * P2) -* P1))(H)
+  → (P * (P2 -* P1))(H);
+used for: ss,lss;
+
+
+sep-Mp:
+(P0 * (P0 -* P1)) ⊆ P1;
+
+Frame:
+P0 ⊆ (P1 -* (P1 * P0));
+
+adjunction:
+(∀ H. (P0 → P1 -* P2)(H)) ↔ (∀ H. (P0 * P1 → P2)(H));
+
+wand-dual:
+P0 -⊗ P1 = ¬ (P0 -* ¬ P1);
+
+septract-dual:
+P0 -* P1 = ¬ (P0 -⊗ ¬ P1);
+
+wand-shift:
+(P0 * (P1 -* P2))(H)
+  → (P1 -* (P0 * P2))(H);
+used for: ss,lss;
+
+wand-shift-p:
+(P0 * (P1 -* P2) * P)(H)
+  → ((P1 -* (P0 * P2)) * P)(H);
+used for: ss,lss;
+
+(:
+wand-cancel:
+∃ H0. H0 ⊥ H ∧ P(H0)
+⊦   ((P0 * P) -* (P1 * P))(H)
+  ↔ (P0 -* P1)(H);
+:)
+
+(:
+septract-Mp:
+precise(P0) → (P0 -⊗ (P0 * P1)) ⊆ P1;
+used for: s,ls;
+:)
+
+sharing-com:
+P0 ⊗ P1 = P1 ⊗ P0;
+used for: s, ls;
+
+(:
+sharing-ass:
+P0 ⊗ (P1 ⊗ P2) = (P0 ⊗ P1) ⊗ P2;
+used for: s, ls;
+:)
+
+introduce-sharing:
+(P0 ⊗ P1)(H)
+  ↔ ∃ P. ((P -* P0) * (P -* P1) * P)(H);
+
+wand-same-emp:
+(P -* P)(∅);
+used for: s,ls;
+
+wand-same-emp-p:
+P0(H) → ((P -* P) * P0)(H);
+used for: ss,lss;
+
+trueH: true(H); used for: s,ls;
+true-rev: ⌜true⌝ = true; used for: s;
+falseH: ¬ false(H); used for: s,ls;
+false-rev: ⌜false⌝ = false; used for: s;
+
+this-emp:  {∅} = emp; used for: s,ls;
+emp-sep:   (emp * P)   = P;         used for: s,ls;
+false-sep: (false * P) = false; used for: s,ls;
+true-and:  (true  ∧ P) = P;       used for: s,ls;
+false-and: (false ∧ P) = false; used for: s,ls;
+true-elim: (P0 * P)(H) → (true * P)(H); used for: s,ls;
+true-emp:  P(H) → (true * P)(H); used for: s,ls;
+true-true: true * true = true; used for: s,ls;
+
+prop-emp:  ((⌜bv⌝ ∧ emp) * P)(H) ↔ (bv ∧ P(H)); used for: s,ls;
+prop-sep:  ((⌜bv⌝ ∧ P0) * P1)(H) ↔ bv ∧ (P0 * P1)(H); used for: s,ls;
+prop-shift: (⌜bv⌝ ∧ P0) * P1 = (⌜bv⌝ ∧ (P0 * P1)); used for: s,ls;
+
+sharing-emp: P ⊗ emp = P; used for: s,ls;
+true-elims: (P0 ⊗ P)(H) → (true ⊗ P)(H); used for: s,ls;
+
+and-com:   (P0 ∧ P1) = (P1 ∧ P0); used for: s,ls;
+or-com:    (P0 ∨ P1) = (P1 ∨ P0); used for: s,ls;
+and-ass:   ((P0 ∧ P1) ∧ P2) = (P0 ∧ P1 ∧ P2); used for: s,ls;
+or-ass:    ((P0 ∨ P1) ∨ P2) = (P0 ∨ P1 ∨ P2); used for: s,ls;
+
+and-imp: (P * (P1 ∧ P2))(H) → (P * P1)(H); used for: s,ls;
+and-weaken: ∀ H. (P1 → P0)(H) ⊦ (P0 ∧ P1) = P1;
+and-weaken-this: (P1 → P0)(H) ⊦ (P0 ∧ P1)(H) = P1(H);
+
+and-split: precise(P) ⊦ (P * (P0 ∧ P1))(H) ↔ (P * P0)(H) ∧ (P * P1)(H);
+;; and-combine: precise(P0) ⊦ H ⊥ H0 ∧ P0[h0] ∧ P1[h0] → ((P * (P0 ∧ P1))[h ∪ h0] ↔ P(H)); used for: s,ls;
+
+imp-cases:     bv → ((⌜bv⌝ → P) = P);
+imp-proptrue:  (true  → P) = P; used for: s,ls;
+imp-propfalse: (false → P) = true; used for: s,ls;
+
+precise-emp:
+precise(emp);
+used for: s,ls;
+
+precise-split-l:
+precise(P0) ⊦ P0(H0) ∧ H0 ⊥ H1
+    → ((P0 * P1)(H0 ∪ H1) ↔ P1(H1));
+used for: s;
+
+precise-split-r:
+precise(P1) ⊦ P1(H1) ∧ H0 ⊥ H1
+    → ((P0 * P1)(H0 ∪ H1) ↔ P0(H0));
+used for: s;
+
+precise-sep:
+precise(P0) ∧ precise(P1) → precise(P0 * P1);
+used for: s,ls;
+
+precise-and:
+precise(P0) → precise(P0 ∧ P1);
+used for: s,ls;
+
+precise-this:
+precise({H});
+used for: s,ls;
+
+precise-disj:
+precise(P0),
+precise(P1)
+⊦
+  (P0 * P1 * true)(H0 ∪ H2)
+∧ H0 ∪ H2 = H1 ∪ H3
+∧ H0 ⊥ H2 ∧ H1 ⊥ H3
+∧ P0(H0) ∧ P1(H1)
+  → H0 ⊥ H1;
+used for: f,lf;
+
+precise-same:
+precise(P) ⊦
+P(H0) ∧ P(H1) ∧ H0 ⊥ H ∧ H1 ⊥ H2
+    → (H0 ∪ H = H1 ∪ H2 ↔ H0 = H1 ∧ H = H2);
+used for: s,ls;
+
+;;; END
+
+sep-extract:
+precise(P0),
+precise(P1),
+precise(P2)
+⊦
+  (P0 * P1 * true)(H)
+∧ (P0 * P2 * true)(H)
+    → ((P1 * P2 * true)(H)
+        ↔ (P0 * P1 * P2 * true)(H));
+used for: s;
+
+;; at-fold: r ∈ H ⊦ (H[r] = o ↔ ((r => o) * true)(H));
+map-inj:   ((r => o0) * P0)(H) ∧ ((r => o1) * P1)(H) → o0 = o1; used for: f,lf;
+map-write: typ(r,o1), r ∈ H ⊦ ((r => o0) * P)(H[r,o1]) → o0 = o1; used for: f,lf;
+
+

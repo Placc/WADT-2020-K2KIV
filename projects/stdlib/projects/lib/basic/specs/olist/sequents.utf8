@@ -1,0 +1,171 @@
+
+variables m0, n2 : nat;
+lemmas
+ordered-ex-divide-lels : ordered≤(x) ⊦ ∃ y, z. x = y + z ∧ (∀ b. b ∈ y → b < a ∨ b = a) ∧ (∀ b. b ∈ z → a < b);
+ordered-ex-divide-lsle : ordered≤(x) ⊦ ∃ y, z. x = y + z ∧ (∀ b. b ∈ y → b < a) ∧ (∀ b. b ∈ z → b = a ∨ a < b);
+
+
+ordered-shorter-sublist : ⊦ 
+                         ordered≤(sublist(m0, n1 + 1, x)) ∧ n2 < n1 ∧ n1 + m0 < # x
+                       → (¬ ordered≤(sublist(m0, n2 + 1, x)) ↔ false) ;
+            used for : s, ls ;
+;;; END
+ordered-postfix      :  ⊦ x ⊒ x0 ∧ ordered≤(x0) → (¬ ¬ ordered≤(x) ↔ true) ;
+            used for : s, ls ;
+
+ordered-prefix       :  ⊦ x ⊑ x0 ∧ ordered≤(x0) → (¬ ¬ ordered≤(x) ↔ true) ;
+            used for : s, ls ;
+;;; END
+ins-less-first       : ⊦ 
+                         ordered≤(x) ∧ x ≠ [] ∧ ¬ a < x .first 
+                       → ins≤(a, x) = x .first + ins≤(a, x .rest) ;
+
+ins-less-last        :  ⊦ ¬ a0 < a → ins≤(a, x + a0) = ins≤(a, x) + a0 ' ;
+
+
+;;; END
+ordered-append       : ⊦ 
+                           ordered≤(x) ∧ ordered≤(x0)
+                         ∧ (x ≠ [] ∧ x0 ≠ [] → ¬ x0 .first < x .last)
+                       → ordered≤(x + x0) ;
+
+;; KODKOD BEGIN
+
+k-le-r : ordered≤(y) ↔ # y ≤ 1 ∨ ¬ y.rest.first < y.first ∧ ordered≤(y.rest); used for : kodkodax;
+
+k-ls-r : ordered<(y) ↔ # y ≤ 1 ∨ y.first < y.rest.first ∧ ordered<(y.rest); used for : kodkodax;
+
+;; KODKOD END
+
+
+orderedls-all : ordered<(x) ↔ ∀ m, n. m < n ∧ n < # x → x[m] < x[n];
+orderedls-ls : b < a ∧ b ∈ x → ¬ ordered<(a ' + x); used for : s,ls;
+
+orderedle-ls : b < a ∧ b ∈ x → ¬ ordered≤(a ' + x); used for : s,ls;
+orderedle-all : ordered≤(x) ↔ ∀ m, n. m ≤ n ∧ n < # x → ¬ x[n] < x[m];
+
+perm-ins : perm((x + ins≤(a, y)) -1l a, z) ↔ perm(x + y, z); used for : s,ls;
+;;; END
+len        :  ⊦ #(ins≤(a, x)) = #(x) + 1 ;
+  used for : s, ls ; remarks : used by proved unit ;
+ins-y : a < b → ins≤(a, b ' + x) = a + b + x; used for : s,ls;
+ins-yes : ⊦ x ≠ [] ∧ ¬ x.first < a → ins≤(a, x) = a + x;
+ins-rec : ⊦ x ≠ [] ∧   x.first < a → ins≤(a, x) = x.first + ins≤(a,x.rest);
+cons-03    :  ⊦ ordered≤(a ' + x) → ins≤(a, x) = a ' + x ;
+  used for : s, ls ;
+del1-01-02 :  ⊦ a ≠ b ∧ ordered≤(x) → ins≤(a, x -1l b) = ins≤(a, x) -1l b ;
+del1-02    :  ⊦ ins≤(a, x) -1l a = x ;
+  used for : s, ls ;
+empty      :  ⊦ ins≤(a, x) ≠ [] ;
+  used for : s, ls ;
+eq         :  ⊦ ins≤(a, x) = ins≤(a, y) ↔ x = y ;
+  used for : s, ls ;
+ex         :  ⊦ ∃ y, z. ins≤(a, x) = y + (a ' + z) ∧ x = y + z ;
+in-01-02   :  ⊦ a ≠ b → (a ∈ ins≤(b, x) ↔ a ∈ x) ;
+  used for : s, ls ;
+in-04      :  ⊦ a ∈ ins≤(a, x) ;
+  used for : s, ls ;
+ins-one    :  ⊦ b < a → ins≤(a, b ') = b ' + a ' ;
+  used for : s, ls ;
+ins-one-01 :  ⊦ ¬ b < a → ins≤(a, b ') = a ' + b ' ;
+  used for : s, ls ;
+ins-one-02 :  ⊦ a < b → ins≤(a, b ') = a ' + b ' ;
+  used for : s, ls ;
+ins2       :  ⊦ ins≤(a, ins≤(b, x)) = ins≤(b, ins≤(a, x)) ↔ true ;
+  used for : s, ls ;
+   remarks : used ;
+insperm    :  ⊦ perm(a ' + x, ins≤(a, x)) ;
+  used for : s ;
+insperm-01 :  ⊦ perm(ins≤(a, x), ins≤(a, y)) ↔ perm(x, y) ;
+  used for : s, ls ;
+insperm-02 :  ⊦ perm(ins≤(a, x + y), ins≤(a, x) + y) ;
+  used for : s, ls ;
+insperm-03 :  ⊦ perm(ins≤(a, x), y) ↔ perm(a + x, y) ;
+  used for : s ;
+ole        :  ⊦ ordered≤(x) → ordered≤(ins≤(a, x)) ;
+  used for : s, ls ;
+   remarks : proved ;
+ole-01     :  ⊦ ordered≤(ins≤(a, x)) ↔ ordered≤(x) ;
+  used for : s, ls ;
+   remarks : used ;
+one-02     :  ⊦ ins≤(a, a ') = a ' + a ' ;
+  used for : s, ls ;
+same       :  ⊦ ins≤(a, a ' + x) = a ' + (a ' + x) ;
+  used for : s, ls ;
+sw         :  ⊦ ins≤(a, ins≤(b, x)) = ins≤(b, ins≤(a, x)) ;
+   remarks : proved ;
+
+;;; END
+
+ole-two : ⊦ ordered≤(a ' + b ') ↔ ¬ b < a; used for : s,ls;
+ole-last : ordered≤(x + a ') → (ordered≤(x + a ' + b ') ↔ ¬ b < a); used for : s,ls;
+ole-last : ordered≤(x) ∧ x ≠ [] → (ordered≤(x + a ') ↔ ¬ a < x.last); used for : s,ls;
+
+ole-in : ⊦ ordered≤(a ' + x) ∧ b ∈ x → ¬ b < a; used for : f,lf;
+ols-rec : ⊦ x ≠ [] ∧ x.rest ≠ [] → (ordered<(x) ↔ x.first < x.rest.first ∧ ordered<(x.rest));
+ole-rec : ⊦ x ≠ [] ∧ x.rest ≠ [] → (ordered≤(x) ↔ ¬ x.rest.first < x.first ∧ ordered≤(x.rest));
+
+app        :  ⊦ ordered≤(x + y) → ordered≤(x) ;
+  used for : s, ls ;
+app-01     :  ⊦ ordered≤(x + y) → ordered≤(y) ;
+  used for : s, ls ;
+   remarks : proved, used ;
+app-02     :  ⊦ ordered≤(x + (y + z)) → ordered≤(y) ;
+  used for : s, ls ;
+cons       :  ⊦ ordered<(a ' + x) → ordered<(x) ;
+  used for : s, ls ;
+   remarks : proved, used ;
+cons-02    :  ⊦ ordered≤(a ' + x) → ordered≤(x) ;
+  used for : s, lf ;
+   remarks : proved, used ;
+del1       :  ⊦ ordered<(x) → ordered<(x -1l a) ;
+  used for : s, ls ;
+del1-01    :  ⊦ ordered≤(x) → ordered≤(x -1l a) ;
+  used for : s, ls ;
+del1-01-01 : ⊦ 
+             ordered≤(a ' + (x -1l a)) ∧ ordered≤(x) ∧ a ∈ x → a ' + (x -1l a) = x ;
+  used for : s, ls ;
+eqdef      : perm(x, y), ordered≤(x), ordered≤(y) ⊦ x = y ;
+rest       :  ⊦ ordered<(x) ∧ x ≠ [] → ordered<(x .rest) ;
+  used for : s, ls ;
+   remarks : proved ;
+rest-01    :  ⊦ ordered≤(x) ∧ x ≠ [] → ordered≤(x .rest) ;
+  used for : s, ls ;
+   remarks : proved ;
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+le-e       :  ⊦ ordered≤([]) ;
+  used for : s, ls ;
+   remarks : used ;
+le-o       :  ⊦ ordered≤(a ') ;
+  used for : s, ls ;
+   remarks : used ;
+le-r       :  ⊦ ordered≤(a ' + (b ' + x)) ↔ ¬ b < a ∧ ordered≤(b + x) ;
+  used for : s, ls ;
+   remarks : used ;
+ls-e       :  ⊦ ordered<([]) ;
+  used for : s, ls ;
+   remarks : used ;
+ls-o       :  ⊦ ordered<(a ') ;
+  used for : s, ls ;
+   remarks : used ;
+ls-r       :  ⊦ ordered<(a ' + (b ' + x)) ↔ a < b ∧ ordered<(b + x) ;
+  used for : s, ls ;
+   remarks : used ;
+ins-e      :  ⊦ ins(a, []) = a ' ;
+  used for : s, ls ;
+ins-y      :  ⊦ a < b → ins(a, b ' + x) = a + (b + x) ;
+  used for : s, ls ;
+ins-n      :  ⊦ ¬ a < b → ins(a, b ' + x) = b + ins(a, x) ;
+  used for : s, ls ;
+
+
+
+

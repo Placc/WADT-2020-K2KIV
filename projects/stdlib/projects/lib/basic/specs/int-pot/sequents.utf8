@@ -1,0 +1,347 @@
+
+lemmas
+pot-zero : 0 < i → (i ^ j = 0 ↔ j < 0 and 1 < i); used for : s,ls;
+pot-lez : 0 < i → (i ^ j ≤ 0 ↔ i ^ j = 0); used for : s,ls;
+odd-square : odd(i ^2) ↔ odd(i); used for : s,ls;
+even-square : even(i ^2) ↔ even(i); used for : s,ls;
+
+pot-square-est : 36 ≤ i → ¬ 4 ^ (i / 6) < (i + 1) * (i + 1);
+;;; END
+pot-square-est-02 : 1 < i → ¬ 4 ^ i < (i + 1) * (i + 1);
+
+pot-square-est-mult6 : 180 ≤ i → ¬ 4 ^ i ≤ (6 * (i + 1) * (i + 1);
+
+
+ls-pos : 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i ^ j < i0 ^ j ↔ i < i0); used for : s,ls;
+
+pot-root-est : 1024 ≤ i → ¬ 4 ^ (i / 3) ≤ (2 * i) ^ sqrt(2 * i);
+
+pot-div : 0 ≤ j0 ∧ j0 ≤ j ∧ 0 < i → (i ^ j) / (i ^ j0) = i ^ (j - j0);
+
+pot2-est-mult8 : 0 ≤ i → ¬ 8 * 2 ^ i < i + 7; used for : s,ls;
+;;; END
+pot2-est-div6 : 36 ≤ i → ¬ 2 ^ (i / 6) ≤ i + 1;
+
+
+;;; END
+pot-square-est : 0 ≤ i → ¬ 4 ^ i ≤ i * i;
+
+
+le-pos-01 : 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i ^ j ≤ i0 ^ j ↔ i ≤ i0); used for : s,ls;
+
+ls-pos-02 : i ≤ i0 ∧ 0 ≤ i ∧ 0 ≤ j → ¬ i0 ^ j < i ^ j; used for : s,ls;
+ls-pos-01 : i ≤ i0 ∧ 0 ≤ i ∧ 0 ≤ j → i ^ j ≤ i0 ^ j;
+;;; END
+square-nls : i ^ 2 ≤ j → ¬ sqrt(j) < i; used for : s,ls;
+pot-div3-nls : 2 ≤ j ∧ 2 < i → ¬ j ^ i / 3 < j; used for : s,ls;
+
+pot-nls : 0 < i ∧ 0 < j → ¬ i ^ j < i; used for : s,ls;
+
+exinpot :
+0 < j, 1 < i
+⊦ 
+∃ i0. 0 ≤ i0 ∧ i ^ i0 ≤ j ∧ j < i ^ (i0 + 1);
+
+;;; END
+minus-one-odd : 0 < j ∧ j % 2 = 1 → (~1) ^ j = (~1); used for : s,ls;
+
+minus-one-even : 0 < j ∧ j % 2 = 0 → (~1) ^ j = 1; used for : s,ls;
+
+equal-minus-one : (i ≠ 0 ∨ 0 ≤ j) → (i ^ j = ~1 ↔ i = ~1 ∧ j ≠ 0 ∧ abs(j) % 2 = 1);
+
+mod-pot-shift-pos : 0 < j ∧ 0 ≤ i0 → ((i % j) ^ i0) % j = (i ^ i0) % j;
+;;; END
+square-mod-four :
+((i - 1) ^ 2 * i ^ 2) % 4 = 0; used for : s,ls;
+
+twopot-mone-div : j ≤ i ∧ 0 ≤ j → ((2 ^ i) - 1) / (2 ^ j) = (2 ^ i) / (2 ^ j) - 1;
+
+pot-sub-dist : 0 ≤ j0 ∧ j0 ≤ j ∧ i ≠ 0 → i ^ (j - j0) = (i ^ j) / (i ^ j0);
+
+;;; END
+prime-pot-eq:
+prime(i) ∧ prime(i0) ∧ 1 ≤ j ∧ 1 ≤ j0 → (i ^ j = i0 ^ j0 ↔ (i = i0 ∧ j = j0));
+;;; END
+
+mod-ngez : ⊦ j < 0 ∧ 0 ≤ i → (0 ≤ j % 2 ^ i ↔ j % 2 ^ i = 0); used for : s,ls;
+mod-ngez : ⊦ j < 0 ∧ 0 < i → (0 ≤ j % 2 ^ i ↔ j % 2 ^ i = 0); used for : s,ls;
+mod-add1-pospos : 0 ≤ j ∧ 0 ≤ j0 ∧ 0 < i → (j * 2 ^ i + j0) % 2 ^ i = j0 % 2 ^ i; used for : s,ls;
+mod-add1-negneg : j < 0 ∧ j0 < 0 ∧ 0 < i → (j * 2 ^ i + j0) % 2 ^ i = j0 % 2 ^ i; used for : s,ls;
+
+le-same : 0 < i → (2 ^ (i - 1) ≤ j + 2 ^ i ↔ 0 ≤ j + 2 ^ (i - 1)); used for : s,ls;
+ls-same : 
+0 < i → (j + 2 ^ i < 2 ^ (i - 1) ↔ j + 2 ^ (i - 1) < 0); used for : s,ls;
+
+pred-le : 0 < i → ¬ 2 ^ i ≤ 2 ^ (i - 1); used for :s,ls;
+mod-lesame : ⊦ 0 < i → ¬ 2 ^ i ≤ j % 2 ^ i; used for : s,ls;
+mod-lsz : 0 ≤ j ∧ 0 < i → ¬ j % 2 ^ i < 0; used for : s,ls;
+mod-lez : 0 ≤ j ∧ 0 < i → (j % 2 ^ i ≤ 0 ↔ j % 2 ^ i = 0); used for : s,ls;
+
+mod-same : 0 < j ∧ i ≠ 0 → (i * i0) ^ j % i = 0; used for : s,ls;
+;;; END
+minus-square : (~ i) ^ 2 = i ^ 2; used for : s,ls;
+minus-square : 0 ≤ j → (~ i) ^ (2 * j) = i ^ (2 * j); used for : s,ls;
+
+minus-odd : odd(j) ∧ 0 < j → (~ i) ^ j = ~ (i ^ j); used for : s,ls;
+;;; END
+geom-mod : i ≠ 1 ∧ 0 ≤ j → (1 - i ^ j) % (1 - i) = 0;
+
+mod-next-square : (i ^ 2 * (i + 1) ^ 2) % 4 = 0; used for : s,ls;
+
+pot-square : i * i = i ^ 2;
+pot-square : i ^ 2 = i * i;
+pot-square : (i ^ 2 ≠ i * i ↔ false); used for : s,ls;
+
+pot-pot : 0 ≤ j ∧ 0 ≤ j0 → (i ^ j) ^ j0 = i ^ (j * j0);
+pot-pot : 0 ≤ j ∧ 0 ≤ j0 → i ^ (j * j0) = (i ^ j) ^ j0;
+pot-pot : 0 ≤ j ∧ 0 ≤ j0 → (i ^ (j * j0) ≠ (i ^ j) ^ j0 ↔ false); used for : s,ls;
+
+pot-square : 0 ≤ j → i ^ (2 * j) = (i * i) ^ j;
+pot-square : 0 ≤ j → (i * i) ^ j = i ^ (2 * j);
+pot-square : 0 ≤ j → ((i * i) ^ j ≠ i ^ (2 * j) ↔ false); used for : s,ls;
+
+ls-2pot : 0 ≤ i → (j * 2 ^ i < j0 * 2 ^ i ↔ j < j0); used for : s,ls;
+ls-2pot : 0 ≤ i → (2 ^ i < j * 2 ^ i ↔ 1 < j); used for : s, ls;
+;;; END
+⊦ 
+div2-2pot : 0 < j → (i * 2 ^ j) / 2 = i * 2 ^ (j - 1); used for : s,ls;
+div2-2pot-neg : i < 0 ∧ 0 < j → (i * 2 ^ j) / 2 = i * 2 ^ (j - 1); used for : s,ls;
+mod-2pot : 0 < i → (j * 2 ^ i) % 2 = 0; used for : s,ls;
+divmod2-2pot-neg : j < 0 ∧ 1 < i → (((j % 2 ^ i - 1) / 2) % 2) = ((j - 1) / 2) % 2;
+;;; END
+-3 und 1: -3 % 2 = -1 -1 / 2 = -1 % 2 = -1
+          -3 - 1 / 2 = -2 % 2 = 0
+
+mod2-2pot-neg : ⊦ 0 < i → (j % 2 ^ i) % 2 = j % 2; used for : s,ls;
+
+div-div-rec-01 : j < 0 ∧ 0 < i → (j - (2 ^ i - 1)) / 2 ^ i = ((j - (2 ^ (i - 1) - 1)) / 2 ^ (i - 1) - 1) / 2;
+div-div-rec : j < 0 ∧ 0 < i → ((j - (2 ^ i - 1)) / 2 ^ i - 1) / 2 = (j - (2 ^ (i + 1) - 1)) / 2 ^ (i + 1);
+;;; END
+pot2-succ : 0 ≤ i → 2 ^ (i + 1) - 2 ^ i = 2 ^ i; used for : s,ls;
+pot2-succ : 0 < i → 2 ^ (i + 1) - 2 ^ i = 2 ^ i; used for : s,ls;
+
+exit
+pot2-pos : ⊦ i < 0 → 2 * i ≤ 2 ^ j; used for : s,ls;
+pot2-pos : ⊦ i < 0 → 2 * i < 2 ^ j; used for : s,ls;
+pot2-pos : ⊦ i < 0 → 2 * i ≤ 2 ^ j + 1; used for : s,ls;
+pot2-pos : ⊦ i < 0 → 2 * i < 2 ^ j + 1; used for : s,ls;
+
+pot2-pos : ⊦  0 < 2 ^ i ↔ 0 ≤ i; used for : s,ls;
+pot2-pos : ⊦ 1 < 2 ^ i ↔ 0 < i; used for : s,ls;
+pot2-suble : ⊦ 0 < i → (j + 2 ^ (i - 1) ≤ 2 ^ i ↔ j ≤ 2 ^ (i - 1)); used for : s,ls;
+pot2-subls : ⊦ 0 < i → (j + 2 ^ (i - 1) < 2 ^ i ↔ j < 2 ^ (i - 1)); used for : s,ls;
+
+exit
+pot2-ls-pred : ⊦ 2 ^ (i - 1) < 2 ^ i ↔ 0 ≤ i; used for : s,ls;
+pot2-le-pred : ⊦ 2 ^ (i - 1) ≤ 2 ^ i; used for : s,ls;
+pot2-ls-pred-01 : ⊦ 2 ^ (i - 1) + 1 < 2 ^ i ↔ 1 < i; used for : s,ls;
+pot2-le-pred-01 : ⊦ 2 ^ (i - 1) + 1 ≤ 2 ^ i ↔ 0 ≤ i; used for : s,ls;
+pot2-add : 0 < i ⊦ 2 ^ (i - 1) + 2 ^ (i - 1) = 2 ^ i; used for : s,ls;
+ls-pos-2pot :  0 ≤ j ⊦ (2 ^ j < 2 ^ j0 ↔ j < j0) ; used for : s,ls;
+pot2-mod2-zero : 0 < i → 2 ^ i % 2 = 0; used for : s,ls;
+pot2-div2 : 0 < i → 2 ^ i / 2 = 2 ^ (i - 1); used for : s,ls;
+
+exit
+ls-pos-2pot :  ⊦ 0 ≤ j → (2 ^ j < 2 ^ j0 ↔ j < j0) ; used for : s,ls;
+
+lemon2pot : ⊦ j ≤ 2 ^ i ∧ i ≤ i0 ∧ 0 ≤ i → j ≤ 2 ^ i0;
+lemon2pot : ⊦ j ≤ 2 ^ n→i(m * n - 1) ∧ n ≤ n0 ∧ m ≠ 0 ∧ n ≠ 0 → j ≤ 2 ^ n→i(m * n0 - 1);
+lemon2pot : ⊦ j ≤ 2 ^ n→i(m * n - 1) + j0 ∧ n ≤ n0 ∧ m ≠ 0 ∧ n ≠ 0 → j ≤ 2 ^ n→i(m * n0 - 1) + j0;
+exin2pot-neg : ⊦ j < 0 → ∃ i. ~1 ≤ i ∧ j < ~ (2 ^ i) ∧ ~ (2 ^ (i + 1)) ≤ j;
+ls-mult-2pot : 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 → (j * 2 ^ i < 2 ^ i0 ↔ j < 2 ^ (i0 - i)); used for : s,ls;
+le-2pot-succ : ⊦ 0 < i ∧ 0 < i0 ∧ 0 < j → (2 ^ i ≤ j * 2 ^ i0 + 1 ↔ 2 ^ i ≤ j * 2 ^ i0); used for : s,ls;
+eq-one : ⊦ 2 ^ i = 1 ↔ i = 0; used for : s,ls;
+add-eq2pot : ⊦ 0 ≤ j ∧ 0 ≤ i ∧ 0 ≤ i0 → (2 ^ i = 2 ^ i0 + j ↔ j = 2 ^ i0 * (2 ^(i - i0) - 1) ∧ i0 ≤ i); 
+
+add-eq2pot-01 : ⊦ 0 ≤ j ∧ 0 ≤ i ∧ 0 ≤ i0 → (2 * 2 ^ i = 2 ^ i0 + j ↔ j = 2 ^ i0 * (2 ^(i + 1 - i0) - 1) ∧ i0 ≤ i + 1); 
+
+exit
+2 ^ i ≤ i0 * 2 + 1    i0 < 2 ^ i
+i0 = 2 ^ j
+mod2pot-succ : j < 0 ∧ 0 ≤ i ∧ j % 2 ^ i ≠ 0 → (j + 1) % 2 ^ i = (j % 2 ^ i) - 1; used for : s,ls;
+
+exit
+le-2pot-01 : 0 ≤ i ∧ 0 ≤ j → (j / 2 ≤ 2 ^ i ↔ j ≤ 2 ^ (i + 1) + 1); used for : s,ls;
+
+le-2pot : 0 ≤ i ∧ 0 ≤ j → (2 ^ i ≤ j / 2 ↔ 2 ^ (i + 1) ≤ j); used for : s,ls;
+
+eq2 : ⊦ 2 ^ i = 2 ↔ i = 1; used for : s,ls;
+div2 : ⊦ 2 ^ i / 2 = 2 ^ (i - 1);
+
+
+
+exit
+pot-pot : 0 ≤ i, 0 ≤ j, 0 ≤ j0 ⊦ (i ^ j) ^ j0 = i ^ (j * j0);
+abs-2pot : ⊦ abs(2 ^ i) = 2 ^ i; used for : s,ls;
+exin2pot : ⊦ 0 < j → ∃ i. 0 ≤ i ∧ 2 ^ i ≤ j ∧ j < 2 ^ (i + 1);
+mod2-pos : ⊦ 0 ≤ i ∧ 0 ≤ j → ¬ j % 2 ^ i < 0; used for : s,ls;
+divmod2-2pot : ⊦ 0 < i ∧ 0 ≤ j → (j % 2 ^ i) / 2 = (j / 2) % 2 ^ (i - 1);
+mod2-2pot-05 : ⊦ 0 ≤ i ∧ 0 ≤ j → (j % 2 ^ i ≤ 0 ↔ j % 2 ^ i = 0); used for : s,ls;
+mod2-2pot : ⊦ 0 ≤ i ∧ 0 < j → (j % 2 ^ i ≤ 0 ↔ j % 2 ^ i = 0); used for : s,ls;
+
+mod2-2pot : ⊦ 0 < i ∧ 0 ≤ j → (j * 2 ^ i + 1) % 2 = 1; used for : s,ls;
+div2-2pot : ⊦ 0 < i ∧ 0 ≤ j → (j * 2 ^ i + 1) / 2 = j * 2 ^ (i - 1); used for : s,ls;
+2pot-leone : ⊦ 2 ^ i < 1 ↔ i < 0; used for : s,ls;
+
+
+
+exit
+div2-2pot : 0 ≤ i ∧ 0 < j → (i * 2 ^ j) / 2 = i * 2 ^ (j - 1); used for : s,ls;
+mod2-2pot : 0 ≤ i ∧ 0 < j → (i * 2 ^ j) % 2 = 0; used for : s,ls;
+mod2-2pot-02 : j % 2 ^ i = 1 ∧ 0 < i ∧ 0 ≤ j → j % 2 = 1; used for : f,lf;
+mod2-2pot : 0 ≤ i ∧ 0 ≤ j → (j % 2 ^ (i + 1)) / 2 = (j / 2) % 2 ^ i; used for : s,ls;
+mod2-2pot : ⊦ 0 < i → (j % 2 ^ i) % 2 = j % 2; used for : s,ls;
+div2-2pot : ⊦ 0 ≤ i ∧ 0 ≤ j → (j / 2 ^ i) / 2 = j / 2 ^ (i + 1); used for : s,ls;
+div2-2pot-01 : ⊦ 0 ≤ i ∧ 0 ≤ j → (j / 2) / 2 ^ i = j / 2 ^ (i + 1); used for : s,ls;
+
+
+exit
+two-lez : ⊦ 2 ^ i ≤ 0 ↔ i < 0; used for : s,ls;
+div-twopot    :  ⊦ 0 ≤ i ∧ 0 ≤ j → 2 ^ i / 2 ^ j = 2 ^ (i - j) ;
+      remarks : proved, used ;
+eq-pos        :  ⊦ 1 < i0 ∧ 0 ≤ i ∧ 0 ≤ j → (i0 ^ i = i0 ^ j ↔ i = j) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+eq-two        :  ⊦ 0 ≤ i ∧ 0 ≤ j → (2 ^ i = 2 ^ j ↔ i = j) ;
+     used for : s, ls ;
+      remarks : proved ;
+eqone         :  ⊦ i ^ j = 1 ∧ 0 ≤ j → j = 0 ∨ abs(i) = 1 ;
+     used for : f, lf ;
+      remarks : proved ;
+eqone-01      :  ⊦ i ^ j = 1 ∧ 0 < j → abs(i) = 1 ;
+     used for : f, lf ;
+      remarks : proved, used ;
+eqone-02      :  ⊦ i ^ ~ j = 1 ∧ j < 0 → abs(i) = 1 ;
+     used for : f, lf ;
+      remarks : proved, used ;
+grz           :  ⊦ 0 < i → (0 < i ^ j ↔ i = 1 ∨ 0 ≤ j) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+le-pos        :  ⊦ 1 < i ∧ 0 ≤ j → (i ^ j ≤ i ^ j0 ↔ j ≤ j0) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+ls-pos        :  ⊦ 1 < i ∧ 0 ≤ j → (i ^ j < i ^ j0 ↔ j < j0) ;
+     used for : s, ls ;
+      remarks : proved ;
+mod-two-ge    :  ⊦ j ≤ i ∧ 0 ≤ j → 2 ^ i % 2 ^ j = 0 ;
+     used for : s, ls ;
+      remarks : proved ;
+mod-two-ge-01 :  ⊦ j < i ∧ 0 ≤ j → (2 ^ i - 1) % 2 ^ j = 2 ^ j - 1 ;
+     used for : s, ls ;
+      remarks : proved ;
+mod-two-ls    :  ⊦ i < j ∧ 0 ≤ i → 2 ^ i % 2 ^ j = 2 ^ i ;
+     used for : s, ls ;
+      remarks : proved ;
+mod-two-ls-01 :  ⊦ i ≤ j ∧ 0 ≤ i → (2 ^ i - 1) % 2 ^ j = 2 ^ i - 1 ;
+     used for : s, ls ;
+      remarks : proved ;
+notneg        :  ⊦ 0 ≤ i ∧ 0 ≤ j → ¬ i ^ j < 0 ;
+     used for : ls ;
+      remarks : proved, used ;
+notneg-01     :  ⊦ 0 < i ∧ 0 ≤ j → ¬ i ^ j ≤ 0 ;
+     used for : ls ;
+      remarks : proved, used ;
+notneg-02     :  ⊦ 0 < i → ¬ i ^ j < 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+notone        :  ⊦ 1 < i ∧ 0 < j → ¬ i ^ j ≤ 1 ;
+     used for : ls ;
+      remarks : proved, used ;
+one           :  ⊦ i ^ 1 = i ;
+     used for : s, ls ;
+      remarks : proved, used ;
+one-01        :  ⊦ 1 ^ j = 1 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+one-02        :  ⊦ 0 < j → 1 ^ j = 1 ;
+     used for : ls ;
+      remarks : proved, used ;
+one-03        :  ⊦ j + 1 = 0 → i ^ ~ j = i ;
+     used for : s, ls ;
+      remarks : proved ;
+pot-dist-pos  :  ⊦ 0 ≤ j ∧ 0 ≤ j0 → i ^ (j + j0) = i ^ j * i ^ j0 ;
+      remarks : proved, used ;
+succ          :  ⊦ 0 ≤ i → j ^ (i + 1) = j ^ i * j ;
+      remarks : proved, used ;
+two-le        :  ⊦ 0 ≤ i → (2 ^ i ≤ 2 ^ j ↔ i ≤ j) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-le-01     :  ⊦ 0 ≤ i → (2 ^ i ≤ 2 ↔ i ≤ 1) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-leone     :  ⊦ 2 ^ i ≤ 1 ↔ i < 1 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-lez       :  ⊦ 0 ≤ i → ¬ 2 ^ i ≤ 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-ls        :  ⊦ 0 ≤ i → (2 < 2 ^ i ↔ 1 < i) ;
+     used for : s, ls ;
+      remarks : proved ;
+two-lsz       :  ⊦ ¬ 2 ^ i < 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-minus     :  ⊦ i < 0 → 2 ^ i = 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-minus-01  :  ⊦ 2 ^ ~ 1 = 0 ;
+     used for : s, ls ;
+      remarks : proved ;
+two-mod       :  ⊦ 1 < i → 2 ^ i % 2 = 0 ;
+     used for : s, ls ;
+      remarks : proved ;
+two-mod-01    :  ⊦ 1 < i → (2 ^ i - 1) % 2 = 1 ;
+     used for : s, ls ;
+      remarks : proved ;
+two-mone      :  ⊦ 1 < i → ¬ 2 ^ i -1 ≤ 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-zero      :  ⊦ 0 ≤ j → 2 ^ j ≠ 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+two-zero-01   :  ⊦ 2 ^ n→i(m) ≠ 0 ;
+     used for : s, ls ;
+      remarks : proved ;
+twolezero     :  ⊦ ¬ 2 ^ n→i(m) ≤ 0 ;
+     used for : s, ls ;
+      remarks : proved ;
+twotwo        :  ⊦ 2 ^ 2 = 4;
+     used for : s, ls ;
+      remarks : proved ;
+zero          :  ⊦ 0 < j → (i ^ j = 0 ↔ i = 0) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+zero-01       :  ⊦ 0 < j → 0 ^ j = 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+zero-02       :  ⊦ j < 0 → (i ^ ~ j = 0 ↔ i = 0) ;
+     used for : s, ls ;
+      remarks : proved, used ;
+zero-03       :  ⊦ j < 0 → 0 ^ ~ j = 0 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+zerozero      :  ⊦ 0 ^ 0 = 1 ;
+     used for : s, ls ;
+      remarks : proved ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Pot-zero      :  ⊦ j ^ 0 = 1 ;
+     used for : s, ls ;
+      remarks : used ;
+Pot-pos       :  ⊦ 0 < i → j ^ i = j ^ i -1 * j ;
+      remarks : used ;
+Pot-neg       :  ⊦ i < 0 → j ^ i = 1 / j ^ abs(i) ;
+     used for : ls ;
+      remarks : used ;
+
+
+
+

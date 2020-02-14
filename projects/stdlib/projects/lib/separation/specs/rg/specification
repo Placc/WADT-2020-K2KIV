@@ -1,0 +1,50 @@
+enrich embed-aux with
+
+
+predicates
+
+rely : aux Ô refset Ô (ref ­ obj) Ô (ref ­ aux)
+            Ô refset Ô (ref ­ obj) Ô (ref ­ aux);
+
+owns-none: aux Ô refset Ô (ref ­ aux);
+owns-one: aux Ô ref Ô refset Ô (ref ­ aux);
+
+;;; guar : aux Ô refset Ô (ref ­ obj) Ô (ref ­ aux)
+;;;             Ô refset Ô (ref ­ obj) Ô (ref ­ aux);
+
+variables
+
+f,f0,f1 : ref ­ obj;
+g,g0,g1 : ref ­ aux;
+
+axioms
+
+;;; weaker version
+rely:
+  rely(a, rs0, f0, g0, rs1, f1, g1)
+° ³ r.   (g0(r) = a ¸ r ² rs0 ° g1(r) = a ¸ r ² rs1) 
+       ¸ (g0(r) = a ¸ r ² rs0 ­ f0(r) = f1(r));
+used for : ls;
+
+;;; strong version gives problem with allocation g(r) = n does not imply that it is allocated
+;;; rely:
+;;;   rely(a, rs0, f0, g0, rs1, f1, g1)
+;;; ° ³ r.   (g0(r) = a ° g1(r) = a) 
+;;;        ¸ (g0(r) = a ­ (r ² rs0 ° r ² rs1) ¸ (r ² rs0 ­ f0(r) = f1(r)));
+;;; used for : ls;
+
+
+
+owns-none:
+owns-none(a, rs, g) ° ³ r. r ² rs ­ g(r) Ü a;
+used for : ls;
+
+owns-one:
+owns-one(a, r, rs, g) ° r Ü null ¸ r ² rs ¸ g(r) = a ¸ ³ r0. r0 ² rs ¸ r0 Ü r ­ g(r0) Ü a;
+used for : ls;
+
+;;; guar:
+;;;   guar(a, rs0, f0, g0, rs1, f1, g1)
+;;; ° ³ a0. a0 Ü a ­ rely(a0, rs0, f0, g0, rs1, f1, g1);
+
+end enrich

@@ -1,0 +1,47 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+zeroone
+ple-01
+one-03
+num-between
+mone-08
+mone-07
+mone-06
+mone-04
+lstwo-01
+les
+lels-02
+le-three
+le-rec
+int-simp-10
+int-simp-04
+discard-add2-lels-left
+bet-01
+bet
+anti
+absone-01
+absone
+absls-04
+absls-02
+absle-01
+abseq
+absa
+abs-succ
+abs-sub-01
+abs-one-01
+abs-neg
+abs-ls-02
+abs-10
+abs-06
+
+
+*** Failures: ***
+
+

@@ -1,0 +1,31 @@
+(:
+;;;****************************************************************************************
+;;;
+;;; This file is used to add additional lemmas
+;;; 
+;;; You can add new variables after the 'variables' keyword (initially in comments)
+;;; and new lemmas after the 'lemmas' keyword in the form:
+;;; <name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+;;; 'used for' and 'comment' are optional.
+;;; <some_comment> may be any text not containing a ;
+;;; <some_flags> is a comma separated list with information that the lemma should
+;;; be used as a simplifier rule or something like that. Since you can add or delete
+;;; simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+;;; Possible flags are:
+;;;
+;;;     simplifier rule:       simp, s, S, simplifier_rule, simplifier, simplification
+;;;     local simplifier rule: localsimp, ls, LS, local_simplifier_rule,
+;;;                            locsimp, local_simplifier, local_simplification
+;;;     elimination:           elim, e, E, elimination
+;;;     forward:               forward, f, F
+;;;     local forward:         localforward, lf, LF, local_forward
+;;;     cut:                   cut, c, C
+;;;     local cut:             localcut, lc, LC, local_cut
+;;;
+;;;****************************************************************************************
+:)
+
+(: variables    ; :)
+
+lemmas
+

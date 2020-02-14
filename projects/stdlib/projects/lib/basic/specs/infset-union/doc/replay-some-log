@@ -1,0 +1,30 @@
+: successful
+### No save necessary ###
+### Next replay: del-addin ###
+del-addin: successful
+### No save necessary ###
+### Next replay: delete-insert ###
+delete-insert: successful
+### No save necessary ###
+### Next replay: delete-subset ###
+delete-subset: successful
+### No save necessary ###
+### Next replay: insdel-sub ###
+insdel-sub: successful
+### No save necessary ###
+### Next replay: sub-union-03 ###
+sub-union-03: successful
+### No save necessary ###
+### Next replay: sub-union-04 ###
+sub-union-04: successful
+### No save necessary ###
+### Next replay: unadd ###
+unadd: successful
+### No save necessary ###
+### Next replay: unadd-01 ###
+unadd-01: successful
+### No save necessary ###
+### Next replay: unsubins ###
+unsubins: successful
+### Done ###
+### Saving lemmas next ###

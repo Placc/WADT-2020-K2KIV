@@ -1,0 +1,19 @@
+enrich infset-union with
+
+functions  χ : set → (elem → bool);
+           { . } : (elem → bool) → set;
+
+;; predicates ;
+
+variables f : elem → bool;
+
+;; induction ;
+
+axioms
+
+characteristic-function : χ(s)(a) ↔ a ∈ s; used for: s, ls;
+construct-set : a ∈ { f } ↔ f(a); used for: s, ls;
+
+
+
+end enrich

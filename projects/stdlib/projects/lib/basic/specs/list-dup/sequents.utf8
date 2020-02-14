@@ -1,0 +1,229 @@
+
+lemmas
+
+
+rmdup-last : ¬ a ∈ x → rmdup(x + a ') = rmdup(x) + a ';
+
+
+rmdup-size-le : # rmdup(x) ≤ # x; 
+
+rmdup-size-not : not # rmdup(x) = # x + 1; used for : s,ls;
+
+dups-rmdup-size-equiv :
+dups(x) ↔ # x ≠ # rmdup(x);
+
+;; KODKOD BEGIN
+
+k-dups: dups(x) ↔ # x > 1 ∧ (x.first ∈ x.rest ∨ dups(x.rest)); used for : kodkodax;
+
+;; KODKOD END
+
+
+dups-firstoc-rew : dups(x) ↔ ∃ y, a, z. x = y + a ' + z ∧ a ∈ y ∧ ¬ dups(y);
+
+dups-in : ¬ dups(x) ∧ x ≠ [] → ¬ x.first ∈ x.rest; used for : s,ls;
+dups-rest : ¬ dups(x) ∧ x ≠ [] → ¬ dups(x.rest); used for : s,ls;
+
+dups-eqsize-ext : ¬ dups(x), ¬ dups(y), ∀ a. a ∈ x ↔ a ∈ y ⊦ (¬ # x = # y ↔ false);
+
+;;; END
+
+dups-switch : dups(x + y) ↔ dups(y + x);
+dups-appex : dups(x + y) ↔ dups(x) ∨ dups(y) ∨ ∃ a. a ∈ x ∧ a ∈ y;
+dups-sw : dups(x + y) → dups(y + x); used for : s,ls;
+dups-eqsize-02 : # x = # y, ¬ dups(x), ∀ a. a ∈ x → a ∈ y ⊦ ¬ dups(y) ∧ ∀ a. a ∈ y → a ∈ x;
+dups-eqsize-01 : # x = # y, ¬ dups(x), ¬ dups(y), ∀ a. a ∈ x → a ∈ y ⊦ ∀ a. a ∈ y → a ∈ x;
+rm-size : ⊦ ¬ # x < # rmdup(x); used for : s,ls;
+
+rm-size : ⊦ # rmdup(x + y) ≤ # rmdup(y) → # rmdup(x + y) = # rmdup(y); used for : f,lf;
+rm-size : ⊦ # rmdup(x + y + z) ≤ # rmdup(x + z) → # rmdup(x + y + z) = # rmdup(x + z); used for : f,lf;
+rm-size-in : ⊦ # rmdup(x + y) = # rmdup(y) ∧ a ∈ x → a ∈ y; used for : f,lf;
+rm-size-in : ⊦ # rmdup(x + y + z) = # rmdup(x + z) ∧ a ∈ y → a ∈ x ∨ a ∈ z; used for : f,lf;
+dups-eqsize : ¬ dups(x), ¬ dups(y), ∀ a. a ∈ x ↔ a ∈ y ⊦ # x = # y;
+dups-lesize : ¬ dups(x), ¬ dups(y), ∀ a. a ∈ x → a ∈ y ⊦ # x ≤ # y;
+rm-notin-01 : ⊦ rmdup(x) = y + a ' + z → a ∈ x ∧ ¬ a ∈ y ∧ ¬ a ∈ z; used for : f,lf;
+rm-allsize : ∀ a. a ∈ x ↔ a ∈ y ⊦ # rmdup(x) = # rmdup(y);
+rm-size-01 : a ∈ x → # rmdup(x + a ' + y) = # rmdup(x + y); used for : s,ls;
+rm-size-02 : a ∈ y → # rmdup(x + a ' + y) = # rmdup(x + y); used for : s,ls;
+rm-size : ¬ a ∈ x ∧ ¬ a ∈ y → # rmdup(x + a ' + y) = # rmdup(x + y) + 1; used for : s,ls;
+
+rm-in : ⊦ a ∈ rmdup(x + y) ↔ a ∈ x ∨ a ∈ y; used for : s,ls;
+dis-empty : ⊦ disj([], x); used for : s,ls;
+a            :  ⊦ ¬ dups(x + y) → ¬ dups(x) ∧ ¬ dups(y) ;
+    used for : f ;
+a-01         :  ⊦ dups(x + (a ' + (a ' + y))) ;
+    used for : s, ls ;
+aa           : ⊦ 
+                  disj(x + y, x0 + y0)
+               ↔  disj(x, x0) ∧ disj(x, y0) ∧ disj(y, x0) ∧ disj(y, y0) ;
+app          :  ⊦ disj(x, y + z) → disj(x, y) ;
+    used for : f ;
+app-01       :  ⊦ disj(x, y + z) → disj(x, z) ;
+    used for : f ;
+app-01-01    :  ⊦ rmdup(x + rmdup(y)) = rmdup(x + y) ;
+    used for : s, ls ;
+app-01-02    :  ⊦ dups(y) → dups(x + y) ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+app-02       :  ⊦ disj(x, y + z) ↔ disj(x, y) ∧ disj(x, z) ;
+    used for : s, ls ;
+app-03       :  ⊦ disj(y + z, x) ↔ disj(x, y) ∧ disj(x, z) ;
+    used for : s, ls ;
+app-04       :  ⊦ rmdup(rmdup(x) + y) = rmdup(x + y) ;
+    used for : s, ls ;
+app-05       :  ⊦ dups(x) → dups(x + y) ;
+    used for : s, ls ;
+c            :  ⊦ ¬ dups(a ') ;
+    used for : s, ls ;
+c-01         :  ⊦ a ∈ x → dups(a ' + x) ;
+    used for : s, ls, lc ;
+     remarks : used by proved unit ;
+c-02         :  ⊦ ¬ a ∈ x → (dups(a ' + x) ↔ dups(x)) ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+c-03         :  ⊦ ¬ dups(x) → (dups(a ' + x) ↔ a ∈ x) ;
+    used for : s, ls ;
+cons         :  ⊦ disj(x, y) → (disj(x, a ' + y) ↔ ¬ a ∈ x) ;
+    used for : s, ls ;
+cons-01      :  ⊦ disj(x, y) → (disj(a ' + x, y) ↔ ¬ a ∈ y) ;
+    used for : s, ls ;
+cons-02      :  ⊦ disj(x, y) → (disj(y, a ' + x) ↔ ¬ a ∈ y) ;
+    used for : s, ls ;
+cons-03      :  ⊦ disj(x, y) → (disj(x + a ', y) ↔ ¬ a ∈ y) ;
+    used for : s, ls ;
+cons-04      :  ⊦ disj(x, y) → (disj(y, x + a ') ↔ ¬ a ∈ y) ;
+    used for : s, ls ;
+d            :  ⊦ ¬ a ∈ x ∧ ¬ a ∈ y → (dups(x + (a ' + y)) ↔ dups(x + y)) ;
+    used for : s, ls ;
+dups-01      :  ⊦ dups(x ++ a) ↔ dups(x) ;
+    used for : s, ls ;
+dups-cons    :  ⊦ dups(a ' + x) ↔ dups(x) ∨ a ∈ x ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+e            :  ⊦ disj(x, []) ;
+    used for : s, ls ;
+e-01         :  ⊦ ¬ dups([]) ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+empty        :  ⊦ rmdup(x) = [] ↔ x = [] ;
+    used for : s, ls ;
+empty-01     :  ⊦ [] ++ a = a ' ;
+    used for : s, ls ;
+eq           : ⊦ 
+                     x + (a ' + (b ' + (y + (c ' + z)))) = x0 + (c ' + (a ' + z0))
+                  ∧  ¬ a ∈ y ∧ a ≠ b
+               →  dups(x + (a ' + (c ' + z))) ;
+    used for : s, ls ;
+eq-01        : ⊦ 
+                     x + (a ' + (b ' + (y + (c ' + z)))) = x0 + (a ' + (c ' + z0))
+                  ∧  ¬ a ∈ y ∧ a ≠ b ∧ b ≠ c
+               →  dups(x + (a ' + (c ' + z))) ;
+    used for : s, ls ;
+equal        :  ⊦ ¬ dups(x) → rmdup(x) = x ;
+    used for : s, ls ;
+f            :  ⊦ dups(x + a ') ↔ a ∈ x ∨ dups(x) ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+f-01         :  ⊦ dups(x + (a ' + y)) ↔ a ∈ x ∨ a ∈ y ∨ dups(x + y) ;
+    used for : s, ls ;
+fin          :  ⊦ ¬ dups(a ' + x) → ¬ a ∈ x ;
+first        :  ⊦ ¬ a ∈ x → (disj(x, a ' + y) ↔ disj(x, y)) ;
+    used for : s, ls, lc ;
+first-01     :  ⊦ ¬ a ∈ x → (disj(a ' + y, x) ↔ disj(y, x)) ;
+    used for : s, ls, lc ;
+firstoc      : a ∈ x, a ∈ x0 ⊦ ∃ b, y, y0. b ∈ x ∧ x0 = y + (b ' + y0) ∧ disj(x, y) ;
+if-rmdup     :  ⊦ rmdup(a ' + x) = ((a ∈ x ⊃ rmdup(x); a ' + rmdup(x))) ;
+in           :  ⊦ disj(x, y) ∧ a ∈ x → ¬ a ∈ y ;
+    used for : f, lf ;
+
+(: no longer used as forward rule, instead in-04 is used as simprule :)
+rm-notin        :  ⊦ ¬ a ∈ x → ¬ a ∈ rmdup(x) ;
+(:    used for : f, lf ; :)
+(: no longer used as forward rule, instead in-04 is used as simprule :)
+rm-in-03        :  ⊦ ¬ a ∈ rmdup(x) → ¬ a ∈ x ;
+(:    used for : f, lf ; :)
+(:  no longer used as forward rule, instead in-04 is used as simprule :)
+rm-in-01        :  ⊦ a ∈ rmdup(x) → a ∈ x ;
+(:    used for : f, lf ; :)
+rm-in-02        :  ⊦ a ∈ rmdup(x) ↔ a ∈ x ;
+used for: s,ls;
+
+
+in-01-01     :  ⊦ a ∈ x → rmdup(a ' + (x + y)) = rmdup(x + y) ;
+    used for : s, ls ;
+in-01-02     :  ⊦ a ∈ y → dups(x + (a ' + y)) ;
+    used for : s, ls ;
+in-02        :  ⊦ a ∈ y → rmdup(a ' + (x + y)) = rmdup(x + y) ;
+    used for : s, ls ;
+in-02-01     :  ⊦ a ∈ x → dups(x + (b ' + (a ' + y))) ;
+    used for : s, ls ;
+in-03-01     :  ⊦ b ∈ y → dups(x + (b ' + (a ' + y))) ;
+    used for : s, ls ;
+in-04-01     :  ⊦ a ∈ x → dups(x + (a ' + y)) ;
+    used for : s, ls ;
+in-05-01     :  ⊦ dups(x + (a ' + (y + (a ' + z)))) ;
+    used for : s, ls ;
+in-06        :  ⊦ a ∈ x ∧ a ∈ y → dups(x + y) ;
+    used for : s, ls ;
+in-06-01     :  ⊦ ¬ dups(x + a ') → (dups(x + (a ' + b ')) ↔ ¬ ¬ (a = b ∨ b ∈ x)) ;
+    used for : s, ls ;
+in-07        : ⊦ 
+                  ¬ dups(x + (a ' + b '))
+               →  (dups(x + (a ' + (b ' + c '))) ↔ ¬ ¬ (a = c ∨ b = c ∨ c ∈ x)) ;
+    used for : s, ls ;
+in-08        :  ⊦ a ∈ x ++ b ↔ a = b ∨ a ∈ x ;
+    used for : s, ls ;
+in-09        :  ⊦ x + a ' = y + (b ' + z) ∧ b ∈ z → dups(x + a ') ;
+    used for : s, ls ;
+inapp        : ⊦ 
+                  a ' + (x + b ') = y + (c ' + (c ' + z)) ∧ a ≠ b ∧ ¬ a ∈ x ∧ ¬ b ∈ x
+               →  dups(x) ;
+    used for : s, ls ;
+inapp-01     : ⊦ 
+                     a ' + (x + b ') = y + (c ' + (a0 ' + z)) ∧ a ≠ b ∧ ¬ a ∈ x
+                  ∧  ¬ b ∈ x ∧ c ∈ z
+               →  dups(x) ;
+    used for : s, ls ;
+l            :  ⊦ a ∈ x → dups(x + a ') ;
+    used for : s, ls ;
+l-01         :  ⊦ a ≠ b ∧ ¬ b ∈ x → (dups(x + (a ' + b ')) ↔ dups(x + a ')) ;
+    used for : s, ls ;
+l-02         :  ⊦ dups(x) → dups(x + b ') ;
+    used for : s, ls ;
+l-03         :  ⊦ ¬ b ∈ x → (dups(x + b ') ↔ dups(x)) ;
+    used for : s, ls ;
+last         :  ⊦ ¬ b ∈ x → (disj(x, y + b ') ↔ disj(x, y)) ;
+    used for : s, ls, lc ;
+last-01      :  ⊦ ¬ b ∈ x → (disj(y + b ', x) ↔ disj(x, y)) ;
+    used for : s, ls, lc ;
+lastoc       : a ∈ x, a ∈ x0 ⊦ ∃ b, y, y0. b ∈ x ∧ x0 = y + (b ' + y0) ∧ disj(x, y0) ;
+n            : ⊦ 
+                  a ≠ c ∧ a ≠ b ∧ ¬ a ∈ x
+               →  (dups(x + (b ' + (c ' + a '))) ↔ dups(x + (b ' + c '))) ;
+    used for : s, ls ;
+nodup        :  ⊦ ¬ dups(rmdup(x)) ;
+    used for : s, ls ;
+one          :  ⊦ disj(a ', x) ↔ ¬ a ∈ x ;
+    used for : s, ls ;
+one-01       :  ⊦ disj(x, a ') ↔ ¬ a ∈ x ;
+    used for : s, ls ;
+one-02       :  ⊦ rmdup(a ') = a ' ;
+    used for : s, ls ;
+one-03       :  ⊦ ¬ dups(a + []) ;
+    used for : s, ls ;
+rec          :  ⊦ dups(a ' + x) ↔ ¬ ¬ (a ∈ x ∨ dups(x)) ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+rmrm         :  ⊦ rmdup(rmdup(x)) = rmdup(x) ;
+    used for : s, ls ;
+sym          :  ⊦ disj(x, y) → disj(y, x) ;
+    used for : s, f, lf ;
+two          :  ⊦ dups(a + (b + [])) ↔ a = b ;
+    used for : s, ls ;
+two-01       :  ⊦ dups(a ' + b ') ↔ a = b ;
+    used for : s, ls ;
+two-02       :  ⊦ a ≠ b ∧ ¬ dups(x) ∧ ¬ a ∈ x → (dups(a ' + (b ' + x)) ↔ b ∈ x) ;
+    used for : s, ls ;
+two-03       :  ⊦ dups(x + x) ↔ x ≠ [] ;
+    used for : s, ls ;
+

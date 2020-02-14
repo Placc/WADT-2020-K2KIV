@@ -1,0 +1,53 @@
+
+;; variables m : nat;
+
+lemmas
+
+Sep-distribute-true:
+nP ⊗_(n,m) * true = (λ n0. nP(n0) * true) ⊗_(n, m) * true;
+
+Sep-emp:
+(λ n. emp) ⊗_(n,m)
+  = emp;
+
+Sep-split:
+m0 ≤ m
+ → nP ⊗_(n,m)
+   = nP ⊗_(n,m0) * nP ⊗_(n + m0,m - m0);
+
+Sep-unfold:
+m0 < m
+ → nP ⊗_(n,m)
+   =   nP ⊗_(n,m0)
+     * nP(n + m0)
+     * nP ⊗_(n + m0 + 1,m - m0 - 1);
+
+Sep-range:
+nP ⊗_(n,m)
+  = (λ n0. ⌜n0 < n + m⌝ → nP(n0)) ⊗_(n,m);
+
+Sep-forall:
+∀ n0. n0 < m → nP0(n + n0) = nP1(n + n0)
+⊦
+  nP0 ⊗_(n,m)
+= nP1 ⊗_(n,m);
+
+;; Sep-forall-prove:
+;; ∀ n0. n0 < m → nP0(n + n0) = nP1(n + n0)
+;; ⊦
+;;   nP0 ⊗_(n,m) = nP1 ⊗_(n,m);
+
+Sep-forall-prove-imp:
+∀ n0. n0 < m → nP0(n + n0) ⊆ nP1(n + n0)
+⊦
+  nP0 ⊗_(n,m) ⊆ nP1 ⊗_(n,m);
+
+Sep-forall-reduce-imp:
+∀ n0. n0 < m → nP0(n + n0) ⊆ nP1(n + n0),
+(nP0 ⊗_(n,m) * P)(H)
+⊦
+(nP1 ⊗_(n,m) * P)(H);
+
+Sep-weak-conjunction:
+(nP ⊗_(n,m) * P)(H)
+⊦ ∀ n0. n0 < m → (nP(n + n0) * P * true)(H);

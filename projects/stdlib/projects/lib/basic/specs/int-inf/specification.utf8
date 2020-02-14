@@ -1,0 +1,25 @@
+enrich int-inf-basic with
+
+;; sorts ;
+
+;; constants ;
+
+;; functions ;
+
+predicates . < . : intinf × intinf;
+
+;; variables ;
+
+;; induction ;
+
+axioms
+
+neginf-less: -∞ < i∞ ↔ i∞ ≠ -∞; used for: s,ls;
+less-inf: i∞ < ∞ ↔ i∞ ≠ ∞; used for: s,ls;
+less-int: ⌜i⌝ < ⌜i0⌝ ↔ i < i0; used for: s,ls;
+not-less-neginf: ¬ i∞ < -∞; used for: s,ls;
+not-inf-less: ¬ ∞ < i∞; used for: s,ls;
+
+
+
+end enrich

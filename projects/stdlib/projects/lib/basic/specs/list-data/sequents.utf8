@@ -1,0 +1,88 @@
+lemmas
+
+length-rest-intro : x ≠ [] → # x = # x.rest + 1;
+
+length-neq : # x ≠ # y → x ≠ y; used for : s,ls;
+
+length-rest : ⊦ x ≠ [] → # x .rest = (# x) -1; used for : s,ls;
+;;; END
+
+exit
+eq-one   : ⊦ # x + # y = 1 ∧ x ≠ [] → # x = 1 ∧ y = []; used for : f,lf;
+le-one-01   : ⊦ # x + # y ≤ 1 ∧ x ≠ [] → # x = 1 ∧ y = []; 
+   used for : f,lf;
+
+le-one      : ⊦ # x ≤ 1 ∧ x ≠ [] → # x = 1; 
+   used for : f,lf;
+
+elim-list   :  ⊦ x ≠ [] → (a = x .first ∧ y = x .rest ↔ x = a + y) ;
+    remarks : proved ;
+elim-list-c : x ≠ [] ⊦ a = x .first ∧ y = x .rest ↔ x = a + y ;
+   used for : e ;
+    remarks : proved, used, used by proved unit ;
+exa         : x ≠ [] ⊦ ∃ a, y. x = a + y ;
+    remarks : proved ;
+f           :  ⊦ a + x = a + y ↔ x = y ;
+   used for : s, ls ;
+    remarks : proved, used ;
+fr          :  ⊦ x ≠ [] ∧ x ≠ x .first + [] → x .rest .first + x .rest .rest = x .rest ;
+   used for : s, ls ;
+    remarks : proved, used ;
+fr-01       :  ⊦ x ≠ [] ∧ x ≠ x .first + [] → x .first + (x .rest .first + x .rest .rest) = x ;
+   used for : s, ls ;
+    remarks : proved ;
+fr-02       :  ⊦ x ≠ [] → x .first + x .rest = x ;
+   used for : s, ls ;
+    remarks : proved, used ;
+fr-03       :  ⊦ x .rest = [] ∧ x ≠ [] → x .first + [] = x ;
+   used for : s, ls ;
+    remarks : proved, used ;
+fr-04       :  ⊦ x .first = y .first → (x .rest = y .rest → x = y ∨ x = [] ∨ y = []) ;
+   used for : s, ls ;
+    remarks : proved ;
+fr-05       :  ⊦ x ≠ [] → (x ≠ x .first + y ↔ x .rest ≠ y) ;
+   used for : s, ls ;
+    remarks : proved ;
+fr-06       :  ⊦ x ≠ [] ∧ x .rest = [] → x .first + [] = x ;
+   used for : s, ls ;
+    remarks : proved ;
+fr-07       :  ⊦ x ≠ [] → (x = x .first + y ↔ x .rest = y) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+l           :  ⊦ # x = 0 ↔ x = [] ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit, invalid ;
+lf          :  ⊦ 1 < # x → x ≠ x .first + [] ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lf-01       :  ⊦ # x = 1 ↔ x = x .first + [] ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lfr         :  ⊦ n < # x → (x = x .first + y ↔ x .rest = y) ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lr          :  ⊦ true → ((# x) + 1 < # x .rest → x = []) ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lr-01       :  ⊦ x ≠ [] ∧ y ≠ [] → # x .rest + # y .rest < # x + # y ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lr-02       :  ⊦ x ≠ [] → ¬ # x < # x .rest ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit, invalid ;
+lr-03       :  ⊦ x ≠ [] ∧ y ≠ [] → (# x .rest = # y .rest ↔ # x = # y) ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lr-04       :  ⊦ # x .rest < # x ↔ x ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lr-05       :  ⊦ ¬ (# x .rest) + 1 < # x ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+lr-06       :  ⊦ # x = (# x .rest) + 1 ↔ x ≠ [] ;
+   used for : s, ls ;
+    remarks : proved, invalid ;
+p-fr        : a + x = y ⊦ a = y .first ∧ x = y .rest ;
+    remarks : proved ;
+
+

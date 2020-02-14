@@ -1,0 +1,18 @@
+@$KivLemma("correctness"): @$initialConfig(@$this(@$KivInt("i"), @$KivInt("j")))
+  => @$exists(@$KivMap("m") . ´<k> .K </k><state> @$KivMap("m")[p <- @$KivInt("i") *Int @$KivInt("j")] </state>´)
+  @$requires (@$KivInt("i") >=Int 0) andBool (@$KivInt("j") >=Int 0)
+
+int x, y, p;
+
+x = @$KivInt("i");
+y = @$KivInt("j");
+
+@$KivInvariant: @$exists(@$KivInt("X") . @$exists(@$KivInt("P") .
+  ´<state> x |-> @$KivInt("X") y |-> @$KivInt("Y") p |-> @$KivInt("P")</state>´
+  @$and @$KivInt("P") ==Int ((@$KivInt("i") -Int @$KivInt("X")) *Int @$KivInt("Y"))
+  @$and @$KivInt("P") >=Int 0 @$and @$KivInt("X") >=Int 0))
+
+(while (!(x <= 0)) {
+  p = p + y;
+  x = x - 1;
+})

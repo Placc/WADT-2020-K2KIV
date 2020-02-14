@@ -1,0 +1,24 @@
+: successful
+### No save necessary ###
+### Next replay: bag-add2-eq-elim ###
+bag-add2-eq-elim: failed
+### No save necessary ###
+### Next replay: count-1 ###
+count-1: successful
+### No save necessary ###
+### Next replay: count-other ###
+count-other: successful
+### No save necessary ###
+### Next replay: count-same ###
+count-same: successful
+### No save necessary ###
+### Next replay: ext-rec ###
+ext-rec: successful
+### No save necessary ###
+### Next replay: insert-inj ###
+insert-inj: successful
+### No save necessary ###
+### Next replay: insert-nonempty ###
+insert-nonempty: successful
+### Done ###
+### Saving lemmas next ###

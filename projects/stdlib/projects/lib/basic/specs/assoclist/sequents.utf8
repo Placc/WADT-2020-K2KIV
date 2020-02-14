@@ -1,0 +1,126 @@
+
+
+(: variables             ; :)
+
+lemmas
+
+;; KODKOD BEGIN
+
+k-unique-r : unique_al(ay) ↔ ay = [] ∨ ¬ ay.first.1 ∈ ay.rest ∧ unique_al(ay.rest); used for : s,ls,kodkodax;
+
+;; KODKOD END
+
+
+
+
+
+in-put:  a ∈ ax[b,d] ↔ a = b ∨ a ∈ ax; used for: s,ls;
+
+;;;END
+
+
+xx: unique_al(ax);
+
+unique : ⊦ a ∈ ax → ¬ unique_al(ax + (a × d) ' + ay); used for : s,ls;
+unique : ⊦ a ∈ ay → ¬ unique_al(ax + (a × d) ' + ay); used for : s,ls;
+
+exit
+app       :  ⊦ unique_al(ax + (p ' + ay)) → unique_al(ax + ay) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+cons      :  ⊦ unique_al((a × d) ' + ax) ↔ ¬ a ∈ ax ∧ unique_al(ax) ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+empty     :  ⊦ ¬ a ∈ [] ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+ex        :  ⊦ a ∈ ax ↔ (∃ d, ay, az. ax = ay + ((a × d) ' + az)) ;
+  remarks : proved, used ;
+firstoc   : ⊦ 
+               a ∈ ax
+            →  (∃ ax0, d, ax1. ax = ax0 + ((a × d) ' + ax1) ∧ ¬ a ∈ ax0) ;
+  remarks : proved, used by proved unit ;
+in        :  ⊦ a × d ∈ ax → ¬ unique_al((a × d0) ' + ax) ;
+  used for : s, ls ;
+  remarks : proved ;
+in-01     :  ⊦ a × d ∈ ax → a ∈ ax ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+in-02     :  ⊦ a ∈ ax + ((a × d) ' + ay) ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+in-03     :  ⊦ a ∈ ax + ay → a ∈ ax + (p ' + ay) ;
+  used for : s, ls ;
+  remarks : proved ;
+inapp     :  ⊦ a ∈ ax + ay ↔ ¬ ¬ (a ∈ ax ∨ a ∈ ay) ;
+  used for : ls ;
+  remarks : proved, used ;
+incons    :  ⊦ a ∈ ax → a ∈ p ' + ax ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+infirst   :  ⊦ a ∈ (a × d) ' + ax ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+inkeys-n  :  ⊦ a ≠ b → (a ∈ (b × d0) ' + ax ↔ a ∈ ax) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+inkeys-nc : a ≠ b ⊦ a ∈ (b × d0) ' + ax ↔ a ∈ ax ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+inone     :  ⊦ a ∈ (b × d0) ' ↔ a = b ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+inrec     :  ⊦ a ∈ (b × d0) ' + ax ↔ a = b ∨ a ∈ ax ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+insfirst  : ⊦ 
+               ¬ a ∈ ax
+            →  (ax + ((a × d) ' + ax0))[a,d0]
+               =
+               ax + ((a × d0) ' + ax0) ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+insnotin  :  ⊦ ¬ a ∈ ax → ax[a,d] = ax + (a × d) ' ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+lenequal  : unique_al(ax), unique_al(ay), #(ax) = #(ay), 
+            ∀ a. a ∈ ax → a ∈ ay, b ∈ ay
+            ⊦ 
+            b ∈ ax ;
+  remarks : proved, used by proved unit ;
+lenle     : unique_al(ax), ∀ a. a ∈ ax → a ∈ ay ⊦ #(ax) ≤ #(ay) ;
+  remarks : proved, used ;
+not       :  ⊦ ¬ unique_al(ax) → ¬ unique_al(p ' + ax) ;
+  used for : s, ls ;
+  remarks : proved, used, used by proved unit ;
+nuni      :  ⊦ unique_al(ay + ((a × d) ' + az)) → ¬ a ∈ ay ;
+  used for : lf ;
+  remarks : proved, used ;
+nuni-01   :  ⊦ unique_al(ay + ((a × d) ' + az)) → ¬ a ∈ az ;
+  used for : lf ;
+  remarks : proved, used ;
+one       :  ⊦ unique_al(p ') ;
+  used for : s, ls ;
+  remarks : proved, used by proved unit ;
+one-01    :  ⊦ ((a × d) ')[a] = d ;
+  used for : s, ls ;
+  remarks : proved ;
+put-one   :  ⊦ ((a × d) ')[a,d0] = (a × d0) ' ;
+  used for : s, ls ;
+  remarks : proved ;
+unique    :  ⊦ unique_al(ax + p ') → unique_al(ax) ;
+  used for : f, lf ;
+  remarks : proved, used, used by proved unit ;
+unique-01 :  ⊦ unique_al(ax + (a × d) ') → ¬ a ∈ ax ;
+  used for : f, lf ;
+  remarks : proved, used by proved unit ;
+unique-02 :  ⊦ unique_al(ax) ∧ a × d ∈ ax ∧ a × d0 ∈ ax → d = d0 ;
+  used for : f, lf ;
+  remarks : proved, used, used by proved unit ;
+uniquelen : ∀ a. a ∈ ax ↔ a ∈ ay, unique_al(ax), unique_al(ay)
+            ⊦ 
+            #(ax) = #(ay) ;
+  remarks : proved, used by proved unit ;
+
+
+

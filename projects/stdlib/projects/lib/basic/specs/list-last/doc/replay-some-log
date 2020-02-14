@@ -1,0 +1,156 @@
+: successful
+### No save necessary ###
+### Next replay: b-01 ###
+b-01: successful
+### No save necessary ###
+### Next replay: b-02 ###
+b-02: successful
+### No save necessary ###
+### Next replay: bin-02 ###
+bin-02: successful
+### No save necessary ###
+### Next replay: blast-first ###
+blast-first: successful
+### No save necessary ###
+### Next replay: blastN-all ###
+blastN-all: successful
+### No save necessary ###
+### Next replay: blastN-len ###
+blastN-len: successful
+### No save necessary ###
+### Next replay: blastN-rec-01 ###
+blastN-rec-01: successful
+### No save necessary ###
+### Next replay: blastn-len-0 ###
+blastn-len-0: successful
+### No save necessary ###
+### Next replay: btwo ###
+btwo: successful
+### No save necessary ###
+### Next replay: butlast-def ###
+butlast-def: successful
+### No save necessary ###
+### Next replay: butlast-len ###
+butlast-len: successful
+### No save necessary ###
+### Next replay: lapp-01 ###
+lapp-01: successful
+### No save necessary ###
+### Next replay: lapp-04 ###
+lapp-04: successful
+### No save necessary ###
+### Next replay: lapp-05 ###
+lapp-05: successful
+### No save necessary ###
+### Next replay: last-def ###
+last-def: successful
+### No save necessary ###
+### Next replay: last-ex ###
+last-ex: successful
+### No save necessary ###
+### Next replay: lb-01 ###
+lb-01: successful
+### No save necessary ###
+### Next replay: lin-01 ###
+lin-01: successful
+### No save necessary ###
+### Next replay: mk-empty ###
+mk-empty: successful
+### No save necessary ###
+### Next replay: mk-first ###
+mk-first: successful
+### No save necessary ###
+### Next replay: mk-in ###
+mk-in: successful
+### No save necessary ###
+### Next replay: mk-inj ###
+mk-inj: successful
+### No save necessary ###
+### Next replay: mk-one ###
+mk-one: successful
+### No save necessary ###
+### Next replay: mk-succ ###
+mk-succ: successful
+### No save necessary ###
+### Next replay: mklist-rmdup ###
+mklist-rmdup: successful
+### No save necessary ###
+### Next replay: nodups-butlastn ###
+nodups-butlastn: successful
+### No save necessary ###
+### Next replay: postfix-empty-01 ###
+postfix-empty-01: successful
+### No save necessary ###
+### Next replay: postfix-empty-02 ###
+postfix-empty-02: successful
+### No save necessary ###
+### Next replay: postfix-empty-03 ###
+postfix-empty-03: successful
+### No save necessary ###
+### Next replay: postfix-in-03 ###
+postfix-in-03: successful
+### No save necessary ###
+### Next replay: postfix-length ###
+postfix-length: successful
+### No save necessary ###
+### Next replay: postfix-more-01 ###
+postfix-more-01: successful
+### No save necessary ###
+### Next replay: postfix-rec-right ###
+postfix-rec-right: successful
+### No save necessary ###
+### Next replay: postfix-split-stronger ###
+postfix-split-stronger: successful
+### No save necessary ###
+### Next replay: prefix-app-02 ###
+prefix-app-02: successful
+### No save necessary ###
+### Next replay: prefix-app-03 ###
+prefix-app-03: successful
+### No save necessary ###
+### Next replay: prefix-empty ###
+prefix-empty: successful
+### No save necessary ###
+### Next replay: prefix-empty-03 ###
+prefix-empty-03: successful
+### No save necessary ###
+### Next replay: prefix-in ###
+prefix-in: successful
+### No save necessary ###
+### Next replay: prefix-in-01 ###
+prefix-in-01: successful
+### No save necessary ###
+### Next replay: prefix-in-03 ###
+prefix-in-03: successful
+### No save necessary ###
+### Next replay: prefix-longer ###
+prefix-longer: successful
+### No save necessary ###
+### Next replay: prefix-more ###
+prefix-more: successful
+### No save necessary ###
+### Next replay: prefix-one-01 ###
+prefix-one-01: successful
+### No save necessary ###
+### Next replay: prefix-rec-01 ###
+prefix-rec-01: successful
+### No save necessary ###
+### Next replay: rev-dups ###
+rev-dups: successful
+### No save necessary ###
+### Next replay: rev-empty ###
+rev-empty: successful
+### No save necessary ###
+### Next replay: rev-in ###
+rev-in: successful
+### No save necessary ###
+### Next replay: rev-rest ###
+rev-rest: successful
+### No save necessary ###
+### Next replay: splitlasteq ###
+splitlasteq: successful
+### No save necessary ###
+### Next replay: splitlasteq-01 ###
+splitlasteq-01: successful
+### Done ###
+### Saving lemmas next ###

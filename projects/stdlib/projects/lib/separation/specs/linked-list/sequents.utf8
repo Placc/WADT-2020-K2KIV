@@ -1,0 +1,35 @@
+
+;; variables m : nat;
+
+lemmas
+
+ls-null:
+ls(null, x) = (emp ∧ ⌜x = []⌝);
+used for: s,ls;
+
+ls-one:
+ls(r, a ') = (r => a × null);
+used for: s,ls;
+
+ls-fold1:
+(r => a × r0 * ls(r0, x) * P)(H)
+    → (ls(r, a ' + x) * P)(H);
+used for: ss;
+
+ls-unfold1:
+r ≠ null
+⊦ H[r] = ce
+  → (   (ls(r, x) * P)(H)
+      ↔ ∃ a,y,r0. (r => a × r0 * ls(r0, y) * P)(H) ∧ x = a ' + y);
+used for: s;
+comment: unfold in antecedent when the list head has already been read by a program;
+
+ls-unfold2:
+  (ls(r, a ' + x) * P)(H)
+↔ ∃ r0. (r => a × r0 * ls(r0, x) * P)(H);
+used for: s;
+comment: unfold in antecedent when the algebraic list is not empty;
+
+precise-ls:
+precise(ls(r,x));
+used for: s;

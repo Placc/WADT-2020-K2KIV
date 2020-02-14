@@ -1,0 +1,43 @@
+;;;****************************************************************************************
+;;;
+;;; This file contains an enriched specification
+;;;
+;;;****************************************************************************************
+
+specification
+
+using
+actualize set-union with gelem by morphism
+end actualize
+
+predicates 
+
+	. < .	 : elem × set;
+	. < .	 : set × elem;
+	
+partial	functions 	
+
+	. .min    : set → elem with λ s. s ≠ ∅;
+	. .butmin : set → set with λ s. s ≠ ∅;
+	. .max    : set → elem with λ s. s ≠ ∅;
+	. .butmax : set → set with λ s. s ≠ ∅;
+
+axioms
+
+Min-in  : s ≠ ∅ → s.min ∈ s; used for : lf,kodkodaxstrong;
+
+Min-min : a ∈ s → ¬ a < s.min; used for : lf,kodkodaxstrong;
+
+Butmin  : s ≠ ∅ → s.butmin = s -- s.min; used for : ls,kodkodaxstrong;
+
+Max-in  : s ≠ ∅ → s.max ∈ s; used for : lf,kodkodaxstrong;
+
+Max-max : a ∈ s → ¬ s.max < a; used for : lf,kodkodaxstrong;
+
+Butmax  : s ≠ ∅ → s.butmax = s -- s.max; used for : ls,kodkodaxstrong;
+
+Less    : a < s ↔ ∀ b. b ∈ s → a < b; used for : ls;
+
+Greater : s < a ↔ ∀ b. b ∈ s → b < a; used for : ls;
+
+end specification

@@ -1,0 +1,15 @@
+: successful
+### No save necessary ###
+### Next replay: sel-embed-fin ###
+sel-embed-fin: successful
+### No save necessary ###
+### Next replay: sel-embed-inf ###
+sel-embed-inf: successful
+### No save necessary ###
+### Next replay: stream-fin-forward ###
+stream-fin-forward: successful
+### No save necessary ###
+### Next replay: stream-inf-forward ###
+stream-inf-forward: successful
+### Done ###
+### Saving lemmas next ###

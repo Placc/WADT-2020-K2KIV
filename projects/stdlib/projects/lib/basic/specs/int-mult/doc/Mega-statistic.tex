@@ -1,0 +1,278 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,supertabular}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+\begin{itemize}
+\item Axioms: 3
+\item Theorems: 129
+\item Proof steps: 487
+\item Interactions: 236
+\item Automation: 51.5 \%
+\end{itemize}
+
+
+Statistic for each theorem:
+
+\begin{supertabular}{l|r|r|r|r}
+	& proof steps & interactions & automation & induction\\ \hline
+noeth-ls-pos & 38 & 19 & 50.0 \% & int\\
+noeth-modlep & 32 & 17 & 46.8 \% & int\\
+square-eq & 19 & 15 & 21.0 \% & ---\\
+eq-nonzero & 15 & 11 & 26.6 \% & ---\\
+noeth-zero-ls & 15 & 6 & 60.0 \% & int\\
+ls-pos & 14 & 5 & 64.2 \% & int\\
+modeqp-copied & 13 & 8 & 38.4 \% & ---\\
+eq-one & 12 & 5 & 58.3 \% & ---\\
+square-ls & 10 & 7 & 30.0 \% & ---\\
+modeqp & 10 & 3 & 70.0 \% & int\\
+dist-rsplit & 9 & 1 & 88.8 \% & int\\
+modlep-03 & 9 & 3 & 66.6 \% & ---\\
+modlsp-03 & 9 & 3 & 66.6 \% & ---\\
+succ-lsplit & 7 & 0 & 100.0 \% & int\\
+zero-gr & 6 & 3 & 50.0 \% & ---\\
+associativity & 6 & 0 & 100.0 \% & int\\
+square-le & 6 & 5 & 16.6 \% & ---\\
+commutativity & 6 & 1 & 83.3 \% & int\\
+modneqp & 6 & 4 & 33.3 \% & ---\\
+modlep & 6 & 3 & 50.0 \% & ---\\
+abs-eqall & 5 & 3 & 40.0 \% & ---\\
+le-same-03 & 5 & 4 & 20.0 \% & ---\\
+zero-ge-add-02 & 5 & 4 & 20.0 \% & ---\\
+square-le-02 & 5 & 3 & 40.0 \% & ---\\
+zero-ge-add & 5 & 3 & 40.0 \% & ---\\
+square-one-le & 5 & 2 & 60.0 \% & ---\\
+zero-ge & 5 & 4 & 20.0 \% & ---\\
+zero-ls & 4 & 2 & 50.0 \% & ---\\
+le-neg & 4 & 2 & 50.0 \% & ---\\
+zero-le-01 & 4 & 2 & 50.0 \% & ---\\
+le-pos & 4 & 2 & 50.0 \% & ---\\
+zero-le & 4 & 2 & 50.0 \% & ---\\
+ls-add & 4 & 2 & 50.0 \% & ---\\
+ls-neg & 4 & 2 & 50.0 \% & ---\\
+zero-gr-01 & 4 & 2 & 50.0 \% & ---\\
+ls-same & 4 & 2 & 50.0 \% & ---\\
+square-lez-01 & 4 & 1 & 75.0 \% & ---\\
+ls-same-01 & 4 & 2 & 50.0 \% & ---\\
+mods-ls-04 & 4 & 2 & 50.0 \% & ---\\
+ls-same-02 & 4 & 2 & 50.0 \% & ---\\
+ls-same-03 & 4 & 2 & 50.0 \% & ---\\
+zero-gr-add & 3 & 2 & 33.3 \% & ---\\
+minus-left & 3 & 3 & 0.0 \% & ---\\
+zero-eq & 3 & 2 & 33.3 \% & ---\\
+minus-one-01 & 3 & 1 & 66.6 \% & ---\\
+square-lez & 3 & 1 & 66.6 \% & ---\\
+modlsp & 3 & 2 & 33.3 \% & ---\\
+square-gez-02 & 3 & 2 & 33.3 \% & ---\\
+modzero-01 & 3 & 2 & 33.3 \% & ---\\
+pls-pos & 3 & 2 & 33.3 \% & ---\\
+modzero-02 & 3 & 2 & 33.3 \% & ---\\
+pls-neg & 3 & 2 & 33.3 \% & ---\\
+modzero-03 & 3 & 2 & 33.3 \% & ---\\
+modzero-06 & 3 & 2 & 33.3 \% & ---\\
+modzero-04 & 3 & 2 & 33.3 \% & ---\\
+modzero-05 & 3 & 2 & 33.3 \% & ---\\
+abs-ls & 2 & 1 & 50.0 \% & ---\\
+zero-ls-case & 2 & 1 & 50.0 \% & ---\\
+dist-sub-merge & 2 & 0 & 100.0 \% & ---\\
+zero-ls-03 & 2 & 1 & 50.0 \% & ---\\
+dist-sub-split & 2 & 0 & 100.0 \% & ---\\
+zero-left & 2 & 0 & 100.0 \% & int\\
+eq-neg & 2 & 1 & 50.0 \% & ---\\
+zero-le-case & 2 & 1 & 50.0 \% & ---\\
+eq-pos & 2 & 1 & 50.0 \% & ---\\
+zero-gr-case & 2 & 1 & 50.0 \% & ---\\
+le-same & 2 & 1 & 50.0 \% & ---\\
+zero-ge-case & 2 & 1 & 50.0 \% & ---\\
+le-same-01 & 2 & 1 & 50.0 \% & ---\\
+succ-rsplit & 2 & 2 & 0.0 \% & ---\\
+le-same-02 & 2 & 1 & 50.0 \% & ---\\
+square-le-01 & 2 & 1 & 50.0 \% & ---\\
+ls-pos-02 & 2 & 1 & 50.0 \% & ---\\
+square-gez-01 & 2 & 1 & 50.0 \% & ---\\
+ls-sub & 2 & 0 & 100.0 \% & ---\\
+pred-rmerge & 2 & 0 & 100.0 \% & ---\\
+minus-one & 2 & 1 & 50.0 \% & ---\\
+modzero & 2 & 1 & 50.0 \% & ---\\
+modlsp-04 & 2 & 1 & 50.0 \% & ---\\
+mods-ls-03 & 2 & 1 & 50.0 \% & ---\\
+modlsp-05 & 2 & 1 & 50.0 \% & ---\\
+mods-ls-02 & 2 & 1 & 50.0 \% & ---\\
+modlsp-06 & 2 & 1 & 50.0 \% & ---\\
+mods-ls-01 & 2 & 1 & 50.0 \% & ---\\
+mods-eq & 2 & 1 & 50.0 \% & ---\\
+mods-ls & 2 & 1 & 50.0 \% & ---\\
+zero-ls-two & 1 & 0 & 100.0 \% & ---\\
+abs-eqneg & 1 & 0 & 100.0 \% & ---\\
+zero-ls-sub & 1 & 0 & 100.0 \% & ---\\
+dist-lsplit & 1 & 0 & 100.0 \% & ---\\
+zero-ls-02 & 1 & 0 & 100.0 \% & ---\\
+dist-rmerge & 1 & 0 & 100.0 \% & ---\\
+zero-ls-01 & 1 & 0 & 100.0 \% & ---\\
+eq-dist & 1 & 0 & 100.0 \% & ---\\
+zero-le-two & 1 & 1 & 0.0 \% & ---\\
+eq-succ & 1 & 0 & 100.0 \% & ---\\
+zero-le-03 & 1 & 0 & 100.0 \% & ---\\
+four & 1 & 0 & 100.0 \% & ---\\
+zero-le-02 & 1 & 0 & 100.0 \% & ---\\
+le-pos-01 & 1 & 0 & 100.0 \% & ---\\
+zero-gr-03 & 1 & 0 & 100.0 \% & ---\\
+ls-add-02 & 1 & 0 & 100.0 \% & ---\\
+zero-gr-02 & 1 & 0 & 100.0 \% & ---\\
+ls-add-03 & 1 & 0 & 100.0 \% & ---\\
+zero-ge-add-01 & 1 & 0 & 100.0 \% & ---\\
+ls-forward & 1 & 0 & 100.0 \% & ---\\
+zero-ge-03 & 1 & 0 & 100.0 \% & ---\\
+ls-pos-01 & 1 & 0 & 100.0 \% & ---\\
+zero-ge-02 & 1 & 0 & 100.0 \% & ---\\
+minus-one-02 & 1 & 0 & 100.0 \% & ---\\
+zero-ge-01 & 1 & 0 & 100.0 \% & ---\\
+modlep-01 & 1 & 1 & 0.0 \% & ---\\
+succ-rmerge & 1 & 0 & 100.0 \% & ---\\
+modlep-02 & 1 & 1 & 0.0 \% & ---\\
+square-zero & 1 & 0 & 100.0 \% & ---\\
+modlsp-01 & 1 & 1 & 0.0 \% & ---\\
+square-minus & 1 & 0 & 100.0 \% & ---\\
+modlsp-02 & 1 & 1 & 0.0 \% & ---\\
+square-ls-01 & 1 & 0 & 100.0 \% & ---\\
+neq-two & 1 & 1 & 0.0 \% & ---\\
+square-le-03 & 1 & 0 & 100.0 \% & ---\\
+one & 1 & 1 & 0.0 \% & ---\\
+square-gez & 1 & 0 & 100.0 \% & ---\\
+one-01 & 1 & 0 & 100.0 \% & ---\\
+square-abs & 1 & 1 & 0.0 \% & ---\\
+ple-neg & 1 & 1 & 0.0 \% & ---\\
+pzero-ls & 1 & 1 & 0.0 \% & ---\\
+ple-pos & 1 & 1 & 0.0 \% & ---\\
+pzero-gr & 1 & 1 & 0.0 \% & ---\\
+
+\end{supertabular}
+
+Heuristic applications:
+
+\begin{supertabular}{l|r|r}
+heuristic	& total applications & percentage \\ \hline
+Interactive & 236 & 48.4 \% \\
+simplifier & 212 & 43.5 \% \\
+elimination & 25 & 5.1 \% \\
+quantifier closing & 7 & 1.4 \% \\
+structural induction & 4 & 0.8 \% \\
+cut & 3 & 0.6 \% \\
+
+\end{supertabular}
+
+Rule applications:
+
+\begin{supertabular}{l|r|r}
+rule	        & total applications & percentage \\ \hline
+simplifier & 212 & 43.5 \% \\
+insert rewrite lemma & 61 & 12.5 \% \\
+insert lemma & 55 & 11.2 \% \\
+cut formula & 41 & 8.4 \% \\
+case distinction & 32 & 6.5 \% \\
+insert elim lemma & 25 & 5.1 \% \\
+all left & 22 & 4.5 \% \\
+insert spec-lemma & 12 & 2.4 \% \\
+insert equation & 12 & 2.4 \% \\
+structural induction & 10 & 2.0 \% \\
+weakening & 5 & 1.0 \% \\
+
+\end{supertabular}
+
+Lemma applications:
+
+\begin{supertabular}{l|r|r}
+theorem	        & total applications & percentage \\ \hline
+commutativity & 250 & 29.8 \% \\
+associativity & 178 & 21.2 \% \\
+one & 62 & 7.4 \% \\
+dist-rsplit & 47 & 5.6 \% \\
+Mult-zero & 36 & 4.3 \% \\
+minus-left & 22 & 2.6 \% \\
+ls-pos & 16 & 1.9 \% \\
+minus-one & 14 & 1.6 \% \\
+ls-neg & 11 & 1.3 \% \\
+abs-eqall & 10 & 1.1 \% \\
+zero-ls & 9 & 1.0 \% \\
+square-lez & 8 & 0.9 \% \\
+succ-rsplit & 8 & 0.9 \% \\
+dist-lsplit & 6 & 0.7 \% \\
+modlsp-02 & 6 & 0.7 \% \\
+zero-ls-01 & 6 & 0.7 \% \\
+ls-forward & 6 & 0.7 \% \\
+le-pos & 6 & 0.7 \% \\
+zero-left & 6 & 0.7 \% \\
+zero-gr & 6 & 0.7 \% \\
+pls-pos & 6 & 0.7 \% \\
+zero-ls-03 & 5 & 0.5 \% \\
+square-ls & 5 & 0.5 \% \\
+zero-ge-01 & 5 & 0.5 \% \\
+square-abs & 5 & 0.5 \% \\
+one-01 & 4 & 0.4 \% \\
+succ-lsplit & 4 & 0.4 \% \\
+modlep-02 & 4 & 0.4 \% \\
+modlep-03 & 3 & 0.3 \% \\
+zero-le-01 & 3 & 0.3 \% \\
+modlep-01 & 3 & 0.3 \% \\
+le-neg & 3 & 0.3 \% \\
+eq-neg & 3 & 0.3 \% \\
+zero-ge & 3 & 0.3 \% \\
+ls-same & 3 & 0.3 \% \\
+eq-nonzero & 3 & 0.3 \% \\
+zero-le-case & 2 & 0.2 \% \\
+modlsp & 2 & 0.2 \% \\
+zero-le & 2 & 0.2 \% \\
+modeqp & 2 & 0.2 \% \\
+zero-gr-03 & 2 & 0.2 \% \\
+le-pos-01 & 2 & 0.2 \% \\
+zero-gr-02 & 2 & 0.2 \% \\
+ls-pos-01 & 2 & 0.2 \% \\
+zero-gr-01 & 2 & 0.2 \% \\
+eq-pos & 2 & 0.2 \% \\
+zero-gr-case & 2 & 0.2 \% \\
+square-zero & 2 & 0.2 \% \\
+noeth-zero-ls & 2 & 0.2 \% \\
+abs-eqneg & 2 & 0.2 \% \\
+zero-ge-03 & 2 & 0.2 \% \\
+zero-ls-case & 2 & 0.2 \% \\
+zero-ls-02 & 2 & 0.2 \% \\
+square-lez-01 & 2 & 0.2 \% \\
+zero-eq & 2 & 0.2 \% \\
+zero-ge-02 & 1 & 0.1 \% \\
+zero-le-03 & 1 & 0.1 \% \\
+modzero-06 & 1 & 0.1 \% \\
+Mult-succ & 1 & 0.1 \% \\
+pzero-ls & 1 & 0.1 \% \\
+square-le & 1 & 0.1 \% \\
+ls-same-01 & 1 & 0.1 \% \\
+ple-pos & 1 & 0.1 \% \\
+ls-same-03 & 1 & 0.1 \% \\
+square-le-02 & 1 & 0.1 \% \\
+ls-same-02 & 1 & 0.1 \% \\
+square-le-01 & 1 & 0.1 \% \\
+dist-sub-split & 1 & 0.1 \% \\
+square-gez & 1 & 0.1 \% \\
+minus-one-01 & 1 & 0.1 \% \\
+pls-neg & 1 & 0.1 \% \\
+ls-add & 1 & 0.1 \% \\
+eq-one & 1 & 0.1 \% \\
+zero-ge-add & 1 & 0.1 \% \\
+mods-ls-02 & 1 & 0.1 \% \\
+modlep & 1 & 0.1 \% \\
+modlsp-03 & 1 & 0.1 \% \\
+modlsp-01 & 1 & 0.1 \% \\
+modlsp-04 & 1 & 0.1 \% \\
+
+\end{supertabular}
+
+Module specific heuristic:
+
+
+
+\end{document}
+

@@ -1,0 +1,62 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+ton-fromn-fin
+ton-fromn
+toinf-to-leq
+to-unwind-end-fin
+to-to-leq-inf
+to-to-leq
+to-plus-from-inf-simp
+to-from-01
+to-empty2
+to-append-add
+swap-to-from-app
+swap-from-to
+size-to-02
+size-to
+size-from-less
+nlslen-lslensn-eqlensn
+less-size-from
+length-to
+length-from
+get-toinf
+get-to-02
+get-to
+get-infto
+get-from-01
+get-from
+get-finto
+get-append-notls
+from-succ
+from-from
+from-append-tofrom
+from-append-add
+fin-size-from2
+elim-fromto-fin
+elim-fromto
+append-to-size-01
+append-to-size
+append-to-ls
+append-to-gr-01
+append-to-gr
+append-to-addsize-01
+append-to-addsize
+append-from-gt
+append-from-gr-01
+append-from-ge-02
+append-from-ge-01
+append-from-addsize
+append-empty-01
+append-assoc
+
+
+*** Failures: ***
+
+

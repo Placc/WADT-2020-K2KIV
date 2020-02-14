@@ -1,0 +1,11 @@
+enrich set-union, int-pot with
+
+functions
+	choice: set → elem;
+	size:   set → int;
+
+axioms
+	choice-def-exist: choice({ a } ∪ s) = a; used for : s, ls;
+	size-def:         size(s) = n→i(#(s));   used for : s, ls;
+
+end enrich

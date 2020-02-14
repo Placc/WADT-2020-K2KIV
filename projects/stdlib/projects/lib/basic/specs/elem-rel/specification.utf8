@@ -1,0 +1,5 @@
+enrich elem with
+
+predicates p : elem × elem;
+
+end enrich

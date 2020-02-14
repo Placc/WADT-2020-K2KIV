@@ -1,0 +1,10 @@
+actualize set-ext with K by morphism
+
+	set → kset;
+	elem → K;
+
+	a → k;
+	b → k0;
+	c → k1;
+
+end actualize

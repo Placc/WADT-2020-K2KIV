@@ -1,0 +1,20 @@
+enrich olist-sort with
+
+;; sorts ;
+
+;; constants ;
+
+partial  functions
+min : list → elem with λ x. x ≠ [];
+max : list → elem with λ x. x ≠ [];
+
+axioms
+min-base: min(a ' ) = a;used for:s,ls;
+
+min-rec: x ≠ [] → min(a ' + x) = ((a < min(x)) ⊃ a ; min(x));
+
+max-base: max(a ' ) = a;used for:s,ls;
+
+max-rec: x ≠ [] → max(a ' + x) = ((max(x) < a) ⊃ a ; max(x));
+
+end enrich

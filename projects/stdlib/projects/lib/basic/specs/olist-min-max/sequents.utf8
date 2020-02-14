@@ -1,0 +1,100 @@
+
+;; variables m : nat;
+
+lemmas
+
+
+;;; END
+
+sort-max-append-1    :  ⊦ ¬ a < max(x0) → sort(x0 + a ') = sort(x0) + a ' ;
+            used for : s, ls ;
+
+sort-max-last        :  ⊦ ¬ a < max(x + x0) → sort(x + a ' + x0) = sort(x + x0) + a ' ;
+            used for : s, ls ;
+
+sort-max-last-01     :  ⊦ ¬ a < max(x + x0)  → sort(x + x0 + a ') = sort(x + x0) + a ' ;
+            used for : s, ls ;
+;;; END
+sort-max             :  ⊦ x ≠ [] → max(sort(x)) = sort(x) .last ;
+;;; END
+ordered-app-max      : ⊦ 
+                         x0 ≠ [] ∧ ¬ a < max(x0)  ∧ ordered≤(x0)
+                       → (¬ ordered≤(x0 + a ') ↔ false) ;
+            used for : s, ls ;
+;;; END
+max-ordered          : ⊦ 
+                         x ≠ [] ∧ max(x + x0) = max(x) ∧ ordered≤(x0) ∧ x1 ⊑ x0
+                       → (max(x + x1) ≠ max(x + x0) ↔ false) ;
+            used for : s, ls ;
+max-sort-sublist     : ⊦ 
+                         x + x0 ≠ []
+                       → max(sort(x + x0)) = max(x) ∨ max(sort(x + x0)) = max(x0) ;
+;;; END
+ordered-max          :  ⊦ x ≠ [] ∧ ordered≤(x) → max(x) = x .last ;
+;;; END
+sort-max-max-list    :  ⊦ x ≠ [] → max(sort(x)) = max(x) ;
+            used for : s, ls ;
+;;; END
+
+max-ins              :  ⊦ ¬ max(x) < a ∧ x ≠ [] → max(ins≤(a, x)) = max(x) ;
+            used for : s, ls ;
+
+max-ins-last         :  ⊦ max(x) < a → ins≤(a, x) .last = a ;
+            used for : s, ls ;
+
+max-ins-max          :  ⊦ ¬ a < max(x) → max(ins≤(a, x)) = a ;
+            used for : s, ls ;
+
+max-ins-max-last     :  ⊦ ¬ a < max(x0)  ∧ ordered≤(x0) → ins≤(a, x0) = x0 + a ' ;
+            used for : s, ls ;
+
+max-ins-max-last-sort :  ⊦ ¬ a < max(x0)  → ins≤(a, sort(x0)) = sort(x0) + a ' ;
+            used for : s, ls ;
+;;; END
+ins-max              :  ⊦ ordered≤(x0) ∧ ¬ a < max(x0)  → ins≤(a, x0) = x0 + a ' ;
+;;; END
+max-com              :  ⊦ x + x0 ≠ [] → (¬ max(x + x0) ≠ max(x0 + x) ↔ true) ;
+            used for : s, ls ;
+
+max-com-01           :  ⊦ ¬ max(x + x0) < max(x0 + x) ;
+            used for : s, ls ;
+
+max-ge               :  ⊦ x ≠ [] → ¬  max(a ' + x) < max(x) ;
+
+max-ge-every         :  ⊦ a ∈ x → (¬ ¬ max(x) < a ↔ false) ;
+            used for : s, ls ;
+
+max-ge-first         :  ⊦ ¬ ¬ max(a ' + x) < a ↔ false ;
+            used for : s, ls ;
+
+max-in               :  ⊦ x ≠ [] → max(x) ∈ x ;
+;;; END
+max-append :  ⊦ x + x0 ≠ [] → max(x + x0) = max(x) ∨ max(x + x0) = max(x0) ;
+max-ge     :  ⊦ x ≠ [] → (¬ ¬ max(x + x0) < max(x) ↔ false) ;
+  used for : s, ls ;
+max-in     :  ⊦ max(a ' + x) = a ∨ max(a ' + x) = max(x) ;
+;; <name> : <sequent> ; 
+;; used for : <some_flags> ; comment : <some_comment> ;
+
+;;; END
+
+;;;****************************************************************************************
+;;; This file is used to add additional theorems. 
+;;; 1. Two semicolons start a line comment
+;;; 2. (: ... :) delimit a comment. They can be nested!
+;;; 3. Reading stops after ;;; END
+;;; 4. Theorems have the form
+       
+<name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+
+     'used for' and 'comment' are optional.
+     <some_comment> may be any text not containing a ;
+     <some_flags> is a comma separated list with information that the lemma should
+     be used as a simplifier rule or something like that. Since you can add or delete
+     simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+     Note: changing the flags or the comment only works if the sequent is also changed!!!
+     possible flags are:
+
+     s (simplifier rule), ls (local simplifier rule), f (forward), lf (local forward),
+     e (elimination), c (cut), lc (local cut)
+

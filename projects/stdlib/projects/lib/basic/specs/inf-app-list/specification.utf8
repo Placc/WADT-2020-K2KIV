@@ -1,0 +1,18 @@
+enrich infinite-append with
+
+;; sorts ;
+
+;; constants ;
+
+;; functions ;
+
+;; predicates ;
+
+variables nextli : list → list ;
+          nextnli : list × nat → list;
+
+;; induction ;
+
+;; axioms
+
+end enrich

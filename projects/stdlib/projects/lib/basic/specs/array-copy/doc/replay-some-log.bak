@@ -1,0 +1,126 @@
+: successful
+### No save necessary ###
+### Next replay: at-copy ###
+at-copy: successful
+### No save necessary ###
+### Next replay: at-fill ###
+at-fill: successful
+### No save necessary ###
+### Next replay: at-fill-h ###
+at-fill-h: successful
+### No save necessary ###
+### Next replay: at-fill-h0 ###
+at-fill-h0: successful
+### No save necessary ###
+### Next replay: at-fill-other ###
+at-fill-other: successful
+### No save necessary ###
+### Next replay: at-subarray ###
+at-subarray: successful
+### No save necessary ###
+### Next replay: copy-append ###
+copy-append: successful
+### No save necessary ###
+### Next replay: copy-coalesce ###
+copy-coalesce: successful
+### No save necessary ###
+### Next replay: copy-exact ###
+copy-exact: successful
+### No save necessary ###
+### Next replay: copy-is-subarray ###
+copy-is-subarray: successful
+### No save necessary ###
+### Next replay: copy-other ###
+copy-other: successful
+### No save necessary ###
+### Next replay: copy-other-weak ###
+copy-other-weak: successful
+### No save necessary ###
+### Next replay: copy-subarray1-elim ###
+copy-subarray1-elim: successful
+### No save necessary ###
+### Next replay: copy-subarray2 ###
+copy-subarray2: successful
+### No save necessary ###
+### Next replay: idexcept-comm ###
+idexcept-comm: successful
+### No save necessary ###
+### Next replay: idexcept-comm-simp ###
+idexcept-comm-simp: successful
+### No save necessary ###
+### Next replay: idexcept-extract-left ###
+idexcept-extract-left: successful
+### No save necessary ###
+### Next replay: idexcept-extract-right ###
+idexcept-extract-right: successful
+### No save necessary ###
+### Next replay: idexcept-refl ###
+idexcept-refl: successful
+### No save necessary ###
+### Next replay: idexcept-same ###
+idexcept-same: successful
+### No save necessary ###
+### Next replay: idexcept-size ###
+idexcept-size: successful
+### No save necessary ###
+### Next replay: idexcept-trans ###
+idexcept-trans: successful
+### No save necessary ###
+### Next replay: idexcept-write-at ###
+idexcept-write-at: successful
+### No save necessary ###
+### Next replay: idexcept-write-at-right ###
+idexcept-write-at-right: successful
+### No save necessary ###
+### Next replay: idexcept-write-at0 ###
+idexcept-write-at0: successful
+### No save necessary ###
+### Next replay: idexcept-write-at0-right ###
+idexcept-write-at0-right: successful
+### No save necessary ###
+### Next replay: in-at ###
+in-at: successful
+### No save necessary ###
+### Next replay: size-copy ###
+size-copy: successful
+### No save necessary ###
+### Next replay: size-fill ###
+size-fill: successful
+### No save necessary ###
+### Next replay: size-fill-h ###
+size-fill-h: successful
+### No save necessary ###
+### Next replay: size-subarray ###
+size-subarray: successful
+### No save necessary ###
+### Next replay: subarray-copy ###
+subarray-copy: successful
+### No save necessary ###
+### Next replay: subarray-copy-elim ###
+subarray-copy-elim: successful
+### No save necessary ###
+### Next replay: subarray-copy-elim-exact ###
+subarray-copy-elim-exact: successful
+### No save necessary ###
+### Next replay: subarray-copy-higher ###
+subarray-copy-higher: successful
+### No save necessary ###
+### Next replay: subarray-copy-lower ###
+subarray-copy-lower: successful
+### No save necessary ###
+### Next replay: subarray-elim ###
+subarray-elim: successful
+### No save necessary ###
+### Next replay: subarray-elim-simp ###
+subarray-elim-simp: successful
+### No save necessary ###
+### Next replay: subarray-subarray-elim ###
+subarray-subarray-elim: successful
+### No save necessary ###
+### Next replay: subarray-up-same ###
+subarray-up-same: successful
+### No save necessary ###
+### Next replay: subarray-zero ###
+subarray-zero: successful
+### Done ###
+### Saving lemmas next ###

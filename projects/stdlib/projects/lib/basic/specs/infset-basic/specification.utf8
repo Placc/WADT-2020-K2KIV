@@ -1,0 +1,43 @@
+generic specification
+
+       parameter elem
+       
+       using nat
+
+       target
+
+       sorts set;
+
+       constants ∅ : set;
+
+       functions        
+
+               . ++ . : set × elem → set prio 9 left;
+
+       predicates 
+
+               . ∈ . : elem × set;
+               . ⊆ . :  set × set;
+
+
+variables s, s0, s1, s2 : set;
+
+
+axioms 
+
+Extension   : s1 = s2 ↔ ∀ a. a ∈ s1 ↔ a ∈ s2; used for : ls;
+
+In-empty    : ¬ a ∈ ∅; used for : s,ls;
+
+In-insert   : a ∈ s ++ b ↔ a = b ∨ a ∈ s; used for : s,ls;
+
+
+Subset      : s1 ⊆ s2 ↔ ∀ a. a ∈ s1 → a ∈ s2; used for : ls;
+
+
+comment : sets which are potentially infinite (no generation principle).
+          They are used exclusively here to model the ether
+          (of course we could use a dynamic predicate for ether too).;
+
+
+end generic specification

@@ -1,0 +1,183 @@
+
+lemmas
+
+;; KODKOD BEGIN
+
+k-lsrec : i < j ↔ i = j -1 ∨ ∃ j0. i = j0 -1 ∧ j0 < j; used for : kodkodax;
+
+
+;; KODKOD END
+
+
+trans-succ : i < j ∧ j < j0 → i +1 < j0;
+
+;;;
+
+ls-rec:     i ≠ j -1 → (i < j ↔ i < j -1); 
+
+num-ls-rec: i ≠ j -1 ⊦ (i < (* j) ↔ i < j -1); used for : s,ls;
+
+;;; END
+
+forward-any-lels :  ⊦ ¬ i0 < j ∧ i < j → i < i0 ;
+      remarks : proved, used by proved unit ;
+
+elim-pred     :  ⊦ i = j -1 ↔ j = i +1 ;
+     used for : e ;
+      remarks : proved, used, used by proved unit ;
+forward-pos   :  ⊦ i < j ∧ 0 < i → 0 < j ∧ 1 < j ;
+     used for : f, lf ;
+      remarks : proved, used by proved unit ;
+l             :  ⊦ ¬ i < j ↔ ¬ ¬ (i = j ∨ j < i) ;
+     used for : ls ;
+      remarks : proved, used ;
+lf            :  ⊦ i +1 < j → i < j ;
+      remarks : proved, used by proved unit ;
+lf-01         :  ⊦ i < j ∧ j < i0 → i +1 < i0 ;
+      remarks : proved, used by proved unit ;
+lf-02         :  ⊦ i < j ∧ j = i0 → i < i0 ;
+      remarks : proved, used by proved unit ;
+lf-03         :  ⊦ i < j ∧ i = i0 → i0 < j ;
+      remarks : proved, used by proved unit ;
+lf-04         :  ⊦ ¬ j < i ∧ j < i0 → i < i0 ;
+      remarks : proved, used by proved unit ;
+lf-05         :  ⊦ ¬ j < i ∧ j = i0 → ¬ i0 < i ;
+      remarks : proved, used by proved unit ;
+lf-06         :  ⊦ ¬ j < i ∧ i = i0 → ¬ j < i0 ;
+      remarks : proved, used by proved unit ;
+lf-07         :  ⊦ ¬ i < i0 ∧ j < i0 → j < i ;
+     used for : lf ;
+      remarks : proved, used by proved unit ;
+lf-08         :  ⊦ ¬ i < j ∧ ¬ i0 < i → ¬ i0 < j ;
+     used for : lf ;
+      remarks : proved, used by proved unit ;
+ls            :  ⊦ ¬ i +1 < i ;
+     used for : s, ls ;
+      remarks : proved, used ;
+ls-01         :  ⊦ i < j → ¬ j < i ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+ls-02         :  ⊦ i < 1 ∧ i ≠ 0 → i < 0 ;
+     used for : lf ;
+      remarks : proved, used ;
+ls-pred       :  ⊦ i < j -1 ↔ i +1 < j ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+ls-pred-01    :  ⊦ i -1 < j -1 ↔ i < j ;
+     used for : s ;
+      remarks : proved, used by proved unit ;
+ls-pred-02    :  ⊦ i -1 < i ;
+     used for : s, ls ;
+      remarks : proved ;
+ls-pred-03    :  ⊦ j < i → ¬ i -1 < j ;
+     used for : s, ls ;
+      remarks : proved ;
+ls-pred-04    :  ⊦ i -1 < j ↔ i < j +1 ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+ls-succ       :  ⊦ i < j +1 ↔ ¬ j < i ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+ls-succ-01    :  ⊦ i < i +1 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+ls-succ-02    :  ⊦ i +1 < j +1 ↔ i < j ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+ls-succ-03    :  ⊦ i < j → (i +1 < j ↔ i +1 ≠ j) ;
+     used for : ls ;
+      remarks : proved, used ;
+ls-succ-04    :  ⊦ i < j → (¬ i +1 < j ↔ i +1 = j) ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+ls-zero       :  ⊦ i < 0 → (¬ i +1 < 0 ↔ i +1 = 0) ;
+     used for : s, ls ;
+      remarks : proved ;
+lst           :  ⊦ i < j ∧ ¬ i0 < j → ¬ i0 < i ;
+     used for : s ;
+      remarks : proved, used by proved unit ;
+lst-01        :  ⊦ ¬ i < j → (i ≠ j ↔ j < i) ;
+     used for : s ;
+      remarks : proved, used by proved unit ;
+lst-02        :  ⊦ ¬ i < j → (¬ j < i ↔ i = j) ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+minus-one     :  ⊦ i < 0 → ((~2) < i ↔ i = (~1)) ;
+     used for : s, ls ;
+      remarks : proved, used by proved unit ;
+mone          :  ⊦ i = (~1) ↔ i +1 = 0 ;
+      remarks : proved, used by proved unit ;
+neg           :  ⊦ 0 +1 ≠ 0 -1 ;
+     used for : s, ls ;
+      remarks : proved ;
+numeral       :  ⊦ i +1 = ((* j)) ↔ i = j -1 ;
+     used for : ls ;
+      remarks : proved, used ;
+numeral-01    :  ⊦ i +1 < ((* j)) ↔ i < j -1 ;
+     used for : ls ;
+      remarks : proved, used ;
+numeral-02    :  ⊦ ((* j)) < i +1 ↔ j -1 < i ;
+     used for : ls ;
+      remarks : proved ;
+numlsf        :  ⊦ i < ((* j)) ∧ j < 0 → i < 0 ;
+     used for : f, lf ;
+      remarks : proved, used, used by proved unit ;
+numlslsdel    : j0 ≠ 0, j < j0 ⊦ i < ((* j)) → i < ((* j0)) ;
+     used for : s, ls ;
+      remarks : proved, used by proved unit ;
+numlslsdel-01 : i0 ≠ 0, i0 < i ⊦ ((* i)) < j → ((* i0)) < j ;
+     used for : s, ls ;
+      remarks : proved, used by proved unit ;
+one-less      :  ⊦ 1 < i ↔ 0 < i -1 ;
+      remarks : proved, used ;
+pred          :  ⊦ i = j -1 ↔ i +1 = j ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+pred-in       :  ⊦ i -1 = j -1 ↔ i = j ;
+     used for : s, ls ;
+      remarks : proved, used by proved unit ;
+succ          :  ⊦ i ≠ i +1 ;
+     used for : s, ls ;
+      remarks : proved, used ;
+succ-in       :  ⊦ i +1 = j +1 ↔ i = j ;
+     used for : s, ls ;
+      remarks : proved, used, used by proved unit ;
+tot           :  ⊦ i < j ∨ i = j ∨ j < i ;
+      remarks : proved, used by proved unit ;
+trans-lem         : ¬ i < i0, i < j ⊦ ¬ j < i0 ;
+      remarks : proved ;
+two-ls        :  ⊦ 0 < j → (j < 2 ↔ j = 1) ;
+     used for : s, ls ;
+      remarks : proved, used by proved unit ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+succpred      :  ⊦ i +1 -1 = i ;
+     used for : s, ls ;
+      remarks : used ;
+predsucc      :  ⊦ i -1 +1 = i ;
+     used for : s, ls ;
+      remarks : used, used by proved unit ;
+irref         :  ⊦ ¬ i < i ;
+     used for : s, ls ;
+      remarks : used, used by proved unit ;
+lsrec         :  ⊦ i < j ↔ i +1 = j ∨ i +1 < j ;
+      remarks : used, used by proved unit ;
+lssucc        :  ⊦ i +1 < j ↔ i < j -1 ;
+      remarks : used ;
+gen           : int generated by 0, +1, -1; ;
+      remarks : used, used by proved unit ;
+trans-01      :  ⊦ i < j ∧ j < j0 → i < j0 ;
+     used for : lf ;
+      remarks : used, used by proved unit ;
+
+
+
+

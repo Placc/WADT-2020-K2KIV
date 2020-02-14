@@ -1,0 +1,17 @@
+enrich int-div, nat-div with
+
+functions
+
+	i→n : int → nat;
+	n→i : nat → int;
+
+axioms
+
+Nat2int-zero : n→i(0) = 0; used for : s,ls;
+Nat2int-succ : n→i(n +1) = n→i(n) +1; used for : s,ls;
+
+Int2nat-zero : i→n(0) = 0; used for : s,ls;
+Int2nat-pos  : 0 < i → i→n(i) = i→n(i - 1) + 1;
+Int2nat-neg  : i < 0 → i→n(i) = i→n(~ i);
+
+end enrich

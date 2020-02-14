@@ -1,0 +1,26 @@
+actualize mon-lim-filter-count with nat by morphism
+
+: stream → natstream;
+: list → natlist;
+: elem → nat;
+a → m1;
+b → m2;
+c → m3;
+a0 → m4;
+σ → nσ;
+p → np0;
+σ0 → nσ0;
+σ1 → nσ1;
+σ2 → nσ2;
+x → nl;
+y → nl0;
+z → nl1;
+x0 → nl2;
+x1 → nl5;
+nf → nnf0;
+nf0 → nnf1;
+σf → nσf;
+-p  → -pos;
+-1l :: (list × elem → list) → -1l;
++2 → +l; (: to avoid that m + n can be both a list and a nat :)
+end actualize

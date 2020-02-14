@@ -1,0 +1,16 @@
+enrich rtc-ref, refset with
+
+functions
+reach: ref × (ref × ref → bool) → refset;
+
+variables
+rrp : ref × ref → bool;
+
+axioms
+
+reachset:
+r1 ∈ reach(r0, rrp)
+  ↔ (rrp ^*)(r0,r1);
+used for: s,ls;
+
+end enrich

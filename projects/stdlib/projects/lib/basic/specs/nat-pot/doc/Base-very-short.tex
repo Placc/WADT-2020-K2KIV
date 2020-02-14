@@ -1,0 +1,98 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+Pot2-zero:\\\tab{xxx} \Fol 2$\hatsym$ 0 = 1
+
+Pot2-succ:\\\tab{xxx} \Fol 2$\hatsym$ n +1 = 2 $*$ 2$\hatsym$ n
+
+Log2def:\\\tab{xxx} \Fol 2$\hatsym$ m $\le$ n \And n $<$ 2$\hatsym$ m +1 \Imp $\mbox{log}_{2}$ n = m
+
+Logdef:\\\tab{xxx} \Fol m $\hatsym$ \Var{n}{0} $\le$ n \And n $<$ m $\hatsym$ \Var{n}{0} +1 \Imp log(m, n) = \Var{n}{0}
+
+Pot-succ:\\\tab{xxx} \Fol n $\hatsym$ m +1 = n $\hatsym$ m $*$ n
+
+Pot-zero:\\\tab{xxx} \Fol n $\hatsym$ 0 = 1
+
+add:\\\tab{xxx} \Fol m $\hatsym$ (n + \Var{n}{0}) = m $\hatsym$ n $*$ m $\hatsym$ \Var{n}{0}
+
+inj:\\\tab{xxx} \Fol 2$\hatsym$ n = 2$\hatsym$ m \Equiv n = m
+
+inj-02:\\\tab{xxx} \Fol 2$\hatsym$ n = 2 $*$ 2$\hatsym$ m \Equiv n = m + 1
+
+ladd:\\\tab{xxx}m $\neq$ 0 \Fol \Not $\mbox{log}_{2}$(m + n) $<$ $\mbox{log}_{2}$ m
+
+ladd-01:\\\tab{xxx}n $\neq$ 0 \Fol m = n + \Var{n}{0} \Imp \Not $\mbox{log}_{2}$ m $<$ $\mbox{log}_{2}$ n
+
+lemma-ax2:\\\tab{xxx} \Fol 2$\hatsym$(n + 1) = 2 $*$ 2$\hatsym$ n
+
+lls:\\\tab{xxx} \Fol n $\neq$ 0 \Imp \Not n $<$ 2$\hatsym$ $\mbox{log}_{2}$ n
+
+lls-01:\\\tab{xxx} \Fol n $<$ 2$\hatsym$($\mbox{log}_{2}$ n + 1)
+
+lls-02:\\\tab{xxx}n $\neq$ 0 \Fol $\mbox{log}_{2}$ m $<$ $\mbox{log}_{2}$ n \Imp m $<$ n
+
+lone:\\\tab{xxx} \Fol $\mbox{log}_{2}$ 1 = 0
+
+lpot:\\\tab{xxx} \Fol $\mbox{log}_{2}$ 2$\hatsym$ n = n
+
+lsucc-01:\\\tab{xxx} \Fol n $\neq$ 0 \Imp $\mbox{log}_{2}$(2 $*$ n + 1) = $\mbox{log}_{2}$ n + 1
+
+ltwo-03:\\\tab{xxx} \Fol n $\neq$ 0 \Imp $\mbox{log}_{2}$(2 $*$ n) = $\mbox{log}_{2}$ n + 1
+
+ltwo-04:\\\tab{xxx} \Fol $\mbox{log}_{2}$ 2 = 1
+
+ltwo-05:\\\tab{xxx} \Fol n $<$ 2 $*$ 2$\hatsym$ $\mbox{log}_{2}$ n
+
+lzer:\\\tab{xxx} \Fol $\mbox{log}_{2}$(m + 1) = 0 \Equiv m = 0
+
+mult:\\\tab{xxx} \Fol (m $*$ \Var{m}{0}) $\hatsym$ n = m $\hatsym$ n $*$ \Var{m}{0} $\hatsym$ n
+
+one:\\\tab{xxx} \Fol 2$\hatsym$ m = 1 \Equiv m = 0
+
+one-01:\\\tab{xxx} \Fol 2$\hatsym$ 1 = 2
+
+one-01-01:\\\tab{xxx} \Fol m $\hatsym$ 1 = m
+
+one-02:\\\tab{xxx} \Fol 0 $\hatsym$ 1 = 0
+
+pot-01:\\\tab{xxx}n $\neq$ 0 \Fol 2 $*$ 2$\hatsym$ n -1 = 2$\hatsym$ n
+
+pot-mon:\\\tab{xxx}1 $<$ m \Fol m $\hatsym$ n $<$ m $\hatsym$ \Var{n}{0} \Equiv n $<$ \Var{n}{0}
+
+pot-two:\\\tab{xxx} \Fol m $\hatsym$ 2 = m $*$ m
+
+pot-zero:\\\tab{xxx} \Fol m $\neq$ 0 \Imp m $\hatsym$ n $\neq$ 0
+
+pot2-def:\\\tab{xxx} \Fol 2$\hatsym$ m = 2 $\hatsym$ m
+
+potex:\\\tab{xxx}n $\neq$ 0 \Fol \Ex m. 2$\hatsym$ m $\le$ n \And n $<$ 2$\hatsym$(m + 1)
+
+potmon:\\\tab{xxx} \Fol 2$\hatsym$ m $<$ 2$\hatsym$ n \Equiv m $<$ n
+
+rec:\\\tab{xxx} \Fol 2$\hatsym$(n + 1) = 2$\hatsym$ n + 2$\hatsym$ n
+
+rec-01:\\\tab{xxx} \Fol n $\hatsym$ (m + 1) = n $\hatsym$ m $*$ n
+
+succ-02:\\\tab{xxx} \Fol 2 $*$ 2$\hatsym$ m = 2$\hatsym$(m + 1)
+
+succ-03:\\\tab{xxx} \Fol 2$\hatsym$ m = 2 $*$ n + 1 \Equiv m = 0 \And n = 0
+
+two:\\\tab{xxx} \Fol m $\hatsym$ (2 $*$ n) = m $\hatsym$ n $*$ m $\hatsym$ n
+
+two-pot-zero:\\\tab{xxx} \Fol 2 $\hatsym$ n $\neq$ 0
+
+zero:\\\tab{xxx} \Fol 2$\hatsym$ n $\neq$ 0
+
+zero-01:\\\tab{xxx} \Fol 0 $\hatsym$ n = 0 \Equiv n $\neq$ 0
+
+
+
+\end{document}
+

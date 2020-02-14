@@ -1,0 +1,386 @@
+
+;; variables m : nat;
+;;; i→n(i) + i→n(j)
+lemmas
+
+prime-mult-not : 1 < i and 1 < j → not prime(i * j); used for : s,ls;
+prime-le-2 : prime(i) → (i ≤ 2 ↔ i = 2); used for : s,ls;
+prime-11 : prime(11); used for : s,ls;
+prime-odd : prime(j) ∧ j ≠ 2 → j % 2 = 1; used for : s,ls;
+prime-odd : prime(j) ∧ j ≠ 2 → (j - 1) % 2 = 0; used for : s,ls;
+
+
+case-10 : 2 ≤ i, i < 10 ⊦ i = 2 ∨ i = 3 ∨ i = 4 ∨ i = 5 ∨ i = 6 ∨ i = 7 ∨ i = 8           ∨ i = 9;
+case-20 : 10 ≤ i, i < 20 ⊦ i = 10 ∨ i = 11 ∨ i = 12 ∨ i = 13 ∨ i = 14 ∨ i = 15 ∨ i = 16 ∨ i = 17 ∨ i = 18 ∨ i = 19;
+case-30 : 20 ≤ i, i < 30 ⊦ i = 20 ∨ i = 21 ∨ i = 22 ∨ i = 23 ∨ i = 24 ∨ i = 25 ∨ i = 26 ∨ i = 27 ∨ i = 28 ∨ i = 29;
+case-40 : 30 ≤ i, i < 40 ⊦ i = 30 ∨ i = 31 ∨ i = 32 ∨ i = 33 ∨ i = 34 ∨ i = 35 ∨ i = 36 ∨ i = 37 ∨ i = 38 ∨ i = 39;
+
+prime-5 : prime(5); used for : s,ls;
+prime-7 : prime(7); used for : s,ls;
+prime-13 : prime(13); used for : s,ls;
+prime-23 : prime(23); used for : s,ls;
+prime-43 : prime(43); used for : s,ls;
+prime-83 : prime(83); used for : s,ls;
+prime-163 : prime(163); used for : s,ls;
+prime-317 : prime(317); used for : s,ls;
+prime-631 : prime(631); used for : s,ls;
+prime-1259 : prime(1259); used for : s,ls;
+
+prime-not-four : ¬ prime(4); used for : s,ls;
+prime-divides : prime(i) ∧ j0 | j ∧ j0 < i ∧ i | j ∧ 0 < j0 → i | (j / j0);
+
+prime-three : prime(3); used for : s,ls;
+max_prime_divisor-divides : ¬ prime(i) ∧ 2 ≤ i ∧ prime(j) ∧ j | i ∧ j ≠ max_prime_divisor(i) → j | i / max_prime_divisor(i);
+
+max_prime_divisor-divides :
+¬ j | i ∧ prime(j) ∧ ¬ prime(i) ∧ 2 ≤ i → ¬ j | i / max_prime_divisor(i); used for : s, ls;
+
+max_prime_divisor-nls : ¬ prime(i / max_prime_divisor(i)) ∧ ¬ prime(i) ∧ 2 ≤ i → ¬ max_prime_divisor(i) < max_prime_divisor(i / max_prime_divisor(i)); used for : s,ls;
+
+max_prime_divisor-nls : prime(i / max_prime_divisor(i)) ∧ ¬ prime(i) ∧ 2 ≤ i → ¬ max_prime_divisor(i) < i / max_prime_divisor(i); used for : s,ls;
+
+;;; END
+prime-ex-max : ¬ prime(i) ∧ 2 ≤ i → ∃ j. prime(j) ∧ j | i ∧ j < i ∧ (∀ j0. j < j0 ∧ j0 < i ∧ prime(j0) → ¬ j0 | i);
+
+max_prime_divisor-abs : ¬ prime(i) ∧ 2 ≤ i → prime(max_prime_divisor(i)); used for : s,ls;
+max_prime_divisor-abs : ¬ prime(i) ∧ 2 ≤ i → abs(i / max_prime_divisor(i)) = i / max_prime_divisor(i); used for : s,ls;
+max_prime_divisor-nls : ¬ prime(i) ∧ 2 ≤ i → ¬ i < i / max_prime_divisor(i); used for : s,ls;
+
+divides-mod : i ≠ 0 → (i | j ↔ j % i = 0);
+;;; END
+gcd-zero : gcd(i, 0) = abs(i); used for : s,ls;
+gcdex-pos : j ≠ 0 ⊦ ∃ i0, j0. gcd(i, j) = i * i0 + j * j0 ∧ 0 ≤ i0;
+gcdex-smallest-pos : j ≠ 0 ⊦ ∃ i0, j0. gcd(i, j) = i * i0 + j * j0 ∧ 0 ≤ i0 ∧
+                           ∀ i1. 0 ≤ i1 ∧ i1 < i0 → ¬ ∃ j1. gcd(i, j) = i * i1 + j * j1;
+;;; END
+gcdex-not-unique : 
+gcd(i, j) = i * i0 + j * j0 ⊦ ∀ i1. gcd(i, j) = i * (i0 - i1 * j) + j * (j0 + i1 * i);
+
+num-gcd-pos : 0 < j ∧ j < i → gcd(* i, * j) = gcd(j, i % j); used for : s,ls;
+divides-mult : i | j ∧ i0 | j0 → i * i0 | j * j0; used for : s,ls;
+
+gcd-mult-pos : 0 < i1 ∧ 0 < i ∧ 0 ≤ j → gcd(i1 * i, i1 * j) = gcd(i,j) * i1;
+
+exgcd-div : ∃ i0. i / gcd(i, j) = i0 ∧ gcd(i, j) * i0 = i;
+
+square-neq-any : (j ≠ 0 ∨ j0 ≠ 0), j * j = i * j0 * j0 ⊦ ∃ i0. i = i0 * i0;
+;;; END
+prime-def-prime : 1 < i → (prime(i) ↔ ∀ j. prime(j) ∧ j * j ≤ i → ¬ j | i);
+
+square-neq-any-pos : 0 < i, 0 < j, 0 < j0, gcd(j, j0) = 1,
+                     j * j = i * j0 * j0 ⊦ ∃ i0. i = i0 * i0;
+
+square-neq-prime : prime(i) ∧ (j ≠ 0 ∨ j0 ≠ 0) → j * j ≠ i * j0 * j0;
+
+gcd-nls-zero : 0 < i → ¬ i / gcd(i, j) < 0; used for : s,ls;
+
+square-neq-pos : prime(i) ∧ 0 < j ∧ 0 ≤ j0 → j * j ≠ i * j0 * j0;
+square-neq-pos-h : prime(i) ∧ gcd(j, j0) = 1 ∧ 0 < j ∧ 0 ≤ j0 → j * j ≠ i * j0 * j0;
+;;; END
+prime-divides : prime(i) → (i | j * j0 ↔ i | j ∨ i | j0); used for : s,ls;
+prime-divides-one : prime(i) → ¬ i | 1; used for : s,ls;
+
+prime-abs : prime(j) → abs(j) = j; used for : s,ls;
+gcd-mult-01 : gcd(i, i * j) = abs(i); used for : s,ls;
+;;; END
+divides-abs : i | abs(j) * j0 ↔ i | j * j0;
+
+divides-mult : j ≠ 0 → (i * j | j * i0 ↔ i | i0); used for : s,ls;
+;;; END
+gcd-one-prime : prime(i) ∧ ¬ i | j → gcd(i, j) = 1; used for : s,ls;
+
+divides-neg : ~ i | j ↔ i | j; 
+divides-mone : (~1) | j; used for : s,ls;
+divides-prime : prime(j) → (i | j ↔ abs(i) = j ∨ abs(i) = 1); used for : s,ls;
+gcd-primes : prime(i) ∧ prime(j) ∧ i ≠ j → gcd(i, j) = 1; used for : s,ls;
+
+prime-one : i ≤ 1 → ¬ prime(i); used for : s,ls;
+divides-minus : j | i - i0 ↔ j | i0 - i;
+
+prime-two : ⊦ prime(2); used for : s,ls;
+prime-two : prime(2 * j) ↔ j = 1; used for : s,ls;
+prime-not-odd : ¬ odd(j) → (prime(j) ↔ j = 2); used for : s,ls;
+gcd-prime : prime(j) ∧ 1 < i ∧ i < j → gcd(i,j) = 1; used for : s,ls;
+divides-mult-add : ⊦  (i | i * j + j0 ↔ i | j0); used for : s,ls;
+divides-mult-sub : ⊦  (i | i * j - j0 ↔ i | j0); used for : s,ls;
+
+prime-not-neg : j < 0 → ¬ prime(j); used for : s,ls;
+prime-not-neg : j ≤ 0 → ¬ prime(j); used for : s,ls;
+
+gcd-divides : j0 | gcd(i, j) → j0 | j;
+
+gcd-same : gcd(abs(i), abs(i)) = abs(i); used for : s,ls;
+divides-abs : abs(i) | abs(j) ↔ i | j; used for : s,ls;
+divides-abs : abs(i) | j ↔ i | j; used for : s,ls;
+divides-mult   :  ⊦ i | j → i | j * j0 ;
+      used for : s, ls ;
+
+divides-add : ⊦ i | j → (i | j + j0 ↔ i | j0); used for : s,ls;
+
+gcd-divides-both   :  ⊦ j | gcd(i, i0) → j | i ∧ j | i0 ;
+       remarks : proved, used ;
+
+gcd-divides-both-h : 0 ≤ i, i < j, j0 | gcd(i, j) ⊦ j0 | j ∧ j0 | i ;
+       remarks : proved, used ;
+;;; END
+coprime-divides   :  ⊦ gcd(i, j) = 1 ∧ i | j * j0 → i | j0 ;
+       remarks : proved, used ;
+coprime-divides :  ⊦ gcd(i, j) = 1 ∧ ¬ i | j0 → ¬ i | j * j0 ;
+       remarks : proved, used ;
+coprime-divides :  ⊦ gcd(i, j) = 1 ∧ ¬ i | j0 → ¬ i | j0 * j ;
+       remarks : proved ;
+
+coprime-divides : gcd(i, j) = 1 ∧ i * i0 = j * j0 → i | j0;
+coprime-divides-pos : gcd(i, j) = 1 ∧ i * i0 = j * j0 ∧ 0 ≤ i ∧ 0 ≤ j ∧ 0 ≤ i0 ∧ 0 ≤ j0 → i | j0;
+
+div-mod-zero : j | i ∧ i ≠ 0 → i % j = 0;
+div-mod-zero-01 : i % j = 0 ∧ j ≠ 0 → j | i;
+;;; END
+div-mult-01 : i ≠ 0 → ((i * i0) | (i * i1) ↔ i0 | i1); used for : s,ls;
+;;; END
+prime-small : j < 2 → ¬ prime(j); used for : s,ls;
+
+prime-def-mod : 1 < j → (prime(j) ↔ ∀ i. 1 < i ∧ i * i ≤ j → j % i ≠ 0);
+;;; END
+gcd-rec-sub : gcd(i, j) = gcd(j, j - i);
+gcd-rec-sub : gcd(i, j) = gcd(i, j - i);
+gcd-rec-sub : 0 < i ∧ i < j → gcd(i, j) = gcd(j, j - i);
+gcd-add : 0 < i ∧ 0 < j → gcd(i + j, j) = gcd(i, j); used for : s,ls;
+gcd-rec-sub : 0 < i ∧ i < j → gcd(i, j) = gcd(i, j - i);
+
+gcd-rec-pos : 0 < j ∧ 0 ≤ i → gcd(i, j) = gcd(j, i % j);
+gcd-same : 0 < j → gcd(j, j) = j; used for : s,ls;
+gcd-div-mult : ⊦ i ≠ 0 ∧ j ≠ 0 → i / gcd(i, j) * gcd(i, j) = i; used for : s, ls;
+
+gcd-ge-one : i ≠ 0 → 1 ≤ gcd(i, j);
+;;; END
+gcd-same : i ≠ 0 → gcd(i, i) = abs(i); used for : s,ls;
+gcd-zero : i ≠ 0 → gcd(i, 0) = abs(i); used for : s,ls;
+gcd-zero : gcd(0, 0) = 1; used for : s,ls;
+;;; END
+div-not-ls : i < j ∧ 0 < i → ¬ j | i; used for : s,ls;
+gcd-nls : i ≠ 0 → ¬ abs(i) < gcd(i, j); used for : s,ls;
+gcd-nls : i ≠ 0 → ¬ abs(i) < gcd(abs(i), j); used for : s,ls;
+;;; END
+div-same : i | i; used for : s,ls;
+div-abs : i | abs(i); used for : s,ls;
+div-abs : abs(i) | i; used for : s,ls;
+div-abs : i | abs(j) ↔ i | j; 
+
+gcd-pos : 0 ≤ gcd(i, j);
+
+div-abs : ⊦ i | abs(i) * j; used for : s,ls;
+
+gcd-max-prop : i0 | i, i0 | j ⊦ i0 | gcd(i, j); 
+;;; END
+
+gcd-divides : gcd(i, j) | i * i0; used for : s,ls;
+
+gcd-div-shift : i0 ≠ 0 → (i0 * j) / gcd(i0, j0) = i0 / gcd(i0, j0) * j;
+gcd-eq :
+i * j0 = i0 * j, 0 < j, 0 < j0
+⊦ 
+i0 / gcd(i0, j0) * gcd(i, j) = i;
+
+gcd-div-mult-shift : i ≠ 0 → (i / gcd(i, j)) * j0 = (i * j0) / gcd(i, j);
+div-mult-shift : j | i ∧ j ≠ 0 → (i / j) * j0 = (i * j0) / j;
+
+gcd-div-eq : i ≠ 0 → (i / gcd(i, j) = i0 ↔ i = i0 * gcd(i, j));
+
+div-eq : j | i ∧ j ≠ 0 → (i / j = i0 ↔ i = i0 * j);
+
+;;; END
+(i * j0) / (gcd(i0, j0) * gcd(i, j)) = (i0 * j) / (gcd(i0, j0) * gcd(i, j));
+
+
+i→n(i1) + i→n(i2) + i→n(j)
+gcd-pos : 0 ≤ gcd(i, j);
+
+div-one : 1 | i; used for : s,ls;
+
+gcd-abs-rew : gcd(i, abs(j)) = gcd(i, j);
+gcd-abs-rew-01 : gcd(abs(i), j) = gcd(i, j);
+
+gcd-one-eq-01 : i ≠ 0 → (abs(i) / gcd(i, j) = 1 ↔ gcd(i, j) = abs(i)); used for : s,ls;
+gcd-one-eq-02 : j ≠ 0 → (abs(i) / gcd(i, j) = 1 ↔ gcd(i, j) = abs(i)); used for : s,ls;
+;;; END
+gcd-mult-01 : gcd(i * i1, j * i1) = gcd(i,j) * abs(i1);
+;;; END
+gcd-mult-pos : 0 < i1 ∧ 0 < i ∧ 0 ≤ j → gcd(i * i1, j * i1) = gcd(i,j) * i1;
+
+mod-gcd:
+i ≠ 0 → (i % gcd(i, j) = 0); used for: s,ls;
+
+mod-gcd-01:
+j ≠ 0 → (i % gcd(i, j) = 0); used for: s,ls;
+
+
+gcd-mult:
+i1 > 0 ∧ j > 0 ∧ i > 0 → gcd(i * i1, j * i1) = gcd(i,j) * i1;
+
+
+gcd-mult-div:
+i < 0 ∧ j < 0 ∧ 0 < i1 → 
+j / gcd(i, j) = (j * i1) / gcd(i * i1, j * i1);
+
+
+abs-not-less:
+j ≠ 0 → ¬ abs(j) < gcd(i, j); used for: s,ls;
+
+
+div-eq-one: i | j ∧  i ≠ 0 → (j / i = 1 ↔ j = i); used for: s,ls;
+
+gcd-one-eq:
+j2 / gcd(i2, j2) = 1 → gcd(i2, j2) = j2 ; 
+
+gcd-negone-eq:
+(~1) = j2 / gcd(i2, j2) → gcd(i2, j2) = (~ j2) ; 
+
+
+div-gcd-neg-not-zero:
+i0 < 0 → i0 / gcd(i, i0) ≠ 0 ; used for: s,ls;
+
+div-gcd-is-neg-01-01:
+i0 < 0 → ¬ 0 ≤ i0 / gcd(i, i0); used for: s,ls;
+
+div-gcd-is-neg-01:
+i0 < 0 → ¬ 0 < i0 / gcd(i, i0); used for: s,ls;
+
+div-gcd-is-neg:
+i0 < 0 → i0 / gcd(i, i0) ≤ 0; used for: s,ls;
+
+div-gcd-not-neg:
+0 < i → ¬ i / gcd(i, i0) ≤ 0; used for : s,ls;
+
+div-gcd-zero:
+i ≠ 0 → i / gcd(i, i0) ≠ 0; used for: s,ls;
+;;;END
+gcd-one:
+gcd(i, 1) = 1; used for: s,ls;
+
+
+div-gcd-one:
+i / gcd(i, 1) = i ; used for: s,ls;
+
+
+abs-gcd-not-less:
+j ≠ 0 → (¬ abs(i) < gcd(i, j) ↔ i ≠ 0); used for: s,ls;
+
+;;;not-lesseq-gcd:
+;;;0 ≤ i → ¬ i < gcd(i,j); used for : s,ls;
+
+not-less-gcd:
+0 < i → ¬ i < gcd(i,j); used for : s,ls;
+
+
+gcd-neg:
+gcd(~ i,j) = gcd(i,j) ; used for : s,ls;
+
+div-mult-div:
+0 < j ∧ 1 < i → ¬ (i * j) | j; used for : s,ls;
+
+gcd-abs : abs(gcd(i, j)) = gcd(i, j); used for : s,ls;
+
+gcd-div-rest:
+abs(j0) < gcd(i,j) → (i = i1 * gcd(i,j) + j0 ↔ i = i1 * gcd(i,j) ∧ j0 = 0); used for : s,ls;
+
+gcd-less-eq-zero:
+gcd(i,j) ≤ 0 ↔ gcd(i,j) = 0; used for : s,ls;
+
+div-one-one:
+i | 1 ↔ (i = 1 ∨ i = ~1); used for: s,ls;
+
+div-one-pos:
+0 < i → (i | 1 ↔ i = 1); used for: s,ls;
+
+div-one-one-neg:
+i | (~1) ↔ (i = 1 ∨ i = ~1); used for: s,ls;
+
+div-one-neg-pos:
+0 < i → (i | (~1) ↔ i = 1); used for: s,ls;
+
+
+div-zero-zero:
+0 | i ↔ i = 0; used for : s,ls;
+
+gcd-zero-zero:
+gcd(i,j) = 0 ↔ i = 0 ∧ j = 0; used for : s,ls;
+
+gcd-less:
+i1 | i ∧ i1 | j ∧ 0 ≠ i → i1 ≤ gcd(i,j);
+
+gcd-one:
+gcd(i,j) = 1 ↔ ( ¬ ∃ i1. i1 > 1 ∧ i1 | i ∧ i1 | j);
+
+gcd-div-gcd:
+i ≠ 0 → 
+gcd(i / gcd(i, j), j / gcd(i, j)) = 1; used for: s,ls;
+	comment: i / gcd(i,j) is the 'other' factor of i besides the gcd,
+		   analogous j / gcd(i, j). If those two would have a common
+		   divisor, it had to be part of the gcd of i and j, so their gcd is 1;
+
+gcd-div-gcd-pos:
+0 < i, 0 < j
+⊦ gcd(i / gcd(i, j), j / gcd(i, j)) = 1; used for: s,ls;
+	comment: i / gcd(i,j) is the 'other' factor of i besides the gcd,
+		   analogous j / gcd(i, j). If those two would have a common
+		   divisor, it had to be part of the gcd of i and j, so their gcd is 1;
+
+		   
+;;;END
+
+
+gcd-mod-one : 1 < j, 1 < i, gcd(i, j) = 1 ⊦ ∃ i0. (i * i0) % j = 1 ∧ 0 < i0;
+;;; END
+gcd-conq-one : 0 ≤ j, 0 ≤ i, gcd(i, j) = 1 ⊦ ∃ i0. 0 ≤ i0 ∧ j | (i * i0 - 1);
+;;; END
+div-mod : 0 < j ∧ 0 ≤ i0 ∧ i0 ≤ i → (j | (i - i0) ↔ i % j = i0 % j);
+div-mod : 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 → (j | (i - i0) ↔ i % j = i0 % j);
+
+gcd-conq-one : gcd(i, j) = 1 ⊦ ∃ i0. j | (i * i0 - 1);
+
+div-mult : i | i * j; used for : s,ls;
+div-neg : i | ~ j ↔ i | j; used for : s,ls;
+
+gcd-mod-one : 1 < j, 1 < i, gcd(i, j) = 1 ⊦ ∃ i0. (i * i0) % j = 1;
+;;; END
+div-zero : i | 0; used for : s,ls;
+gcd-zero : ¬ gcd(i, j) < 0; used for : s,ls;
+div-div : i | j ∧ j | i ∧ 0 ≤ i ∧ 0 ≤ j → (i ≠ j ↔ false); used for : s,ls;
+div-zero : i | i; used for : s,ls;
+
+gcd-rec : j ≠ 0 → gcd(i, j) = gcd(abs(j), abs(i) % abs(j)) ;
+gcdhex : 0 ≤ i, 0 ≤ j, j ≤ i ⊦ ∃ i0, j0. gcd(i, j) = i * i0 + j * j0;
+;;; END
+gcd-com : gcd(i, j) = gcd(j, i); used for : s,ls;
+gcd-zero : gcd(i0, j0) + gcd(i, j) = 0 ↔ gcd(i0, j0) = 0 ∧ gcd(i, j) = 0; used for : s,ls;
+gcd-pos : gcd(i, j) = gcd(abs(i), abs(j)); 
+gcdex : ⊦ ∃ i0, j0. gcd(i, j) = i * i0 + j * j0;
+
+
+
+;; <name> : <sequent> ; 
+;; used for : <some_flags> ; comment : <some_comment> ;
+
+;;; END
+
+;;;****************************************************************************************
+;;; This file is used to add additional theorems. 
+;;; 1. Two semicolons start a line comment
+;;; 2. (: ... :) delimit a comment. They can be nested!
+;;; 3. Reading stops after ;;; END
+;;; 4. Theorems have the form
+       
+<name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+
+     'used for' and 'comment' are optional.
+     <some_comment> may be any text not containing a ;
+     <some_flags> is a comma separated list with information that the lemma should
+     be used as a simplifier rule or something like that. Since you can add or delete
+     simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+     Note: changing the flags or the comment only works if the sequent is also changed!!!
+     possible flags are:
+
+     s (simplifier rule), ls (local simplifier rule), f (forward), lf (local forward),
+     e (elimination), c (cut), lc (local cut)
+

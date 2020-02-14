@@ -1,0 +1,10 @@
+actualize bag-union with K by morphism
+	
+	:bag → kbag;
+	elem → K;
+
+	a → k;
+	b → k0;
+	c → k1;
+
+end actualize

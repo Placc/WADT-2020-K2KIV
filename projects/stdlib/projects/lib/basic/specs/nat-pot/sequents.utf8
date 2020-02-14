@@ -1,0 +1,190 @@
+
+lemmas
+
+pot2-add: 2^ (m + n) = 2^ m * 2^ n;
+
+(: GERHARD added:)
+potmonleq    :  ⊦ 2^ m ≤ 2^ n ↔ m ≤ n ;
+used for: s,ls;
+  remarks : proved, used ;
+;;; END
+
+power-of-2        :  ⊦ 2 ^ m ≠ 1 → 4 * 2 ^ m / 2 * n = 2 * n * 2 ^ m ;
+;;; END
+power-of-2        :  ⊦ 2 ^ m ≠ 1 → 2 * 2 ^ m / 2 = 2 ^ m ;
+;;; END
+2-pot-mod            :  ⊦ m ≠ 0 → 2 ^ m % 2 = 0 ;
+            used for : s, ls ;
+
+2-pot-mod-01         :  ⊦ 2 ^ m ≠ 1 → 2 ^ m % 2 = 0 ;
+;;; END
+
+
+div-eq-zero:
+m0 ≠ 0 ⊦ (n0 / m0 = 0 ↔ n0 < m0);
+used for: s,ls;
+
+;;;END
+
+pot-zero : n ≠ 0 → 0 ^ n = 0; used for : s,ls;
+;;; END
+pot-two      : ⊦ m ^ 2 = m * m;
+two-pot-zero : ⊦ 2 ^ n ≠ 0; 
+    used for : s,ls;
+pot-zero     : ⊦ m ≠ 0 → m ^ n ≠ 0; 
+    used for : s,ls;
+pot-mon      : 1 < m ⊦ m ^ n < m ^ n0 ↔ n < n0; 
+    used for : s,ls;
+pot2-def     : ⊦ 2^ m = 2 ^ m; 
+;;;    used for : s,ls; (: GERHARD: NOOOO!!! :)
+
+
+add       :  ⊦ m ^ (n + n0) = m ^ n * m ^ n0 ;
+  used for : s, ls ;
+inj       :  ⊦ 2^ n = 2^ m ↔ n = m ;
+  used for : s, ls ;
+  remarks : proved, used ;
+(:
+inj-01    :  ⊦ 2^ n = (1 + 1) * 2^ m ↔ n = m + 1 ;
+  used for : s, ls ;
+  remarks : proved ;
+:)
+inj-02    :  ⊦ 2^ n = 2 * 2^ m ↔ n = m + 1 ;
+  used for : s ;
+  remarks : proved, used ;
+ladd      : m ≠ 0 ⊦ ¬ log2 (m + n) < log2 m ;
+  used for : s ;
+  remarks : proved, used ;
+ladd-01   : n ≠ 0 ⊦ m = n + n0 → ¬ log2 m < log2 n ;
+;;;;  used for : lf ; (: igitt!!!!:)
+  remarks : proved ;
+lemma-ax2 :  ⊦ 2^ (n + 1) = 2 * 2^ n ;
+used for: s,ls; (: GERHARD added :)
+  remarks : proved, used ;
+lls       :  ⊦ n ≠ 0 → ¬ n < 2^ log2 n ;
+  used for : s ;
+  remarks : proved ;
+lls-01    :  ⊦ n < 2^ (log2 n + 1) ;
+  used for : s ;
+  remarks : proved, used ;
+lls-02    : n ≠ 0 ⊦ log2 m < log2 n → m < n ;
+  used for : f ;
+  remarks : proved, used ;
+lone      :  ⊦ log2 1 = 0 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+lpot      :  ⊦ log2 2^ n = n ;
+  used for : s, ls ;
+  remarks : proved, used ;
+(:
+lsucc     :  ⊦ n ≠ 0 → log2 ((1 + 1) * n + 1) = log2 n + 1 ;
+  used for : s ;
+  remarks : proved ;
+:)
+lsucc-01  :  ⊦ n ≠ 0 → log2 (2 * n + 1) = log2 n + 1 ;
+  used for : s ;
+  remarks : proved, used ;
+(:
+ltwo      :  ⊦ n ≠ 0 → log2 ((1 + 1) * n) = log2 n + 1 ;
+  used for : s ;
+  remarks : proved ;
+:)
+(:
+ltwo-01   :  ⊦ log2 (1 + 1) = 1 ;
+  used for : s, ls ;
+  remarks : proved ;
+:)
+(:
+ltwo-02   :  ⊦ n < (1 + 1) * 2^ log2 n ;
+  used for : s ;
+  remarks : proved ;
+:)
+ltwo-03   :  ⊦ n ≠ 0 → log2 (2 * n) = log2 n + 1 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+ltwo-04   :  ⊦ log2 2 = 1 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+ltwo-05   :  ⊦ n < 2 * 2^ log2 n ;
+  used for : s ;
+  remarks : proved ;
+lzer      :  ⊦ log2 (m + 1) = 0 ↔ m = 0 ;
+  used for : s, ls ;
+  remarks : proved ;
+mult      :  ⊦ (m * m0) ^ n = m ^ n * m0 ^ n ;
+  used for : s, ls ;
+one       :  ⊦ 2^ m = 1 ↔ m = 0 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+one-01    :  ⊦ 2^ 1 = 2 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+one-01-01 :  ⊦ m ^ 1 = m ;
+  used for : s, ls ;
+one-02    :  ⊦ 0 ^ 1 = 0 ;
+  used for : s, ls ;
+(:
+pot       : n ≠ 0 ⊦ (1 + 1) * 2^ n -1 = 2^ n ;
+  used for : s, ls ;
+  remarks : proved ;
+:)
+pot-01    : n ≠ 0 ⊦ 2 * 2^ n -1 = 2^ n ;
+  used for : s, ls ;
+  remarks : proved ;
+potex     : n ≠ 0 ⊦ ∃ m. 2^ m ≤ n ∧ n < 2^ (m + 1) ;
+  remarks : proved, used ;
+potmon    :  ⊦ 2^ m < 2^ n ↔ m < n ;
+used for : s,ls; (: GERHARD added:)
+  remarks : proved, used ;
+
+rec       :  ⊦ 2^ (n + 1) = 2^ n + 2^ n ;
+  remarks : proved ;
+rec-01    :  ⊦ n ^ (m + 1) = n ^ m * n ;
+  used for : s, ls ;
+(:
+succ      :  ⊦ (1 + 1) * 2^ m = 2^ (m + 1) ;
+  remarks : proved ;
+:)
+(:
+succ-01   :  ⊦ 2^ m = (1 + 1) * n + 1 ↔ m = 0 ∧ n = 0 ;
+  used for : s, ls ;
+  remarks : proved ;
+:)
+succ-02   :  ⊦ 2 * 2^ m = 2^ (m + 1) ;
+  remarks : proved, used ;
+succ-03   :  ⊦ 2^ m = 2 * n + 1 ↔ m = 0 ∧ n = 0 ;
+  remarks : proved ;
+two       :  ⊦ m ^ (2 * n) = m ^ n * m ^ n ;
+  used for : s, ls ;
+zero      :  ⊦ 2^ n ≠ 0 ;
+  used for : s, ls ;
+  remarks : proved, used ;
+zero-01   :  ⊦ 0 ^ n = 0 ↔ n ≠ 0 ;
+  used for : s, ls ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Pot2-zero :  ⊦ 2^ 0 = 1 ;
+  used for : s, ls ;
+  remarks : used ;
+Pot2-succ :  ⊦ 2^ n +1 = 2 * 2^ n ;
+  used for : s, ls ;
+  remarks : used ;
+Log2def   :  ⊦ 2^ m ≤ n ∧ n < 2^ m +1 → log2 n = m ;
+  remarks : used ;
+Logdef    :  ⊦ m ^ n0 ≤ n ∧ n < m ^ n0 +1 → log(m, n) = n0 ;
+Pot-succ  :  ⊦ n ^ m +1 = n ^ m * n ;
+  used for : ls ;
+Pot-zero  :  ⊦ n ^ 0 = 1 ;
+  used for : s, ls ;
+
+
+
+

@@ -1,0 +1,201 @@
+;; file: /quadly/swt/kiv/v6/projects/lib/basic/specs/store/sequents
+
+
+
+lemmas
+
+;; was an axiom
+Del-in : a ∈ st -- b ↔ a ≠ b ∧ a ∈ st; used for : s,ls;
+
+;; was an axiom
+Del-at : a ≠ b → (st -- b)[a] = st[a]; used for : s,ls;
+
+
+subset-put : st[a, d] ⊆ st0 ↔ st -- a ⊆ st0 ∧ a ∈ st0 ∧ st0[a] = d;
+subset-put-01 : st ⊆ st0[a, d] ↔ st ⊆ st0 ∧ ¬ a ∈ st ∨ a ∈ st ∧ st[a] = d ∧ st -- a ⊆ st0 -- a;
+
+subset-put-04 : ⊦ st ⊆ st[a, st[a]]; used for : s,ls;
+subset-put-03 : st[a] = d → st ⊆ st[a,d]; used for : s,ls;
+subset-put-02 : st[a, d] ⊆ st0 ↔ st -- a ⊆ st0 -- a ∧ a ∈ st0 ∧ st0[a] = d;
+
+
+(:
+ext-rec:
+st1 = st0[a,d]
+  ↔ ∀ b.   (b ∈ st1 ↔ a = b ∨ b ∈ st0)
+         ∧ (b ∈ st1 → st1[b]  = (a = b ⊃ d ; st0[b]));
+         :)
+
+ext-rec:
+st1 = st0[a,d]
+  ↔ a ∈ st1 ∧ st1[a] = d ∧
+    ∀ b. a ≠ b →
+           (b ∈ st0 ↔ b ∈ st1)
+         ∧ (b ∈ st0 → st0[b] = st1[b]);
+
+
+subset-new:
+¬ a ∈ st → (st ⊆ st0[a,d] ↔ st ⊆ st0);
+used for: s,ls;
+
+Del-at-strong:
+a ≠ b ⊦ (st -- b)[a] = st[a];
+used for: s,ls;
+
+Del-notin:
+¬ a ∈ st -- a;
+used for: s,ls;
+
+Del-other-data:
+st[a] ≠ st[b] → (a ∈ st -- b ↔ a ∈ st);
+used for: s,ls;
+
+eq-shift-del : ¬ a ∈ st → (st[a, d] = st0 ↔ st = st0 -- a ∧ a ∈ st0 ∧ st0[a] = d);
+
+subset-delete-02 : st ⊆ st0 → (st -- a ⊆ st0 ↔ true);used for : ss,lss;
+
+subset-delete-01 : st ⊆ st0 → st -- a ⊆ st0 ;used for : s,ls;
+
+;; testmodel: st ≠ st;
+
+;; KODKOD BEGIN
+
+;; was called empty-01, now an axiom
+;;Del-empty      :  ⊦ ∅ -- a = ∅ ; used for : kodkodax;
+
+k-Extension : st1 = st2 ↔ ∀ a. (a ∈ st1 ↔ a ∈ st2) ∧ (a ∈ st1 → st1[a] = st2[a]); used for : ls,kodkodax;
+
+k-At-same  : a = b → st[b, d][a] = d; used for : s,ls,kodkodax;
+
+
+k-Del-rec1: ¬ a ∈ st → st[a,d] -- a = st; used for : kodkodax;
+k-Del-rec2: a ≠ b ∧ ¬ a ∈ st → st[a,d] -- b = (st -- b)[a,d]; used for : kodkodax;
+
+;; KODKOD END
+
+
+del-exists: a ∈ st ⊦ ∃ st0. ¬ a ∈ st0 ∧ st = st0[a,st[a]];
+
+
+At-in-out: b ∈ st ∧ ¬ a ∈ st → st[a,d][b] = st[b];
+used for : s,ls;
+
+
+subset-delete : st ⊆ st0 → st -- a ⊆ st0 -- a;
+
+subset-put-strong:
+st ⊆ st0 → st[a,d] ⊆ st0[a,d];
+
+subset-put-strong-01:
+st ⊆ st0 → st[a,d][a0,d0] ⊆ st0[a,d][a0,d0];
+
+subset-put-strong-02:
+st ⊆ st0 → st[a,d][a0,d0][a1,d1] ⊆ st0[a,d][a0,d0][a1,d1];
+
+subset-put-strong-03:
+¬ st[a,d] ⊆ st0[a,d] → ¬ st ⊆ st0; used for:s,ls;
+
+subset-put-strong-04:
+¬ st[a,d][a0,d0] ⊆ st0[a,d][a0,d0] → ¬ st ⊆ st0; used for:s,ls;
+
+subset-put-strong-05:
+¬ st[a,d][a0,d0][a1,d1] ⊆ st0[a,d][a0,d0][a1,d1] → ¬ st ⊆ st0; used for:s,ls;
+
+subset-size :
+# st0 < # st → ¬ st ⊆ st0; used for : s,ls;
+ins-same-01 : a ∈ st → st[a, st[a]] = st; used for : s,ls;
+
+superset-elem-in: b ∈ st ∧ st ⊆ st0 → b ∈ st0;
+superset-elem-in-01: b ∈ st ∧ ¬ b ∈ st0 → ¬ st ⊆ st0; used for : s,ls;
+
+superset-elem-eq:
+b ∈ st ∧ st ⊆ st1 → st1[b] = st[b]; 
+
+At-other-num : a ≠ b ⊦ st[(* b), d][(* a)] = st[a]; used for : s,ls;
+
+subset-elem-eq-02:
+b ∈ st ∧ st ⊆ st1 → (st[b] = st1[b] ↔ true); used for: ls, lss; 
+
+
+subset-elem-eq-01:
+b ∈ st ∧ ¬ st[b] = st1[b] → ¬ st ⊆ st1; used for: s,ls;
+
+subset-elem-eq:
+b ∈ st ∧ st ⊆ st1 → st[b] = st1[b]; 
+
+
+delete-put-rew : a ≠ b → (st -- b)[a, d] = st[a, d] -- b;
+
+ins-same : st[a, st[a]] = st ↔ a ∈ st; used for : s,ls;
+
+size-subset : st ⊆ st0 → # st ≤ # st0;
+
+eq-shift-put : a ∈ st → (st[a, d] = st0 ↔ st = st0[a, st[a]] ∧ a ∈ st0 ∧ st0[a] = d);
+
+
+
+
+
+subset-empty : ∅ ⊆ st ; used for : s,ls;
+subset-empty-01 : st ⊆ ∅ ↔ st = ∅; used for : s, ls;
+
+in-neq : a ≠ b → (a ∈ st[b, d] ↔ a ∈ st); used for : s,ls;
+
+del-put : (st -- a)[a,d] = st[a,d]; used for : s,ls;
+notin-del-notin : ¬ a ∈ st → st -- a = st; used for : s,ls;
+inj-put-01 : a ≠ b → (st[a,d][b,d0] = st[b,d0] ↔ a ∈ st ∧ st[a] = d); used for : s,ls;
+put-same : a = b → st[a,d][b,d0] = st[b,d0]; used for : s,ls;
+put-neq-01 : st ≠ st0 ∧ ¬ a ∈ st ∧ ¬ a ∈ st0 → st[a,d] ≠ st0[a,d]; used for : s,ls;
+
+inj-put : ¬ a ∈ st ∧ ¬ a ∈ st0 → (st[a,d] = st0[a,d] ↔ st = st0); used for : s,ls;
+put-neq: d ≠ d0 → st[a,d] ≠ st0[a,d0]; used for : s,ls;
+exputin : ⊦ ∃ st0. st0[a,d] = st[a,d] ∧ ¬ a ∈ st0;
+
+exin : ⊦ a ∈ st ↔ ∃ d, st0. st = st0[a,d] ∧ ¬ a ∈ st0;
+
+del-putsame : a ∈ st → (st -- a)[a, st[a]] = st; used for : s,ls;
+exnotempty : st = ∅ ↔ ¬ ∃ a, d, st0. st = st0[a,d] ∧ ¬ a ∈ st0;
+
+deldel : ⊦ st -- a -- a = st -- a; used for : s,ls;
+indef-01 : ⊦ a ∈ st ↔ st = (st -- a)[a, st[a]];
+
+size-neq : ⊦ # (st[a, d]) = # (st[a, d0]) ↔ true; used for : ss,lss;
+key-size : ∀ a. a ∈ st ↔ a ∈ st0 ⊦ # st = # st0;
+
+size-in : ⊦ a ∈ st → # (st[a,d]) = # st; used for : s,ls;
+indef : ⊦ a ∈ st ↔ st = st[a, st[a]];
+inex : ⊦ a ∈ st → ∃ d, st0. st = st0[a,d] ∧ ¬ a ∈ st0;
+
+empty         :  ⊦ # st = 0 ↔ st = ∅ ;
+     used for : s, ls ;
+
+
+ins           :  ⊦ (st[a]) = d ∧ a ∈ st → (st[a, d]) = st ;
+     used for : s, ls ;
+ins3          :  ⊦ (((st[a, d1])[b, d0])[a, d]) = ((st[b, d0])[a, d]) ;
+     used for : s, ls ;
+ins4          :  ⊦ (((st[a, d2])[b, d1][c, d0])[a, d]) = ((st[b, d1][c, d0])[a, d]) ;
+     used for : s, ls ;
+;;; was called insert, now an axiom
+;;;Del-rec-same        :  ⊦ (st[a, d]) -- a = st -- a ;
+;;;     used for : s, ls ;
+insin         :  ⊦ a ∈ (st[a, d]) ;
+     used for : s ;
+insins        :  ⊦ ((st[a, d0])[a, d]) = (st[a, d]) ;
+     used for : s, ls ;
+lookupisempty :  ⊦ ((st -- a)[a]) = (∅[a]) ;
+     used for : ls ;
+neq           :  ⊦ (st[a, d]) ≠ ∅ ;
+     used for : s ;
+notmemlookup  :  ⊦ ¬ a ∈ st → (st[a]) = (∅[a]) ;
+rew           :  ⊦ a ≠ b → ((st[b, d0])[a, d]) = ((st[a, d])[b, d0]) ;
+size          :  ⊦ a ∈ st → # (st -- a) = (# st) -1 ;
+     used for : s, ls ;
+sub-ref       :  ⊦ st ⊆ st ;
+     used for : s, ls ;
+sub-trans     :  ⊦ st ⊆ st0 ∧ st0 ⊆ st1 → st ⊆ st1 ;
+     used for : f, lf ;
+;;; was called sw, now an axiom     
+;;;Del-rec-other            :  ⊦ a ≠ b → (st[b, d]) -- a = ((st -- a)[b, d]) ;
+sw-01         :  ⊦ (st -- a) -- b = (st -- b) -- a ;
+

@@ -1,0 +1,7 @@
+actualize map-ext with K by morphism
+
+  elem → K;
+  :map → kmap;
+  set  → kset;
+
+end actualize

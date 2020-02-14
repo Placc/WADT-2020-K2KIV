@@ -1,0 +1,37 @@
+
+;; variables m : nat;
+
+lemmas
+
+tr-null:
+tr(null, t) = (emp ∧ ⌜t = leaf⌝);
+used for: s,ls;
+
+tr-fold-singleton:
+r => mknode(null, a, null) = tr(r, branch(leaf, a, leaf));
+
+tr-fold:
+(r => mknode(r0, a, r1) * tr(r0, t0) * tr(r1, t1) * P)(H)
+  → (tr(r, branch(t0, a, t1)) * P)(H);
+used for: ss,lss;
+
+tr-fold-t:
+(r => mknode(r0, a, r1) * tr(r0, t0) * tr(r1, t1) * P0 * P1)(H)
+  → (tr(r, branch(t0, a, t1)) * P0 * true)(H);
+used for: ss,lss;
+
+
+tr-unfold:
+r ≠ null
+  → (   (tr(r,t) * P)(H)
+      ↔ ∃ t0,t1,a,r0,r1.    t = branch(t0, a, t1)
+                        ∧ (  r => mknode(r0, a, r1)
+                           * tr(r0, t0)
+                           * tr(r1, t1)
+                           * P)(H));
+used for: s;
+
+tr-branch:
+(tr(r,t) * P)(H) ∧ r ≠ null
+  → t ≠ leaf;
+used for: s,ls;

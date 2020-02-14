@@ -1,0 +1,13 @@
+instantiate parameter elem < rtc with gref by mapping
+
+ : elem → ref;
+
+a → r;
+b → r0;
+c → r1;
+
+rename
+
+Pelem → Pref;
+
+end instantiate

@@ -1,0 +1,42 @@
+enrich string with
+
+
+constants
+
+      sortedchars : string; comment: String containing all characters, used for < on chars/strings.;
+
+;; functions ;
+
+predicates  . < . : string × string; 
+comment: standard lexicographical order based on ASCII (char <).;
+. < . :   char × char; comment: ASCII ordering of characters.;
+
+variables char3 : char;
+
+
+axioms
+
+Irreflexivity : ¬ str < str; used for : s,ls; comment: needed for actualizations;
+Transitivity  : str1 < str2 ∧ str2 < str3 → str1 < str3; used for : f,lf; comment: needed for actualizations;
+Totality      : str1 < str2 ∨ str1 = str2 ∨ str2 < str1; comment: needed for actualizations;
+
+Less-empty    : "" < char ' + str; used for : s,ls;
+Less-notempty : ¬ str < ""; used for : s,ls;
+Less-rec      : char1 ' + str1 < char2 ' + str2 ↔ char1 < char2 ∨ char1 = char2 ∧ str1 < str2; used for : s,ls;
+
+Char-irref    : ¬ char < char; used for : s,ls; comment: needed for acutalizations;
+Char-trans    : char1 < char2 ∧ char2 < char3 → char1 < char3; used for : f,lf; comment: needed for acutalizations;
+Char-total    : char1 < char2 ∨ char1 = char2 ∨ char2 < char1; comment: needed for acutalizations;
+
+Char-less     : char1 < char2 ↔ pos(char1, sortedchars) < pos(char2, sortedchars);
+
+Sortedchars   : sortedchars 
+              = " !#$%&()*+-./0123456789:<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz|~"; 
+              comment: It is important that the characters are in ASCII order 
+                       because of predefined numeral function string<.
+                       The position is also used for upcase and downcase.
+                       9 is ascii 57, : is 58, semicolon is 59 (missing), < is 60.
+                       A is 65, a is 97. Some missing chars: Space 32, backslash 92, semicolon 59,
+                       all quotes 34, 39, 96.
+                       ;
+end enrich

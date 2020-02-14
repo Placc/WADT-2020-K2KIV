@@ -1,0 +1,44 @@
+enrich separation with
+
+procedures
+alloc : ref, heap       nonfunctional indeterministic;
+read    ref, heap : obj;
+write   ref, obj  : heap nonfunctional;
+free    ref       : heap nonfunctional;
+
+axioms
+infinite-mem:
+∃ r. ¬ r ∈ H ∧ r ≠ null;
+
+declarations
+
+alloc-decl:
+alloc(;r,H) {
+  choose r0 with ¬ r0 ∈ H ∧ r0 ≠ null
+  in {
+    r := r0, H := H ++ r0
+  }
+};
+
+read-decl:
+read(r,H;o) {
+  if ¬ r ∈ H
+  then abort
+  else o := H[r]
+};
+
+write-decl:
+write(r,o;H) {
+  if ¬ r ∈ H
+  then abort
+  else H[r] := o
+};
+
+free-decl:
+free(r; H) {
+  if ¬ r ∈ H
+  then abort
+  else H := H -- r
+};
+
+end enrich

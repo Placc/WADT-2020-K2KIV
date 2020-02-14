@@ -1,0 +1,18 @@
+enrich nat with
+
+;; author: Gidon
+
+functions
+sgn : nat → nat;
+
+axioms
+
+sgn-0:
+sgn(0) = 0;
+used for: s,ls;
+
+sgn-s:
+n ≠ 0 → sgn(n) = 1;
+used for: s,ls;
+
+end enrich

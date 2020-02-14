@@ -1,0 +1,23 @@
+
+;; variables m : nat;
+
+lemmas
+
+sgn-num:
+m ≠ 0 ⊦ sgn(n + * m) = 1;
+used for: s,ls;
+
+sgn-add:
+m ≠ 0 → sgn(n + m) = 1;
+used for: s,ls;
+
+sgn-lt:
+n < m → sgn(m) = 1;
+used for: s,ls;
+
+sgn-eq0:
+sgn(n) = 0 ↔ n = 0;
+used for: s,ls;
+
+sgn:
+sgn(n) = (n ≠ 0 ⊃ 1 ; 0);

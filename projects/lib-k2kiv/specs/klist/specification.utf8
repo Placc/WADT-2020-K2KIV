@@ -1,0 +1,11 @@
+actualize list-ext with K by morphism
+
+	list → klist;
+	elem → K;
+
+	a  → k;
+	a0 → k0;
+	b  → k1;
+	c  → k2;
+
+end actualize

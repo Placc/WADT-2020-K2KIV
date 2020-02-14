@@ -1,0 +1,171 @@
+: successful
+### No save necessary ###
+### Next replay: ad ###
+ad: successful
+### No save necessary ###
+### Next replay: app ###
+app: successful
+### No save necessary ###
+### Next replay: app-01 ###
+app-01: successful
+### No save necessary ###
+### Next replay: app-02 ###
+app-02: successful
+### No save necessary ###
+### Next replay: app-03 ###
+app-03: successful
+### No save necessary ###
+### Next replay: c ###
+c: successful
+### No save necessary ###
+### Next replay: del ###
+del: successful
+### No save necessary ###
+### Next replay: del-01 ###
+del-01: successful
+### No save necessary ###
+### Next replay: del-02 ###
+del-02: successful
+### No save necessary ###
+### Next replay: del1 ###
+del1: successful
+### No save necessary ###
+### Next replay: delapp ###
+delapp: successful
+### No save necessary ###
+### Next replay: diff ###
+diff: successful
+### No save necessary ###
+### Next replay: filter ###
+filter: successful
+### No save necessary ###
+### Next replay: in-05 ###
+in-05: successful
+### No save necessary ###
+### Next replay: in-put ###
+in-put: successful
+### No save necessary ###
+### Next replay: nodups ###
+nodups: successful
+### No save necessary ###
+### Next replay: notin ###
+notin: successful
+### No save necessary ###
+### Next replay: oc-del ###
+oc-del: successful
+### No save necessary ###
+### Next replay: oc-del-02 ###
+oc-del-02: successful
+### No save necessary ###
+### Next replay: oc-dups ###
+oc-dups: successful
+### No save necessary ###
+### Next replay: ocnodups ###
+ocnodups: successful
+### No save necessary ###
+### Next replay: ocnodups-01 ###
+ocnodups-01: successful
+### No save necessary ###
+### Next replay: ocone ###
+ocone: successful
+### No save necessary ###
+### Next replay: ocs-del1 ###
+ocs-del1: successful
+### No save necessary ###
+### Next replay: ocs-dups-ex ###
+ocs-dups-ex: successful
+### No save necessary ###
+### Next replay: ocs-not-more ###
+ocs-not-more: successful
+### No save necessary ###
+### Next replay: ocs-put ###
+ocs-put: successful
+### No save necessary ###
+### Next replay: ocs-put-01 ###
+ocs-put-01: successful
+### No save necessary ###
+### Next replay: ocs-put-02 ###
+ocs-put-02: successful
+### No save necessary ###
+### Next replay: ocs-same-length-all ###
+ocs-same-length-all: successful
+### No save necessary ###
+### Next replay: ocs-sw ###
+ocs-sw: successful
+### No save necessary ###
+### Next replay: papp ###
+papp: successful
+### No save necessary ###
+### Next replay: papp-01 ###
+papp-01: successful
+### No save necessary ###
+### Next replay: perm-all ###
+perm-all: successful
+### No save necessary ###
+### Next replay: perm-last-rec ###
+perm-last-rec: successful
+### No save necessary ###
+### Next replay: perm-mklist ###
+perm-mklist: successful
+### No save necessary ###
+### Next replay: perm-mklist-del ###
+perm-mklist-del: successful
+### No save necessary ###
+### Next replay: perm-put-del1 ###
+perm-put-del1: successful
+### No save necessary ###
+### Next replay: perm-rec ###
+perm-rec: successful
+### No save necessary ###
+### Next replay: rec ###
+rec: successful
+### No save necessary ###
+### Next replay: ref ###
+ref: successful
+### No save necessary ###
+### Next replay: rest ###
+rest: successful
+### No save necessary ###
+### Next replay: shift-02 ###
+shift-02: successful
+### No save necessary ###
+### Next replay: shift-03 ###
+shift-03: successful
+### No save necessary ###
+### Next replay: size-perm ###
+size-perm: successful
+### No save necessary ###
+### Next replay: sub-del-any ###
+sub-del-any: successful
+### No save necessary ###
+### Next replay: subapp-02 ###
+subapp-02: successful
+### No save necessary ###
+### Next replay: subapp-03 ###
+subapp-03: successful
+### No save necessary ###
+### Next replay: subdel ###
+subdel: successful
+### No save necessary ###
+### Next replay: subdel-01 ###
+subdel-01: successful
+### No save necessary ###
+### Next replay: subdel-02 ###
+subdel-02: successful
+### No save necessary ###
+### Next replay: subdel-03 ###
+subdel-03: successful
+### No save necessary ###
+### Next replay: subrec ###
+subrec: successful
+### No save necessary ###
+### Next replay: subrec-01 ###
+subrec-01: successful
+### No save necessary ###
+### Next replay: subsize ###
+subsize: successful
+### No save necessary ###
+### Next replay: trans ###
+trans: successful
+### Done ###
+### Saving lemmas next ###

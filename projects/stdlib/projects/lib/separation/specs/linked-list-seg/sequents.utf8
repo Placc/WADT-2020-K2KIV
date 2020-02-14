@@ -1,0 +1,99 @@
+lemmas
+
+lls-null:
+lls(null, r, x) = (emp ∧ ⌜r = null⌝ ∧ ⌜x = []⌝);
+used for: s,ls;
+
+lls-one:
+lls(r0, r1, a ') = (r0 => a × r1);
+used for: s,ls;
+
+
+
+;; Head
+lls-fold-head:
+(r0 => a × r1 * lls(r1, r2, x) * P)(H)
+    ↔ (lls(r0, r2, a ' + x) * P)(H) ∧ True(H[r0].nxt = r1);
+
+lls-unfold-head:
+x ≠ []
+⊦ (lls(r0, r2, x) * P)(H)
+    ↔ ∃ a,y,r1. (r0 => a × r1 * lls(r1, r2, y) * P)(H) ∧ x = a ' + y;
+
+lls-unfold-head-simp:
+r0 ≠ r2
+⊦ H[r0] = ce
+  → ( ( lls(r0, r2, x) * P)(H)
+    ↔ ∃ a, y, r1. (r0 => a × r1 * lls(r1, r2, y) * P)(H) ∧ x = a ' + y);
+used for: as;
+
+
+
+;; Tail
+lls-fold-tail:
+x ≠ []
+⊦
+(r1 => x.last × r2 * lls(r0, r1, x.butlast) * P)(H)
+→ (lls(r0, r2, x) * P)(H);
+used for: ss;
+
+lls-unfold-tail:
+lls(r0, r2, x + a ') = _∃ λ r1. lls(r0, r1, x) * r1 => a × r2;
+used for: s;
+
+
+
+;; Misc
+lls-consecutive:
+(lls(r0, r1, x) * lls(r1, r2, y) * P)(H)
+→ (lls(r0, r2, x + y) * P)(H);
+used for: ss,lss;
+
+
+
+;; lls-trav1
+ll-trav1-init:
+  (lls(r0, null, x) * P)(H)
+→ (ll-trav(r0, r0, x) * P)(H);
+used for: ss;
+
+ll-trav1-next:
+r1 ≠ null
+⊦
+ (ll-trav(r0, r1, x) * P)(H)
+∧ H[r1] = a × r
+→ (ll-trav(r0, r, x) * P)(H);
+used for: ss;
+
+ll-trav1-end:
+r1 ≠ null
+⊦
+  H[r1] = a × null
+→ ( (ll-trav(r0, r1, x) * P)(H) ↔ (  x ≠ []
+                                       ∧ ∃ y.   x = y + a
+                                              ∧ (lls(r0, r1, y) * r1 => a × null * P)(H)));
+used for: as;
+
+ll-trav2-init:
+  (lls(r0, null, x) * P)(H)
+→ (ll-trav(r0, null, r0, x) * P)(H);
+used for: ss;
+
+ll-trav2-next:
+r2 ≠ null
+⊦
+  (ll-trav(r0, r1, r2, x) * P)(H)
+∧ H[r2] = a × r
+→ (ll-trav(r0, r2, r, x) * P)(H);
+used for: ss;
+
+ll-trav2-end:
+r2 ≠ null
+⊦
+  H[r2] = a × null
+→ (  ( ll-trav(r0, r1, r2, x) * P)(H) ↔    x ≠ []
+                                           ∧ ( r1 = null ⊃
+                                               (r0 = r2 ∧ (lls(r0, null, x) * P)(H));
+                                               (∃ y, b.   x = (y + b) + a
+                                                        ∧ (lls(r0, r1, y) * r1 => b × r2 * r2 => a × null * P)(H))));
+used for: s;

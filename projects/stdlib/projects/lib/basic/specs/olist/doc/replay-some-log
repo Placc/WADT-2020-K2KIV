@@ -1,0 +1,69 @@
+: successful
+### No save necessary ###
+### Next replay: del1 ###
+del1: successful
+### No save necessary ###
+### Next replay: del1-01 ###
+del1-01: successful
+### No save necessary ###
+### Next replay: del1-01-01 ###
+del1-01-01: successful
+### No save necessary ###
+### Next replay: del1-01-02 ###
+del1-01-02: successful
+### No save necessary ###
+### Next replay: empty ###
+empty: successful
+### No save necessary ###
+### Next replay: eq ###
+eq: successful
+### No save necessary ###
+### Next replay: eqdef ###
+eqdef: successful
+### No save necessary ###
+### Next replay: in-01-02 ###
+in-01-02: successful
+### No save necessary ###
+### Next replay: in-04 ###
+in-04: successful
+### No save necessary ###
+### Next replay: ins-less-first ###
+ins-less-first: successful
+### No save necessary ###
+### Next replay: insperm ###
+insperm: successful
+### No save necessary ###
+### Next replay: ole-01 ###
+ole-01: successful
+### No save necessary ###
+### Next replay: ole-in ###
+ole-in: successful
+### No save necessary ###
+### Next replay: ole-last ###
+ole-last: successful
+### No save necessary ###
+### Next replay: ordered-ex-divide-lels ###
+ordered-ex-divide-lels: successful
+### No save necessary ###
+### Next replay: ordered-ex-divide-lsle ###
+ordered-ex-divide-lsle: successful
+### No save necessary ###
+### Next replay: ordered-postfix ###
+ordered-postfix: successful
+### No save necessary ###
+### Next replay: ordered-shorter-sublist ###
+ordered-shorter-sublist: successful
+### No save necessary ###
+### Next replay: orderedle-all ###
+orderedle-all: successful
+### No save necessary ###
+### Next replay: orderedls-all ###
+orderedls-all: successful
+### No save necessary ###
+### Next replay: orderedls-ls ###
+orderedls-ls: successful
+### No save necessary ###
+### Next replay: sw ###
+sw: successful
+### Done ###
+### Saving lemmas next ###

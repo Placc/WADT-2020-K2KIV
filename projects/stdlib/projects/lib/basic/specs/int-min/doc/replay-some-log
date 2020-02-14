@@ -1,0 +1,48 @@
+: successful
+### No save necessary ###
+### Next replay: max-a ###
+max-a: successful
+### No save necessary ###
+### Next replay: max-c ###
+max-c: successful
+### No save necessary ###
+### Next replay: min-a ###
+min-a: successful
+### No save necessary ###
+### Next replay: min-c ###
+min-c: successful
+### No save necessary ###
+### Next replay: min-right ###
+min-right: successful
+### No save necessary ###
+### Next replay: odd-even-rew ###
+odd-even-rew: failed
+### No save necessary ###
+### Next replay: sgn ###
+sgn: successful
+### No save necessary ###
+### Next replay: sgn+1 ###
+sgn+1: successful
+### No save necessary ###
+### Next replay: sgn-01 ###
+sgn-01: successful
+### No save necessary ###
+### Next replay: sgn-02-01 ###
+sgn-02-01: successful
+### No save necessary ###
+### Next replay: sgn-03 ###
+sgn-03: successful
+### No save necessary ###
+### Next replay: sgn-04 ###
+sgn-04: successful
+### No save necessary ###
+### Next replay: sgn-06 ###
+sgn-06: successful
+### No save necessary ###
+### Next replay: sgn-08 ###
+sgn-08: successful
+### No save necessary ###
+### Next replay: sr ###
+sr: successful
+### Done ###
+### Saving lemmas next ###

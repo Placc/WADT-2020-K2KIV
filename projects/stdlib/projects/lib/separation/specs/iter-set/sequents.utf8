@@ -1,0 +1,27 @@
+lemmas
+
+Sep-unfold:
+a ∈ s → aP ⊗_ s = aP(a) * (aP ⊗_ (s -- a));
+
+And-unfold:
+a ∈ s → aP ∧_ s = (aP(a) ∧ (aP ∧_ (s -- a)));
+
+Sep-forall:
+∀ a, H. a ∈ s ∧ aP0(a)(H) → aP(a)(H)
+⊦ 
+(aP0 ⊗_ s)(H) → (aP ⊗_ s)(H);
+
+And-forall:
+∀ a, H. a ∈ s ∧ aP0(a)(H) → aP(a)(H)
+⊦ 
+(aP0 ∧_ s)(H) → (aP ∧_ s)(H);
+
+And-discard:
+s ≠ ∅ → ((λ a. P) ∧_ s) = P;
+
+Sep-eq:
+(∀ a. a ∈ s → aP(a) = aP0(a)) → aP ⊗_ s = aP0 ⊗_ s;
+
+precise-Sep:
+∀ a. a ∈ s → precise(aP(a))
+⊦ precise(aP ⊗_ s);

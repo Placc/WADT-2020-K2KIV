@@ -1,0 +1,30 @@
+: successful
+### No save necessary ###
+### Next replay: diag-theorem-butlast ###
+diag-theorem-butlast: successful
+### No save necessary ###
+### Next replay: infinite-append ###
+infinite-append: successful
+### No save necessary ###
+### Next replay: infinite-append-butlast ###
+infinite-append-butlast: successful
+### No save necessary ###
+### Next replay: infinite-append-lem ###
+infinite-append-lem: successful
+### No save necessary ###
+### Next replay: nextl-lemma ###
+nextl-lemma: successful
+### No save necessary ###
+### Next replay: nextl-lemma-butlast ###
+nextl-lemma-butlast: successful
+### No save necessary ###
+### Next replay: nextl-lemma-butlast-nonempty ###
+nextl-lemma-butlast-nonempty: successful
+### No save necessary ###
+### Next replay: nextl-nextj-lemma-butlast ###
+nextl-nextj-lemma-butlast: successful
+### No save necessary ###
+### Next replay: weakmon-lem ###
+weakmon-lem: successful
+### Done ###
+### Saving lemmas next ###

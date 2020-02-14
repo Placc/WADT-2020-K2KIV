@@ -1,0 +1,18 @@
+: successful
+### No save necessary ###
+### Next replay: antisym ###
+antisym: successful
+### No save necessary ###
+### Next replay: irreflex ###
+irreflex: successful
+### No save necessary ###
+### Next replay: less-reflex ###
+less-reflex: successful
+### No save necessary ###
+### Next replay: less-reflex-rev ###
+less-reflex-rev: successful
+### No save necessary ###
+### Next replay: trans ###
+trans: successful
+### Done ###
+### Saving lemmas next ###

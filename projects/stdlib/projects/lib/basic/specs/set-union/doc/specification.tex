@@ -1,0 +1,31 @@
+\begin{tabbing}\label{set-union-spec}%
+set-union = \\
+{\bf enr}\={\bf ich} set-basic {\bf with}\+\\
+{\bf func}\={\bf tions}\+\\
+\begin{tabular}{lclcll}
+\{ . \} & : & elem & \Imp & set &; \\
+. $\cup$ . & : & set $\times$ set & \Imp & set & {\bf prio} 9; \\
+. $\cap$ . & : & set $\times$ set & \Imp & set & {\bf prio} 9; \\
+. $\backslash$ . & : & set $\times$ set & \Imp & set & {\bf prio} 9; \\
+. -- . & : & set $\times$ elem & \Imp & set & {\bf prio} 9 {\bf left}; \\
+\end{tabular}\-
+\end{tabbing}
+{\bf axioms}
+
+
+
+\begin{quote}
+One : \{a\} = $\emptyset$ ++ a;
+
+Union : a $\in$ \Var{s}{1} $\cup$ \Var{s}{2} \Equiv a $\in$ \Var{s}{1} \Or a $\in$ \Var{s}{2};
+
+Intersect : a $\in$ \Var{s}{1} $\cap$ \Var{s}{2} \Equiv a $\in$ \Var{s}{1} \And a $\in$ \Var{s}{2};
+
+Difference : a $\in$ \Var{s}{1} $\backslash$ \Var{s}{2} \Equiv a $\in$ \Var{s}{1} \And \Not a $\in$ \Var{s}{2};
+
+Delete : a $\in$ s -- b \Equiv a $\neq$ b \And a $\in$ s;
+
+
+\end{quote}
+{\bf end enrich}
+

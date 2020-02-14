@@ -1,0 +1,192 @@
+
+variables H3 : heap;
+
+
+lemmas
+
+stability:
+(P0 * {H})(H0),
+(P1 * {H})(H1),
+(P0 -ý P) * P1 Â P
+¥ P(H0) ­ P(H1);
+
+Eq-P: P0 = P1 ° ³ P,H. (P0 * P)(H) ° (P1 * P)(H);
+
+Imp-refl: P Â P; used for: s,ls;
+Imp-trans: P0 Â P1 ¸ P1 Â P2 ­ P0 Â P2; used for: f,lf;
+Imp1: P0 Â P1 ¸ P0(H) ­ P1(H); used for: f,lf;
+Imp2: P0 Â P1 ¸ (P * P0)(H) ­ (P * P1)(H); used for: s,ls;
+Imp-frame: ³ P. P * P0 Â P * P1 ¥ P0 Â P1;
+
+Imp-from-eq: P0 = P1 ° P0 Â P1 ¸ P1 Â P0;
+eq-frame: ³ P. (P * P0) = (P * P1) ¥ P0 = P1;
+
+imp-mono:  ³ H. P(H) ­ P0(H), (P * P1)(H0) ¥ (P0 * P1)(H0);
+
+sep-split-interactive:
+³ P0. (P * P0)(H) ­ ´ H0,H1. H0 » H1 ¸ H0 ¶ H1 = H ¸ P(H0) ¸ P0(H1);
+
+split-union:
+P0(H0) ¸ P1(H1) ¸ H0 » H1
+    ­ (µ (P0 * P1)(H0 ¶ H1) ° false);
+used for: s,ls;
+
+sep-com:
+P0 * P1 = P1 * P0;
+used for: s,ls;
+
+sep-ass:
+(P0 * P1) * P2 = P0 * P1 * P2;
+used for: s,ls;
+
+sep-mp:
+(P0 * (P0 -* P1))(H) ­ P1(H);
+
+sep-Mp:
+(P0 * (P0 -* P1)) Â P1;
+
+Frame:
+P0 Â (P1 -* (P1 * P0));
+
+adjunction:
+(³ H. (P0 ­ P1 -* P2)(H)) ° (³ H. (P0 * P1 ­ P2)(H));
+
+wand-dual:
+P0 -ý P1 = µ (P0 -* µ P1);
+
+wand-shift:
+(P0 * (P1 -* P2))(H)
+  ­ (µ (P1 -* (P0 * P2))(H) ° false);
+used for: s,ls;
+
+(:
+wand-cancel:
+´ H0. H0 » H ¸ P(H0)
+¥   ((P0 * P) -* (P1 * P))(H)
+  ° (P0 -* P1)(H);
+:)
+
+(:
+septract-Mp:
+precise(P0) ­ (P0 -ý (P0 * P1)) Â P1;
+used for: s,ls;
+:)
+
+sharing-com:
+P0 ý P1 = P1 ý P0;
+used for: s, ls;
+
+sharing-ass:
+P0 ý (P1 ý P2) = (P0 ý P1) ý P2;
+used for: s, ls;
+
+introduce-sharing:
+(P0 ý P1)(H)
+  ° ´ P. ((P -* P0) * (P -* P1) * P)(H);
+
+wand-same-emp:
+(P -* P)(à);
+used for: s,ls;
+
+wand-same-emp-p:
+P0(H) ­ (µ ((P -* P) * P0)(H) ° false);
+used for: s,ls;
+
+trueH: true(H); used for: s,ls;
+true-rev: ötrue÷ = true; used for: s;
+falseH: µ false(H); used for: s,ls;
+false-rev: öfalse÷ = false; used for: s;
+
+this-emp:  {à} = emp; used for: s,ls;
+emp-sep:   (emp * P)   = P;         used for: s,ls;
+false-sep: (false * P) = false; used for: s,ls;
+true-and:  (true  ¸ P) = P;       used for: s,ls;
+false-and: (false ¸ P) = false; used for: s,ls;
+true-elim: (P0 * P)(H) ­ (true * P)(H); used for: s,ls;
+true-emp:  P(H) ­ (true * P)(H); used for: s,ls;
+true-true: true * true = true; used for: s,ls;
+
+prop-emp:  ((öbv÷ ¸ emp) * P)(H) ° µ µ (bv ¸ P(H)); used for: s,ls;
+prop-sep:  ((öbv÷ ¸ P0) * P1)(H) ° bv ¸ (P0 * P1)(H); used for: s,ls;
+prop-shift: (öbv÷ ¸ P0) * P1 = (öbv÷ ¸ (P0 * P1)); used for: s,ls;
+
+sharing-emp: P ý emp = P; used for: s,ls;
+true-elims: (P0 ý P)(H) ­ (true ý P)(H); used for: s,ls;
+
+and-com:   (P0 ¸ P1) = (P1 ¸ P0); used for: s,ls;
+or-com:    (P0 ¹ P1) = (P1 ¹ P0); used for: s,ls;
+and-ass:   ((P0 ¸ P1) ¸ P2) = (P0 ¸ P1 ¸ P2); used for: s,ls;
+or-ass:    ((P0 ¹ P1) ¹ P2) = (P0 ¹ P1 ¹ P2); used for: s,ls;
+
+and-imp: (P * (P1 ¸ P2))(H) ­ (P * P1)(H); used for: s,ls;
+and-weaken: ³ H. (P1 ­ P0)(H) ¥ (P0 ¸ P1) = P1;
+and-weaken-this: (P1 ­ P0)(H) ¥ (P0 ¸ P1)(H) = P1(H);
+
+and-split: precise(P) ¥ (P * (P0 ¸ P1))(H) ° (P * P0)(H) ¸ (P * P1)(H);
+;; and-combine: precise(P0) ¥ H » H0 ¸ P0[h0] ¸ P1[h0] ­ ((P * (P0 ¸ P1))[h ¶ h0] ° P(H)); used for: s,ls;
+
+imp-cases:     bv ­ ((öbv÷ ­ P) = P);
+imp-proptrue:  (true  ­ P) = P; used for: s,ls;
+imp-propfalse: (false ­ P) = true; used for: s,ls;
+
+precise-emp:
+precise(emp);
+used for: s,ls;
+
+precise-split-l:
+precise(P0) ¥ P0(H0) ¸ H0 » H1
+    ­ ((P0 * P1)(H0 ¶ H1) ° P1(H1));
+used for: s;
+
+precise-split-r:
+precise(P1) ¥ P1(H1) ¸ H0 » H1
+    ­ ((P0 * P1)(H0 ¶ H1) ° P0(H0));
+used for: s;
+
+precise-sep:
+precise(P0) ¸ precise(P1) ­ precise(P0 * P1);
+used for: s,ls;
+
+precise-and:
+precise(P0) ­ precise(P0 ¸ P1);
+used for: s,ls;
+
+precise-this:
+precise({H});
+used for: s,ls;
+
+precise-disj:
+precise(P0),
+precise(P1)
+¥
+  (P0 * P1 * true)(H0 ¶ H2)
+¸ H0 ¶ H2 = H1 ¶ H3
+¸ H0 » H2 ¸ H1 » H3
+¸ P0(H0) ¸ P1(H1)
+  ­ H0 » H1;
+used for: f,lf;
+
+precise-same:
+precise(P) ¥
+P(H0) ¸ P(H1) ¸ H0 » H ¸ H1 » H2
+    ­ (H0 ¶ H = H1 ¶ H2 ° µ µ (H0 = H1 ¸ H = H2));
+used for: s,ls;
+
+;;; END
+
+sep-extract:
+precise(P0),
+precise(P1),
+precise(P2)
+¥
+  (P0 * P1 * true)(H)
+¸ (P0 * P2 * true)(H)
+    ­ ((P1 * P2 * true)(H)
+        ° (P0 * P1 * P2 * true)(H));
+used for: s;
+
+;; at-fold: r ² H ¥ (H[r] = o ° ((r => o) * true)(H));
+map-inj:   ((r => o0) * P0)(H) ¸ ((r => o1) * P1)(H) ­ o0 = o1; used for: f,lf;
+map-write: typ(r,o1), r ² H ¥ ((r => o0) * P)(H[r,o1]) ­ o0 = o1; used for: f,lf;
+
+

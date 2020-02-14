@@ -1,0 +1,117 @@
+: successful
+### No save necessary ###
+### Next replay: add ###
+add: successful
+### No save necessary ###
+### Next replay: cond ###
+cond: successful
+### No save necessary ###
+### Next replay: div-elim ###
+div-elim: successful
+### No save necessary ###
+### Next replay: le ###
+le: successful
+### No save necessary ###
+### Next replay: le-01 ###
+le-01: successful
+### No save necessary ###
+### Next replay: le-div-to-mult ###
+le-div-to-mult: successful
+### No save necessary ###
+### Next replay: le-succ ###
+le-succ: successful
+### No save necessary ###
+### Next replay: ls ###
+ls: successful
+### No save necessary ###
+### Next replay: ls-01 ###
+ls-01: successful
+### No save necessary ###
+### Next replay: ls-02 ###
+ls-02: successful
+### No save necessary ###
+### Next replay: ls-03 ###
+ls-03: successful
+### No save necessary ###
+### Next replay: mod-le ###
+mod-le: successful
+### No save necessary ###
+### Next replay: mod-le-01 ###
+mod-le-01: successful
+### No save necessary ###
+### Next replay: mod-le-02 ###
+mod-le-02: successful
+### No save necessary ###
+### Next replay: mod-le-03 ###
+mod-le-03: successful
+### No save necessary ###
+### Next replay: mod-le-04 ###
+mod-le-04: successful
+### No save necessary ###
+### Next replay: mod-ls ###
+mod-ls: successful
+### No save necessary ###
+### Next replay: mod-neq ###
+mod-neq: successful
+### No save necessary ###
+### Next replay: mod-once ###
+mod-once: successful
+### No save necessary ###
+### Next replay: mult-ls ###
+mult-ls: successful
+### No save necessary ###
+### Next replay: mult-ls-01 ###
+mult-ls-01: successful
+### No save necessary ###
+### Next replay: square-inject ###
+square-inject: successful
+### No save necessary ###
+### Next replay: square-interval ###
+square-interval: successful
+### No save necessary ###
+### Next replay: square-ls ###
+square-ls: successful
+### No save necessary ###
+### Next replay: square-ls-03 ###
+square-ls-03: successful
+### No save necessary ###
+### Next replay: square-nle-01 ###
+square-nle-01: successful
+### No save necessary ###
+### Next replay: square-nle-01-01 ###
+square-nle-01-01: successful
+### No save necessary ###
+### Next replay: two-le ###
+two-le: successful
+### No save necessary ###
+### Next replay: two-loup-01 ###
+two-loup-01: successful
+### No save necessary ###
+### Next replay: two-loup-02 ###
+two-loup-02: successful
+### No save necessary ###
+### Next replay: two-loup-04 ###
+two-loup-04: successful
+### No save necessary ###
+### Next replay: two-loup-07 ###
+two-loup-07: successful
+### No save necessary ###
+### Next replay: two-loup-08 ###
+two-loup-08: successful
+### No save necessary ###
+### Next replay: two-loup-11 ###
+two-loup-11: successful
+### No save necessary ###
+### Next replay: two-loup-12 ###
+two-loup-12: successful
+### No save necessary ###
+### Next replay: two-ls-01 ###
+two-ls-01: successful
+### No save necessary ###
+### Next replay: two-ls-03 ###
+two-ls-03: successful
+### No save necessary ###
+### Next replay: two-padd ###
+two-padd: successful
+### Done ###
+### Saving lemmas next ###

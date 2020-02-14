@@ -1,0 +1,70 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+trans
+subsize
+subrec-01
+subrec
+subdel-03
+subdel-02
+subdel-01
+subdel
+subapp-03
+subapp-02
+sub-del-any
+size-perm
+shift-03
+shift-02
+rest
+ref
+rec
+perm-rec
+perm-put-del1
+perm-mklist-del
+perm-mklist
+perm-last-rec
+perm-all
+papp-01
+papp
+ocs-sw
+ocs-same-length-all
+ocs-put-02
+ocs-put-01
+ocs-put
+ocs-not-more
+ocs-dups-ex
+ocs-del1
+ocone
+ocnodups-01
+ocnodups
+oc-dups
+oc-del-02
+oc-del
+notin
+nodups
+in-put
+in-05
+filter
+diff
+delapp
+del1
+del-02
+del-01
+del
+c
+app-03
+app-02
+app-01
+app
+ad
+
+
+*** Failures: ***
+
+

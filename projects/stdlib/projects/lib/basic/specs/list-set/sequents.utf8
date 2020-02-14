@@ -1,0 +1,335 @@
+
+
+lemmas
+
+subset-del : x ⊆ y → (¬ x ⊆ y -l a ↔ a ∈ x); used for : s,ls;
+
+;;; END
+
+filter-notin:
+⊦ ¬ a ∈ x → filter(x, a ' + y) = filter(x, y);
+used for : s, ls ;
+
+onenotin-diff:
+¬ a ∈ x → a ' \ x = a ';
+used for : s, ls ;
+
+onein-diff:
+a ∈ x → a ' \ x = [];
+used for : s, ls ;
+
+;;; leider falsche Reihenfolge!
+;;; secondsub     :  ⊦ y ⊆ x → x ∪ y = x ;
+;;; used for : s, ls ;
+
+subset-rmdup: x ⊆ y → rmdup(x + y) = rmdup(y);
+used for: s,ls;
+
+union-twice: x ∪ x = rmdup(x);
+used for: s,ls;
+
+diff-consbothsame: ⊦ (a ' + x) \ (a ' + x0) = x \ (a ' + x0);
+used for: s,ls;
+
+diff-consnotin2: ¬ a ∈ x → x \ (a ' + x0) = x \ x0;
+used for: s,ls;
+
+diff-in-one      :  ⊦ a ∈ x \ a0 ' ↔ a ∈ x ∧ a ≠ a0 ;
+    used for : s, ls ;
+
+
+diffone-nodupsget: 
+   n + 1 < # x ∧ ¬ dups(x) ∧ a ∈ x 
+→ (x \ a ')[n] = (n < pos(a,x) ⊃ x[n]; x[n + 1]);
+used for: s,ls;
+
+diffone-nodupssize: ¬ dups(x) ∧ a ∈ x → # (x \ a ') = # x - 1;
+used for: s,ls;
+
+diffgetn-nodupssize: ¬ dups(x) ∧ n < # x → # (x \ (x[n] ')) = # x - 1;
+used for: s,ls;
+;;;END
+
+emptyunion: x ∪ y = [] ↔ x = [] ∧ y = [];
+used for: s,ls;
+
+diff-onenonmember: ¬ a ∈ x → x \ a ' = x;
+used for: s,ls;
+
+diff-union: (x ∪ y) \ z = (x \ z) ∪ (y \ z);
+
+diff-unchanged: x \ y = x ↔ ∀ a. ¬ (a ∈ x ∧ a ∈ y);
+
+diff-firstofapp: (x + y) \ x = y \ x ;
+used for: ls;
+
+diff-append: (x + y) \ z = (x \ z) + (y \ z);
+(: hmm, not sure whether this one is a good idea as simprule :)
+
+(: no simprules, since all three versions are useful :)
+diff-twice-append: (x \ y) \ z = x \ (y + z);
+diff-twice-append-rev: (x \ y) \ z = x \ (z + y);
+diff-twice-union: (x \ y) \ z = x \ (y ∪ z);
+
+subset-perm : x + y ⊆ y + x; used for : s,ls;
+;;; END
+filter-empty-append-01 : filter(x + y, z) = [] ↔ filter(x, z) = [] ∧ filter(y, z) = []; used for : s,ls;
+filter-empty-cons-01 : filter(a ' + x, y) = [] ↔ a ∈ y ∧ filter(x, y) = []; used for : s,ls;
+
+;;; END
+
+filter-empty-append : filter(x, y + z) = [] ↔ filter(x, y) = [] ∧ filter(x, z) = []; used for : s,ls;
+filter-empty-cons : filter(x, a ' + y) = [] ↔ ¬ a ∈ x ∧ filter(x, y) = []; used for : s,ls;
+
+;;; END
+subset-diff-union: x \ y ⊆ z ↔ x ⊆ z ∪ y; used for : s,ls;
+
+filter-empty-one : filter(x, a ') = [] ↔ ¬ a ∈ x; used for : s,ls;
+
+filter-rev-empty : filter(rev(x), y) = [] ↔ filter(x, y) = []; used for : s,ls;
+
+filter-empty : filter(x, []) = []; used for : s,ls;
+filter-empty-commutative : filter(x, y) ≠ [] → filter(y, x) ≠ []; used for : s,ls;
+
+subset-append : x + y ⊆ z ↔ x ⊆ z ∧ y ⊆ z;
+subset-trans : x ⊆ y ∧ y ⊆ z → x ⊆ z; used for : f,lf;
+
+subset-app : x + y ⊆ x + z ↔ y ⊆ x + z; used for : s,ls;
+subset-app : x + y ⊆ z + y ↔ x ⊆ z + y; used for : s,ls;
+
+filter-empty-subset : filter(x, z) = [] ∧ y ⊆ z → filter(x, y) = [];
+filter-empty-subset : filter(x, z) = [] ∧ y ⊆ x → filter(y, z) = [];
+
+filter-empty-in : a ∈ x ∧ a ∈ z → filter(x, y + z) ≠ []; used for : s,ls;
+filter-empty-in : a ∈ x ∧ a ∈ z → filter(x, x0 + y + z) ≠ []; used for : s,ls;
+filter-empty-app : filter(x, y) ≠ [] → filter(x, y + z) ≠ []; used for : s,ls;
+filter-empty-app : filter(x, y) ≠ [] → filter(x, z + y) ≠ []; used for : s,ls;
+filter-empty-app : filter(x, y) ≠ [] → filter(x, z + x0 + y) ≠ []; used for : s,ls;
+
+filter-empty-app : filter(x, y) = [] ∧ filter(x, z) = [] → (filter(x, y + z) ≠ [] ↔ false); used for : s,ls;
+filter-empty-app : filter(x, x0) = [] ∧ filter(x, y) = [] ∧ filter(x, z) = [] → (filter(x, x0 + y + z) ≠ [] ↔ false); used for : s,ls;
+;;; END
+subset-append : ¬ x ⊆ y + z → ¬ x ⊆ y; used for : s,ls;
+subset-append : ¬ x ⊆ y + z → ¬ x ⊆ z; used for : s,ls;
+
+;; KODKOD BEGIN
+
+empty-01     :  ⊦ [] ∪ x = rmdup(x) ;
+    used for : kodkodax ;
+k-union-rec-y: a ∈ x ∨ a ∈ y → (a + x) ∪ y = x ∪ y; used for : kodkodax;
+k-union-rec-n: ¬ (a ∈ x ∨ a ∈ y) → (a + x) ∪ y = a + (x ∪ y); used for : kodkodax;
+
+;; KODKOD END
+
+
+diff-wfrec: x \ a + y = (x -l a) \ y;
+
+subset-insert: x ⊆ x ++ a; used for: s,ls;
+
+filter-empty-def : filter(x, y) = [] ↔ ∀ a. a ∈ x → ¬ a ∈ y;
+diff-empty-all : x \ y = [] ↔ ∀ a. a ∈ x → a ∈ y;
+diff-empty-sub : x \ y = [] ↔ x ⊆ y; used for : s,ls;
+
+subset-one : a ' ⊆ x ↔ a ∈ x; used for : s,ls;
+;;; END
+subset-empty : [] ⊆ x; used for : s,ls;
+subset-empty : x ⊆ [] ↔ x = []; used for : s,ls;
+subset-rec : a ' + x ⊆ y ↔ a ∈ y ∧ x ⊆ y; used for : s,ls;
+subset-app : x ⊆ x + y; used for : s,ls;
+subset-app : x ⊆ y + x; used for : s,ls;
+subset-app : x ⊆ y + x + z; used for : s,ls;
+subset-ref : x ⊆ x; used for : s,ls;
+filter-all : (∀ a. a ∈ x → ¬ a ∈ y) ⊦ filter(x, y) = [];
+
+filter-notempty : a ∈ x ∧ a ∈ y → filter(x, y) ≠ []; used for : s,ls;
+filter-rest : filter(x, y) = [] ∧ x ≠ [] → filter(x.rest, y) = []; used for : s,ls;
+;;; END
+filter-one : a ∈ y → filter(a ', y) = a '; used for : s,ls;
+filter-one : ¬ a ∈ y → filter(a ', y) = []; used for : s,ls;
+filter-empty : filter(x + y, z) = [] ↔ filter(x, z) = [] ∧ filter(y, z) = []; used for : s,ls;
+filter-one : filter(a ', y) = [] ↔ ¬ a ∈ y; used for : s,ls;
+
+diff-app : x \ x + y = []; used for : s,ls;
+diff-app : x \ y + x = []; used for : s,ls;
+diff-app : x \ y + x + z = []; used for : s,ls;
+diff-same : x \ x = []; used for : s,ls;
+;;; END
+dups-app : dups(x + y) ↔ dups(x) ∨ dups(y) ∨ filter(x, y) ≠ [];
+
+filter-dups : filter(x, y) ≠ [] → dups(x + y); used for : s,ls;
+
+Noassoc      :  ⊦ (a ' ∪ x) ∪ y = a ' ∪ (x ∪ y) ;
+app          :  ⊦ (x + y) ∪ z = x ∪ (y ∪ z) ;
+    used for : s, ls ;
+appsize      :  ⊦ # ((x + y) ∪ z) = # ((x ∪ y) ∪ z) ;
+    used for : s, ls ;
+assoc        :  ⊦ (x ∪ y) ∪ z = x ∪ (y ∪ z) ;
+    used for : s, ls ;
+     remarks : used by proved unit ;
+assocsize    :  ⊦ # (x ∪ (y ∪ z)) = # ((x ∪ y) ∪ z) ;
+commsize     :  ⊦ # (x ∪ y) = # (y ∪ x) ;
+del1         :  ⊦ ¬ a ∈ x → filter(x, y -1l a) = filter(x, y) ;
+    used for : s, ls ;
+     remarks : proved ;
+del1-01      :  ⊦ ¬ a ∈ x → filter(rmdup(x), y -1l a) = filter(rmdup(x), y) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+diff-dups    :  ⊦ dups(x \ y) → dups(x) ;
+    used for : f, lf ;
+     remarks : proved ;
+diff-empty   :  ⊦ x \ [] = x ;
+    used for : s, ls ;
+     remarks : proved ;
+diff-in      :  ⊦ a ∈ x \ y ↔ a ∈ x ∧ ¬ a ∈ y ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+empty        :  ⊦ x ∪ [] = rmdup(x) ;
+    used for : s, ls ;
+
+f-rm         :  ⊦ filter(rmdup(x), y) = rmdup(filter(x, y)) ;
+     remarks : proved ;
+filt-dups    :  ⊦ dups(filter(x, y)) → dups(x) ;
+    used for : f, lf ;
+     remarks : proved ;
+filt-in      :  ⊦ a ∈ filter(x, y) ↔ a ∈ x ∧ a ∈ y ;
+    used for : s, ls ;
+     remarks : proved, used ;
+firstin      :  ⊦ a ∈ x → a ' ∪ x = rmdup(x) ;
+    used for : s, ls ;
+firstinsub   :  ⊦ a ∈ z → (a ' + x ⊆ y ∪ z ↔ x ⊆ y ∪ z) ;
+    used for : s, ls ;
+firstsub     :  ⊦ x ⊆ y → x ∪ y = rmdup(y) ;
+    used for : s, ls ;
+in           :  ⊦ a ∈ x ∪ y ↔ a ∈ x ∨ a ∈ y ;
+    used for : s ;
+     remarks : used by proved unit ;
+in-01        :  ⊦ ¬ a ∈ x → (a ∈ x ∪ y ↔ a ∈ y) ;
+    used for : s, ls ;
+in-01-01     :  ⊦ a ∈ y → (a ∈ filter(x, y) ↔ a ∈ x) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+in-02        :  ⊦ a ≠ b → (a ∈ b ' ∪ y ↔ a ∈ y) ;
+    used for : s, ls ;
+in-03        :  ⊦ ¬ a ∈ y → (a ∈ x ∪ (y ∪ z) ↔ a ∈ x ∪ z) ;
+    used for : s, ls ;
+in-04        :  ⊦ a ∈ x ∪ y ↔ ¬ ¬ (a ∈ x ∨ a ∈ y) ;
+in-05        :  ⊦ a ∈ x → (a ∈ filter(x, y) ↔ a ∈ y) ;
+    used for : s, ls ;
+     remarks : proved ;
+in-06        :  ⊦ a ∈ y ∧ a ∈ x → a ∈ filter(rmdup(x), y) ;
+     remarks : proved ;
+insub        :  ⊦ a ∈ x ∧ x ∪ y ⊆ z → a ∈ z ;
+    used for : f, lf ;
+insub-01     :  ⊦ a ∈ y ∧ x ∪ y ⊆ z → a ∈ z ;
+    used for : f, lf ;
+le           :  ⊦ # filter(rmdup(x), y) ≤ # y ;
+     remarks : proved, invalid ;
+nodups       :  ⊦ ¬ dups(x ∪ z) ;
+    used for : s, ls ;
+notin        :  ⊦ ¬ a ∈ x → a ' ∪ x = a ' + rmdup(x) ;
+notin-01     :  ⊦ a ∈ y → ¬ a ∈ x \ y ;
+    used for : s, ls ;
+     remarks : proved, used ;
+notin-02     :  ⊦ ¬ a ∈ y → ¬ a ∈ filter(x, y) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+rax-01       :  ⊦ ¬ a ∈ y → (a ' + x) \ y = a ' + (x \ y) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+rmdup        :  ⊦ rmdup(x) ⊆ y ↔ x ⊆ y ;
+    used for : s, ls ;
+     remarks : proved ;
+rmdup-01     :  ⊦ x ⊆ rmdup(y) ↔ x ⊆ y ;
+    used for : s, ls ;
+     remarks : proved ;
+rmdup-02     :  ⊦ rmdup(x ∪ y) = x ∪ y ;
+    used for : s, ls ;
+rmdup-size   :  ⊦ # rmdup(x ∪ y) = # (x ∪ y) ;
+    used for : s, ls ;
+rotsize      :  ⊦ # (x ∪ (y ∪ z)) = # (y ∪ (x ∪ z)) ;
+size         :  ⊦ ¬ dups(x) ∧ ¬ dups(y) ∧ x ⊆ y ∧ y ⊆ x → (# x = # y ↔ true) ;
+    used for : s, ls ;
+size-le      :  ⊦ # (x ∪ y) ≤ # rmdup(y) ↔ x ⊆ y ;
+    used for : s, ls ;
+size-nle     :  ⊦ ¬ y ⊆ x ∪ z → ¬ # (x ∪ (y ∪ z)) ≤ # (x ∪ z) ;
+    used for : s, ls ;
+size-nls     :  ⊦ ¬ # ((x ∪ y) ∪ z) < # (x ∪ y) ;
+    used for : s, ls ;
+size-nls-01  :  ⊦ ¬ # (x ∪ (y ∪ z)) < # (y ∪ (x ∪ z)) ;
+    used for : s, ls ;
+sub          :  ⊦ x ∪ y ⊆ z ∪ y ↔ x ⊆ z ∪ y ;
+    used for : s, ls ;
+sub-01       :  ⊦ x ∪ y ⊆ x ∪ z ↔ y ⊆ x ∪ z ;
+    used for : s, ls ;
+sub-02       :  ⊦ x ⊆ y ∪ (z ∪ x) ;
+    used for : s, ls ;
+sub-03       :  ⊦ x ⊆ y ∪ (x ∪ z) ;
+    used for : s, ls ;
+sub-04       :  ⊦ x ∪ x0 ⊆ y ∪ (x ∪ z) ↔ x0 ⊆ y ∪ (x ∪ z) ;
+    used for : s, ls ;
+sub-05       :  ⊦ x ∪ x0 ⊆ y ∪ (z ∪ x) ↔ x0 ⊆ y ∪ (z ∪ x) ;
+    used for : s, ls ;
+sub-06       :  ⊦ x ∪ y ⊆ y ↔ x ⊆ y ;
+    used for : s, ls ;
+sub-07       :  ⊦ x ∪ y ⊆ x ↔ y ⊆ x ;
+    used for : s, ls ;
+sub-in       :  ⊦ x ⊆ y ∧ a ∈ x → a ∈ y ;
+    used for : f, lf ;
+     remarks : proved ;
+sub-notin    :  ⊦ x ⊆ y ∧ ¬ a ∈ y → ¬ a ∈ x ;
+    used for : f, lf ;
+     remarks : proved ;
+sub-size     :  ⊦ x ⊆ y ∧ ¬ dups(x) → # x ≤ # y ;
+    used for : s, ls ;
+sub-size-01  :  ⊦ x ⊆ y ∧ ¬ dups(x) → (# y < # x ↔ false) ;
+    used for : s, ls ;
+sub-size-02  :  ⊦ ¬ x ⊆ y → ¬ # (x ∪ y) ≤ # rmdup(y) ;
+    used for : s, ls ;
+suband       :  ⊦ x ∪ y ⊆ z ↔ x ⊆ z ∧ y ⊆ z ;
+    used for : s, ls ;
+subonein     :  ⊦ a ' ∪ x ⊆ y → a ∈ y ;
+    used for : f, lf ;
+subset-01    :  ⊦ x ⊆ x ∪ y ;
+    used for : s, ls ;
+subset-01-01 :  ⊦ y ⊆ x ∪ y ;
+    used for : s, ls ;
+subsub       :  ⊦ x ⊆ y → x ⊆ y ∪ z ;
+    used for : s, ls ;
+subsub-01    :  ⊦ x ⊆ z → x ⊆ y ∪ z ;
+    used for : s, ls ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+union        :  ⊦ x ∪ y = rmdup(x + y) ;
+diff-e       :  ⊦ [] \ y = [] ;
+    used for : s, ls ;
+     remarks : used ;
+diff-y       :  ⊦ a ∈ y → (a ' + x) \ y = x \ y ;
+    used for : s, ls, lc ;
+     remarks : used ;
+diff-n       :  ⊦ ¬ a ∈ y → (a ' + x) \ y = a + (x \ y) ;
+    used for : s, ls ;
+     remarks : used ;
+filt-e       :  ⊦ filter([], y) = [] ;
+    used for : s, ls ;
+     remarks : used ;
+filt-y       :  ⊦ a ∈ y → filter(a ' + x, y) = a ' + filter(x, y) ;
+    used for : s, ls, lc ;
+     remarks : used ;
+filt-n       :  ⊦ ¬ a ∈ y → filter(a ' + x, y) = filter(x, y) ;
+    used for : s, ls ;
+     remarks : used ;
+subset       :  ⊦ x ⊆ y ↔ (∀ a. a ∈ x → a ∈ y) ;
+    used for : ls ;
+     remarks : used ;
+
+
+
+

@@ -1,0 +1,48 @@
+: successful
+### No save necessary ###
+### Next replay: even ###
+even: successful
+### No save necessary ###
+### Next replay: four-square-le-zero ###
+four-square-le-zero: successful
+### No save necessary ###
+### Next replay: le-plus ###
+le-plus: successful
+### No save necessary ###
+### Next replay: root-abs ###
+root-abs: successful
+### No save necessary ###
+### Next replay: root-le ###
+root-le: successful
+### No save necessary ###
+### Next replay: root-pos ###
+root-pos: successful
+### No save necessary ###
+### Next replay: square-le-one ###
+square-le-one: successful
+### No save necessary ###
+### Next replay: square-nls ###
+square-nls: successful
+### No save necessary ###
+### Next replay: square-not-neg ###
+square-not-neg: successful
+### No save necessary ###
+### Next replay: square-not-neg-01 ###
+square-not-neg-01: successful
+### No save necessary ###
+### Next replay: square-not-neg-03 ###
+square-not-neg-03: successful
+### No save necessary ###
+### Next replay: square-not-neg-05 ###
+square-not-neg-05: successful
+### No save necessary ###
+### Next replay: two-even ###
+two-even: successful
+### No save necessary ###
+### Next replay: two-le-three ###
+two-le-three: successful
+### No save necessary ###
+### Next replay: two-le-two ###
+two-le-two: successful
+### Done ###
+### Saving lemmas next ###

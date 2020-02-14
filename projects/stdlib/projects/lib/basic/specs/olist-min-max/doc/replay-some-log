@@ -1,0 +1,48 @@
+: successful
+### No save necessary ###
+### Next replay: ins-max ###
+ins-max: successful
+### No save necessary ###
+### Next replay: max-append ###
+max-append: successful
+### No save necessary ###
+### Next replay: max-com ###
+max-com: successful
+### No save necessary ###
+### Next replay: max-com-01 ###
+max-com-01: successful
+### No save necessary ###
+### Next replay: max-ge ###
+max-ge: successful
+### No save necessary ###
+### Next replay: max-ge-every ###
+max-ge-every: successful
+### No save necessary ###
+### Next replay: max-in-01 ###
+max-in-01: successful
+### No save necessary ###
+### Next replay: max-ins ###
+max-ins: successful
+### No save necessary ###
+### Next replay: max-ins-max ###
+max-ins-max: successful
+### No save necessary ###
+### Next replay: max-ins-max-last ###
+max-ins-max-last: successful
+### No save necessary ###
+### Next replay: max-ordered ###
+max-ordered: successful
+### No save necessary ###
+### Next replay: max-sort-sublist ###
+max-sort-sublist: successful
+### No save necessary ###
+### Next replay: min-com ###
+min-com: successful
+### No save necessary ###
+### Next replay: sort-max-last ###
+sort-max-last: successful
+### No save necessary ###
+### Next replay: sort-max-max-list ###
+sort-max-max-list: successful
+### Done ###
+### Saving lemmas next ###

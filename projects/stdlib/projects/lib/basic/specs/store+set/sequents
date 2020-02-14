@@ -1,0 +1,98 @@
+
+
+variables a1 : elem;
+
+lemmas
+
+restrict-in: a ² (st | s) ° a ² st ¸ a ² s; used for: s,ls;
+restrict-at: a ² st ¸ a ² s ­ (st | s)[a] = st[a]; used for: s,ls;
+dom-rem: dom (st \ s) = dom st \ s;used for: s,ls;
+dom-restrict: s Â dom st ­ dom (st | s) = s; used for : s,ls;
+rem-write: µ a ² s ­ (st[a, d] \ s) = (st \ s)[a, d];
+rem-write-other: a ² s ­ (st[a, d] \ s) = st \ s; used for: s,ls;
+rem-write-cases: (st[a, d] \ s) = (a ² s « st \ s; (st \ s)[a, d]);
+dom-union-l: dom(st0 ¬¶ st1) = dom st0 ¶ dom st1; used for: s,ls;
+
+;;; HMM, wenn dann direkt in store
+;;; notin-emp:
+;;; st = à ­ µ a ² st;
+;;; used for: s,ls;
+;;; 
+;;; in-notemp:
+;;; a ² st ­ st Ü à;
+;;; used for: s,ls;
+
+Diff-mems-get: a ² s ­ (st \ s)[a] = à[a];
+used for: s,ls;
+
+Diff-Diff-com: (st \ s) \ s0 = (st \ s0) \ s;
+;;; keine simprule
+
+Diff-del-rw: (st -- a) \ s = (st \ s) -- a;
+used for: s, ls;
+
+Diff-get: µ a ² s ­ (st \ s)[a] = st[a];
+used for: s,ls;
+
+Diff-ext : a ² st \ s  ° a ² st ¸ µ a ² s;
+used for: s,ls;
+Diff-rec-rev: st \ (s ++ a) = (st -- a) \ s ;
+;; keine simprule
+Diff-mod: st[a,d] \ (s ++ a) = st \ (s ++ a);
+used for: s,ls;
+Diff-empty: (à :: store) \ s = à;
+used for: s,ls;
+ 
+In-data-in:
+a ² st ¥ st[a] ² st;
+used for: s,ls;
+
+Data-notin-other:
+d0 Ü d1 ¸ µ d0 ² st ­ µ d0 ² st[a,d1];
+used for: s,ls;
+
+Data-notin-other-2:
+d0 Ü d1 ¸ d0 Ü d2 ¸ µ d0 ² st ­ µ d0 ² st[a,d1][b,d2];
+used for: s,ls;
+
+Data-notin-other-3:
+d Ü d0 ¸ d0 Ü d1 ¸ d0 Ü d2 ¸ µ d0 ² st ­ µ d0 ² st[a,d1][b,d2][c,d];
+used for: s,ls;
+
+Data-in-del:
+µ d0 ² st ­ µ d0 ² (st -- a);
+used for: s,ls;
+
+Data-in-putdel:
+µ d0 ² st ¸ d0 Ü d1 ­ µ d0 ² (st -- a)[b,d1];
+used for: s,ls;
+
+Data-in-delput:
+µ d0 ² st ¸ d0 Ü d1 ­ µ d0 ² (st[b,d1] -- a);
+used for: s,ls;
+
+Data-in-putdelput:
+µ d0 ² st ¸ d0 Ü d1 ¸ d0 Ü d2 ­ µ d0 ² (st[b,d1] -- a)[c,d2];
+used for: s,ls;
+
+Data-in-delput-2:
+µ d0 ² st ¸ d0 Ü d1 ¸ d0 Ü d2 ­ µ d0 ² (st[b,d1][c,d2] -- a);
+used for: s,ls;
+
+
+Data-in-putsame:
+d ² st[a, d];
+used for: s,ls;
+
+Data-in-puteq:
+d0 = d1 ­ d0 ² st[a, d1];
+used for: s,ls;
+
+dom-isemp: dom st = à ° st = à; used for: s,ls;
+dom-emp: dom à = à; used for: s,ls;
+
+dom-ins: dom (st[a,d]) = (dom st) ++ a; used for: s,ls;
+dom-del: dom (st -- a) = (dom st) -- a; used for: s,ls;
+
+dom-isemp: dom st = à ° st = à; used for: s,ls;
+

@@ -1,0 +1,187 @@
+
+variables i1 : int;
+
+lemmas
+
+
+
+testmodel: i ≠ i;
+
+ex-ls-add : i < j ↔ ∃ i0. j = i + i0 ∧ 0 < i0;
+
+ls          :  ⊦ j + i < j ↔ i < 0 ; used for : s, ls;
+
+ls-add-both:
+i < j  → i1 + i  < i1 + j; used for: s,ls;
+
+
+;;;END
+
+add-less:
+0 < i → i1 < i1 + i; used for: s,ls;
+;;;END
+not-zero-pos : 0 < i ∧ 0 < j → i + j ≠ 0; used for : s, ls;
+
+num-between : i + 1 = i0 ⊦ j < (* i0) → ¬ (* i) < j; used for : s,ls;
+;;; END
+ex-oddeven : ∃ i. i + i = j ∨ i + i + 1 = j;
+
+exit
+
+add-a       :  ⊦ i + j + i0 = (i + j) + i0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+add-c       :  ⊦ i + j = j + i ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+add-in      :  ⊦ i + j = i + i0 ↔ j = i0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+add-pred-01    :  ⊦ i -1 + j = (i + j) -1 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+add-succ-02    :  ⊦ i +1 + j = (i + j) +1 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+add-succ-01 :  ⊦ (i + j) +1 = i + i0 ↔ j +1 = i0 ;
+   used for : s, ls ;
+    remarks : proved ;
+add-zero-rev    :  ⊦ 0 + i = i ;
+   used for : s, ls ;
+    remarks : proved, used ;
+eq          :  ⊦ i = i + j ↔ j = 0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+ls          :  ⊦ i + j < j ↔ i < 0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+ls-01       :  ⊦ i + j < i + i0 ↔ j < i0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+ls-02       :  ⊦ i < i + j ↔ 0 < j ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+ls-succ-01  :  ⊦ (i + j) +1 < i + i0 ↔ j +1 < i0 ;
+   used for : s, ls ;
+    remarks : proved ;
+ls-succ-02  :  ⊦ i + j < (i + i0) +1 ↔ j < i0 +1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+ls-succ-03  :  ⊦ (i + j) +1 < i ↔ j +1 < 0 ;
+   used for : s, ls ;
+    remarks : proved ;
+ls-zero     :  ⊦ i < 0 ∧ j < 0 → ¬ 0 < i + j ;
+   used for : s, ls ;
+    remarks : proved ;
+lst         : i + j < i0, j0 < j ⊦ i + j0 < i0 ;
+    remarks : proved ;
+lst-01      :  ⊦ i < j + i0 ∧ j < j0 → i < j0 + i0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+lst-02      :  ⊦ i < j + i0 ∧ ¬ j0 < j → i < j0 + i0 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+lst-03      :  ⊦ i + j < i0 ∧ ¬ j < j0 → i + j0 < i0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+lst-04      :  ⊦ i + j < i0 ∧ j0 < j → i + j0 < i0 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+lst-05      :  ⊦ i < 0 ∧ j < j0 ∧ ¬ i0 < 0 → i + j < j0 + i0 ;
+   used for : s, ls ;
+    remarks : proved ;
+mone-01     :  ⊦ 0 = i + 1 ↔ i = (~1) ;
+    remarks : proved ;
+mone-02     :  ⊦ i + 1 = (~1) ↔ i + 1 + 1 = 0 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+mone-03     :  ⊦ i + 1 = 0 → i < 0 ;
+   used for : f, lf ;
+    remarks : proved, used by proved unit ;
+mthree      :  ⊦ i + 3 = 0 → ¬ 2 < i ;
+   used for : s, ls ;
+    remarks : proved ;
+neq         :  ⊦ j < 0 ∧ ¬ i0 < i → i0 ≠ i + j ;
+   used for : s, ls ;
+    remarks : proved, used ;
+neq-01      :  ⊦ i0 < i + j0 ∧ ¬ j < j0 → i0 ≠ i + j ;
+   used for : s, ls ;
+    remarks : proved ;
+nls         :  ⊦ ¬ i < j ∧ ¬ i0 < j0 → ¬ i + i0 < j + j0 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+pls         : i < j, i0 < j0 ⊦ i + i0 < j + j0 ;
+    remarks : proved, used ;
+pls-01      : ¬ i < 0, ¬ j < 0 ⊦ ¬ i + j < 0 ;
+    remarks : proved ;
+pls-02      : ¬ i < 0, ¬ j < j0 ⊦ ¬ i + j < j0 ;
+    remarks : proved ;
+pls-03      : ¬ i < j, ¬ i0 < j0 ⊦ ¬ i + i0 < j + j0 ;
+    remarks : proved ;
+pls-04      : i + j < i0 + j0, ¬ j < j0 ⊦ i < i0 ;
+    remarks : proved ;
+plst        : i < j, ¬ j0 < i0 ⊦ i + i0 < j + j0 ;
+    remarks : proved ;
+plst-01     : i + i0 < j + j0, ¬ j1 < j0, ¬ i0 < i1 ⊦ i + i1 < j + j1 ;
+    remarks : proved ;
+pred        :  ⊦ (i + 1) -1 = i ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+rewz        :  ⊦ i + 1 = 0 ↔ i = 0 -1 ;
+    remarks : proved ;
+succ        :  ⊦ (i + j) +1 = i ↔ j +1 = 0 ;
+   used for : s, ls ;
+    remarks : proved ;
+succ-01     :  ⊦ i +1 = i + 1 ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+ttwo        :  ⊦ i + i < j + j ↔ i < j ;
+   used for : s, ls ;
+    remarks : proved ;
+zero        :  ⊦ i < 0 ∧ j < 0 → i + j ≠ 0 ;
+   used for : s, ls ;
+    remarks : proved, used ;
+zero-01     :  ⊦ i < 0 ∧ j < 0 → i + j < 0 ;
+   used for : s, ls ;
+    remarks : proved ;
+zero-02     :  ⊦ 0 < i ∧ 0 < j → 0 < i + j ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+zero-03     :  ⊦ 0 < i ∧ ¬ j < 0 → 0 < i + j ;
+   used for : s, ls ;
+    remarks : proved ;
+zero-04     :  ⊦ 0 < i ∧ 0 < j → 0 ≠ i + j ;
+   used for : s, ls ;
+    remarks : proved ;
+zero-05     :  ⊦ 0 < i ∧ ¬ j < 0 → 0 ≠ i + j ;
+   used for : s, ls ;
+    remarks : proved ;
+zero-06     :  ⊦ ¬ i < 0 ∧ ¬ j < 0 → (0 = i + j ↔ i = 0 ∧ j = 0) ;
+   used for : s, ls ;
+    remarks : proved, used ;
+zero-07     :  ⊦ i + i = 0 ↔ i = 0 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+ax-02       :  ⊦ i + j +1 = (i + j) +1 ;
+   used for : s, ls ;
+    remarks : used ;
+ax-03       :  ⊦ i + j -1 = (i + j) -1 ;
+   used for : s, ls ;
+    remarks : used ;
+ax-04       :  ⊦ i + 0 = i ;
+   used for : s, ls ;
+    remarks : used, used by proved unit ;
+
+
+
+

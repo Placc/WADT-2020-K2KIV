@@ -1,0 +1,219 @@
+;; variables    ; 
+
+lemmas
+
+;; Unfug. 1. muss in array nicht array-copy
+;;        2. kann so keine flags ss, lss bekommen.
+;;        3. war in array schon mal korrekt!?
+;;array-empty: # ar = 0 → mkarray(0) = ar; used for: ss,lss;
+subarray-longer-eq-eq: subarray(ar0, 0, n + m) = subarray(ar1, 0, n + m) → (subarray(ar0, 0, n) = subarray(ar1, 0, n) ↔ true);
+at-copy              : ⊦   m0 < # ar1
+                         →   copy(ar0, n, ar1, n0, m)[m0]
+                           = (m0 < n0 ∨ n0 + m ≤ m0
+                             ⊃ ar1[m0]
+                             ;ar0[m0 + n - n0]
+                             ) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+at-fill              :  ⊦ n < # ar → fill(ar, a)[n] = a ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+at-fill-h            : ⊦   n < # ar
+                         →   fill(ar, a, m0, m1)[n]
+                           = (m0 ≤ n ∧ n < m0 + m1 ⊃ a;ar[n]) ;
+             remarks : proved, used, used by proved unit ;
+at-fill-h0           :  ⊦ n < m ∧ n < # ar → fill(ar, a, 0, m)[n] = a ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+at-fill-mkarray      :  ⊦ m < n → fill(mkarray(n), a)[m] = a ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+at-fill-other        : ⊦   n ≥ m ∧ n < # ar
+                         → fill(ar, a, 0, m)[n] = ar[n] ;
+            used for : s, ls ;
+             remarks : proved ;
+at-subarray          : ⊦   n + m ≤ # ar ∧ n0 < n
+                         → subarray(ar, m, n)[n0] = ar[m + n0] ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+copy-append          : ⊦   copy
+                           (ar0, n + m1, copy(ar0, n, ar1, n1, m1), 
+                            n1 + m1, m0)
+                         = copy(ar0, n, ar1, n1, m0 + m1) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+copy-coalesce        : ⊦   m1 = # ar1 ∧ m0 ≤ m1 ∧ m0 + n ≤ # ar1
+                         →   copy
+                             (copy(ar0, n0, ar1, 0, m1), n, ar2, n2, 
+                              m0)
+                           = copy(ar0, n0 + n, ar2, n2, m0) ;
+            used for : s, ls ;
+             remarks : proved ;
+copy-exact           : # ar0 = m, # ar1 = m
+                       ⊦ copy(ar0, 0, ar1, 0, m) = ar0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+copy-is-subarray     : # ar1 = n2
+                       ⊦   copy(ar0, n0, ar1, 0, n2)
+                         = subarray(ar0, n0, n2) ;
+             remarks : proved, used by proved unit ;
+copy-other           : ⊦   m0 + n0 ≤ m ∧ m + n ≤ # ar ∧ n ≤ # ar0
+                         →   copy
+                             (copy(ar0, 0, ar, m, n), m0, mkarray(n0), 
+                              0, n0)
+                           = copy(ar, m0, mkarray(n0), 0, n0) ;
+            used for : s, ls ;
+             remarks : proved ;
+copy-other-weak      : m0 + n0 ≤ m, m + n ≤ # ar, n0 ≤ # ar1, 
+                       n ≤ # ar0
+                       ⊦   copy
+                           (copy(ar0, 0, ar, m, n), m0, ar1, 0, n0)
+                         = copy(ar, m0, ar1, 0, n0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+copy-rec             : ⊦   copy(ar, m, ar0, m0, n + 1)
+                         = copy(ar, m + 1, ar0, m0 + 1, n)[m0, ar[m]] ;
+             remarks : proved, used by proved unit ;
+copy-self            :  ⊦ n < # ar → copy(ar, 0, ar, 0, n) = ar ;
+            used for : s, ls ;
+             remarks : proved ;
+copy-subarray1-elim  : n0 + n1 ≤ # ar0, m + m1 ≤ n1
+                       ⊦   copy(subarray(ar0, n0, n1), m, ar1, m0, m1)
+                         = copy(ar0, n0 + m, ar1, m0, m1) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+copy-subarray2       : # ar1 ≥ m0 + m1
+                       ⊦   copy
+                           (ar0, n0, subarray(ar1, m0, m1), n1, n2)
+                         = subarray
+                           (copy(ar0, n0, ar1, m0 + n1, n2), m0, m1) ;
+             remarks : proved ;
+idexcept-comm        :  ⊦ id○(ar0, ar1, n) ↔ id○(ar1, ar0, n) ;
+             remarks : proved ;
+idexcept-comm-simp   : ⊦   id○(ar0, ar1, n)
+                         → id○(ar1, ar0, n);
+            used for : ss;
+             remarks : proved, used by proved unit ;
+idexcept-extract-left : ⊦   ar0[n] = a
+                         → (id○(ar0, ar1, n) ↔ ar0 = ar1[n, a]) ;
+             remarks : proved, used by proved unit ;
+idexcept-extract-right : ⊦   ar1[n] = a
+                         → (id○(ar0, ar1, n) ↔ ar1 = ar0[n, a]) ;
+             remarks : proved, used by proved unit ;
+idexcept-refl        :  ⊦ id○(ar, ar, n);
+            used for : ss, lss ;
+             remarks : proved, used by proved unit ;
+idexcept-same        : ⊦   a = ar0[n] ∧ a = ar1[n]
+                         → (id○(ar0, ar1, n) ↔ ar0 = ar1) ;
+            used for : s ;
+             remarks : proved, used by proved unit ;
+idexcept-size        :  ⊦ id○(ar0, ar1, n) → # ar0 = # ar1 ;
+            used for : f ;
+             remarks : proved, used by proved unit ;
+idexcept-trans       : ⊦   id○(ar0, ar1, n) ∧ id○(ar1, ar2, n)
+                         → id○(ar0, ar2, n);
+            used for : ss, lss ;
+             remarks : proved ;
+idexcept-write-at    :  ⊦ id○(ar[n, a], ar, n);
+            used for : ss, lss ;
+             remarks : proved ;
+idexcept-write-at-right :  ⊦ id○(ar, ar[n, a], n);
+            used for : ss, lss ;
+             remarks : proved ;
+idexcept-write-at0   :  ⊦ id○(ar0[n, a], ar1, n) ↔ id○(ar0, ar1, n) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+idexcept-write-at0-right :  ⊦ id○(ar0, ar1[n, a], n) ↔ id○(ar0, ar1, n) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+in-at                :  ⊦ n < # ar ∧ ar[n] = a → a ∈ ar;
+            used for : ss, lss ;
+             remarks : proved ;
+rev-at               :  ⊦ n < # ar → rev(ar)[n] = ar[# ar - n + 1] ;
+            used for : s, ls ;
+             remarks : proved, used ;
+rev-at-h             : ⊦   m < n ∧ n ≤ # ar
+                         → rev(ar, n)[m] = ar[# ar - m + 1] ;
+             remarks : proved, used ;
+rev-rev              :  ⊦ rev(rev(ar)) = ar ;
+            used for : s ;
+             remarks : proved ;
+rev-size             :  ⊦ # rev(ar) = # ar ;
+            used for : s, ls ;
+             remarks : proved, used ;
+rev-size-h           :  ⊦ n ≤ # ar → # rev(ar, n) = # ar ;
+             remarks : proved, used ;
+size-copy            :  ⊦ # copy(ar, m, ar0, m0, n) = # ar0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+size-fill            :  ⊦ # fill(ar, a) = # ar ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+size-fill-h          :  ⊦ # fill(ar, a, m, n) = # ar ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+size-subarray        :  ⊦ # subarray(ar, m, n) = n ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+subarray-at          :  ⊦ n0 < n → subarray(ar, m, n)[n0] = ar[m + n0] ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+subarray-copy        : n1 ≥ m0, m0 + m1 ≤ # ar1
+                       ⊦   subarray
+                           (copy(ar0, n0, ar1, n1, n2), m0, m1)
+                         = copy
+                           (ar0, n0, subarray(ar1, m0, m1), n1 - m0, 
+                            n2) ;
+             remarks : proved, used by proved unit ;
+subarray-copy-elim   : m1 + n ≤ # ar1
+                       ⊦   n1 ≤ n
+                         →   subarray
+                             (copy(ar0, m0, ar1, m1, n), m1, n1)
+                           = subarray(ar0, m0, n1) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+subarray-copy-elim-exact : m1 + n ≤ # ar1
+                       ⊦   subarray(copy(ar0, m0, ar1, m1, n), m1, n)
+                         = subarray(ar0, m0, n) ;
+            used for : s ;
+             remarks : proved, used by proved unit ;
+subarray-copy-higher : m0 + m1 ≤ n1, m0 + m1 ≤ # ar
+                       ⊦   subarray(copy(ar0, n0, ar, n1, n2), m0, m1)
+                         = subarray(ar, m0, m1) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+subarray-copy-lower  : n1 + n2 ≤ m0, m0 + m1 ≤ # ar
+                       ⊦   subarray(copy(ar0, n0, ar, n1, n2), m0, m1)
+                         = subarray(ar, m0, m1) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+subarray-elim        : # ar = n ⊦ subarray(ar, 0, n) = ar ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+subarray-elim-simp   :  ⊦ subarray(ar, 0, # ar) = ar ;
+            used for : s, ls ;
+             remarks : proved ;
+subarray-subarray-elim : ⊦   n0 + n1 ≤ # ar0 ∧ m0 + m1 ≤ n1
+                         →   subarray(subarray(ar0, n0, n1), m0, m1)
+                           = subarray(ar0, n0 + m0, m1) ;
+             remarks : proved, used by proved unit ;
+subarray-subarray-elim-0:
+n2 ≤ n1 ⊦ n1 < # ar0 → subarray(subarray(ar0, 0, n1), 0, n2) = subarray(ar0, 0, n2);
+used for: s,ls;
+subarray-up-same     : ⊦   n < # ar
+                         →   subarray(ar[n, a], 0, n)
+                           = subarray(ar, 0, n) ;
+            used for : s ;
+             remarks : proved ;
+subarray-write-below : n < n0
+                       ⊦   subarray(ar[n, a], n0, n1)
+                         = subarray(ar, n0, n1) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+subarray-zero        :  ⊦ subarray(ar, n, 0) = mkarray(0) ;
+            used for : s ;
+             remarks : proved, used by proved unit ;
+
+
+;;; END
+

@@ -1,0 +1,21 @@
+enrich ksequence-base with
+
+functions
+  _ : ksequence → K;
+    comment: cast constructor for K data type;
+  . .toSeq : K → ksequence;
+    comment: smart cast from K to ksequence;
+
+predicates
+  isCast_ksequence: K;
+  	comment: cast constructor test predicate;
+
+axioms
+  seq-def: _(ks).toSeq = ks;
+    used for: s, ls;
+    comment: un-apply cast constructor for sequences in order to avoid nested casts;
+  seq-elem: ¬ isCast_ksequence(k) ⊦ k.toSeq = k ';
+    comment: for other K values, return a singleton list;
+
+end enrich
+

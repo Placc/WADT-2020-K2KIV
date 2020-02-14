@@ -1,0 +1,2385 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide}
+
+% The definition of \ifundefined is exercise 7.7 in the \TeX book
+% \csname <Tokens> \endcsname is essentially \<Tokens>, i.e.
+% some kind of evaluation. However, <Tokens> may contain tex-commands
+% that are evaluated.
+% \relax does nothing. Does this mean that \ifx\csname#1\endcsname
+% is not evaluated when defining \ifundefined ?
+% \expandafter evaluates everything after \ifx and then puts \ifx
+% again in front.
+% \ifndef{x}{y} tests whether x is defined. If yes, \x is carried out
+% (the else part \csname#1\endcsname) otherwise y is the result.
+% \ifdef{x} does \x if defined, nothing otherwise
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\newcommand{\ifndef}[2]{\ifundefined{#1}{#2}\else{\csname#1\endcsname}\fi}
+\newcommand{\ifdef}[1]{\ifndef{#1}{}}
+
+\newenvironment{fma}%
+{\begin{equation}\begin{minipage}{0.85\linewidth}\raggedright}%
+{\end{minipage}\end{equation}}
+
+\newcommand{\udo}{$\langle$}
+\newcommand{\udc}{$\rangle$}
+\newcommand{\ubo}{$[$}
+\newcommand{\ubc}{$]$}
+\newcommand{\mkdia}[1]{\mbox{$\langle$#1$\rangle$}}
+\newcommand{\mkbox}[1]{\mbox{$[$#1$]$}}
+\newcommand{\tildesym}{\raisebox{-4pt}{\bf\~{}}}
+\newcommand{\hatsym}{\mbox{\bf\^{} }}
+
+\newcommand{\Fol}{\mbox{$\vdash\ $}}
+\newcommand{\Not}{\mbox{$\neg\ $}}
+\newcommand{\And}{\mbox{$\wedge\ $}}
+\newcommand{\Or}{\mbox{$\vee\ $}}
+\newcommand{\Imp}{\mbox{$\rightarrow\ $}}
+\newcommand{\Equiv}{\mbox{$\leftrightarrow\ $}}
+\newcommand{\All}{\mbox{$\forall\ $}}
+\newcommand{\Ex}{\mbox{$\exists\ $}}
+
+\newcommand{\tab}[1]{\mbox{$\phantom{\mbox{#1}}$}}
+\newcommand{\tabx}[1]{\hspace*{#1ex}}
+\newcommand{\tabif}{\tab{{\bf if}}}
+\newcommand{\tabbe}{\tab{{\bf be}}}
+\newcommand{\taball}{\mbox{$\phantom{\forall\ }$}}
+\newcommand{\tabex}{\mbox{$\phantom{\exists\ }$}}
+\newcommand{\taba}{\mbox{$\phantom{\wedge\ }$}}
+\newcommand{\tabbo}{\mbox{$\phantom{(}$}}
+\newcommand{\tabe}{\mbox{$\phantom{\leftrightarrow\ }$}}
+\newcommand{\tabi}{\mbox{$\phantom{\rightarrow\ }$}}
+\newcommand{\tabn}{\mbox{$\phantom{\neg\ }$}}
+\newcommand{\tabo}{\mbox{$\phantom{\vee\ }$}}
+\newcommand{\tabf}{\mbox{$\phantom{\vdash\ }$}}
+\newcommand{\tabudo}{\mbox{$\phantom{\langle}$}}
+\newcommand{\tabudc}{\mbox{$\phantom{\langle\ }$}}
+\newcommand{\tabubo}{\mbox{$\phantom{[}$}}
+\newcommand{\tabubc}{\mbox{$\phantom{]\ }$}}
+
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+zero-13:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+intnat,nat2int-04: 
+ \Fol n$\to$i(m) $\mbox{$<$}_{i}$ n$\to$i(n) \Equiv m $<$ n
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-basic2,intr,ls-01: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ z \Equiv y $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+\bigskip
+
+zero-10:\\ int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,ls-02: 
+ \Fol x $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ y
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-basic2,intr,zero-01: 
+ \Fol x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \And y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-basic2,intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,fle-01: 
+ \Fol x $\mbox{$\le$}_{i}$ y \And y $\mbox{$<$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-lec,intr,ler: 
+ \Fol x $\mbox{$\le$}_{i}$ x
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+intnat,nat2int-03: 
+ \Fol n$\to$i(n + 1) = n$\to$i(n) $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+intnat,ax-06: 
+ \Fol n$\to$i(0) = $\mbox{0}_{i}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+zero-09:\\ int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,one-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,bet: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ x \Imp (x $\mbox{$\le$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{1}_{i}$)
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-lec,intr,fle-01: 
+ \Fol x $\mbox{$\le$}_{i}$ y \And y $\mbox{$<$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+zero-08:\\ int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+\bigskip
+
+zero-07:\\ 
+
+\bigskip
+
+zero-06:\\ 
+
+\bigskip
+
+zero-04:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-basic2,intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+zero-03:\\ int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+zero-02:\\ 
+
+\bigskip
+
+zero-01:\\ 
+
+\bigskip
+
+zero:\\ int-sub,intr,sub-zero: 
+ \Fol x $\mbox{-}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+\bigskip
+
+succ-01:\\ int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+\bigskip
+
+succ:\\ int-basic1,intr,pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = y
+
+
+
+int-sub,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-sub,intr,shift: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ z) = x $\mbox{+}_{i}$ y $\mbox{-}_{i}$ z
+
+
+
+int-basic2,intr,ax-03: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{-1}_{i}$ = (x $\mbox{+}_{i}$ y)$\mbox{-1}_{i}$
+
+
+
+int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+\bigskip
+
+sub-zero:\\ int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-sub,intr,less-02: 
+ \Fol x $\mbox{-}_{i}$ y $\mbox{$<$}_{i}$ z \Equiv x $\mbox{$<$}_{i}$ z $\mbox{+}_{i}$ y
+
+
+
+\bigskip
+
+square-08:\\ int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+square:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+sign-03:\\ int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+sign-02:\\ int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+sign-01:\\ int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+sign:\\ int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+sgn-01:\\ int-abs,intr,neg-12: 
+ \Fol $\tildesym$ x = $\tildesym$ y \Equiv x = y
+
+
+
+int-abs,intr,neg-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{-}_{i}$ x = $\tildesym$ x
+
+
+
+int-abs,intr,ax-02: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp sgn(y) = $\mbox{0}_{i}$ $\mbox{-1}_{i}$
+
+
+
+\bigskip
+
+sgn:\\ int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-basic1,intr,pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = y
+
+
+
+int-basic2,intr,ax-03: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{-1}_{i}$ = (x $\mbox{+}_{i}$ y)$\mbox{-1}_{i}$
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-abs,intr,sgn+1: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ y \Imp sgn(y) = $\mbox{1}_{i}$
+
+
+
+\bigskip
+
+rax:\\ int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+\bigskip
+
+qzero-02:\\ intnat,nat2int-08: 
+ \Fol \Not n$\to$i(n) $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-basic2,intr,ls-02: 
+ \Fol x $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ y
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ls-01: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ z \Equiv y $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+qzero:\\ int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+intnat,nat2int-08: 
+ \Fol \Not n$\to$i(n) $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-basic2,intr,ls-02: 
+ \Fol x $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ y
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+pred:\\ int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-sub,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+\bigskip
+
+pls:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,let: 
+ \Fol y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \And $\mbox{y}_{0}$ $\mbox{$\le$}_{i}$ $\mbox{y}_{1}$ \Imp y $\mbox{$\le$}_{i}$ $\mbox{y}_{1}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+one:\\ int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+\bigskip
+
+neg:\\ int-abs,intr,ax-01: 
+ \Fol $\tildesym$ x = $\mbox{0}_{i}$ $\mbox{-}_{i}$ x
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-abs,intr,neg-03: 
+ \Fol $\tildesym$ x $\mbox{+}_{i}$ x = $\mbox{0}_{i}$
+
+
+
+int-abs,intr,neg-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{-}_{i}$ x = $\tildesym$ x
+
+
+
+int-abs,intr,negeq: 
+ \Fol $\tildesym$ x = y \Equiv x $\mbox{+}_{i}$ y = $\mbox{0}_{i}$
+
+
+
+\bigskip
+
+mone:\\ int-abs,intr,neg-12: 
+ \Fol $\tildesym$ x = $\tildesym$ y \Equiv x = y
+
+
+
+\bigskip
+
+minus-one:\\ int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-basic1,intr,pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = y
+
+
+
+int-sub,intr,shift: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ z) = x $\mbox{+}_{i}$ y $\mbox{-}_{i}$ z
+
+
+
+int-basic2,intr,ax-03: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{-1}_{i}$ = (x $\mbox{+}_{i}$ y)$\mbox{-1}_{i}$
+
+
+
+int-lec,intr,zero: 
+ \Fol $\mbox{1}_{i}$ $\mbox{+}_{i}$ $\mbox{$\tildesym$1}_{i}$ = $\mbox{0}_{i}$
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-abs,intr,negeq: 
+ \Fol $\tildesym$ x = y \Equiv x $\mbox{+}_{i}$ y = $\mbox{0}_{i}$
+
+
+
+\bigskip
+
+lsz:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+lsf:\\ int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+ls-add:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-lec,intr,bet-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x \Imp (x $\mbox{$<$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{0}_{i}$)
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-basic2,intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,fle-01: 
+ \Fol x $\mbox{$\le$}_{i}$ y \And y $\mbox{$<$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,let: 
+ \Fol y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \And $\mbox{y}_{0}$ $\mbox{$\le$}_{i}$ $\mbox{y}_{1}$ \Imp y $\mbox{$\le$}_{i}$ $\mbox{y}_{1}$
+
+
+
+int-lec,intr,mone-07: 
+ \Fol x = $\mbox{$\tildesym$1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = $\mbox{0}_{i}$
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-abs,intr,neg-03: 
+ \Fol $\tildesym$ x $\mbox{+}_{i}$ x = $\mbox{0}_{i}$
+
+
+
+int-lec,intr,mone-02: 
+ \Fol $\mbox{$\tildesym$1}_{i}$ $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,zero: 
+ \Fol $\mbox{1}_{i}$ $\mbox{+}_{i}$ $\mbox{$\tildesym$1}_{i}$ = $\mbox{0}_{i}$
+
+
+
+int-lec,intr,ler: 
+ \Fol x $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,succ-02: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{+}_{i}$ $\mbox{1}_{i}$ \Equiv x $\mbox{$\le$}_{i}$ y
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \And x = z \Imp z $\mbox{$<$}_{i}$ y
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,les: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x $\mbox{+}_{i}$ $\mbox{1}_{i}$ \Equiv y = x $\mbox{+}_{i}$ $\mbox{1}_{i}$)
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-abs:\\ int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-abs,intr,absls: 
+ \Fol \Not absi(x) $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-09:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-basic1,intr,lf-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \And x = z \Imp z $\mbox{$<$}_{i}$ y
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,bet-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x \Imp (x $\mbox{$<$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{0}_{i}$)
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-08:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,one-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,fle-01: 
+ \Fol x $\mbox{$\le$}_{i}$ y \And y $\mbox{$<$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-07:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+ls-06:\\ int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-abs,intr,neg-05: 
+ \Fol $\tildesym$ x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Equiv $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ x
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-abs,intr,neg-04: 
+ \Fol $\tildesym$ $\mbox{0}_{i}$ = $\mbox{0}_{i}$
+
+
+
+\bigskip
+
+ls-05:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,one-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,bet: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ x \Imp (x $\mbox{$\le$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{1}_{i}$)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-04:\\ int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-03:\\ int-lec,intr,fle-01: 
+ \Fol x $\mbox{$\le$}_{i}$ y \And y $\mbox{$<$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-02:\\ int-abs,intr,ax-01: 
+ \Fol $\tildesym$ x = $\mbox{0}_{i}$ $\mbox{-}_{i}$ x
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-sub,intr,le-02: 
+ \Fol x $\mbox{$\le$}_{i}$ y $\mbox{-}_{i}$ z \Equiv x $\mbox{+}_{i}$ z $\mbox{$\le$}_{i}$ y
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-abs,intr,neg-15: 
+ \Fol x $\mbox{+}_{i}$ $\tildesym$ y = x $\mbox{-}_{i}$ y
+
+
+
+int-abs,intr,negle-13: 
+ \Fol $\tildesym$ x $\mbox{$\le$}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x $\mbox{+}_{i}$ y
+
+
+
+int-abs,intr,neg-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{-}_{i}$ x = $\tildesym$ x
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-abs,intr,neg: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\tildesym$ x \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls-01:\\ int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+ls:\\ int-lec,intr,ple-01: 
+x $\mbox{$<$}_{i}$ y, 
+$\mbox{x}_{0}$ $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$
+ \Fol x $\mbox{+}_{i}$ $\mbox{x}_{0}$ $\mbox{$<$}_{i}$ y $\mbox{+}_{i}$ $\mbox{y}_{0}$
+
+int-basic2,intr,ls-01: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ z \Equiv y $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic1,intr,lst-01: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Imp (x $\neq$ y \Equiv y $\mbox{$<$}_{i}$ x)
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-sub,intr,less-01: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{-}_{i}$ z \Equiv x $\mbox{+}_{i}$ z $\mbox{$<$}_{i}$ y
+
+
+
+int-sub,intr,shift: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ z) = x $\mbox{+}_{i}$ y $\mbox{-}_{i}$ z
+
+
+
+int-sub,intr,less-02: 
+ \Fol x $\mbox{-}_{i}$ y $\mbox{$<$}_{i}$ z \Equiv x $\mbox{$<$}_{i}$ z $\mbox{+}_{i}$ y
+
+
+
+int-basic1,intr,ls-pred: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ y
+
+
+
+int-basic1,intr,elim-pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv y = x $\mbox{+1}_{i}$
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,succ-02: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{+}_{i}$ $\mbox{1}_{i}$ \Equiv x $\mbox{$\le$}_{i}$ y
+
+
+
+int-lec,intr,succ-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{1}_{i}$ $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y
+
+
+
+int-basic2,intr,eq: 
+ \Fol x = x $\mbox{+}_{i}$ y \Equiv y = $\mbox{0}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = y
+
+
+
+int-abs,intr,abs-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ absi(x) \Equiv x $\neq$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-abs,intr,abs-16: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ y \Imp absi(y) = y
+
+
+
+intnat,labs: 
+ \Fol i$\to$n(x) $<$ i$\to$n(y) \Equiv absi(x) $\mbox{$<$}_{i}$ absi(y)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,one-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+\bigskip
+
+lez:\\ int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+le-01:\\ int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,ler: 
+ \Fol x $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-sub,intr,le-02: 
+ \Fol x $\mbox{$\le$}_{i}$ y $\mbox{-}_{i}$ z \Equiv x $\mbox{+}_{i}$ z $\mbox{$\le$}_{i}$ y
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-abs,intr,neg-15: 
+ \Fol x $\mbox{+}_{i}$ $\tildesym$ y = x $\mbox{-}_{i}$ y
+
+
+
+int-abs,intr,negle-13: 
+ \Fol $\tildesym$ x $\mbox{$\le$}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x $\mbox{+}_{i}$ y
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-abs,intr,neg: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\tildesym$ x \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+le:\\ int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+eq-02:\\ int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic1,intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \And x = z \Imp z $\mbox{$<$}_{i}$ y
+
+
+
+\bigskip
+
+eq-01:\\ int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+eq:\\ int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic1,intr,lst-01: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Imp (x $\neq$ y \Equiv y $\mbox{$<$}_{i}$ x)
+
+
+
+\bigskip
+
+dist-sub-01:\\ int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-sub,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+\bigskip
+
+dist-sub:\\ int-sub,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+int-sub,intr,sub-sub: 
+ \Fol x $\mbox{-}_{i}$ y $\mbox{-}_{i}$ z = x $\mbox{-}_{i}$ y $\mbox{+}_{i}$ z
+
+
+
+int-sub,intr,shift: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ z) = x $\mbox{+}_{i}$ y $\mbox{-}_{i}$ z
+
+
+
+int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-sub,intr,elim-sub: 
+ \Fol z = x $\mbox{-}_{i}$ y \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+\bigskip
+
+dist-01:\\ int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+\bigskip
+
+dist:\\ int-sub,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-sub,intr,shift: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ z) = x $\mbox{+}_{i}$ y $\mbox{-}_{i}$ z
+
+
+
+int-basic2,intr,ax-03: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{-1}_{i}$ = (x $\mbox{+}_{i}$ y)$\mbox{-1}_{i}$
+
+
+
+int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+\bigskip
+
+case:\\ int-basic1,intr,lst-01: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Imp (x $\neq$ y \Equiv y $\mbox{$<$}_{i}$ x)
+
+
+
+\bigskip
+
+c:\\ int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,elim-pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv y = x $\mbox{+1}_{i}$
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+\bigskip
+
+add-zero:\\ int-basic1,intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,ler: 
+ \Fol x $\mbox{$\le$}_{i}$ x
+
+
+
+int-lec,intr,one-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-lec,intr,bet-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x \Imp (x $\mbox{$<$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{0}_{i}$)
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+\bigskip
+
+abs-02:\\ int-abs,intr,neg-02: 
+ \Fol $\tildesym$ $\tildesym$ x = x
+
+
+
+int-abs,intr,neg-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{-}_{i}$ x = $\tildesym$ x
+
+
+
+int-abs,intr,ax-04: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = $\mbox{0}_{i}$ $\mbox{-}_{i}$ y
+
+
+
+\bigskip
+
+abs:\\ int-abs,intr,ax-04: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = $\mbox{0}_{i}$ $\mbox{-}_{i}$ y
+
+int-abs,intr,neg-03: 
+ \Fol $\tildesym$ x $\mbox{+}_{i}$ x = $\mbox{0}_{i}$
+
+
+
+int-basic1,intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+int-basic2,intr,zero-07: 
+ \Fol x $\mbox{+}_{i}$ x = $\mbox{0}_{i}$ \Equiv x = $\mbox{0}_{i}$
+
+
+
+int-basic1,intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+int-basic1,intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+int-lec,intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+int-abs,intr,abs-02: 
+ \Fol absi($\mbox{0}_{i}$) = $\mbox{0}_{i}$
+
+
+
+int-lec,intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+int-lec,intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+int-abs,intr,ax-05: 
+ \Fol \Not y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = y
+
+
+
+int-abs,intr,abs-18: 
+ \Fol absi(x) = x \Equiv $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x
+
+
+
+int-basic2,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-abs,intr,neg-15: 
+ \Fol x $\mbox{+}_{i}$ $\tildesym$ y = x $\mbox{-}_{i}$ y
+
+
+
+int-abs,intr,negeq: 
+ \Fol $\tildesym$ x = y \Equiv x $\mbox{+}_{i}$ y = $\mbox{0}_{i}$
+
+
+
+int-abs,intr,neg-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{-}_{i}$ x = $\tildesym$ x
+
+
+
+int-abs,intr,ax-04: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = $\mbox{0}_{i}$ $\mbox{-}_{i}$ y
+
+
+
+\bigskip
+
+a:\\ int-sub,intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+int-sub,intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+int-basic2,intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+int-basic2,intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+int-basic2,intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+int-lec,intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+\bigskip
+
+
+
+\end{document}
+

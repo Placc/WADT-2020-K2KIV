@@ -1,0 +1,41 @@
+
+;; variables m : nat;
+
+lemmas
+test: 
+ ⊦ (f ^ (n + 1))(S) = f((f ^ n)(S)) ;
+;;; END
+
+iterate-subseq: monotone(f) ⊦ (f ^ n) (λ x. false) ⊆ (f ^ (n + 1)) (λ x. false);
+iterate-subseq-leq: monotone(f), m ≤ n ⊦ (f ^ m) (λ x. false) ⊆ (f ^ n) (λ x. false);
+
+iterate-subseq-mu: monotone(f) ⊦ (f ^ n) (λ x. false) ⊆ μ(f);
+
+iterate-is-fix: cont(f) ⊦ μ(f)(x) ↔ ∃ n. (f ^ n) (λ x. false)(x);
+
+cont-monotone: cont(f) ⊦ monotone(f) ;
+
+cont-iterate-fix: cont(f) ⊦ (λ x0. ∃ n. (f ^ n) (λ x. false)(x0)) = f(λ x0. ∃ n. (f ^ n) (λ x. false)(x0));
+
+;;; END
+
+;;;****************************************************************************************
+;;; This file is used to add additional theorems. 
+;;; 1. Two semicolons start a line comment
+;;; 2. (: ... :) delimit a comment. They can be nested!
+;;; 3. Reading stops after ;;; END
+;;; 4. Theorems have the form
+       
+<name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+
+     'used for' and 'comment' are optional.
+     <some_comment> may be any text not containing a ;
+     <some_flags> is a comma separated list with information that the lemma should
+     be used as a simplifier rule or something like that. Since you can add or delete
+     simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+     Note: changing the flags or the comment only works if the sequent is also changed!!!
+     possible flags are:
+
+     s (simplifier rule), ls (local simplifier rule), f (forward), lf (local forward),
+     e (elimination), c (cut), lc (local cut)
+

@@ -1,0 +1,15 @@
+: successful
+### No save necessary ###
+### Next replay: map-putex ###
+map-putex: failed
+### No save necessary ###
+### Next replay: map-write ###
+map-write: failed
+### No save necessary ###
+### Next replay: mapex-put ###
+mapex-put: failed
+### No save necessary ###
+### Next replay: precise-mapex ###
+precise-mapex: failed
+### Done ###
+### No save necessary ###

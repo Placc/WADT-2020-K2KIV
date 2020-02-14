@@ -1,0 +1,18 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+num-ls-rec
+ls-rec
+k-lsrec
+
+
+*** Failures: ***
+
+ls-zero
+

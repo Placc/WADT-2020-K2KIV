@@ -1,0 +1,24 @@
+: successful
+### No save necessary ###
+### Next replay: at-uni ###
+at-uni: failed
+### No save necessary ###
+### Next replay: diff-at ###
+diff-at: failed
+### No save necessary ###
+### Next replay: diff-in ###
+diff-in: failed
+### No save necessary ###
+### Next replay: disj-write ###
+disj-write: failed
+### No save necessary ###
+### Next replay: exin ###
+exin: failed
+### No save necessary ###
+### Next replay: in-uni ###
+in-uni: failed
+### No save necessary ###
+### Next replay: size-uni ###
+size-uni: failed
+### Done ###
+### No save necessary ###

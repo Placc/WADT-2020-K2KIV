@@ -1,0 +1,38 @@
+enrich setelems with 
+
+
+functions 
+          UN : ((elem → bool) → bool) → (elem → bool);
+          IS : ((elem → bool) → bool) → (elem → bool);
+          compl: ((elem → bool) → (elem → bool)) → (elem → bool) → (elem → bool);
+          comment: compl(f)(S) = X \ f(X \ S);
+
+predicates . ⊆ . : (elem → bool) × (elem → bool);
+           monotone: ((elem → bool) → (elem → bool));
+
+variables x, x0, x1 : elem;
+          S, S0, S1 : elem → bool;
+          f : (elem → bool) → (elem → bool);
+          SS : (elem → bool) → bool;
+
+partial functions
+          μ : ((elem → bool) → (elem → bool)) → (elem → bool) with λ f. λ x. monotone(f);
+          ν : ((elem → bool) → (elem → bool)) → (elem → bool) with λ f. λ x. monotone(f);
+
+
+axioms
+
+union-def: UN(SS)(x) ↔ ∃ S. SS(S) ∧ S(x);
+intersection-def: IS(SS)(x) ↔ ∀ S. SS(S) → S(x);
+
+subseteq-def: S ⊆ S0 ↔ ∀ x. S(x) → S0(x);
+
+monotone-def: monotone(f) ↔ ∀ S, S0. S ⊆ S0 → f(S) ⊆ f(S0);
+
+least-prefixpoint-def: monotone(f) → ((μ(f))(x) ↔ ∀ S. f(S) ⊆ S → S(x));
+
+greatest-prefixpoint-def: monotone(f) → ((ν(f))(x) ↔ ¬ μ(compl(f))(x));
+
+compl-def: compl(f)(S)(x) ↔ ¬ f(λ x0. ¬ S(x0))(x);
+
+end enrich

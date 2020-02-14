@@ -1,0 +1,66 @@
+: successful
+### No save necessary ###
+### Next replay: at-copy ###
+at-copy: successful
+### No save necessary ###
+### Next replay: at-fill-h ###
+at-fill-h: successful
+### No save necessary ###
+### Next replay: at-fill-h0 ###
+at-fill-h0: successful
+### No save necessary ###
+### Next replay: at-subarray ###
+at-subarray: successful
+### No save necessary ###
+### Next replay: copy-append ###
+copy-append: successful
+### No save necessary ###
+### Next replay: copy-coalesce ###
+copy-coalesce: successful
+### No save necessary ###
+### Next replay: copy-is-subarray ###
+copy-is-subarray: successful
+### No save necessary ###
+### Next replay: copy-other-weak ###
+copy-other-weak: successful
+### No save necessary ###
+### Next replay: copy-subarray1-elim ###
+copy-subarray1-elim: successful
+### No save necessary ###
+### Next replay: copy-subarray2 ###
+copy-subarray2: successful
+### No save necessary ###
+### Next replay: idexcept-extract-right ###
+idexcept-extract-right: successful
+### No save necessary ###
+### Next replay: rev-at ###
+rev-at: successful
+### No save necessary ###
+### Next replay: rev-at-h ###
+rev-at-h: successful
+### No save necessary ###
+### Next replay: rev-rev ###
+rev-rev: successful
+### No save necessary ###
+### Next replay: rev-size ###
+rev-size: successful
+### No save necessary ###
+### Next replay: subarray-copy ###
+subarray-copy: successful
+### No save necessary ###
+### Next replay: subarray-copy-elim ###
+subarray-copy-elim: successful
+### No save necessary ###
+### Next replay: subarray-copy-higher ###
+subarray-copy-higher: successful
+### No save necessary ###
+### Next replay: subarray-copy-lower ###
+subarray-copy-lower: successful
+### No save necessary ###
+### Next replay: subarray-subarray-elim ###
+subarray-subarray-elim: successful
+### No save necessary ###
+### Next replay: subarray-up-same ###
+subarray-up-same: successful
+### Done ###
+### Saving lemmas next ###

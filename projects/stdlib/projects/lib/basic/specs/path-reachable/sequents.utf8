@@ -1,0 +1,429 @@
+
+;; variables m : nat;
+
+
+lemmas
+
+reachable-split-first: r ≠ r0 → (reachable(r,r0,H) ↔ 
+                                 r ≠ null ∧ r ∈ H ∧ ∃ r1. H[r].nxt = r1 ∧ r1 ∈ H ∧ r1 ≠ null ∧ reachable(r1,r0,H));
+
+reachable-modbehind:
+reachable(r,r0,H) ∧ reachable(r0,r1,H) ∧ ¬ reachable(r1,r0,H) → (¬ reachable(r,r0,H[r1,ce]) ↔ false);
+used for: ls;
+
+;;;END
+
+reachable-n-rec-1:  reachable-n(H, n + 1, r, r0) ↔ ∃ r1. reachable-1(H, r, r1) ∧ reachable-n(H, n, r1, r0); used for: ls;
+reachable-n-1: reachable-n(H, 1, r, r0) ↔ reachable-1(H, r, r0); used for: s,ls;
+reachable-n-rec-rev2:  reachable-n(H, n + 2, r, r0) 
+                       ↔ ∃ r1.   reachable-n(H, n,r, r1) 
+                               ∧ reachable-1(H, r1, H[r1].nxt) 
+                               ∧ reachable-1(H,  H[r1].nxt, r0); 
+
+reachable-n-rec-strong:  reachable-n(H, n + 1, r, r0) ↔ reachable-1(H, r, H[r].nxt) ∧ reachable-n(H, n, H[r].nxt, r0); 
+
+reachable-n-rec-strong2:  reachable-n(H, n + 2, r, r0) ↔ reachable-1(H, r, H[r].nxt) ∧ reachable-n(H, n + 1, H[r].nxt, r0); 
+
+
+reachable-n-rec2:    reachable-n(H, 2, r, r0) 
+                   ↔   reachable-1(H, r, H[r].nxt) 
+                     ∧ reachable-1(H,  H[r].nxt, r0); 
+
+
+reach-n-split-le: reachable-n(H,n,r,r0), m ≤ n ⊦
+                ∃ r1. reachable-n(H,m,r,r1) ∧ reachable-n(H,n - m,r1,r0);
+
+path-delnonmember: path(x,H) ∧ ¬ r ∈ x → path(x,H -- r);
+
+reach-n-path-n: n ≠ 0 → (reachable-n(H, n, r, r0) ↔ ∃ x. path(x,H) ∧ hd x = r ∧ x.last = r0 ∧ # x = n + 1);
+
+reachable-n-rec-rev:  reachable-n(H, n + 1, r, r0) ↔ ∃ r1. reachable-n(H, n,r, r1) ∧ reachable-1(H, r1, r0); 
+
+reachable-n-trans:  reachable-n(H, n, r, r0) ∧ reachable-n(H, n0, r0, r1)
+                     → (¬ reachable-n(H, n + n0, r, r1) ↔ false); used for: s,ls;
+
+
+reach-n-unique: reachable-n(H,n,r,r0) ∧ reachable-n(H,n,r,r1) → r0 = r1; used for: lf,f;
+reach-n-split: reachable-n(H,n,r,r0), m < n ⊦
+                ∃ r1. reachable-n(H,m,r,r1) ∧ reachable-n(H,n - m,r1,r0);
+;;;END
+
+reachable-split-last: r ≠ r0 → (reachable(r,r0,H) ↔ ∃ r1. reachable(r,r1,H) ∧ H[r1].nxt = r0 ∧ r0 ∈ H ∧ r0 ≠ null);
+
+
+
+removed-stays-reachable:   reachable(r,r0,H) ∧ H[r0].nxt ≠ null ∧ H[r0].nxt ∈ H ∧ ce.nxt = H[H[r0].nxt].nxt
+                         → (reachable(r,H[r0].nxt,H[r0,ce]) ↔ H[H[r0].nxt].nxt = H[r0].nxt 
+                                                              ∨ r ≠ r0 ∧ r = H[r0].nxt 
+                                                              ∨   reachable(H[H[r0].nxt].nxt,H[r0].nxt,H)
+                                                                ∧ ¬ reachable(H[H[r0].nxt].nxt,r0,H)
+                                                              ∨ ∃ r1.     reachable(r,r1,H) ∧ H[r1].nxt = H[r0].nxt
+                                                                      ∧ ¬ reachable(r0,r1,H));
+
+(: Der Fall r = H[r0].nxt ≠  r0 fehlt. In dem Fall bleibt r0.nxt reachable
+rem-stays-reachable-aux: reachable(r,r0,H), H[r0].nxt ≠ null, H[r0].nxt ∈ H, H[r0].nxt ≠ H[H[r0].nxt].nxt,
+                         ce.nxt = H[H[r0].nxt].nxt ⊦
+                         (  reachable(r,H[r0].nxt,H[r0,ce]) 
+                          ↔   H[H[r0].nxt].nxt = H[r0].nxt 
+                            ∨ (∃ x. path(r ' + x + H[r0].nxt ',H) ∧ r0 ≠ r ∧ ¬ r0 ∈ x)
+                            ∨ (∃ x. path(H[r0].nxt ' + x + H[r0].nxt ',H) ∧ ¬ r0 ∈ x));
+
+:)
+
+rem-stays-reachable-aux: reachable(r,r0,H), H[r0].nxt ≠ null, H[r0].nxt ∈ H, H[r0].nxt ≠ H[H[r0].nxt].nxt,
+                         ce.nxt = H[H[r0].nxt].nxt ⊦
+                         (  reachable(r,H[r0].nxt,H[r0,ce]) 
+                          ↔   H[H[r0].nxt].nxt = H[r0].nxt 
+                            ∨ r ≠ r0 ∧ r = H[r0].nxt
+                            ∨ (∃ x. path(r ' + x + H[r0].nxt ',H) ∧ r0 ≠ r ∧ ¬ r0 ∈ x)
+                            ∨ (∃ x. path(H[r0].nxt ' + x + H[r0].nxt ',H) ∧ ¬ r0 ∈ x));
+
+(: wrong
+
+rem-stays-reachable-aux1a: r0 ∈ H , H[r0].nxt ≠ null, H[r0].nxt ∈ H ⊦
+                             reachable(H[H[r0].nxt].nxt,H[r0].nxt,H) ∧ (¬ reachable(H[H[r0].nxt].nxt,r0,H)
+                           ↔ ∃ x. path(H[r0].nxt ' + x,H) ∧ (H[r0].nxt ' + x).last = H[r0].nxt ∧ ¬ r0 ∈ x;
+:)
+
+
+
+
+(:
+old buggy versions
+removed-stays-reachable:   reachable(r,r0,H) ∧ H[r0].nxt ≠ null ∧ H[r0].nxt ≠ null ∧ ce.nxt = H[H[r0].nxt].nxt
+                         → (reachable(r,H[r0].nxt,H[r0,ce]) ↔ reachable(H[H[r0].nxt].nxt,r,H));
+removed-stays-reachable:   reachable(r,r0,H) ∧ H[r0].nxt ≠ null ∧ H[r0].nxt ≠ null ∧ ce.nxt = H[H[r0].nxt].nxt
+                         → (reachable(r,H[r0].nxt,H[r0,ce]) ↔ H[r0].nxt  = r0 ∨ reachable(H[H[r0].nxt].nxt,r,H));
+removed-stays-reachable:   reachable(r,r0,H) ∧ H[r0].nxt ≠ null ∧ H[r0].nxt ≠ null ∧ ce.nxt = H[H[r0].nxt].nxt
+                         → (reachable(r,H[r0].nxt,H[r0,ce]) ↔ H[H[r0].nxt].nxt = H[r0].nxt ∨ reachable(H[H[r0].nxt].nxt,r,H));
+
+:)
+(: unklar
+removed-stays-reachable:   reachable(r,r0,H) ∧ H[r0].nxt ≠ null ∧ H[r0].nxt ≠ null ∧ ce.nxt = H[H[r0].nxt].nxt
+                         → (reachable(r,H[r0].nxt,H[r0,ce]) ↔ H[H[r0].nxt].nxt = H[r0].nxt ∨ reachable(H[H[r0].nxt].nxt,H[r0].nxt,H));
+
+:)
+
+
+
+rem-stays-reachable-aux2: reachable(r,r0,H), H[r0].nxt ≠ null, H[r0].nxt ∈ H ⊦
+                            (∃ r1. reachable(r,r1,H) ∧ H[r0].nxt = H[r1].nxt ∧ ¬ reachable(r0,r1,H))
+                          ↔ ∃ x. path(r ' + x + H[r0].nxt ',H) ∧ r0 ≠ r ∧ ¬ r0 ∈ x;
+
+rem-stays-reachable-aux1: r0 ∈ H , H[r0].nxt ≠ null, H[r0].nxt ∈ H, H[r0].nxt ≠ H[H[r0].nxt].nxt ⊦
+                          reachable(H[H[r0].nxt].nxt,H[r0].nxt,H) ∧ ¬ reachable(H[H[r0].nxt].nxt,r0,H)
+                          ↔ ∃ x. path(H[r0].nxt ' + x + H[r0].nxt ',H) ∧ ¬ r0 ∈ x;
+
+
+
+;;; END
+
+
+(: das hiess bisher rem-reachable-rev und wurde haeufig verwendet
+deshalb dringelassen aber als simprule ausgetragen
+
+rem-reachable-rev-weak:   
+                     reachable(r,r0,H[r1,ce]) ∧ ce.nxt = H[H[r1].nxt].nxt ∧ r0 ≠ H[r1].nxt
+                   ∧ H[r1].nxt ∈ H ∧ H[r1].nxt ≠ null ∧ r1 ≠ null ∧ r1 ∈ H
+                 → (¬ reachable(r,r0,H) ↔ false);
+used for: s,ls;
+:)
+
+rem-reachable-rev:   
+                    ce.nxt = H[H[r1].nxt].nxt ∧ r0 ≠ H[r1].nxt
+                   ∧ H[r1].nxt ∈ H ∧ H[r1].nxt ≠ null ∧ r1 ≠ null ∧ r1 ∈ H
+                 → (reachable(r,r0,H[r1,ce]) ↔ reachable(r,r0,H));
+used for: s,ls;
+
+reachnext: reachable(r0,H[r0].nxt,H) ↔ ¬ ¬ (r0 ≠ null ∧ r0 ∈ H ∧ H[r0].nxt ∈ H ∧ H[r0].nxt ≠ null);
+used for: s,ls;
+
+frommodified: 
+   r ≠ null ∧ ce.nxt ≠ r 
+→ (   reachable(r,r0,H[r, ce]) 
+   ↔  (r = r0 ∨ ce.nxt ≠ null ∧ ce.nxt ∈ H ∧ reachable(ce.nxt,r0,H[r, ce])));
+
+
+
+(: derzeit nicht als forward regel. Zu riskant bei Zyklen :)
+reachable-trans: reachable(r,r0,H) ∧ reachable(r0,r1,H) → reachable(r,r1,H);
+
+reachable-trans-simp: reachable(r,r0,H) ∧ reachable(r0,r1,H) → (¬ reachable(r,r1,H) ↔ false);
+used for: s,ls;
+
+id-reachable: H[r].nxt = null → (reachable(r,r0,H) ↔ ¬ ¬ (r ∈ H ∧ r ≠ null ∧ r = r0));
+used for: s,ls;
+
+modnotreachable-reachable-rev: 
+¬ reachable(r,r0,H) ∧ ¬ reachable(r,r1,H) ∧ r0 ∈ H → (reachable(r,r1,H[r0,ce]) ↔ false);
+used for: s,ls;
+
+
+(: das hiess bisher modnotreachable-reachable-rev und wurde haeufig verwendet
+deshalb dringelassen aber als simprule ausgetragen
+modnotreachable-reachable-rev-weak: 
+  ¬ reachable(r,r0,H) ∧ ¬ reachable(r,r1,H) ∧ r0 ≠ null ∧ r0 ∈ H 
+→ (reachable(r,r1,H[r0,ce]) ↔ false);
+used for: s,ls;
+:)
+
+modnotreachable-reachable: reachable(r,r0,H) ∧ ¬ reachable(r,r1,H) → (¬ reachable(r,r0,H[r1,ce]) ↔ false);
+used for: s,ls;
+
+(: das hiess bisher modnotreachable-reachable und wurde haeufig verwendet
+deshalb dringelassen aber als simprule ausgetragen
+modnotreachable-reachable-weak: 
+¬ reachable(r,r0,H) ∧ reachable(r,r1,H) ∧ r0 ≠ null ∧ r0 ∈ H → (¬ reachable(r,r1,H[r0,ce]) ↔ false);
+used for: s,ls;
+
+:)
+
+acyclic-rem-not-reachable : ∀ r. r ∈ H → ¬ reachable(H[r].nxt,r,H),
+                            reachable(r,r0,H), H[r0].nxt ≠ null, H[r0].nxt ∈ H,
+                            ce.nxt = H[H[r0].nxt].nxt 
+                            ⊦ ¬ reachable(r,H[r0].nxt,H[r0,ce]) ;
+
+
+;; END
+path-trans: path(x,H) ∧ x.last = r ∧ path(r ' + y,H) ⊦ path(x + y,H);
+
+path-modify: ¬ r0 ∈ x → (path(x,H[r0,ce]) ↔ path(x,H));
+path-modify-strong: ¬ r0 ∈ x ∧ r0 ∈ H → (path(x + r1 ',H[r0,ce]) ↔ path(x + r1 ',H));
+
+;;; END
+
+linearity-path: path(r ' + x,H), path(r '  + y, H) ⊦ x = y ∨ (∃ r0,y0. x = y + r0 ' + y0) ∨ (∃ r0,x0. y = x + r0 ' + x0);
+
+(:
+linearity-nxt: path(r ' + x + H[r0].nxt ',H), H[r0].nxt ≠ null, H[r0].nxt ∈ H, r ≠ r0, reachable(r, r0,H) ⊦ (r ' + x) .last = r0;
+:)
+linearity: reachable(r,r0,H), reachable(r,r1,H) 
+                       ⊦ reachable(r0,r1,H) ∨ reachable(r1,r0,H);
+
+(: Quark falsch fuer Zyklen
+linearity-half: reachable(r,r0,H) → (H[r0].nxt = H[r].nxt ↔ r0 = r);
+used for: s,ls;
+
+linearity-one: reachable(r,r0,H) ∧ reachable(r,r1,H) → (H[r0].nxt = H[r1].nxt ↔ r0 = r1);
+used for: s,ls;
+:)
+
+reachable-nodups-def: reachable(r,r0,H) ↔ ∃ x. path(r ' + x,H) ∧ (r ' + x).last = r0 ∧ ¬ dups(r ' + x);
+
+
+reachable-addnew: reachable(r,r1,H) ∧ ¬ r2 ∈ H → (¬ reachable(r,r1,H[r2,ce]) ↔ false);
+used for: ls,s;
+
+
+
+;; if r1 is not reachable from r in the original heap
+;; it doesn't become so in the new heap, except
+;; if there is a dangling pointer reachable from r that just points to r2
+
+;; BUGGY version: vergessen, dass r2 ≠ null sein muss
+;;; reachable-addnew-rev:   ¬ r2 ∈ H ∧ r ∈ H ∧ ¬ reachable(r,r1,H)
+;;;                       → (reachable(r,r1,H[r2,ce]) ↔ ∃ r0. reachable(r,r0,H) ∧ H[r0].nxt = r2 ∧ reachable(ce.nxt,r1,H));
+
+;;; BUGGY version: vergessen, dass auch r1 = r2 sein kann
+;;; reachable-addnew-rev:   ¬ r2 ∈ H ∧ r2 ≠ null ∧ r ∈ H ∧ ¬ reachable(r,r1,H)
+;;;                       → (reachable(r,r1,H[r2,ce]) ↔ ∃ r0. reachable(r,r0,H) ∧ H[r0].nxt = r2 ∧ reachable(ce.nxt,r1,H));
+;;; used for: s,ls;
+
+;;; old weaker version
+;;; reachable-addnew-rev:   ¬ r2 ∈ H ∧ r2 ≠ null ∧ r ∈ H ∧ ¬ reachable(r,r1,H)
+;;;                       → (  reachable(r,r1,H[r2,ce]) 
+;;;                          ↔ ∃ r0. reachable(r,r0,H) ∧ H[r0].nxt = r2 ∧ (r1 = r2 ∨ reachable(ce.nxt,r1,H)));
+;;; used for: s,ls;
+
+reachable-addnew-rev:   ¬ r2 ∈ H ∧ r ∈ H ∧ ¬ reachable(r,r1,H)
+                      → (  reachable(r,r1,H[r2,ce]) 
+                         ↔ ∃ r0. reachable(r,r0,H) ∧ H[r0].nxt = r2 ∧ r2 ≠ null ∧ (r1 = r2 ∨ reachable(ce.nxt,r1,H)));
+used for: s,ls;
+(:
+path-new-irrelevant:  ¬ r2 ∈ H ∧ ¬ r2 ∈ x ∧ ¬ path(r ' + x,H) ∧ r ∈ H  → (path(r ' + x,H[r2,ce]) ↔ false);
+used for: s,ls;
+
+path-new-irrelevant-rev:  ¬ r2 ∈ H ∧ ¬ r2 ∈ x ∧ path(r ' + x,H) ∧ r ∈ H  → (¬ path(r ' + x,H[r2,ce]) ↔ false);
+used for: s,ls;
+:)
+path-new-irrelevant-strong:  ¬ r2 ∈ H ∧ ¬ r2 ∈ x ∧ r ∈ H  → (path(r ' + x,H[r2,ce]) ↔ path(r ' + x,H));
+used for: s,ls;
+
+path-postfix: path(x + r ' + y,H) → (¬ path(r ' + y,H) ↔ false);
+path-prefix: path(r ' + x + y,H) → (¬ path(r ' + x,H) ↔ false);
+
+;;; END
+
+(: unnoetig
+reachable-last-not-null: reachable(r,r0,H) → (r0 = null ↔ false);
+used for: s,ls;
+:)
+
+
+
+path-first-in-H: path(r ' + x,H) → (¬ r ∈ H ↔ false);
+
+path-last: path(r ' + x,H) → (¬ (r ' + x).last ∈ H ↔ false);
+used for: s,ls;
+path-prelast: path(r ' + x + r0 ',H) → (¬ (r ' + x).last ∈ H ↔ false);
+used for: s,ls;
+
+path-butlast: path(r ' + x + r0 ',H) → (¬ path(r ' + x,H) ↔ false);
+used for: s,ls;
+path-last-nxt: path(r ' + x + r0 ',H) → (¬ H[(r ' + x).last].nxt = r0 ↔ false);
+used for: s,ls;
+
+path-last-not-null:  ¬ path(r ' + x + null ',H);
+used for: s,ls;
+
+path-split-last : path(r ' + x + r0 ',H) ↔ path(r ' + x,H) 
+                  ∧ H[(r ' + x).last].nxt = r0 ∧ r0 ∈ H ∧ r0 ≠ null;
+
+(: falsch fuer zyklus ! 
+reachable-nextequal: reachable(r,r1,H) ∧ reachable(r,r0,H) → (H[r0].nxt = H[r1].nxt ↔ r0 = r1);
+used for: s,ls;
+:)
+(:
+;; so falsch weil null ∈ H moeglich ist
+reachable-next: 
+ reachable(r,r1,H) → 
+(reachable(r,H[r1].nxt,H) ↔ 
+;;H[r1].nxt ≠ null ∧
+  H[r1].nxt ∈ H);
+:)
+
+
+
+startnotinH-notreachable: ¬ r ∈ H → (reachable(r,r0,H) ↔ false);
+endnotinH-notreachable: ¬ r0 ∈ H → (reachable(r,r0,H) ↔ false);
+
+
+;; KODKOD BEGIN
+
+k-reachable-def: reachable(r,r0,H) ↔ r ≠ null ∧ r ∈ H ∧ reachable*(H,r,r0); used for : kodkodax;
+
+
+k-path: path(x,H) ↔ # x = 1 ∧ hd(x) ∈ H ∧ hd(x) ≠ null ∨
+                    # x = 1 + 1 ∧ hd(x) ∈ H ∧ hd(tl(x)) ∈ H ∧ hd(x) ≠ null ∧ hd(tl(x)) ≠ null ∧ H[hd(x)].nxt = hd(tl(x)) ∨
+                    # x ≥ 1 + 1 ∧ hd(x) ∈ H ∧ hd(x) ≠ null ∧ H[hd(x)].nxt = hd(tl(x)) ∧ path(tl(x),H); used for : kodkodax;
+
+;; KODKOD END
+
+;;; ;; SOME WRONG LEMMAS
+;;; reach-reachnext-w: reachable(r,r1,H) → 
+;;; (¬ reachable(r,H[r1].nxt,H) ↔ 
+;;; ;;H[r1].nxt = null ∨ 
+;;; ¬ H[r1].nxt ∈ H);
+;;; 
+;;; 
+;;; reachable-addnewtonull-rev-w: reachable(r,r1,H[r2,ce]) ∧ 
+;;; ;;ce.nxt = null ∧ 
+;;; r1 ∈ H ∧ 
+;;; ¬ r2 ∈ H → 
+;;; reachable(r,r1,H);
+;;; 
+;;; 
+;;; fromnext-reachable-rev-w:   reachable(H[r].nxt,r0,H) ∧ 
+;;; ;;r ≠ r0 ∧ 
+;;; r ≠ null ∧ 
+;;; r ∈ H → 
+;;; reachable(r,r0,H);
+
+
+
+
+
+reach-reachnext: reachable(r,r1,H) → (¬ reachable(r,H[r1].nxt,H) ↔ H[r1].nxt = null ∨ ¬ H[r1].nxt ∈ H);
+used for: s,ls;
+
+rem-reachable:   
+                     reachable(r,r0,H) ∧ ce.nxt = H[H[r1].nxt].nxt ∧ r0 ≠ H[r1].nxt
+                   ∧ H[r1].nxt ∈ H ∧ H[r1].nxt ≠ null ∧ r1 ≠ null ∧ r1 ∈ H
+                 → (¬ reachable(r,r0,H[r1,ce]) ↔ false);
+used for: s,ls;
+
+;;; END
+notnull-reachable: ¬ reachable(null,r1,H);
+used for: ls,s;
+
+reachable-notnullinH: reachable(r,r1,H) ∧ r1 ≠ null → (¬ r1 ∈ H ↔ false);
+used for: ls,s;
+
+reachable-addnewtonull-rev: reachable(r,r1,H[r2,ce]) ∧ ce.nxt = null ∧ r1 ∈ H ∧ ¬ r2 ∈ H → (¬  reachable(r,r1,H) ↔ false);
+used for: ls,s;
+
+
+
+
+
+add-preserves-reachable:  
+   H[r1].nxt = H[r2].nxt ∧ ce.nxt = r2 ∧ reachable(r,r0,H) 
+ ∧ ¬ reachable(r,r2,H) ∧ r2 ≠ null ∧ r2 ∈ H ∧ reachable(r,r1,H) 
+→ reachable(r,r0,H[r1,ce]);
+used for: s,ls;
+
+
+add-preserves-reachable-rev:    H[r1].nxt = H[r2].nxt  ∧ r0 ≠ r2  ∧ ce.nxt = r2 ∧ ¬ reachable(r,r0,H)
+                              ∧ ¬ reachable(r,r2,H) ∧ r2 ≠ null ∧ r2 ∈ H ∧ reachable(r,r1,H) 
+                            → (reachable(r,r0,H[r1,ce]) ↔ false);
+used for: s,ls;
+
+
+changenonnxt-reachable-rev: reachable(r,r0,H[r1,ce]) ∧ ce.nxt = H[r1].nxt ∧ r1 ∈ H → (¬ reachable(r,r0,H) ↔ false);
+used for: s,ls;
+
+
+changenonnxt-reachable: reachable(r,r0,H) ∧ ce.nxt = H[r1].nxt → (¬ reachable(r,r0,H[r1,ce]) ↔ false);
+used for: s,ls;
+
+
+;;; END
+
+modified-stays-reachable-rev:  r0 ∈ H ∧ reachable(r,r0,H[r0,ce]) → (¬  reachable(r,r0,H) ↔ false);
+used for: s,ls;
+
+
+
+;;; END
+;;; END
+
+
+
+
+fromnext-reachable: reachable(r,r0,H) ∧ r ≠ r0 → (¬ reachable(H[r].nxt,r0,H) ↔ false);
+used for: s,ls;
+
+fromnext-reachable-rev:   reachable(H[r].nxt,r0,H) ∧ r ≠ r0 ∧ r ≠ null ∧ r ∈ H 
+                        → (¬ reachable(r,r0,H) ↔ false);
+used for: s,ls;
+
+
+
+add-preserves-reachable:  H[r1].nxt = H[r2].nxt ∧ reachable(r,r0,H) ∧ ¬ reachable(r,r2,H) ∧ r2 ≠ null ∧ r2 ∈ H ∧ reachable(r,r1,H) 
+         → reachable(r,r0,H[r1,mk(i∞,pin,r2)]);
+used for: s,ls;
+
+
+;;; END
+null-not-start-of-path: ¬ path(null ' + x,H);
+used for: s,ls;
+
+modified-stays-reachable:  reachable(r,r0,H) → (¬ reachable(r,r0,H[r0,ce]) ↔ false);
+used for: s,ls;
+
+
+
+self-reachable: reachable(r, r, H) ↔ ¬ ¬ (r ≠ null ∧ r ∈ H);
+used for: s,ls;
+
+
+
+null-not-reachable: ¬ reachable(r, null, H);
+used for: s,ls;
+
+reach-alloc: reachable(r,r1,H) → r1 ∈ H;
+used for: f;
+
+
+;;; END
+

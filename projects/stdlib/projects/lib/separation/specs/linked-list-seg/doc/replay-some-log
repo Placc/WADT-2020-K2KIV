@@ -1,0 +1,45 @@
+: successful
+### No save necessary ###
+### Next replay: ll-trav1-end ###
+ll-trav1-end: successful
+### No save necessary ###
+### Next replay: ll-trav1-init ###
+ll-trav1-init: successful
+### No save necessary ###
+### Next replay: ll-trav1-next ###
+ll-trav1-next: successful
+### No save necessary ###
+### Next replay: ll-trav2-end ###
+ll-trav2-end: successful
+### No save necessary ###
+### Next replay: ll-trav2-init ###
+ll-trav2-init: successful
+### No save necessary ###
+### Next replay: ll-trav2-next ###
+ll-trav2-next: successful
+### No save necessary ###
+### Next replay: lls-consecutive ###
+lls-consecutive: successful
+### No save necessary ###
+### Next replay: lls-fold-head ###
+lls-fold-head: failed
+### No save necessary ###
+### Next replay: lls-fold-tail ###
+lls-fold-tail: successful
+### No save necessary ###
+### Next replay: lls-null ###
+lls-null: successful
+### No save necessary ###
+### Next replay: lls-one ###
+lls-one: successful
+### No save necessary ###
+### Next replay: lls-unfold-head ###
+lls-unfold-head: successful
+### No save necessary ###
+### Next replay: lls-unfold-head-simp ###
+lls-unfold-head-simp: successful
+### No save necessary ###
+### Next replay: lls-unfold-tail ###
+lls-unfold-tail: failed
+### Done ###
+### Saving lemmas next ###

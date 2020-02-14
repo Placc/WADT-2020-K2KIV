@@ -1,0 +1,90 @@
+: successful
+### No save necessary ###
+### Next replay: bmin-bneq ###
+bmin-bneq: successful
+### No save necessary ###
+### Next replay: bmin-in-01 ###
+bmin-in-01: successful
+### No save necessary ###
+### Next replay: bmin-intempty ###
+bmin-intempty: successful
+### No save necessary ###
+### Next replay: bmin-size ###
+bmin-size: successful
+### No save necessary ###
+### Next replay: bmin-size-02 ###
+bmin-size-02: successful
+### No save necessary ###
+### Next replay: bmin-sub-01 ###
+bmin-sub-01: successful
+### No save necessary ###
+### Next replay: bmin-sub-02 ###
+bmin-sub-02: successful
+### No save necessary ###
+### Next replay: bmin-sub-05 ###
+bmin-sub-05: successful
+### No save necessary ###
+### Next replay: bmin-two ###
+bmin-two: successful
+### No save necessary ###
+### Next replay: bmin-two-04 ###
+bmin-two-04: successful
+### No save necessary ###
+### Next replay: bmin-two-05 ###
+bmin-two-05: successful
+### No save necessary ###
+### Next replay: bmin-two-07 ###
+bmin-two-07: successful
+### No save necessary ###
+### Next replay: bmin-two-08 ###
+bmin-two-08: successful
+### No save necessary ###
+### Next replay: butmin-ins ###
+butmin-ins: successful
+### No save necessary ###
+### Next replay: ls-add ###
+ls-add: successful
+### No save necessary ###
+### Next replay: ls-rm ###
+ls-rm: successful
+### No save necessary ###
+### Next replay: max-ifins ###
+max-ifins: successful
+### No save necessary ###
+### Next replay: max-q ###
+max-q: successful
+### No save necessary ###
+### Next replay: min-ins-01 ###
+min-ins-01: successful
+### No save necessary ###
+### Next replay: min-ins-02 ###
+min-ins-02: successful
+### No save necessary ###
+### Next replay: min-ins-04 ###
+min-ins-04: successful
+### No save necessary ###
+### Next replay: min-insert ###
+min-insert: successful
+### No save necessary ###
+### Next replay: min-less ###
+min-less: successful
+### No save necessary ###
+### Next replay: min-ls ###
+min-ls: successful
+### No save necessary ###
+### Next replay: min-q ###
+min-q: successful
+### No save necessary ###
+### Next replay: min-sub-01 ###
+min-sub-01: successful
+### No save necessary ###
+### Next replay: min-two ###
+min-two: successful
+### No save necessary ###
+### Next replay: min-two-02 ###
+min-two-02: successful
+### No save necessary ###
+### Next replay: minmax-03 ###
+minmax-03: successful
+### Done ###
+### Saving lemmas next ###

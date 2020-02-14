@@ -1,0 +1,28 @@
+enrich maplet, set-union with
+
+functions
+. ⊗_ . : (elem → heap → bool) × set → heap → bool prio 12;
+. ∧_ . : (elem → heap → bool) × set → heap → bool prio 11;
+
+variables
+aP : elem → heap → bool;
+
+axioms
+
+Sep-emp:
+aP ⊗_ ∅ = emp;
+used for: s,ls;
+
+Sep-ins:
+¬ a ∈ s → aP ⊗_ (s ++ a) = aP(a) * (aP ⊗_ s);
+used for: s,ls;
+
+And-emp:
+aP ∧_ ∅ = true;
+used for: s,ls;
+
+And-ins:
+¬ a ∈ s → aP ∧_ (s ++ a) = (aP(a) ∧ (aP ∧_ s));
+used for: s,ls;
+
+end enrich

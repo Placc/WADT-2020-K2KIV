@@ -1,0 +1,59 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+prime-smallest
+prime-prime
+not-prime
+modprime
+gcdexh
+gcdex-dist
+gcdex
+gcd-zero-01-h
+gcd-zero-01
+gcd-rec2
+gcd-one
+gcd-mult
+gcd-mod-one
+gcd-mod
+gcd-max
+gcd-le-both-h
+gcd-le-both
+gcd-le
+gcd-id
+gcd-eq
+gcd-div-one
+gcd-div-both-h
+gcd-div-both
+gcd-conq-one
+gcd-alldiv-h
+gcd-alldiv
+gcd-add
+divi-two-01
+divi-three
+divi-sym
+divi-sub
+divi-same
+divi-ref
+divi-dist
+divi-add
+div-multadd
+dist-same
+dist-mult
+dist-eq
+dist-c
+dist-add-01
+dist-add
+cong-equiv
+
+
+*** Failures: ***
+
+twodiv-01
+succ
+

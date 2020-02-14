@@ -1,0 +1,46 @@
+enrich separation with
+
+procedures
+alloc : ref, heap       nonfunctional indeterministic;
+read    ref, heap : obj;
+write   ref, obj  : heap nonfunctional;
+free    ref       : heap nonfunctional;
+
+axioms
+
+read-known:
+(r => o0 * P)(H)
+⊦ ⦉ read(r,H;o1) ⦊
+  o0 = o1;
+
+read-unknown:
+(r =>_ * P)(H)
+⊦ ⦉ read(r,H;o) ⦊
+  true;
+
+write-known:
+(r => o0 * P)(H)
+⊦ ⦉ write(r,o1;H) ⦊
+  (r => o1 * P)(H);
+
+write-unknown:
+(r =>_ * P)(H)
+⊦ ⦉ write(r,o;H) ⦊
+  (r => o * P)(H);
+
+alloc:
+P(H)
+⊦ ⦉ alloc(;r,H) ⦊
+  (r =>_ * P)(H);
+
+free-unknown:
+(r =>_ * P)(H)
+⊦ ⦉ free(r; H) ⦊
+  (P(H));
+
+free-known:
+(r => o * P)(H)
+⊦ ⦉ free(r; H) ⦊
+  (P(H));
+
+end enrich

@@ -1,0 +1,259 @@
+
+;; variables m : nat;
+
+lemmas
+
+monls-notsmall: mon<(nσ) ∧ nσ[0] = 0 ∧ ⌜n + 1⌝ < # nσ → (¬ n < nσ[n + 1] ↔ false);
+used for: s,ls;
+
+monlsinf-notsmall: mon<(⌜nnf⌝) ∧ nnf(0) = 0 → (¬ n < nnf(n + 1) ↔ false);
+used for: s,ls;
+
+leq-leninv: ⌜n⌝ < # nσ ∧ stutf(nσ) → (leninv(nσ) < ⌜nσ[n]⌝ ↔ false);
+used for: s,ls;
+
+not-ls-leninv: ⌜n⌝ < # nσ ∧ stutf(nσ) → (¬ ⌜nσ[n]⌝ < leninv(nσ) ↔ ⌜nσ[n]⌝ = leninv(nσ));
+used for: s,ls;
+
+eq-leninv: ⌜n⌝ < # nσ ∧ stutf(nσ) → (⌜nσ[n]⌝ = leninv(nσ) ↔ # nσ = ∞ ∧ ∀ m. n < m ∧ ⌜m⌝ < # nσ → nσ[m] = nσ[n]);
+
+
+not-stutf-empty: ¬ stutf([]);
+used for: s,ls;
+
+leninv-inf-strong: stutf(nσ) →   (¬ leninv(nσ) ≠ ∞ ↔ # nσ = ∞ ∧ (∀ m. ∃ m0. m < m0 ∧ nσ[m] < nσ[m0]) ∧ ∀ m. ∃ m0. m < nσ[m0]);
+used for: s,ls;
+
+inv-inverts-leq:
+stutf(nσ) ∧ ⌜n⌝ < # nσ ∧ ⌜nσ[n]⌝ < leninv(nσ) → (¬ ¬ inv(nσ)[nσ[n]] < n ↔ false);
+used for: s,ls;
+
+stutf-notbig: stutf(nσ) ∧ ⌜n⌝ < # nσ → (n < nσ[n] ↔ false);
+used for: s,ls;
+
+stutf-alltakenmax: stutf(nσ) ∧ ⌜m⌝ < # nσ ∧ n < nσ[m] → ∃ m0. m0 < m ∧ nσ[m0] = n ∧ nσ[m0 + 1] = n + 1;
+
+monls-mon-implies-monls:
+(∀ n. mon<(nσf(n))) ∧ mon(nσf) → (¬ mon<(lim(λ n. nσf(n))) ↔ false);
+
+
+monls-from: mon<(⌜nnf⌝) → (¬ mon<(⌜nnf from n⌝) ↔ false);
+used for: s,ls;
+
+monls-to: mon<(⌜nnf⌝) → (¬ mon<(⌜nnf to n⌝) ↔ false);
+used for: s,ls;
+
+monls-append1: mon<(⌜nl⌝ + ⌜nl0⌝) → (¬ mon<(⌜nl⌝) ↔ false);
+used for: s,ls;
+monls-append2: mon<(⌜nl⌝ + ⌜nl0⌝) → (¬ mon<(⌜nl0⌝) ↔ false);
+used for: s,ls;
+
+rem-preserves-monls: mon<(nσ) → (¬ mon<(rem(nσ,np)) ↔ false);
+used for: s,ls;
+
+
+
+
+mininv-stays-if-not-taken: mon<(nσ), ∀ m. ⌜m⌝ < # nσ → nσ[m] ≠ n ⊦ min(nσ,n + 1) = min(nσ,n);
+
+
+(: nσ[0] ≤ n < nσ[m] => nσ[m0] ≤ n < nσ[m0 + 1] :)
+monls-exists-maxls: mon<(nσ), nσ[0] ≤ n, n < nσ[m], ⌜m⌝ < # nσ  ⊦ ∃ m0. nσ[m0] ≤ n ∧ n < nσ[m0 + 1] ∧ m0 ≤ m;
+
+(: nσ[0] < n ≤ nσ[m] => nσ[m0] < n ≤ nσ[m0 + 1] :)
+monls-exists-maxleq: mon<(nσ), nσ[0] < n, n ≤ nσ[m], ⌜m⌝ < # nσ  ⊦ ∃ m0. nσ[m0] < n ∧ n ≤ nσ[m0 + 1] ∧ m0 ≤ m;
+
+
+
+mininv-inverts-inner: mon<(nσ) ∧ ⌜n⌝ < # nσ → min(nσ, nσ[n]) = n;
+used for: s,ls;
+mininv-inverts-inner-succ:   mon<(nσ) ∧ ⌜n⌝ < # nσ → min(nσ, nσ[n] + 1) = n + 1;
+used for: s,ls;
+
+;;; alte Lemmas alle zu schwach
+;;; mininv-inverts-inner: mon<(nσ) ∧ min(nσ, nσ[n] + 1) = 1 + min(nσ, nσ[n]) ∧ ⌜n⌝ < # nσ → min(nσ, nσ[n]) = n;
+;;; used for: s,ls;
+;;; ;;; 
+;;; mininv-inverts-succ:   mon<(nσ) ∧ min(nσ, nσ[n] + 1) = 1 + min(nσ, nσ[n]) ∧ ⌜n⌝ < # nσ 
+;;;                      → min(nσ, nσ[n] + 1) = n + 1;
+;;; mininv-inverts-stays:   mon<(nσ) ∧ min(nσ, nσ[n] + 1) = min(nσ, nσ[n]) ∧ ⌜n⌝ < # nσ          
+;;;                       → nσ[n + 1] = nσ[n];
+
+;;; mininv-inverts-inner-weak:   mon<(nσ) ∧ min(nσ, nσ[n] + 1) = min(nσ, nσ[n]) ∧ ⌜n⌝ < # nσ          
+;;;                            → (¬ min(nσ, nσ[n]) < n ↔ false);
+;;; used for: s,ls;
+
+mininv-inverts: mon<(nσ) ∧ min(nσ, n + 1) = 1 + min(nσ, n) → nσ[min(nσ,n)] = n;
+used for: s,ls;
+
+mon-eq: mon<(nσ) ∧ ⌜n⌝ < # nσ ∧ ⌜n0⌝ < # nσ → (nσ[n] = nσ[n0] ↔ n = n0);
+used for: s,ls;
+
+mininv-inverts-weak: mon<(nσ) ∧ ⌜min(nσ,n)⌝ < # nσ → (¬ ¬ nσ[min(nσ,n)] < n ↔ false);
+mininv-inverts-weak2: mon<(nσ) ∧ ⌜min(nσ,n)⌝ < # nσ → (¬ n ≤ nσ[min(nσ,n)] ↔ false);
+
+
+
+
+
+
+;;;mininv-inverts: mon<(nσ) → nσ[min(nσ,n)] = (⌜min(nσ,n)⌝ < # nσ ⊃ n; (nσ = [] ⊃ 0; nσ[(# nσ).n - 1] + 1));
+
+;;;(⌜min(nσ,n)⌝ < # nσ ⊃ n; (nσ = [] ⊃ 0; nσ[(# nσ).n - 1] + 1));
+;;;mininv-inverts-beyond: mon<(nσ) ∧ ¬ ⌜n⌝ < # nσ → nσ[min(nσ,n)] = nσ((# nσ).n - 1);
+;;; mininv-inverts-inv:     stutf(nσ1) ∧ nσ1[0] = 0 ∧ ⌜n⌝ < # nσ1 
+;;;                       ∧ ¬ (# nσ1 = ∞ ∧ # inv(nσ1) ≠ ∞)
+;;;                     → min(inv(nσ1),n) = nσ1[n];
+;;; 
+;;; mininv-inverts-inv-last:      stutf(nσ1) ∧ nσ1[0] = 0 ∧ ⌜n⌝ < # nσ1 
+;;;                            ∧ (# nσ1 = ∞ ∧ # inv(nσ1) ≠ ∞)
+;;;                          → min(inv(nσ1),n) = nσ1[n];
+
+min-empty: min([], n) = 0;
+used for: s,ls;
+
+min-zero:
+mon<(nσ) → min(nσ, 0) = 0;
+used for: s,ls;
+
+min-stutters:
+mon<(nσ)
+⊦ 
+min(nσ, n + 1) = 1 + min(nσ, n) ∨ min(nσ, n + 1) = min(nσ, n);
+
+
+min-skolemf:
+   mon<(nσ) ;; ∧ nσ ≠ [] ∧ (# nσ ≠ ∞ → n ≤ nσ[(# nσ).n - 1])   
+ → ∃ m0. (  nσ = [] 
+          ⊃ m0 = 0; 
+            (  # nσ ≠ ∞ ∧ nσ[(# nσ).n - 1] < n 
+             ⊃ m0 = (# nσ).n;
+               ⌜m0⌝ < # nσ ∧ n ≤ nσ[m0] ∧ ∀ m. ⌜m⌝ < # nσ ∧ n ≤ nσ[m] → m0 ≤ m));
+
+(: nσ ≠ [] → ∃ m0. m0 < # nσ ∧ n ≤ nσ(m0) ∧ ∀ m. n ≤ nσ(m) → m0 ≤ m; :)
+
+maxinf-skolemf:
+⊦ 
+∃ n∞. 
+ n∞ = ∞
+ ⊃ ((∀ n. ∃ n0. n < n0 ∧ np(n0)) ∨ (∀ n. ¬ np(n)))
+ ; ((∃ n. np(n∞ .n)) ∧ (∀ m. np(m) → ¬ n∞ < ⌜m⌝ )) ;
+
+
+succlessleninv-invsize: ⌜n⌝  + ⌜1⌝  < leninv(nσ) ∧ stutf(nσ) → (¬ ¬ # nσ = ⌜inv(nσ)[n]⌝  + ⌜1⌝ ↔ false);
+used for: s,ls;
+
+
+
+inv-get-inverse-succ-inf : stutf(nσ) ∧ ⌜n⌝ < leninv(nσ) ∧ # nσ = ∞ → nσ[inv(nσ)[n] + 1] = n + 1;
+used for: s,ls;
+
+lsleninv-2: n < nσ[m] ∧ # nσ = ⌜m⌝ + ⌜1⌝ ∧ stutf(nσ) → (¬ ⌜n⌝  < leninv(nσ) ↔ false);
+used for: s,ls;
+lsleninv-3: n < nσ[m] ∧ # nσ = # nσ0 ∧ # nσ0 = ⌜m⌝ + ⌜1⌝ ∧ stutf(nσ) → (¬ ⌜n⌝  < leninv(nσ) ↔ false);
+used for: s,ls;
+
+leninv-invlast: # nσ = ⌜m⌝ + ⌜1⌝ ∧ leninv(nσ) = ⌜n⌝ + ⌜1⌝ ∧ stutf(nσ) → nσ[m] = n;
+used for: s,ls;
+
+leninv-invlast-2: leninv(nσ) = ⌜n⌝ + ⌜1⌝ ∧ # nσ = # nσ0 ∧ # nσ0 = ⌜m⌝ + ⌜1⌝ ∧ stutf(nσ) → nσ[m] = n;
+used for: s,ls;
+
+leninv-invlast-inv: # nσ = ⌜m⌝ + ⌜1⌝ ∧ leninv(nσ) = ⌜n⌝ + ⌜1⌝ ∧ stutf(nσ) → inv(nσ)[n] = m;
+used for: s,ls;
+
+leninv-invlast-inv-2: leninv(nσ) = ⌜n⌝ + ⌜1⌝ ∧ # nσ = # nσ0 ∧ # nσ0 = ⌜m⌝ + ⌜1⌝ ∧ stutf(nσ) → inv(nσ)[n] = m;
+used for: s,ls;
+
+
+
+;;;;# nσ = ∞ ∧ nσ[n + 1] = nσ[n] + 1 → (¬ ⌜nσ[n]⌝ < leninv(nσ) ↔ false);leninv
+
+stutf-invmonls: stutf(nσ) → (¬ mon<(inv(nσ)) ↔ false);
+used for: s,ls;
+lsleninv-1: stutf(nσ) ∧ ⌜m⌝ < # nσ ∧ n < nσ[m] → (¬ ⌜n⌝  < leninv(nσ) ↔ false);
+
+inv-ls-succ: stutf(nσ) ∧ ⌜n⌝ + ⌜1⌝ < leninv(nσ) → inv(nσ)[n] < inv(nσ)[n + 1];
+inv-ls-notleq: stutf(nσ) ∧ ⌜n⌝ + ⌜1⌝ < leninv(nσ) → (inv(nσ)[n + 1] ≤ inv(nσ)[n] ↔ false);
+used for: s,ls;
+
+(: less-leninv: stutf(nσ) ∧ # nσ = ∞ ∧ nσ[n + 1] = nσ[n] + 1 → (¬ ⌜nσ[n]⌝ < leninv(nσ) ↔ nσ = ⌜λ n. 0⌝); :)
+
+less-leninv: stutf(nσ) ∧ # nσ = ∞ ∧ nσ[n + 1] = nσ[n] + 1 → (¬ ⌜nσ[n]⌝ < leninv(nσ) ↔ false);
+
+inv-inverts:
+stutf(nσ) ∧ nσ[n + 1] = nσ[n] + 1 ∧ ⌜n⌝ + ⌜1⌝ < # nσ → inv(nσ)[nσ[n]] = n;
+used for: s,ls;
+
+inv-inverts-last:
+stutf(nσ) ∧ # nσ = ⌜n⌝ + ⌜1⌝ → inv(nσ)[nσ[n]] = n;
+used for: s,ls;
+
+stutf-slowincrease: stutf(nσ) ∧ ⌜m⌝ + ⌜n⌝ < # nσ → nσ[m + n] ≤ nσ[m] + n;
+
+stutf-nonempty : stutf(nσ) → (¬ ¬ nσ = [] ↔ false);
+used for: s,ls;
+
+stutf-zero : stutf(nσ) → nσ[0] = 0;
+used for: s,ls;
+
+stutf-alltaken: stutf(nσ) ∧ ⌜m⌝ < # nσ ∧ n ≤ nσ[m] → ∃ m0. m0 ≤ m ∧ nσ[m0] = n;
+
+
+stutf-monle: stutf(nσ) → (¬ mon≤(nσ) ↔ false);
+used for: s,ls;
+
+monle-leq: mon≤(nσ) ∧ m ≤ n ∧ ⌜n⌝ < # nσ → nσ[m] ≤ nσ[n];
+
+monls-ls: mon<(nσ) ∧ m < n ∧ ⌜n⌝ < # nσ → nσ[m] < nσ[n];
+
+maxinf-inf: max∞(np) = ∞ ↔ (∀ n. ∃ n0. n < n0 ∧ np(n0)) ∨ ∀ n. ¬ np(n);
+maxinf-fin: max∞(np) = ⌜n⌝ ↔ np(n) ∧ (∀ m. np(m) → ¬ n < m);
+
+stutf-maxinf-is-fin: stutf(nσ) → (  max∞(λ n. ⌜n⌝ < # nσ ∧ nσ[n] = m) = ∞ 
+                                  ↔   (# nσ = ∞ ∧ ∃ n. ∀ n0. ¬ n0 < n → nσ[n0] = m)
+                                    ∨ ∀ n. ⌜n⌝ <  # nσ → nσ[n] < m);
+
+
+leninv-inf: stutf(nσ) →  (leninv(nσ) = ∞ ↔ # nσ = ∞ ∧ ∀ m. ∃ m0. m < m0 ∧ nσ[m] < nσ[m0]);
+
+
+leninv-zero: stutf(nσ) → (leninv(nσ) = ⌜0⌝ ↔ nσ = ⌜λ n. 0⌝);
+
+leninv-succ: stutf(nσ) →  (leninv(nσ) = ⌜n⌝ + ⌜1⌝ ↔ (  # nσ = ∞ 
+                                         ⊃ (∃ m. nσ[m] = n ∧ ∀ m0. m < m0 → nσ[m0] = n + 1);
+                                            nσ[(# nσ).n - 1] = n));
+
+
+leninv-less: leninv(nσ) < n∞ ↔ ∃ n. leninv(nσ) = ⌜n⌝ ∧ ⌜n⌝ < n∞;
+
+leninv-is-len-inv: stutf(nσ) → # inv(nσ) = leninv(nσ);
+used for: s,ls;
+
+
+inv-get-lslen : stutf(nσ) ∧ ⌜n⌝ < leninv(nσ) → (¬ ⌜inv(nσ)[n]⌝ < # nσ ↔ false);
+used for: s,ls;
+
+inv-get-inverse : stutf(nσ) ∧ ⌜n⌝ < leninv(nσ) → nσ[inv(nσ)[n]] = n;
+used for: s,ls;
+
+inv-get-inverse-succ : stutf(nσ) ∧ ⌜n⌝ < leninv(nσ) ∧ ⌜inv(nσ)[n]⌝ + ⌜1⌝ < # nσ → nσ[inv(nσ)[n] + 1] = n + 1;
+used for: s,ls;
+
+inv-get-inverse-between :   stutf(nσ) ∧ ⌜n⌝ + ⌜1⌝ < leninv(nσ) ∧ inv(nσ)[n] + m + 1 < inv(nσ)[n + 1]
+                       → nσ[inv(nσ)[n] + m + 1] = n + 1;
+
+
+;; Problem: leninv-succ matcht nicht auf ⌜n⌝ + ⌜1⌝ = leninv(nσ) oder leninv(nσ) = ⌜1⌝ + ⌜n⌝ 
+inv-get-inverse-last :   stutf(nσ) ∧ ⌜n⌝ + ⌜1⌝ = leninv(nσ) ∧ ⌜inv(nσ)[n]⌝ + ⌜m⌝ + ⌜1⌝ < # nσ
+                       → nσ[inv(nσ)[n] + m + 1] = n + 1;
+
+
+inv-ls-succ: stutf(nσ) ∧ ⌜n⌝ + ⌜1⌝ < leninv(nσ) → inv(nσ)[n] < inv(nσ)[n + 1];
+;;;END
+
+
+
+
+
+;;; END

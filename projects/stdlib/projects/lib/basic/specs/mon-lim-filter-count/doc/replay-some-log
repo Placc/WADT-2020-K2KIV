@@ -1,0 +1,123 @@
+: successful
+### No save necessary ###
+### Next replay: cnt-is-succ ###
+cnt-is-succ: successful
+### No save necessary ###
+### Next replay: cnt-is-zero ###
+cnt-is-zero: successful
+### No save necessary ###
+### Next replay: cntfin-eqlen ###
+cntfin-eqlen: successful
+### No save necessary ###
+### Next replay: cntinf-fin-succ ###
+cntinf-fin-succ: successful
+### No save necessary ###
+### Next replay: cntinf-fin-weak ###
+cntinf-fin-weak: successful
+### No save necessary ###
+### Next replay: cntinf-tocntsurj ###
+cntinf-tocntsurj: successful
+### No save necessary ###
+### Next replay: cntrem-is-inf ###
+cntrem-is-inf: successful
+### No save necessary ###
+### Next replay: filter-inf-finsize ###
+filter-inf-finsize: successful
+### No save necessary ###
+### Next replay: filter-infsize ###
+filter-infsize: successful
+### No save necessary ###
+### Next replay: filter-lb ###
+filter-lb: successful
+### No save necessary ###
+### Next replay: filter-rec-gen ###
+filter-rec-gen: successful
+### No save necessary ###
+### Next replay: getfilter-sat-p ###
+getfilter-sat-p: successful
+### No save necessary ###
+### Next replay: lastoc-finrec-end ###
+lastoc-finrec-end: successful
+### No save necessary ###
+### Next replay: lastoc-inf-ant ###
+lastoc-inf-ant: successful
+### No save necessary ###
+### Next replay: lastoc-less-size ###
+lastoc-less-size: successful
+### No save necessary ###
+### Next replay: lastocfin-cnteqcntto ###
+lastocfin-cnteqcntto: successful
+### No save necessary ###
+### Next replay: lim-evconst ###
+lim-evconst: successful
+### No save necessary ###
+### Next replay: lim-exists ###
+lim-exists: successful
+### No save necessary ###
+### Next replay: lim-finsize ###
+lim-finsize: successful
+### No save necessary ###
+### Next replay: lim-infsize ###
+lim-infsize: successful
+### No save necessary ###
+### Next replay: lim-infsize-strong ###
+lim-infsize-strong: successful
+### No save necessary ###
+### Next replay: lim-unique ###
+lim-unique: successful
+### No save necessary ###
+### Next replay: mon-bd-or-unbound ###
+mon-bd-or-unbound: successful
+### No save necessary ###
+### Next replay: prefix-antisymm ###
+prefix-antisymm: successful
+### No save necessary ###
+### Next replay: prefix-refl ###
+prefix-refl: successful
+### No save necessary ###
+### Next replay: prefixself-equal ###
+prefixself-equal: successful
+### No save necessary ###
+### Next replay: rem-cntequal-fin ###
+rem-cntequal-fin: successful
+### No save necessary ###
+### Next replay: rem-cntleq ###
+rem-cntleq: successful
+### No save necessary ###
+### Next replay: rem-equal-fin ###
+rem-equal-fin: successful
+### No save necessary ###
+### Next replay: rem-equal-inf ###
+rem-equal-inf: successful
+### No save necessary ###
+### Next replay: rem-member1 ###
+rem-member1: successful
+### No save necessary ###
+### Next replay: rem-member2-fin ###
+rem-member2-fin: successful
+### No save necessary ###
+### Next replay: rem-rec-rev ###
+rem-rec-rev: successful
+### No save necessary ###
+### Next replay: rem-rec-rev-fin ###
+rem-rec-rev-fin: successful
+### No save necessary ###
+### Next replay: rem-reminv-cnt-add ###
+rem-reminv-cnt-add: successful
+### No save necessary ###
+### Next replay: rem-shortens ###
+rem-shortens: successful
+### No save necessary ###
+### Next replay: reminf-finsize ###
+reminf-finsize: successful
+### No save necessary ###
+### Next replay: reminf-infsize ###
+reminf-infsize: successful
+### No save necessary ###
+### Next replay: reminf-infsize-strong ###
+reminf-infsize-strong: successful
+### No save necessary ###
+### Next replay: remnone-cntequal ###
+remnone-cntequal: successful
+### Done ###
+### Saving lemmas next ###

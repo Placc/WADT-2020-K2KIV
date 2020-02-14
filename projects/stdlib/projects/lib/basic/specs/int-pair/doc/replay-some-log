@@ -1,0 +1,21 @@
+: successful
+### No save necessary ###
+### Next replay: dec-int ###
+dec-int: successful
+### No save necessary ###
+### Next replay: dec-int-01 ###
+dec-int-01: successful
+### No save necessary ###
+### Next replay: dec-nat ###
+dec-nat: successful
+### No save necessary ###
+### Next replay: dec-nat-01 ###
+dec-nat-01: successful
+### No save necessary ###
+### Next replay: enc-zero-01 ###
+enc-zero-01: successful
+### No save necessary ###
+### Next replay: enc-zero-02 ###
+enc-zero-02: successful
+### Done ###
+### Saving lemmas next ###

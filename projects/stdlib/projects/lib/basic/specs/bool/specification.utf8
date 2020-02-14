@@ -1,0 +1,7 @@
+data specification
+
+         bool = true | false ;
+
+variables boolvar, boolvar0 : bool;
+
+end data specification

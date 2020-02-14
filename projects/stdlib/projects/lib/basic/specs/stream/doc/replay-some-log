@@ -1,0 +1,147 @@
+: successful
+### No save necessary ###
+### Next replay: append-assoc ###
+append-assoc: successful
+### No save necessary ###
+### Next replay: append-empty-01 ###
+append-empty-01: successful
+### No save necessary ###
+### Next replay: append-from-addsize ###
+append-from-addsize: successful
+### No save necessary ###
+### Next replay: append-from-ge-01 ###
+append-from-ge-01: successful
+### No save necessary ###
+### Next replay: append-from-ge-02 ###
+append-from-ge-02: successful
+### No save necessary ###
+### Next replay: append-from-gr-01 ###
+append-from-gr-01: successful
+### No save necessary ###
+### Next replay: append-from-gt ###
+append-from-gt: successful
+### No save necessary ###
+### Next replay: append-to-addsize ###
+append-to-addsize: successful
+### No save necessary ###
+### Next replay: append-to-addsize-01 ###
+append-to-addsize-01: successful
+### No save necessary ###
+### Next replay: append-to-gr ###
+append-to-gr: successful
+### No save necessary ###
+### Next replay: append-to-gr-01 ###
+append-to-gr-01: successful
+### No save necessary ###
+### Next replay: append-to-ls ###
+append-to-ls: successful
+### No save necessary ###
+### Next replay: append-to-size ###
+append-to-size: successful
+### No save necessary ###
+### Next replay: append-to-size-01 ###
+append-to-size-01: successful
+### No save necessary ###
+### Next replay: elim-fromto ###
+elim-fromto: successful
+### No save necessary ###
+### Next replay: elim-fromto-fin ###
+elim-fromto-fin: successful
+### No save necessary ###
+### Next replay: fin-size-from2 ###
+fin-size-from2: successful
+### No save necessary ###
+### Next replay: from-append-add ###
+from-append-add: successful
+### No save necessary ###
+### Next replay: from-append-tofrom ###
+from-append-tofrom: successful
+### No save necessary ###
+### Next replay: from-from ###
+from-from: successful
+### No save necessary ###
+### Next replay: from-succ ###
+from-succ: successful
+### No save necessary ###
+### Next replay: get-append-notls ###
+get-append-notls: successful
+### No save necessary ###
+### Next replay: get-finto ###
+get-finto: successful
+### No save necessary ###
+### Next replay: get-from ###
+get-from: successful
+### No save necessary ###
+### Next replay: get-from-01 ###
+get-from-01: successful
+### No save necessary ###
+### Next replay: get-infto ###
+get-infto: successful
+### No save necessary ###
+### Next replay: get-to ###
+get-to: successful
+### No save necessary ###
+### Next replay: get-to-02 ###
+get-to-02: successful
+### No save necessary ###
+### Next replay: get-toinf ###
+get-toinf: successful
+### No save necessary ###
+### Next replay: length-from ###
+length-from: successful
+### No save necessary ###
+### Next replay: length-to ###
+length-to: successful
+### No save necessary ###
+### Next replay: less-size-from ###
+less-size-from: successful
+### No save necessary ###
+### Next replay: nlslen-lslensn-eqlensn ###
+nlslen-lslensn-eqlensn: successful
+### No save necessary ###
+### Next replay: size-from-less ###
+size-from-less: successful
+### No save necessary ###
+### Next replay: size-to ###
+size-to: successful
+### No save necessary ###
+### Next replay: size-to-02 ###
+size-to-02: successful
+### No save necessary ###
+### Next replay: swap-from-to ###
+swap-from-to: successful
+### No save necessary ###
+### Next replay: swap-to-from-app ###
+swap-to-from-app: successful
+### No save necessary ###
+### Next replay: to-append-add ###
+to-append-add: successful
+### No save necessary ###
+### Next replay: to-empty2 ###
+to-empty2: successful
+### No save necessary ###
+### Next replay: to-from-01 ###
+to-from-01: successful
+### No save necessary ###
+### Next replay: to-plus-from-inf-simp ###
+to-plus-from-inf-simp: successful
+### No save necessary ###
+### Next replay: to-to-leq ###
+to-to-leq: successful
+### No save necessary ###
+### Next replay: to-to-leq-inf ###
+to-to-leq-inf: successful
+### No save necessary ###
+### Next replay: to-unwind-end-fin ###
+to-unwind-end-fin: successful
+### No save necessary ###
+### Next replay: toinf-to-leq ###
+toinf-to-leq: successful
+### No save necessary ###
+### Next replay: ton-fromn ###
+ton-fromn: successful
+### No save necessary ###
+### Next replay: ton-fromn-fin ###
+ton-fromn-fin: successful
+### Done ###
+### Saving lemmas next ###

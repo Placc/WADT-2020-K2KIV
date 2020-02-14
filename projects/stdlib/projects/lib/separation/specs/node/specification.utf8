@@ -1,0 +1,10 @@
+generic data specification
+    parameter elem
+    using ref
+
+node := mknode(. .left : ref; . .val : elem; . .right : ref);
+
+variables
+nd : node;
+
+end generic data specification

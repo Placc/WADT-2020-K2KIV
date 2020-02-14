@@ -1,0 +1,33 @@
+lemmas
+
+Sep-unfold:
+a ∈ st → adP ⊗_ st = adP(a,st[a]) * (adP ⊗_ (st -- a));
+
+Sep-any:
+st ≠ ∅
+  → ((adP ⊗_ st * P)(H)
+      ↔ ∃ a,d,st0.   ¬ a ∈ st0 ∧ st = st0[a,d]
+                   ∧ (adP(a,d) * adP ⊗_ st0 * P)(H));
+
+And-unfold:
+a ∈ st → adP ∧_ st = (adP(a,st[a]) ∧ (adP ∧_ (st -- a)));
+
+Sep-forall:
+∀ a, H. a ∈ st ∧ adP0(a,st[a])(H) → adP(a,st[a])(H)
+⊦ 
+(adP0 ⊗_ st)(H) → (adP ⊗_ st)(H);
+
+And-forall:
+∀ a, H. a ∈ st ∧ adP0(a,st[a])(H) → adP(a,st[a])(H)
+⊦ 
+(adP0 ∧_ st)(H) → (adP ∧_ st)(H);
+
+And-discard:
+st ≠ ∅ → ((λ a,d. P) ∧_ st) = P;
+
+Sep-eq:
+(∀ a. a ∈ st → adP(a,st[a]) = adP0(a,st[a])) → adP ⊗_ st = adP0 ⊗_ st;
+
+precise-Sep:
+∀ a. a ∈ st → precise(adP(a,st[a]))
+⊦ precise(adP ⊗_ st);

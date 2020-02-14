@@ -1,0 +1,294 @@
+: successful
+### No save necessary ###
+### Next replay: abs-2pot ###
+abs-2pot: successful
+### No save necessary ###
+### Next replay: add-eq2pot ###
+add-eq2pot: successful
+### No save necessary ###
+### Next replay: add-eq2pot-01 ###
+add-eq2pot-01: successful
+### No save necessary ###
+### Next replay: div-div-rec ###
+div-div-rec: successful
+### No save necessary ###
+### Next replay: div-div-rec-01 ###
+div-div-rec-01: successful
+### No save necessary ###
+### Next replay: div-twopot ###
+div-twopot: successful
+### No save necessary ###
+### Next replay: div2 ###
+div2: successful
+### No save necessary ###
+### Next replay: div2-2pot ###
+div2-2pot: successful
+### No save necessary ###
+### Next replay: div2-2pot-01 ###
+div2-2pot-01: successful
+### No save necessary ###
+### Next replay: div2-2pot-02 ###
+div2-2pot-02: successful
+### No save necessary ###
+### Next replay: div2-2pot-03 ###
+div2-2pot-03: successful
+### No save necessary ###
+### Next replay: div2-2pot-04 ###
+div2-2pot-04: successful
+### No save necessary ###
+### Next replay: divmod2-2pot-neg ###
+divmod2-2pot-neg: successful
+### No save necessary ###
+### Next replay: eq-one ###
+eq-one: successful
+### No save necessary ###
+### Next replay: eq-pos ###
+eq-pos: successful
+### No save necessary ###
+### Next replay: eq2 ###
+eq2: successful
+### No save necessary ###
+### Next replay: equal-minus-one ###
+equal-minus-one: successful
+### No save necessary ###
+### Next replay: exin2pot ###
+exin2pot: successful
+### No save necessary ###
+### Next replay: exin2pot-neg ###
+exin2pot-neg: successful
+### No save necessary ###
+### Next replay: exinpot ###
+exinpot: successful
+### No save necessary ###
+### Next replay: geom-mod ###
+geom-mod: successful
+### No save necessary ###
+### Next replay: grz ###
+grz: successful
+### No save necessary ###
+### Next replay: le-2pot ###
+le-2pot: successful
+### No save necessary ###
+### Next replay: le-2pot-01 ###
+le-2pot-01: successful
+### No save necessary ###
+### Next replay: le-2pot-succ ###
+le-2pot-succ: successful
+### No save necessary ###
+### Next replay: le-pos ###
+le-pos: successful
+### No save necessary ###
+### Next replay: le-pos-01 ###
+le-pos-01: successful
+### No save necessary ###
+### Next replay: lemon2pot ###
+lemon2pot: successful
+### No save necessary ###
+### Next replay: lemon2pot-01 ###
+lemon2pot-01: successful
+### No save necessary ###
+### Next replay: lemon2pot-02 ###
+lemon2pot-02: successful
+### No save necessary ###
+### Next replay: ls-2pot ###
+ls-2pot: successful
+### No save necessary ###
+### Next replay: ls-2pot-01 ###
+ls-2pot-01: successful
+### No save necessary ###
+### Next replay: ls-mult-2pot ###
+ls-mult-2pot: successful
+### No save necessary ###
+### Next replay: ls-pos ###
+ls-pos: successful
+### No save necessary ###
+### Next replay: ls-pos-01 ###
+ls-pos-01: successful
+### No save necessary ###
+### Next replay: ls-pos-02 ###
+ls-pos-02: successful
+### No save necessary ###
+### Next replay: ls-pos-03 ###
+ls-pos-03: successful
+### No save necessary ###
+### Next replay: minus-odd ###
+minus-odd: successful
+### No save necessary ###
+### Next replay: minus-one-even ###
+minus-one-even: successful
+### No save necessary ###
+### Next replay: minus-one-odd ###
+minus-one-odd: successful
+### No save necessary ###
+### Next replay: mod-2pot ###
+mod-2pot: successful
+### No save necessary ###
+### Next replay: mod-add1-negneg ###
+mod-add1-negneg: successful
+### No save necessary ###
+### Next replay: mod-add1-pospos ###
+mod-add1-pospos: successful
+### No save necessary ###
+### Next replay: mod-lesame ###
+mod-lesame: successful
+### No save necessary ###
+### Next replay: mod-lez ###
+mod-lez: successful
+### No save necessary ###
+### Next replay: mod-ngez-01 ###
+mod-ngez-01: successful
+### No save necessary ###
+### Next replay: mod-pot-shift-pos ###
+mod-pot-shift-pos: successful
+### No save necessary ###
+### Next replay: mod-two-ge-01 ###
+mod-two-ge-01: successful
+### No save necessary ###
+### Next replay: mod-two-ls ###
+mod-two-ls: successful
+### No save necessary ###
+### Next replay: mod-two-ls-01 ###
+mod-two-ls-01: successful
+### No save necessary ###
+### Next replay: mod2-2pot ###
+mod2-2pot: successful
+### No save necessary ###
+### Next replay: mod2-2pot-01 ###
+mod2-2pot-01: successful
+### No save necessary ###
+### Next replay: mod2-2pot-02 ###
+mod2-2pot-02: successful
+### No save necessary ###
+### Next replay: mod2-2pot-04 ###
+mod2-2pot-04: successful
+### No save necessary ###
+### Next replay: mod2-2pot-05 ###
+mod2-2pot-05: successful
+### No save necessary ###
+### Next replay: mod2-2pot-06 ###
+mod2-2pot-06: successful
+### No save necessary ###
+### Next replay: notneg ###
+notneg: successful
+### No save necessary ###
+### Next replay: notneg-01 ###
+notneg-01: successful
+### No save necessary ###
+### Next replay: notneg-02 ###
+notneg-02: successful
+### No save necessary ###
+### Next replay: notone ###
+notone: successful
+### No save necessary ###
+### Next replay: one-01 ###
+one-01: successful
+### No save necessary ###
+### Next replay: one-02 ###
+one-02: successful
+### No save necessary ###
+### Next replay: pot-dist-pos ###
+pot-dist-pos: successful
+### No save necessary ###
+### Next replay: pot-div ###
+pot-div: successful
+### No save necessary ###
+### Next replay: pot-div3-nls ###
+pot-div3-nls: successful
+### No save necessary ###
+### Next replay: pot-lez ###
+pot-lez: successful
+### No save necessary ###
+### Next replay: pot-nls ###
+pot-nls: successful
+### No save necessary ###
+### Next replay: pot-pot ###
+pot-pot: successful
+### No save necessary ###
+### Next replay: pot-pot-02 ###
+pot-pot-02: successful
+### No save necessary ###
+### Next replay: pot-root-est ###
+pot-root-est: successful
+### No save necessary ###
+### Next replay: pot-square-est ###
+pot-square-est: successful
+### No save necessary ###
+### Next replay: pot-square-est-01 ###
+pot-square-est-01: successful
+### No save necessary ###
+### Next replay: pot-square-est-02 ###
+pot-square-est-02: successful
+### No save necessary ###
+### Next replay: pot-square-est-div6 ###
+pot-square-est-div6: successful
+### No save necessary ###
+### Next replay: pot-sub-dist ###
+pot-sub-dist: successful
+### No save necessary ###
+### Next replay: pot-zero-01 ###
+pot-zero-01: successful
+### No save necessary ###
+### Next replay: pot2-est-div6 ###
+pot2-est-div6: successful
+### No save necessary ###
+### Next replay: pot2-est-mult8 ###
+pot2-est-mult8: successful
+### No save necessary ###
+### Next replay: pot2-le-pred ###
+pot2-le-pred: successful
+### No save necessary ###
+### Next replay: pot2-ls-pred ###
+pot2-ls-pred: successful
+### No save necessary ###
+### Next replay: pot2-ls-pred-01 ###
+pot2-ls-pred-01: successful
+### No save necessary ###
+### Next replay: pot2-pos-01 ###
+pot2-pos-01: successful
+### No save necessary ###
+### Next replay: pot2-pos-02 ###
+pot2-pos-02: successful
+### No save necessary ###
+### Next replay: pot2-pos-03 ###
+pot2-pos-03: successful
+### No save necessary ###
+### Next replay: pot2-pos-04 ###
+pot2-pos-04: successful
+### No save necessary ###
+### Next replay: pot2-succ-01 ###
+pot2-succ-01: successful
+### No save necessary ###
+### Next replay: succ ###
+succ: successful
+### No save necessary ###
+### Next replay: two-leone ###
+two-leone: successful
+### No save necessary ###
+### Next replay: two-lez-01 ###
+two-lez-01: successful
+### No save necessary ###
+### Next replay: two-ls ###
+two-ls: successful
+### No save necessary ###
+### Next replay: two-minus ###
+two-minus: successful
+### No save necessary ###
+### Next replay: two-mod ###
+two-mod: successful
+### No save necessary ###
+### Next replay: two-mod-01 ###
+two-mod-01: successful
+### No save necessary ###
+### Next replay: two-mone ###
+two-mone: successful
+### No save necessary ###
+### Next replay: twopot-mone-div ###
+twopot-mone-div: successful
+### No save necessary ###
+### Next replay: zero ###
+zero: successful
+### No save necessary ###
+### Next replay: zero-02 ###
+zero-02: successful
+### Done ###
+### Saving lemmas next ###

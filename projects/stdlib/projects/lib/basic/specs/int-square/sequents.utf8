@@ -1,0 +1,115 @@
+variables i1, i2, i3, i4, j1, j2, j3, j4 : int;
+
+lemmas
+
+neq : not j ^2 = j * j ↔ false; used for : s,ls;
+two-ls : i ^2 < j ^2 ↔ abs(i) < abs(j);
+
+four-square-le-zero : i ^2 + i0 ^2 + i1 ^2 + i2 ^2 ≤ 0 ↔ i = 0 and i0 = 0 and i1 = 0 and i2 = 0 ; used for : s,ls;
+;;; END
+even : i ^2 % 2 = 0 ↔ i % 2 = 0; used for : s,ls;
+add-even :
+(j1 + j2) % 2 = 0 → (¬ (j1 ^2 + j2 ^2) % 2 = 0 ↔ false); used for : s,ls;
+
+two-even :
+(j1 + j2) % 2 = 0 → j1 ^2 + j2 ^2 = 2 * (((j1 - j2) / 2) ^2 + ((j1 + j2) / 2) ^2);
+
+div : i % j = 0 ∧ j ≠ 0 → (i / j) ^2 = (i ^2) / (j ^2);
+
+root-nls : 0 ≤ i → ¬ i < sqrt(i) * sqrt(i); used for : s,ls;
+
+root-le : i ≤ j ∧ 0 ≤ i ∧ 0 ≤ j → sqrt(i) ≤ sqrt(j);
+
+root-elim : 0 ≤ i → ∃ j, j0. i = j * j + j0 ∧ j0 ≤ 2 * j ∧ 0 ≤ j ∧ 0 ≤ j0 ∧ j = sqrt(i);
+
+two-le-two : i ^2 ≤ 2 ↔ abs(i) ≤ 1; used for : s,ls;
+two-le-three : i ^2 ≤ 3 ↔ abs(i) ≤ 1; used for : s,ls;
+square-two : sqrt(2) = 1; used for : s,ls;
+square-three : sqrt(3) = 1; used for : s,ls;
+square-four : sqrt(4) = 2; used for : s,ls;
+square-le-one : 0 < i → (sqrt(i) ≤ 1 ↔ i < 4); used for : s,ls;
+square-le-one : 0 < i → (sqrt(2 * i) ≤ 1 ↔ i = 1); used for : s,ls;
+
+two-not-neg : ¬ i ^2 < 0; used for : s,ls;
+two-ls-pospos : 0 ≤ i ∧ 0 ≤ j → (i ^2 < j ^2 ↔ i < j); used for : s,ls;
+
+square-nls : i ^2 ≤ j → ¬ sqrt(j) < i; used for : s,ls;
+
+square-not-neg : 0 ≤ i → (sqrt(i) ≤ 0 ↔ i = 0); used for : s,ls;
+square-not-neg : 0 < i → ¬ sqrt(i) = 0; used for : s,ls;
+
+two-ex : 
+2 * i = j1 ^2 + j2 ^2 → ∃ i1, i2. i = i1 ^2 + i2 ^2;
+
+two-even :
+2 * i = j1 ^2 + j2 ^2 → i = ((j1 - j2) / 2) ^2 + ((j1 + j2) / 2) ^2;
+
+two-identity : (i1 ^2 + i2 ^2) * (j1 ^2 + j2 ^2) = (i1 * j1 + i2 * j2) ^2 + (i1 * j2 - i2 * j1) ^2 ;
+
+two-pm : (i * i0 + j * j0) ^2 = i ^2 * i0 ^2 + 2 * i * i0 * j * j0 + j ^2 * j0 ^2;
+
+two-mult : (i * j) ^2 = i ^2 * j ^2;
+two-plus  : (i + j) ^2 = i ^2 + 2 * i * j + j ^2;
+two-minus : (i - j) ^2 = (i ^2 - 2 * i * j) + j ^2;
+;;; END
+minus : i ^2 = (~ i) ^2;
+
+euler-four-square-identity2 :
+(i1 ^2 + i2 ^2 + i3 ^2 + i4 ^2) * 
+(j1 ^2 + j2 ^2 + j3 ^2 + j4 ^2) = 
+(((i1 * j1 + i2 * j2) + i3 * j3) + i4 * j4) ^2 +
+(((i1 * j2 - i2 * j1) - i3 * j4) + i4 * j3) ^2 +
+(((i1 * j3 + i2 * j4) - i3 * j1) - i4 * j2) ^2 +
+(((i1 * j4 - i2 * j3) + i3 * j2) - i4 * j1) ^2;
+
+euler-four-square-identity :
+(i1 ^2 + i2 ^2 + i3 ^2 + i4 ^2) * 
+(j1 ^2 + j2 ^2 + j3 ^2 + j4 ^2) = 
+(((i1 * j1 - i2 * j2) - i3 * j3) - i4 * j4) ^2 +
+(((i1 * j2 + i2 * j1) + i3 * j4) - i4 * j3) ^2 +
+(((i1 * j3 - i2 * j4) + i3 * j1) + i4 * j2) ^2 +
+(((i1 * j4 + i2 * j3) - i3 * j2) + i4 * j1) ^2;
+
+abs        :  ⊦ abs(i) ^2 = i ^2 ;
+  used for : s, ls ;
+   remarks : proved ;
+abs-01     : j ≠ 0 ⊦ (abs(i) / j) ^2 = (i / j) ^2 ;
+  used for : s, ls ;
+   remarks : proved ;
+inverse-i  :  ⊦ sqrt(i ^2) = abs(i) ;
+  used for : s, ls ;
+   remarks : proved ;
+inverse-ii :  ⊦ sqrt(i * i) = abs(i) ;
+   remarks : proved, used ;
+le         :  ⊦ i ^2 ≤ j ^2 ↔ abs(i) ≤ abs(j) ;
+   remarks : proved ;
+le-plus    :  ⊦ 0 ≤ i ∧ 0 < j → i ^2 < (i + j) ^2 ;
+   remarks : proved ;
+minus      :  ⊦ (~ i) ^2 = i ^2 ;
+  used for : s, ls ;
+   remarks : proved ;
+one        :  ⊦ 1 ^2 = 1 ;
+  used for : s ;
+   remarks : proved ;
+one-01     :  ⊦ sqrt(1) = 1 ;
+  used for : s, ls ;
+   remarks : proved ;
+positive   :  ⊦ i ^2 ≥ 0 ;
+  used for : s, ls ;
+   remarks : proved ;
+root-abs   :  ⊦ 0 ≤ i → abs(sqrt(i)) = sqrt(i) ;
+  used for : s, ls ;
+   remarks : proved, used ;
+root-pos   :  ⊦ 0 ≤ i → 0 ≤ sqrt(i) ;
+   remarks : proved, used ;
+zero       :  ⊦ i ^2 = 0 ↔ i = 0 ;
+  used for : s, ls ;
+   remarks : proved ;
+zero-01    :  ⊦ sqrt(0) = 0 ;
+  used for : s, ls ;
+   remarks : proved ;
+zero-i     :  ⊦ 0 ^2 = 0 ;
+  used for : s ;
+   remarks : proved ;
+
+;;; END

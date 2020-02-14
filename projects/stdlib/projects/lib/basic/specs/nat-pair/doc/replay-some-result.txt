@@ -1,0 +1,34 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+snd-ls
+snd-le
+snd-eq
+max-zero-01
+max-zero
+max-square
+max-snd-nls
+max-snd-nle
+max-snd-le
+max-size-01
+max-rev
+max-nls
+max-le
+max-def-01
+max-def
+max-bigger
+fst-ls-01
+fst-ls
+encode-zero
+enc-invert
+
+
+*** Failures: ***
+
+

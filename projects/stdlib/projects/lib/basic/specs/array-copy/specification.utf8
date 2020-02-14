@@ -1,0 +1,85 @@
+enrich array with
+
+functions
+
+
+
+        fill     : array × elem → array ; comment: fill complete array;
+
+
+;;         pos         : array × elem → nat;
+
+	rev	 : array → array;
+
+predicates
+
+      . ∈ .       : elem × array;
+
+        id○       : array × array × nat;
+           comment: id○(ar0, ar1, n) is true if all elements except those at offset n are equal;
+
+variables m0 : nat;
+
+partial functions
+        fill     : array × elem × nat × nat → array with λ ar,a,n,m. n + m ≤ # ar;
+          comment: fill(ar, a, offset, len) sets len indices from offset (inclusive) to a;
+
+        copy     : array × nat × array × nat × nat → array with λ ar, m, ar0, m0, n. m + n ≤ # ar ∧ m0 + n ≤ # ar0;
+          comment: copy(ar, m, ar0, m0, n) copy from ar at offset m into ar0 at offset m0
+                   n elements and return new ar0;
+
+        subarray : array × nat × nat → array with λ ar,m ,n. m + n ≤ # ar;
+          comment: subarray(ar, m, n) returns subarray of ar from offset m with length n;
+	rev	 : array × nat → array with λ ar, n. n ≤ # ar;
+	
+partial predicates 
+        cmp       : array × nat × array × nat × nat with λ ar, m, ar0, m0, n. m + n ≤ # ar ∧ m0 + n ≤ # ar0;
+           comment: cmp(ar, m, ar0, m0, n) compares n elements of ar from offset m with ar0
+                    from offset m0;
+        cmp       : array × elem × nat × nat with λ ar,a,m,n. m + n ≤ # ar;
+           comment: cmp(ar, a, m, n) is true if all elements in the range at offset m 
+                    with length n are equal to a;
+        idrange   : array × nat × nat with λ ar,m,n. m + n ≤ # ar; comment: idrange(ar, m, n) is true if all elements
+                    in the range at offset m with length n are equal;
+
+
+axioms
+
+in:
+a ∈ ar ↔ ∃ n. n < # ar ∧ ar[n] = a;
+used for: ls;
+
+;; Pos-found    :   (∃ n. n < # ar ∧ ar[n] = a) 
+;;                →   pos(ar, a) < # ar 
+;;                  ∧ ar[pos(ar,a)] = a 
+;;                  ∧ ∀ m. m < pos(ar,a) → ar[m] ≠ a;
+;; 
+;; Pos-notfound : (∀ n. n < # ar → ar[n] ≠ a) → pos(ar,a) = # ar;
+
+
+Fill-zero : fill(ar, a, m, 0) = ar; used for : s,ls;
+
+Fill-succ : fill(ar, a, m, n + 1) = fill(ar, a, m, n)[m + n, a]; used for : s,ls;
+
+Fill-all  : fill(ar, a) = fill(ar, a, 0, #(ar)); used for : ls;
+
+Copy-zero : copy(ar, m, ar0, m0, 0) = ar0; used for : s,ls;
+
+Copy-succ :   copy(ar, m, ar0, m0, n + 1) 
+            = copy(ar, m, ar0, m0, n)[m0 + n, ar[m + n]]; used for : ls;
+
+Subarray  : subarray(ar, m, n) = copy(ar, m, mkarray(n), 0, n); used for : ls;
+
+Compare   : cmp(ar, m, ar0, m0, n) ↔ ∀ n0. n0 < n → ar[m + n0] = ar0[m0 + n0];
+
+Cmp-elem  : cmp(ar, a, m, n) ↔ ∀ n0. n0 < n → ar[m + n0] = a;
+
+Idrange   : idrange(ar, m, n) ↔ ∀ n0. n0 < n → ar[m + n0] = ar[m];
+
+Idexcept  : id○(ar0, ar1, n) ↔ (# ar0 = # ar1 ∧ ∀ m. m < # ar0 ∧ m ≠ n → ar0[m] = ar1[m]); used for : ls;
+
+rev-base : rev(ar, 0) = mkarray(# ar); used for : s,ls;
+rev-rec  : n < # ar → rev(ar, n + 1) = rev(ar, n)[n, ar[# ar - (n + 1)]]; used for : s,ls;
+rev      : rev(ar) = rev(ar, # ar);
+
+end enrich

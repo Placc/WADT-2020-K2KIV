@@ -1,0 +1,4424 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide}
+
+% The definition of \ifundefined is exercise 7.7 in the \TeX book
+% \csname <Tokens> \endcsname is essentially \<Tokens>, i.e.
+% some kind of evaluation. However, <Tokens> may contain tex-commands
+% that are evaluated.
+% \relax does nothing. Does this mean that \ifx\csname#1\endcsname
+% is not evaluated when defining \ifundefined ?
+% \expandafter evaluates everything after \ifx and then puts \ifx
+% again in front.
+% \ifndef{x}{y} tests whether x is defined. If yes, \x is carried out
+% (the else part \csname#1\endcsname) otherwise y is the result.
+% \ifdef{x} does \x if defined, nothing otherwise
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\newcommand{\ifndef}[2]{\ifundefined{#1}{#2}\else{\csname#1\endcsname}\fi}
+\newcommand{\ifdef}[1]{\ifndef{#1}{}}
+
+\newenvironment{fma}%
+{\begin{equation}\begin{minipage}{0.85\linewidth}\raggedright}%
+{\end{minipage}\end{equation}}
+
+\newcommand{\udo}{$\langle$}
+\newcommand{\udc}{$\rangle$}
+\newcommand{\ubo}{$[$}
+\newcommand{\ubc}{$]$}
+\newcommand{\mkdia}[1]{\mbox{$\langle$#1$\rangle$}}
+\newcommand{\mkbox}[1]{\mbox{$[$#1$]$}}
+\newcommand{\tildesym}{\raisebox{-4pt}{\bf\~{}}}
+\newcommand{\hatsym}{\mbox{\bf\^{} }}
+
+\newcommand{\Fol}{\mbox{$\vdash\ $}}
+\newcommand{\Not}{\mbox{$\neg\ $}}
+\newcommand{\And}{\mbox{$\wedge\ $}}
+\newcommand{\Or}{\mbox{$\vee\ $}}
+\newcommand{\Imp}{\mbox{$\rightarrow\ $}}
+\newcommand{\Equiv}{\mbox{$\leftrightarrow\ $}}
+\newcommand{\All}{\mbox{$\forall\ $}}
+\newcommand{\Ex}{\mbox{$\exists\ $}}
+
+\newcommand{\tab}[1]{\mbox{$\phantom{\mbox{#1}}$}}
+\newcommand{\tabx}[1]{\hspace*{#1ex}}
+\newcommand{\tabif}{\tab{{\bf if}}}
+\newcommand{\tabbe}{\tab{{\bf be}}}
+\newcommand{\taball}{\mbox{$\phantom{\forall\ }$}}
+\newcommand{\tabex}{\mbox{$\phantom{\exists\ }$}}
+\newcommand{\taba}{\mbox{$\phantom{\wedge\ }$}}
+\newcommand{\tabbo}{\mbox{$\phantom{(}$}}
+\newcommand{\tabe}{\mbox{$\phantom{\leftrightarrow\ }$}}
+\newcommand{\tabi}{\mbox{$\phantom{\rightarrow\ }$}}
+\newcommand{\tabn}{\mbox{$\phantom{\neg\ }$}}
+\newcommand{\tabo}{\mbox{$\phantom{\vee\ }$}}
+\newcommand{\tabf}{\mbox{$\phantom{\vdash\ }$}}
+\newcommand{\tabudo}{\mbox{$\phantom{\langle}$}}
+\newcommand{\tabudc}{\mbox{$\phantom{\langle\ }$}}
+\newcommand{\tabubo}{\mbox{$\phantom{[}$}}
+\newcommand{\tabubc}{\mbox{$\phantom{]\ }$}}
+
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+zero-04:\\ 
+
+\bigskip
+
+zero-03:\\ nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+\bigskip
+
+zero-02:\\ 
+
+\bigskip
+
+zero-01:\\ nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+zero:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+twols:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+\bigskip
+
+twole:\\ nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+\bigskip
+
+two-zero-01:\\ nat-lec,ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+\bigskip
+
+two-zero:\\ nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-succ-05:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,even: 
+ \Fol m + m $\neq$ n + n + 1
+
+
+
+\bigskip
+
+two-succ-04:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,tls-01: 
+ \Fol m + 2 $\le$ n + 1 \Equiv m + 1 $\le$ n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+two-succ-03:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-lec,two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+nat-lec,teq: 
+ \Fol m + 2 = n + 1 \Equiv m + 1 = n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-succ-02:\\ nat-lec,even: 
+ \Fol m + m $\neq$ n + n + 1
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-succ-01:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-succ:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-one-01:\\ nat-lec,ax-05: 
+ \Fol 2 $\neq$ 1
+
+
+
+\bigskip
+
+two-one:\\ nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-ls-01:\\ nat-lec,ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+\bigskip
+
+two-ls:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-les-01:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+two-les:\\ nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-le-01:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-lec,ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+two-le:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-eq-01:\\ nat-lec,ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+\bigskip
+
+two-eq:\\ nat-basic2,even: 
+ \Fol n + n = m + m \Equiv n = m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-04:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two-03:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+\bigskip
+
+two-02:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-lec,two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+\bigskip
+
+two-01:\\ nat-lec,two-01: 
+ \Fol m $\neq$ 0 \And n $\neq$ 0 \Imp (m + n = 1 + 1 \Equiv m = 1 \And n = 1)
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,two-02: 
+ \Fol m + m + m $\neq$ 1 + 1
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,even: 
+ \Fol n + n = m + m \Equiv n = m
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+two:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+three-01:\\ nat-lec,teq: 
+ \Fol m + 2 = n + 1 \Equiv m + 1 = n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+\bigskip
+
+three:\\ nat-lec,three: 
+\begin{flushleft}
+
+
+\Fol
+
+m $\neq$ 0 \And n $\neq$ 0 \And m $\neq$ 1 \Imp (m + n = 1 + 1 + 1 \Equiv m = 1 + 1 \And n = 1)
+
+\end{flushleft}
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,even: 
+ \Fol m + m $\neq$ n + n + 1
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+succ-01:\\ nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,one-02: 
+ \Fol m $\neq$ 0 \Imp (m $\le$ 1 \Equiv m = 1)
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+succ:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+sqzero:\\ nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+square-less:\\ nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+sqr-08:\\ nat-basic2,l-05: 
+ \Fol m + $\mbox{m}_{0}$ $<$ n \Imp \Not n + $\mbox{n}_{0}$ $<$ m
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-lec,lels-02: 
+ \Fol m $\neq$ n \Imp (m $\le$ n \Equiv m $<$ n)
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,anti: 
+ \Fol m $\le$ n \Imp (n $\le$ m \Equiv m = n)
+
+
+
+nat-lec,ax-04: 
+ \Fol 2 $\neq$ 0
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqr-07:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqr-06:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqr-05:\\ 
+
+\bigskip
+
+sqr-04:\\ nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-lec,lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lep: 
+ \Fol m $\le$ m + n
+
+
+
+nat-lec,anti: 
+ \Fol m $\le$ n \Imp (n $\le$ m \Equiv m = n)
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqr-03:\\ nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-lec,one-01: 
+ \Fol m $\neq$ 0 \Imp (m + n $\le$ 1 \Equiv m = 1 \And n = 0)
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+sqr-02:\\ nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-lec,lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+nat-lec,anti: 
+ \Fol m $\le$ n \Imp (n $\le$ m \Equiv m = n)
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+\bigskip
+
+sqr-01:\\ nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+sqr:\\ nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqp:\\ nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,ler: 
+ \Fol m $\le$ m
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+sqls:\\ nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+nat-lec,ler: 
+ \Fol m $\le$ m
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,anti: 
+ \Fol m $\le$ n \Imp (n $\le$ m \Equiv m = n)
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-lec,one-02: 
+ \Fol m $\neq$ 0 \Imp (m $\le$ 1 \Equiv m = 1)
+
+
+
+nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+sqle-02:\\ nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqle-01:\\ nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+sqle:\\ nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,lf-02: 
+ \Fol m $<$ n \And m = $\mbox{n}_{0}$ \Imp $\mbox{n}_{0}$ $<$ n
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,one-02: 
+ \Fol m $\neq$ 0 \Imp (m $\le$ 1 \Equiv m = 1)
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+rsucc-02:\\ nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+rsucc-01:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+\bigskip
+
+rsucc:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+rdist:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+\bigskip
+
+one-02:\\ 
+
+\bigskip
+
+one-01:\\ nat-lec,one: 
+ \Fol m $\neq$ 1 \Imp (m + n = 1 \Equiv m = 0 \And n = 1)
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+\bigskip
+
+one:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+mult-c:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+mult-a:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+modp:\\ nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic1,psh-03: 
+ \Fol m $\neq$ 0 \Imp (m -1 = n \Equiv m = n +1)
+
+
+
+nat-basic1,psh-01: 
+ \Fol m $<$ $\mbox{n}_{0}$ \Imp (n $<$ $\mbox{n}_{0}$ -1 \Equiv n +1 $<$ $\mbox{n}_{0}$)
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+modls-03:\\ nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+\bigskip
+
+modls-02:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,ls-02: 
+ \Fol m $<$ n \Imp \Not n $<$ m
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+modls-01:\\ nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+modls:\\ nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-basic1,psh-02: 
+ \Fol m $\neq$ 0 \Imp (m -1 $<$ n \Equiv \Not n $<$ m)
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+modeq:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-basic1,psh-03: 
+ \Fol m $\neq$ 0 \Imp (m -1 = n \Equiv m = n +1)
+
+
+
+nat-basic2,l-05: 
+ \Fol m + $\mbox{m}_{0}$ $<$ n \Imp \Not n + $\mbox{n}_{0}$ $<$ m
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,lf-02: 
+ \Fol m $<$ n \And m = $\mbox{n}_{0}$ \Imp $\mbox{n}_{0}$ $<$ n
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+mod-nle:\\ nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+mod-neq-05:\\ nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+mod-neq-04:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+mod-neq-03:\\ nat-lec,ler: 
+ \Fol m $\le$ m
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-basic2,l-06: 
+ \Fol m = $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \And n $<$ $\mbox{n}_{0}$ \Imp $\mbox{m}_{0}$ + n $<$ m
+
+
+
+nat-basic1,ls-02: 
+ \Fol m $<$ n \Imp \Not n $<$ m
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,les: 
+ \Fol m $<$ n \Imp (n $\le$ m + 1 \Equiv n = m + 1)
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+\bigskip
+
+mod-neq-02:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+\bigskip
+
+mod-neq-01:\\ nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,lf-02: 
+ \Fol m $<$ n \And m = $\mbox{n}_{0}$ \Imp $\mbox{n}_{0}$ $<$ n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+mod-neq:\\ nat-lec,let: 
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $\le$ $\mbox{n}_{1}$ \Imp n $\le$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+
+
+nat-basic1,trans: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n +1 $<$ $\mbox{n}_{1}$
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,lf-02: 
+ \Fol m $<$ n \And m = $\mbox{n}_{0}$ \Imp $\mbox{n}_{0}$ $<$ n
+
+
+
+nat-lec,succ-02: 
+ \Fol m $<$ n + 1 \Equiv m $\le$ n
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+mod-ls:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+ltwo:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+lstwo-01:\\ nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+lstwo:\\ nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+lssucc-01:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+lssucc:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+ls2-01:\\ nat-basic2,even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,two-03: 
+ \Fol 1 + 1 = 2
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+ls2:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+ls-08:\\ nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-07:\\ nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-06:\\ nat-basic1,ax-06: 
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ $\mbox{n}_{1}$ \Imp n $<$ $\mbox{n}_{1}$
+
+nat-lec,lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-05:\\ nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-04:\\ nat-lec,zero: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-03:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-02:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+ls-01:\\ nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+\bigskip
+
+ls:\\ nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+letwo-01:\\ nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+letwo:\\ nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+lesucc-01:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+lesucc:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+leone:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+le2-01:\\ nat-lec,ax-06: 
+ \Fol m $\le$ n \Equiv \Not n $<$ m
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+le2:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic2,even-02: 
+ \Fol m + m $<$ n + n \Equiv m $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l-04: 
+ \Fol m + $\mbox{m}_{0}$ $<$ n + $\mbox{n}_{0}$ \Imp (\Not m + $\mbox{m}_{0}$ $<$ n + $\mbox{n}_{0}$ \Equiv false)
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+le-02:\\ nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+le-01:\\ nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+le:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-lec,succ-01: 
+ \Fol m + 1 $\le$ n \Equiv m $<$ n
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-lec,lez: 
+ \Fol 0 $\le$ m
+
+
+
+\bigskip
+
+eqsucc:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+eq2:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+eq-01:\\ nat-lec,ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+eq:\\ nat-basic1,elim-pred-c: 
+n $\neq$ 0
+ \Fol m = n -1 \Equiv n = m +1
+
+
+
+nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,succ: 
+ \Fol m +1 = m + 1
+
+
+
+\bigskip
+
+dist:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+addtwo-02:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+addtwo-01:\\ nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-lec,lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+\bigskip
+
+addtwo:\\ nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-lec,lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,zero: 
+ \Fol 0 $<$ m \Equiv m $\neq$ 0
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+\bigskip
+
+addls-01:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+addls:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l: 
+ \Fol m + n $<$ m + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+addle-03:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+addle-02:\\ nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat-lec,lep-02: 
+ \Fol m + n $\le$ m + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+addle-01:\\ nat-basic2,less: 
+\Not $\mbox{m}_{0}$ $<$ $\mbox{n}_{0}$, 
+n $<$ m
+ \Fol n + $\mbox{n}_{0}$ $<$ m + $\mbox{m}_{0}$
+
+nat-basic1,ls-02: 
+ \Fol m $<$ n \Imp \Not n $<$ m
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-basic1,lf-02: 
+ \Fol m $<$ n \And m = $\mbox{n}_{0}$ \Imp $\mbox{n}_{0}$ $<$ n
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic1,ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+nat-lec,fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+nat-lec,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,zero-01: 
+ \Fol \Not m $<$ 0
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+\bigskip
+
+addle:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+nat-lec,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+\bigskip
+
+addeq:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+\bigskip
+
+
+
+\end{document}
+

@@ -1,0 +1,12 @@
+: successful
+### No save necessary ###
+### Next replay: Diff-ext ###
+Diff-ext: successful
+### No save necessary ###
+### Next replay: dom-del ###
+dom-del: successful
+### No save necessary ###
+### Next replay: dom-ins ###
+dom-ins: successful
+### Done ###
+### Saving lemmas next ###

@@ -1,0 +1,41 @@
+\begin{tabbing}\label{oset-spec}%
+oset = \\
+{\bf enr}\={\bf ich} oseta {\bf with}\+\\
+{\bf func}\={\bf tions}\+\\
+\begin{tabular}{lclcll}
+. .min & : & set & \Imp & elem &; \\
+. .butmin & : & set & \Imp & set &; \\
+. .max & : & set & \Imp & elem &; \\
+. .butmax & : & set & \Imp & set &; \\
+\end{tabular}\-\\
+{\bf pred}\={\bf icates}\+\\
+\begin{tabular}{lcll}
+. $<$ . & : & elem $\times$ set;\\
+. $<$ . & : & set $\times$ elem;
+\end{tabular}\-
+\end{tabbing}
+{\bf axioms}
+
+
+
+\begin{quote}
+Min-in : s $\neq$ $\emptyset$ \Imp s.min $\in$ s;
+
+Min-min : a $\in$ s \Imp \Not a $<$ s.min;
+
+Butmin : s $\neq$ $\emptyset$ \Imp s.butmin = s -- s.min;
+
+Max-in : s $\neq$ $\emptyset$ \Imp s.max $\in$ s;
+
+Max-max : a $\in$ s \Imp \Not s.max $<$ a;
+
+Butmax : s $\neq$ $\emptyset$ \Imp s.butmax = s -- s.max;
+
+Less : a $<$ s \Equiv (\All b. b $\in$ s \Imp a $<$ b);
+
+Greater : s $<$ a \Equiv (\All b. b $\in$ s \Imp b $<$ a);
+
+
+\end{quote}
+{\bf end enrich}
+

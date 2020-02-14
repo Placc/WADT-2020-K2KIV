@@ -1,0 +1,18 @@
+enrich node-heap, tree with
+
+functions
+tr : ref × tree → heap → bool;
+
+axioms
+
+tr-base:
+tr(r, leaf) = (emp ∧ ⌜r = null⌝);
+used for: s,ls;
+
+tr-rec:
+tr(r, branch(t0, a, t1))
+    = _∃ λ r0, r1.   r => mknode(r0, a, r1)
+                 * tr(r0, t0)
+                 * tr(r1, t1);
+
+end enrich

@@ -1,0 +1,81 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+zero-13
+zero-12
+zero-11
+zero-10
+zero-09
+zero-08
+zero-02
+zero-01
+sub-same
+sub-01
+rax-04
+rax-03
+rax-02
+rax-01
+rax
+qzero-01
+qzero
+pos-int
+pos-add
+num-n2i-ls-07
+num-n2i-ls-06
+num-n2i-ls-03
+num-n2i-ls-02
+num-n2i-ls
+num-i2n-ls-02
+num-i2n-ls
+num-i2n-le
+natpos
+nat2int-13
+nat2int-12
+nat2int-06
+nat2int-04
+nat2int-01
+nat2int
+nat-to-int-ge-0
+nat
+mult-ls-05
+mult-ls-04
+mult-ls-03
+mult-ls-02
+minus-one
+ls-int-ls-nat
+ls-fin-add
+ls-03
+le-int-le-nat
+le-fin-add
+labsp
+labs-01
+labs
+inni-le
+ini2-abs
+i2np
+i2n-mod
+i2n-divtwo
+i2n
+i2i-pos-01
+i2i-neg-01
+add
+abs-zero
+abs-succ-03
+abs-succ-01
+abs-succ
+abs-pred-02
+abs-pred-01
+abs-pred
+abs-negp
+abs-neg
+
+
+*** Failures: ***
+
+

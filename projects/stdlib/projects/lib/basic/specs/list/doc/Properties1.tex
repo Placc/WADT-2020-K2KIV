@@ -1,0 +1,1040 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,amssymb}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+unequal:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat-basic2,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,succ: 
+ \Fol m +1 = m + 1
+
+
+
+list-data,size-01: 
+ \Fol \# [] = 0
+
+
+
+list-data,l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+\bigskip
+
+two:\\ 
+
+\bigskip
+
+split-rest:\\ nat,lep: 
+ \Fol m $\le$ m + n
+
+
+
+nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat,elim-sub: 
+n $\le$ m
+ \Fol \Var{n}{0} = m - n \Equiv m = \Var{n}{0} + n
+
+
+
+nat-basic1,ref-1: 
+ \Fol \Not n $<$ n
+
+
+
+nat,fle-01: 
+ \Fol m $\le$ n \And n $<$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat,fle: 
+ \Fol m $<$ n \And n $\le$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+nat,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat,ls-03: 
+\Var{n}{0} $\le$ n
+ \Fol n - \Var{n}{0} $\le$ m \Equiv n $\le$ m + \Var{n}{0}
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+\bigskip
+
+split-first:\\ nat-basic1,one-01: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+nat,eq-02: 
+n $\le$ m
+ \Fol (m - n) + \Var{n}{0} = \Var{n}{1} \Equiv m + \Var{n}{0} = n + \Var{n}{1}
+
+
+
+nat,lep: 
+ \Fol m $\le$ m + n
+
+
+
+nat-basic1,ref-1: 
+ \Fol \Not n $<$ n
+
+
+
+nat,fle-01: 
+ \Fol m $\le$ n \And n $<$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+nat,fle: 
+ \Fol m $<$ n \And n $\le$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+nat,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic1,lf-01: 
+ \Fol m $<$ n \And n = \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+nat,le-one: 
+ \Fol m $\le$ n + 1 \And n $<$ \Var{n}{0} \Imp m $\le$ \Var{n}{0}
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+nat,leprf: 
+ \Fol m $\le$ m - 1 \Imp m = 0
+
+
+
+nat,lez: 
+ \Fol 0 $\le$ m
+
+
+
+nat-basic1,less-1: 
+ \Fol \Not n $<$ 0
+
+
+
+nat,pred-03: 
+ \Fol n -1 = n - 1
+
+
+
+nat,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+list-data,size-01: 
+ \Fol \# [] = 0
+
+
+
+nat,lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+list-data,l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+\bigskip
+
+rewlem:\\ 
+
+\bigskip
+
+rest-01:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+rest:\\ list-data,sel-2: 
+ \Fol (a + x).rest = x
+
+
+
+\bigskip
+
+onein:\\ list-data,lf-01: 
+ \Fol \# x = 1 \Equiv x = x.first + []
+
+
+
+list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+one-01:\\ 
+
+\bigskip
+
+one:\\ 
+
+\bigskip
+
+ni:\\ 
+
+\bigskip
+
+neq-09:\\ 
+
+\bigskip
+
+neq-07:\\ 
+
+\bigskip
+
+neq-06:\\ 
+
+\bigskip
+
+neq-05:\\ 
+
+\bigskip
+
+neq-04:\\ 
+
+\bigskip
+
+neq-03:\\ 
+
+\bigskip
+
+neq-02:\\ 
+
+\bigskip
+
+neq-01:\\ 
+
+\bigskip
+
+neq:\\ 
+
+\bigskip
+
+less-append:\\ list-data,less-02: 
+ \Fol \Var{x}{0} $<$ a + x \Equiv \Var{x}{0} = x \Or \Var{x}{0} $<$ x
+
+
+
+\bigskip
+
+len-last-rest:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+len-06:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+\bigskip
+
+len-05:\\ list-data,size-02: 
+ \Fol \#(a + x) = (\# x)+1
+
+
+
+nat-basic2,succ: 
+ \Fol m +1 = m + 1
+
+
+
+nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+\bigskip
+
+len-04:\\ nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+list-data,size-01: 
+ \Fol \# [] = 0
+
+
+
+nat,lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+nat,le-num-02: 
+\Var{n}{0} $<$ n
+ \Fol m + (* n) $\le$ \Var{m}{0} + (* \Var{n}{0}) \Equiv m + (n - \Var{n}{0}) $\le$ \Var{m}{0}
+
+
+
+nat,lep-02: 
+ \Fol m + n $\le$ m + \Var{n}{0} \Equiv n $\le$ \Var{n}{0}
+
+
+
+nat,lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+nat-basic2,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+\bigskip
+
+len-03:\\ nat-basic1,ref-1: 
+ \Fol \Not n $<$ n
+
+
+
+nat,lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+nat-basic2,l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+list-data,l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+nat-basic1,f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+\bigskip
+
+len-02:\\ list-data,lf-01: 
+ \Fol \# x = 1 \Equiv x = x.first + []
+
+
+
+list-data,sel-1: 
+ \Fol (a + x).first = a
+
+
+
+list-data,f: 
+ \Fol a + x = a + y \Equiv x = y
+
+
+
+\bigskip
+
+len-01:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat-basic2,oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+list-data,size-01: 
+ \Fol \# [] = 0
+
+
+
+list-data,l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+\bigskip
+
+len:\\ nat-basic2,eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+nat-basic2,succ: 
+ \Fol m +1 = m + 1
+
+
+
+list-data,size-01: 
+ \Fol \# [] = 0
+
+
+
+nat-basic2,z: 
+ \Fol 0 + m = m
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+\bigskip
+
+lasttwo:\\ 
+
+\bigskip
+
+lastoc-rew:\\ 
+
+\bigskip
+
+lastoc:\\ 
+
+\bigskip
+
+lastdiv-rew:\\ 
+
+\bigskip
+
+lastdiv:\\ 
+
+\bigskip
+
+last-01:\\ 
+
+\bigskip
+
+last:\\ 
+
+\bigskip
+
+isin-01:\\ 
+
+\bigskip
+
+isin:\\ 
+
+\bigskip
+
+ins-01:\\ 
+
+\bigskip
+
+ins:\\ 
+
+\bigskip
+
+inex-03:\\ 
+
+\bigskip
+
+inex-02:\\ 
+
+\bigskip
+
+inex-01:\\ 
+
+\bigskip
+
+inex:\\ 
+
+\bigskip
+
+inapp-14:\\ 
+
+\bigskip
+
+inapp-13:\\ 
+
+\bigskip
+
+inapp-12:\\ 
+
+\bigskip
+
+inapp-11:\\ 
+
+\bigskip
+
+inapp-10:\\ 
+
+\bigskip
+
+inapp-09:\\ 
+
+\bigskip
+
+inapp-08:\\ 
+
+\bigskip
+
+inapp-07:\\ 
+
+\bigskip
+
+inapp-06:\\ 
+
+\bigskip
+
+inapp-05:\\ 
+
+\bigskip
+
+inapp-04:\\ 
+
+\bigskip
+
+inapp-03:\\ 
+
+\bigskip
+
+inapp-02:\\ 
+
+\bigskip
+
+inapp-01:\\ 
+
+\bigskip
+
+inapp:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+in-rec:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+in-last-rest:\\ 
+
+\bigskip
+
+in-empty:\\ 
+
+\bigskip
+
+in-append:\\ 
+
+\bigskip
+
+in-17:\\ 
+
+\bigskip
+
+in-16:\\ 
+
+\bigskip
+
+in-15:\\ 
+
+\bigskip
+
+in-14:\\ 
+
+\bigskip
+
+in-13:\\ 
+
+\bigskip
+
+in-12:\\ 
+
+\bigskip
+
+in-11:\\ 
+
+\bigskip
+
+in-10:\\ 
+
+\bigskip
+
+in-09:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+in-08:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+in-07:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+in-06:\\ 
+
+\bigskip
+
+in-01:\\ 
+
+\bigskip
+
+in:\\ 
+
+\bigskip
+
+if-in:\\ 
+
+\bigskip
+
+fr:\\ list-data,fr-02: 
+ \Fol x $\neq$ [] \Imp x.first + x.rest = x
+
+
+
+\bigskip
+
+firstrest:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+firstoc-rew:\\ 
+
+\bigskip
+
+firstoc:\\ 
+
+\bigskip
+
+firsteq-01:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+firsteq:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+first-app:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+list-data,elim-1: 
+ \Fol x $\neq$ [] \Imp (a = x.first \And \Var{x}{0} = x.rest \Equiv x = a + \Var{x}{0})
+
+
+
+\bigskip
+
+first-02:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+first-01:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+first:\\ list-data,sel-1: 
+ \Fol (a + x).first = a
+
+
+
+\bigskip
+
+eq-05:\\ 
+
+\bigskip
+
+eq-04:\\ 
+
+\bigskip
+
+eq-03:\\ 
+
+\bigskip
+
+eq-02:\\ 
+
+\bigskip
+
+eq-01:\\ 
+
+\bigskip
+
+eq:\\ 
+
+\bigskip
+
+elim-first:\\ 
+
+\bigskip
+
+e-04:\\ nat-basic2,c: 
+ \Fol m + n = n + m
+
+
+
+nat-basic2,a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+list-data,l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+nat-basic2,z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+nat-basic2,eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+\bigskip
+
+e-03:\\ 
+
+\bigskip
+
+e-02:\\ 
+
+\bigskip
+
+e-01:\\ list-data,disj-1: 
+ \Fol [] $\neq$ a + x
+
+
+
+\bigskip
+
+e:\\ list-data,disj-1: 
+ \Fol [] $\neq$ a + x
+
+
+
+\bigskip
+
+c-09:\\ 
+
+\bigskip
+
+c-08:\\ list-data,sel-1: 
+ \Fol (a + x).first = a
+
+
+
+\bigskip
+
+c-07:\\ list-data,sel-2: 
+ \Fol (a + x).rest = x
+
+
+
+\bigskip
+
+c-06:\\ list-data,inj-1: 
+ \Fol a + x = \Var{a}{0} + \Var{x}{0} \Equiv a = \Var{a}{0} \And x = \Var{x}{0}
+
+
+
+\bigskip
+
+c-05:\\ 
+
+\bigskip
+
+c-04:\\ list-data,inj-1: 
+ \Fol a + x = \Var{a}{0} + \Var{x}{0} \Equiv a = \Var{a}{0} \And x = \Var{x}{0}
+
+
+
+\bigskip
+
+c-03:\\ list-data,f: 
+ \Fol a + x = a + y \Equiv x = y
+
+
+
+list-data,inj-1: 
+ \Fol a + x = \Var{a}{0} + \Var{x}{0} \Equiv a = \Var{a}{0} \And x = \Var{x}{0}
+
+
+
+\bigskip
+
+c-02:\\ list-data,elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+\bigskip
+
+c-01:\\ 
+
+\bigskip
+
+c:\\ list-data,f: 
+ \Fol a + x = a + y \Equiv x = y
+
+
+
+\bigskip
+
+app-09:\\ 
+
+\bigskip
+
+app-08:\\ 
+
+\bigskip
+
+app-07:\\ 
+
+\bigskip
+
+app-06:\\ 
+
+\bigskip
+
+app-05:\\ 
+
+\bigskip
+
+app-04:\\ 
+
+\bigskip
+
+app-03:\\ 
+
+\bigskip
+
+app-02-ant:\\ 
+
+\bigskip
+
+app-02:\\ 
+
+\bigskip
+
+app-01:\\ list-data,inj-1: 
+ \Fol a + x = \Var{a}{0} + \Var{x}{0} \Equiv a = \Var{a}{0} \And x = \Var{x}{0}
+
+
+
+\bigskip
+
+app:\\ 
+
+\bigskip
+
+a:\\ list-data,f: 
+ \Fol a + x = a + y \Equiv x = y
+
+
+
+\bigskip
+
+Noassoc:\\ 
+
+\bigskip
+
+
+
+\end{document}
+

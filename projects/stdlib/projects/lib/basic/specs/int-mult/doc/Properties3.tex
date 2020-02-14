@@ -1,0 +1,889 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide}
+
+% The definition of \ifundefined is exercise 7.7 in the \TeX book
+% \csname <Tokens> \endcsname is essentially \<Tokens>, i.e.
+% some kind of evaluation. However, <Tokens> may contain tex-commands
+% that are evaluated.
+% \relax does nothing. Does this mean that \ifx\csname#1\endcsname
+% is not evaluated when defining \ifundefined ?
+% \expandafter evaluates everything after \ifx and then puts \ifx
+% again in front.
+% \ifndef{x}{y} tests whether x is defined. If yes, \x is carried out
+% (the else part \csname#1\endcsname) otherwise y is the result.
+% \ifdef{x} does \x if defined, nothing otherwise
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\newcommand{\ifndef}[2]{\ifundefined{#1}{#2}\else{\csname#1\endcsname}\fi}
+\newcommand{\ifdef}[1]{\ifndef{#1}{}}
+
+\newenvironment{fma}%
+{\begin{equation}\begin{minipage}{0.85\linewidth}\raggedright}%
+{\end{minipage}\end{equation}}
+
+\newcommand{\udo}{$\langle$}
+\newcommand{\udc}{$\rangle$}
+\newcommand{\ubo}{$[$}
+\newcommand{\ubc}{$]$}
+\newcommand{\mkdia}[1]{\mbox{$\langle$#1$\rangle$}}
+\newcommand{\mkbox}[1]{\mbox{$[$#1$]$}}
+\newcommand{\tildesym}{\raisebox{-4pt}{\bf\~{}}}
+\newcommand{\hatsym}{\mbox{\bf\^{} }}
+
+\newcommand{\Fol}{\mbox{$\vdash\ $}}
+\newcommand{\Not}{\mbox{$\neg\ $}}
+\newcommand{\And}{\mbox{$\wedge\ $}}
+\newcommand{\Or}{\mbox{$\vee\ $}}
+\newcommand{\Imp}{\mbox{$\rightarrow\ $}}
+\newcommand{\Equiv}{\mbox{$\leftrightarrow\ $}}
+\newcommand{\All}{\mbox{$\forall\ $}}
+\newcommand{\Ex}{\mbox{$\exists\ $}}
+
+\newcommand{\tab}[1]{\mbox{$\phantom{\mbox{#1}}$}}
+\newcommand{\tabx}[1]{\hspace*{#1ex}}
+\newcommand{\tabif}{\tab{{\bf if}}}
+\newcommand{\tabbe}{\tab{{\bf be}}}
+\newcommand{\taball}{\mbox{$\phantom{\forall\ }$}}
+\newcommand{\tabex}{\mbox{$\phantom{\exists\ }$}}
+\newcommand{\taba}{\mbox{$\phantom{\wedge\ }$}}
+\newcommand{\tabbo}{\mbox{$\phantom{(}$}}
+\newcommand{\tabe}{\mbox{$\phantom{\leftrightarrow\ }$}}
+\newcommand{\tabi}{\mbox{$\phantom{\rightarrow\ }$}}
+\newcommand{\tabn}{\mbox{$\phantom{\neg\ }$}}
+\newcommand{\tabo}{\mbox{$\phantom{\vee\ }$}}
+\newcommand{\tabf}{\mbox{$\phantom{\vdash\ }$}}
+\newcommand{\tabudo}{\mbox{$\phantom{\langle}$}}
+\newcommand{\tabudc}{\mbox{$\phantom{\langle\ }$}}
+\newcommand{\tabubo}{\mbox{$\phantom{[}$}}
+\newcommand{\tabubc}{\mbox{$\phantom{]\ }$}}
+
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+Spec theorems: 
+
+
+{\bf Specification int-abs:}
+
+intr,ax-01: 
+ \Fol $\tildesym$ x = $\mbox{0}_{i}$ $\mbox{-}_{i}$ x
+
+
+
+neg, ls-02
+
+\bigskip
+
+intr,ax-04: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = $\mbox{0}_{i}$ $\mbox{-}_{i}$ y
+
+
+
+abs
+
+\bigskip
+
+{\bf Specification int-lec:}
+
+intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+square-08
+
+\bigskip
+
+intr,ple-01: 
+x $\mbox{$<$}_{i}$ y, 
+$\mbox{x}_{0}$ $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$
+ \Fol x $\mbox{+}_{i}$ $\mbox{x}_{0}$ $\mbox{$<$}_{i}$ y $\mbox{+}_{i}$ $\mbox{y}_{0}$
+
+
+
+ls
+
+\bigskip
+
+intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+le
+
+\bigskip
+
+
+
+
+Simplifier rules: 
+
+
+{\bf Specification int-sub:}
+
+intr,sub-zero: 
+ \Fol x $\mbox{-}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+zero
+
+\bigskip
+
+intr,less-02: 
+ \Fol x $\mbox{-}_{i}$ y $\mbox{$<$}_{i}$ z \Equiv x $\mbox{$<$}_{i}$ z $\mbox{+}_{i}$ y
+
+
+
+sub-zero, ls
+
+\bigskip
+
+intr,less-01: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{-}_{i}$ z \Equiv x $\mbox{+}_{i}$ z $\mbox{$<$}_{i}$ y
+
+
+
+ls
+
+\bigskip
+
+intr,le-02: 
+ \Fol x $\mbox{$\le$}_{i}$ y $\mbox{-}_{i}$ z \Equiv x $\mbox{+}_{i}$ z $\mbox{$\le$}_{i}$ y
+
+
+
+ls-02, le-01
+
+\bigskip
+
+intr,elim-sub: 
+ \Fol z = x $\mbox{-}_{i}$ y \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+dist-sub
+
+\bigskip
+
+intr,sub-sub: 
+ \Fol x $\mbox{-}_{i}$ y $\mbox{-}_{i}$ z = x $\mbox{-}_{i}$ y $\mbox{+}_{i}$ z
+
+
+
+dist-sub
+
+\bigskip
+
+intr,shift: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ z) = x $\mbox{+}_{i}$ y $\mbox{-}_{i}$ z
+
+
+
+succ, minus-one, ls, dist-sub, dist
+
+\bigskip
+
+intr,eq: 
+ \Fol x $\mbox{-}_{i}$ y = z \Equiv x = z $\mbox{+}_{i}$ y
+
+
+
+succ, sgn, pred, minus-one, dist-sub-01, dist-sub, dist, c, abs, a
+
+\bigskip
+
+intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ (y $\mbox{-}_{i}$ x) = y
+
+
+
+succ, pred, dist-sub-01, dist-sub, dist, a
+
+\bigskip
+
+{\bf Specification intnat:}
+
+nat2int-04: 
+ \Fol n$\to$i(m) $\mbox{$<$}_{i}$ n$\to$i(n) \Equiv m $<$ n
+
+
+
+zero-13
+
+\bigskip
+
+ax-06: 
+ \Fol n$\to$i(0) = $\mbox{0}_{i}$
+
+
+
+zero-10
+
+\bigskip
+
+nat2int-03: 
+ \Fol n$\to$i(n + 1) = n$\to$i(n) $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+zero-10
+
+\bigskip
+
+nat2int-08: 
+ \Fol \Not n$\to$i(n) $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+qzero-02, qzero
+
+\bigskip
+
+labs: 
+ \Fol i$\to$n(x) $<$ i$\to$n(y) \Equiv absi(x) $\mbox{$<$}_{i}$ absi(y)
+
+
+
+ls
+
+\bigskip
+
+{\bf Specification int-basic1:}
+
+intr,pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = y
+
+
+
+succ, sgn, minus-one, ls
+
+\bigskip
+
+intr,ls-pred: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{-1}_{i}$ \Equiv x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ y
+
+
+
+ls
+
+\bigskip
+
+intr,lf-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \And x = z \Imp z $\mbox{$<$}_{i}$ y
+
+
+
+ls-add, ls-09, eq-02
+
+\bigskip
+
+intr,lf-02: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y = z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+zero-09, square, ls-add, ls-09, ls-05, ls-01, eq-02
+
+\bigskip
+
+intr,lst-01: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Imp (x $\neq$ y \Equiv y $\mbox{$<$}_{i}$ x)
+
+
+
+ls, eq, case
+
+\bigskip
+
+intr,elim-pred: 
+ \Fol x = y $\mbox{-1}_{i}$ \Equiv y = x $\mbox{+1}_{i}$
+
+
+
+ls, c
+
+\bigskip
+
+intr,ax-03: 
+ \Fol \Not x $\mbox{$<$}_{i}$ x
+
+
+
+zero-10, zero-09, square-08, sgn, lsz, lsf, ls-add, ls-06, ls-05, ls-04, ls, le-01, le, eq-01, eq, add-zero
+
+\bigskip
+
+intr,lf-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{+1}_{i}$ $\mbox{$<$}_{i}$ z
+
+
+
+zero-13, zero-10, qzero-02, lsz, ls-add, ls-abs, ls-09, ls-08, ls-05, ls-04, ls, add-zero, abs
+
+\bigskip
+
+intr,ax-04: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$<$}_{i}$ z \Imp x $\mbox{$<$}_{i}$ z
+
+
+
+zero-10, qzero-02, lsz, ls-add, ls-abs, ls-09, ls-08, ls-05, ls-04, ls, add-zero, abs
+
+\bigskip
+
+intr,ls-01: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp \Not y $\mbox{$<$}_{i}$ x
+
+
+
+zero-10, zero-09, sub-zero, square, sign-03, ls-add, ls-04, ls-01, ls, le-01, eq-02, eq, abs
+
+\bigskip
+
+{\bf Specification int-abs:}
+
+intr,ax-02: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp sgn(y) = $\mbox{0}_{i}$ $\mbox{-1}_{i}$
+
+
+
+sgn-01
+
+\bigskip
+
+intr,sgn+1: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ y \Imp sgn(y) = $\mbox{1}_{i}$
+
+
+
+sgn
+
+\bigskip
+
+intr,neg-12: 
+ \Fol $\tildesym$ x = $\tildesym$ y \Equiv x = y
+
+
+
+sgn-01, mone
+
+\bigskip
+
+intr,absls: 
+ \Fol \Not absi(x) $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+ls-abs
+
+\bigskip
+
+intr,neg-04: 
+ \Fol $\tildesym$ $\mbox{0}_{i}$ = $\mbox{0}_{i}$
+
+
+
+ls-06
+
+\bigskip
+
+intr,neg-05: 
+ \Fol $\tildesym$ x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Equiv $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ x
+
+
+
+ls-06
+
+\bigskip
+
+intr,abs-16: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ y \Imp absi(y) = y
+
+
+
+ls
+
+\bigskip
+
+intr,abs-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ absi(x) \Equiv x $\neq$ $\mbox{0}_{i}$
+
+
+
+ls
+
+\bigskip
+
+intr,neg: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\tildesym$ x \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+ls-02, le-01
+
+\bigskip
+
+intr,negle-13: 
+ \Fol $\tildesym$ x $\mbox{$\le$}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x $\mbox{+}_{i}$ y
+
+
+
+ls-02, le-01
+
+\bigskip
+
+intr,neg-02: 
+ \Fol $\tildesym$ $\tildesym$ x = x
+
+
+
+abs-02
+
+\bigskip
+
+intr,ax-04: 
+ \Fol y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = $\mbox{0}_{i}$ $\mbox{-}_{i}$ y
+
+
+
+abs-02, abs
+
+\bigskip
+
+intr,neg-06: 
+ \Fol $\mbox{0}_{i}$ $\mbox{-}_{i}$ x = $\tildesym$ x
+
+
+
+sgn-01, neg, ls-02, abs-02, abs
+
+\bigskip
+
+intr,negeq: 
+ \Fol $\tildesym$ x = y \Equiv x $\mbox{+}_{i}$ y = $\mbox{0}_{i}$
+
+
+
+neg, minus-one, abs
+
+\bigskip
+
+intr,neg-15: 
+ \Fol x $\mbox{+}_{i}$ $\tildesym$ y = x $\mbox{-}_{i}$ y
+
+
+
+ls-02, le-01, abs
+
+\bigskip
+
+intr,abs-18: 
+ \Fol absi(x) = x \Equiv $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x
+
+
+
+abs
+
+\bigskip
+
+intr,ax-05: 
+ \Fol \Not y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp absi(y) = y
+
+
+
+abs
+
+\bigskip
+
+intr,abs-02: 
+ \Fol absi($\mbox{0}_{i}$) = $\mbox{0}_{i}$
+
+
+
+abs
+
+\bigskip
+
+intr,neg-03: 
+ \Fol $\tildesym$ x $\mbox{+}_{i}$ x = $\mbox{0}_{i}$
+
+
+
+neg, ls-add, abs
+
+\bigskip
+
+{\bf Specification nat-lec:}
+
+fle: 
+ \Fol m $<$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+zero-13
+
+\bigskip
+
+fle-01: 
+ \Fol m $\le$ n \And n $<$ $\mbox{n}_{0}$ \Imp m $<$ $\mbox{n}_{0}$
+
+
+
+zero-13
+
+\bigskip
+
+succ: 
+ \Fol m +1 = m + 1
+
+
+
+zero-10
+
+\bigskip
+
+ax-02: 
+ \Fol 0 $\neq$ 1
+
+
+
+zero-10
+
+\bigskip
+
+{\bf Specification nat-basic2:}
+
+a: 
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+
+
+zero-10
+
+\bigskip
+
+c: 
+ \Fol m + n = n + m
+
+
+
+zero-10
+
+\bigskip
+
+z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+zero-10
+
+\bigskip
+
+{\bf Specification int-basic2:}
+
+intr,zero-01: 
+ \Fol x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \And y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$ \Imp x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+zero-10
+
+\bigskip
+
+intr,ls-02: 
+ \Fol x $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ y \Equiv $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ y
+
+
+
+zero-10, qzero-02, qzero
+
+\bigskip
+
+intr,ls: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+zero-10, zero-04, lsz, ls-add, ls-08, ls-05
+
+\bigskip
+
+intr,eq: 
+ \Fol x = x $\mbox{+}_{i}$ y \Equiv y = $\mbox{0}_{i}$
+
+
+
+ls
+
+\bigskip
+
+intr,ls-01: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{$<$}_{i}$ x $\mbox{+}_{i}$ z \Equiv y $\mbox{$<$}_{i}$ z
+
+
+
+zero-13, qzero-02, ls
+
+\bigskip
+
+intr,ax-03: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{-1}_{i}$ = (x $\mbox{+}_{i}$ y)$\mbox{-1}_{i}$
+
+
+
+succ, sgn, minus-one, dist
+
+\bigskip
+
+intr,ax-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{0}_{i}$ = x
+
+
+
+zero-10, zero, succ, sub-zero, one, minus-one, lsz, ls-add, ls-09, ls-04, ls-02, ls, le-01, dist-sub, dist, abs
+
+\bigskip
+
+intr,zero-07: 
+ \Fol x $\mbox{+}_{i}$ x = $\mbox{0}_{i}$ \Equiv x = $\mbox{0}_{i}$
+
+
+
+abs
+
+\bigskip
+
+intr,add-a: 
+ \Fol x $\mbox{+}_{i}$ y $\mbox{+}_{i}$ z = (x $\mbox{+}_{i}$ y) $\mbox{+}_{i}$ z
+
+
+
+zero-13, zero-10, zero-04, zero, succ-01, succ, sub-zero, sgn, rax, qzero-02, qzero, pred, one, neg, minus-one, lsz, ls-add, ls-09, ls-08, ls-05, ls-04, ls-02, ls, le-01, dist-sub-01, dist-sub, dist-01, dist, c, add-zero, abs, a
+
+\bigskip
+
+intr,add-c: 
+ \Fol x $\mbox{+}_{i}$ y = y $\mbox{+}_{i}$ x
+
+
+
+zero-13, zero-10, zero-04, zero, succ-01, succ, sub-zero, sgn, rax, qzero-02, qzero, pred, one, neg, minus-one, lsz, ls-add, ls-09, ls-08, ls-05, ls-04, ls-02, ls, le-01, dist-sub-01, dist-sub, dist-01, dist, c, add-zero, abs, a
+
+\bigskip
+
+intr,add-in: 
+ \Fol x $\mbox{+}_{i}$ y = x $\mbox{+}_{i}$ z \Equiv y = z
+
+
+
+succ-01, succ, sgn, dist-sub, dist-01, dist, c, a
+
+\bigskip
+
+{\bf Specification nat-basic1:}
+
+ax-05: 
+ \Fol \Not n $<$ n
+
+
+
+zero-13
+
+\bigskip
+
+{\bf Specification int-lec:}
+
+intr,les: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x $\mbox{+}_{i}$ $\mbox{1}_{i}$ \Equiv y = x $\mbox{+}_{i}$ $\mbox{1}_{i}$)
+
+
+
+ls-add
+
+\bigskip
+
+intr,zero: 
+ \Fol $\mbox{1}_{i}$ $\mbox{+}_{i}$ $\mbox{$\tildesym$1}_{i}$ = $\mbox{0}_{i}$
+
+
+
+minus-one, ls-add
+
+\bigskip
+
+intr,mone-02: 
+ \Fol $\mbox{$\tildesym$1}_{i}$ $\mbox{$<$}_{i}$ $\mbox{0}_{i}$
+
+
+
+ls-add
+
+\bigskip
+
+intr,mone-07: 
+ \Fol x = $\mbox{$\tildesym$1}_{i}$ \Equiv x $\mbox{+1}_{i}$ = $\mbox{0}_{i}$
+
+
+
+ls-add
+
+\bigskip
+
+intr,let: 
+ \Fol y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \And $\mbox{y}_{0}$ $\mbox{$\le$}_{i}$ $\mbox{y}_{1}$ \Imp y $\mbox{$\le$}_{i}$ $\mbox{y}_{1}$
+
+
+
+pls, ls-add
+
+\bigskip
+
+intr,bet: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ x \Imp (x $\mbox{$\le$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{1}_{i}$)
+
+
+
+zero-09, ls-05
+
+\bigskip
+
+intr,fle-01: 
+ \Fol x $\mbox{$\le$}_{i}$ y \And y $\mbox{$<$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+zero-10, zero-09, ls-add, ls-08, ls-03
+
+\bigskip
+
+intr,succ-01: 
+ \Fol x $\mbox{+}_{i}$ $\mbox{1}_{i}$ $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y
+
+
+
+ls
+
+\bigskip
+
+intr,succ-02: 
+ \Fol x $\mbox{$<$}_{i}$ y $\mbox{+}_{i}$ $\mbox{1}_{i}$ \Equiv x $\mbox{$\le$}_{i}$ y
+
+
+
+ls-add, ls
+
+\bigskip
+
+intr,anti: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (y $\mbox{$\le$}_{i}$ x \Equiv x = y)
+
+
+
+zero-09, zero-08, zero-03, square, ls-04, ls-01, le-01
+
+\bigskip
+
+intr,lels-04: 
+ \Fol x $\mbox{$\le$}_{i}$ y \Imp (\Not \Not y $\mbox{$<$}_{i}$ x \Equiv false)
+
+
+
+zero-09, zero-08, zero-04, zero-03, square, pls, lsz, ls-add, ls-abs, ls-09, ls-08, ls-07, ls-05, ls-03, ls-02, ls-01, ls, lez, le-01, le
+
+\bigskip
+
+intr,lels-03: 
+ \Fol x $\mbox{$<$}_{i}$ y \Imp (\Not \Not y $\mbox{$\le$}_{i}$ x \Equiv false)
+
+
+
+zero-09, sub-zero, square, sign-02, sign-01, sign, lsz, ls-add, ls-abs, ls-09, ls-08, ls-05, ls-04, ls-03, ls-02, ls-01, ls, lez, le-01, le
+
+\bigskip
+
+intr,bet-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$\le$}_{i}$ x \Imp (x $\mbox{$<$}_{i}$ $\mbox{1}_{i}$ \Equiv x = $\mbox{0}_{i}$)
+
+
+
+ls-add, ls-09, add-zero
+
+\bigskip
+
+intr,one-01: 
+ \Fol $\mbox{0}_{i}$ $\mbox{$<$}_{i}$ $\mbox{1}_{i}$
+
+
+
+zero-09, ls-08, ls-05, ls, add-zero
+
+\bigskip
+
+intr,ler: 
+ \Fol x $\mbox{$\le$}_{i}$ x
+
+
+
+zero-10, ls-add, le-01, add-zero
+
+\bigskip
+
+intr,lels: 
+ \Fol \Not x $\mbox{$<$}_{i}$ y \Equiv y $\mbox{$\le$}_{i}$ x
+
+
+
+zero-13, zero-10, zero-09, zero-08, zero-03, sub-zero, square, sign-02, sign-01, sign, qzero, pls, lsz, ls-add, ls-abs, ls-09, ls-08, ls-06, ls-05, ls-04, ls-03, ls-02, ls-01, ls, lez, le-01, le, eq, abs
+
+\bigskip
+
+intr,fle: 
+ \Fol x $\mbox{$<$}_{i}$ y \And y $\mbox{$\le$}_{i}$ $\mbox{y}_{0}$ \Imp x $\mbox{$<$}_{i}$ $\mbox{y}_{0}$
+
+
+
+zero-13, zero-10, zero-04, zero-03, qzero, pls, lsz, ls-add, ls-abs, ls-09, ls-08, ls-04, ls, add-zero, abs
+
+\bigskip
+
+intr,lels-02: 
+ \Fol x $\neq$ y \Imp (x $\mbox{$\le$}_{i}$ y \Equiv x $\mbox{$<$}_{i}$ y)
+
+
+
+zero-13, zero-09, zero-03, sub-zero, pls, ls-abs, ls-07, ls, eq, abs
+
+\bigskip
+
+intr,lels-01: 
+ \Fol \Not x $\mbox{$\le$}_{i}$ y \Equiv y $\mbox{$<$}_{i}$ x
+
+
+
+zero-10, zero-09, zero-04, square-08, square, sign-03, sgn, qzero-02, lsz, ls-add, ls-abs, ls-08, ls-07, ls-05, ls-04, ls-03, ls-02, ls-01, ls, lez, le-01, le, add-zero, abs
+
+\bigskip
+
+intr,succ: 
+ \Fol x $\mbox{+1}_{i}$ = x $\mbox{+}_{i}$ $\mbox{1}_{i}$
+
+
+
+zero-10, zero, succ, sgn, rax, qzero-02, one, minus-one, lsz, ls-add, ls-abs, ls-09, ls-08, ls-05, ls-04, ls, dist-sub, dist, c, add-zero, abs, a
+
+\bigskip
+
+
+
+
+
+
+\end{document}
+

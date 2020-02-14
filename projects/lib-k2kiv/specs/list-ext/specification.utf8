@@ -1,0 +1,13 @@
+enrich list-del, int-pot with
+
+functions
+	get:   list × int → elem;
+	range: list × int × int → list;
+	size:  list → int;
+
+axioms
+	get-def:   get(x, i) = x[i→n(i)];                                                       used for : s, ls;
+	size-def:  size(x) = n→i(#(x));                                                         used for : s, ls;
+	range-def: range(x, i, j) = sublist(i→n(min(i, size(x))), i→n(max(size(x) - j, i)), x); used for : s, ls;
+
+end enrich

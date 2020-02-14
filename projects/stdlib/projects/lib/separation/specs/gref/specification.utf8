@@ -1,0 +1,4 @@
+generic specification
+  parameter ref
+target
+end generic specification

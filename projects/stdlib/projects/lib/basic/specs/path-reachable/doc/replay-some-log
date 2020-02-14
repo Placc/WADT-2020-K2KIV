@@ -1,0 +1,39 @@
+: successful
+### No save necessary ###
+### Next replay: acyclic-rem-not-reachable ###
+acyclic-rem-not-reachable: successful
+### No save necessary ###
+### Next replay: path-delnonmember ###
+path-delnonmember: successful
+### No save necessary ###
+### Next replay: path-modify ###
+path-modify: successful
+### No save necessary ###
+### Next replay: path-modify-strong ###
+path-modify-strong: successful
+### No save necessary ###
+### Next replay: path-new-irrelevant-strong ###
+path-new-irrelevant-strong: successful
+### No save necessary ###
+### Next replay: reach-n-split-le ###
+reach-n-split-le: successful
+### No save necessary ###
+### Next replay: reachable-addnew-rev ###
+reachable-addnew-rev: successful
+### No save necessary ###
+### Next replay: reachable-n-rec-rev ###
+reachable-n-rec-rev: successful
+### No save necessary ###
+### Next replay: reachable-nodups-def ###
+reachable-nodups-def: successful
+### No save necessary ###
+### Next replay: rem-stays-reachable-aux ###
+rem-stays-reachable-aux: successful
+### No save necessary ###
+### Next replay: rem-stays-reachable-aux1 ###
+rem-stays-reachable-aux1: successful
+### No save necessary ###
+### Next replay: rem-stays-reachable-aux2 ###
+rem-stays-reachable-aux2: successful
+### Done ###
+### Saving lemmas next ###

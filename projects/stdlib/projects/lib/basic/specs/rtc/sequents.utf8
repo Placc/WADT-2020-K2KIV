@@ -1,0 +1,25 @@
+
+;; variables m : nat;
+
+lemmas
+
+rtc1:
+rtc(1, Pelem)(a, b) ↔ Pelem(a, b);
+used for: s,ls;
+
+rtc-refl:
+(Pelem ^*)(a, a);
+used for: s,ls;
+
+rtc-trans:
+(Pelem ^*)(a, b) ∧ (Pelem ^*)(b, c)
+    → (Pelem ^*)(a, c);
+used for: f,lf;
+
+rtc-one:
+Pelem(a,b)
+  → (¬ (Pelem ^*)(a,b) ↔ false);
+used for: s,ls;
+
+rtc-last:
+n ≠ 0 → (rtc(n, Pelem)(a,b) ↔ ∃ c. rtc(n - 1, Pelem)(a, c) ∧ Pelem(c, b));

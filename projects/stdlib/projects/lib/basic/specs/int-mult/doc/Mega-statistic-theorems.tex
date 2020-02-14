@@ -1,0 +1,2336 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,multicol,supertabular}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+\bigskip
+
+{\large\bf abs-eqall}
+
+\medskip
+
+ \Fol abs(i $*$ j) = abs(i) $*$ abs(j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ge-02, zero-le-01, zero-ge-01, minus-left, commutativity, associativity
+\item       used by      : square-abs, square-eq, square-le-02, square-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf abs-eqneg}
+
+\medskip
+
+ \Fol j $<$ 0 \And i $<$ 0 \Imp abs(i) $*$ abs(j) = i $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-left, eq-neg, commutativity, associativity
+\item       used by      : square-eq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf abs-ls}
+
+\medskip
+
+ \Fol j $<$ 0 \And i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ 0 \Imp abs($\mbox{j}_{0}$) $<$ i $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : modzero-06
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf associativity}
+
+\medskip
+
+ \Fol i $*$ j $*$ $\mbox{j}_{0}$ = (i $*$ j) $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, commutativity, Mult-zero
+\item       used by      : abs-eqall, abs-eqneg, dist-lsplit, dist-sub-merge, dist-sub-split, eq-dist, eq-neg, eq-nonzero, eq-one, eq-pos, eq-succ, four, le-neg, le-pos, le-pos-01, le-same, le-same-01, le-same-02, le-same-03, ls-add, ls-add-02, ls-add-03, ls-forward, ls-neg, ls-pos, ls-pos-01, ls-pos-02, ls-same, ls-same-01, ls-same-02, ls-same-03, ls-sub, minus-left, minus-one, minus-one-01, minus-one-02, modeqp, modlep, modlep-03, modlsp, modlsp-03, modlsp-04, modlsp-06, modneqp, modzero, modzero-01, modzero-02, modzero-03, modzero-04, modzero-05, modzero-06, noeth-ls-pos, noeth-modlep, noeth-zero-ls, one-01, ple-pos, pls-neg, pls-pos, pred-rmerge, square-abs, square-eq, square-gez, square-gez-01, square-gez-02, square-le, square-le-01, square-le-02, square-le-03, square-lez-01, square-ls, square-ls-01, square-minus, square-one-le, square-zero, succ-rmerge, zero-eq, zero-ge, zero-ge-01, zero-ge-02, zero-ge-03, zero-ge-add, zero-ge-add-01, zero-ge-add-02, zero-ge-case, zero-gr, zero-gr-01, zero-gr-02, zero-gr-03, zero-gr-case, zero-le, zero-le-01, zero-le-02, zero-le-03, zero-le-case, zero-ls, zero-ls-01, zero-ls-02, zero-ls-03, zero-ls-case, zero-ls-sub, zero-ls-two
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf commutativity}
+
+\medskip
+
+ \Fol i $*$ j = j $*$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : succ-rsplit, succ-lsplit, zero-left, Mult-zero
+\item       used by      : abs-eqall, abs-eqneg, associativity, dist-lsplit, dist-sub-merge, dist-sub-split, eq-dist, eq-neg, eq-nonzero, eq-one, eq-pos, eq-succ, four, le-neg, le-pos, le-pos-01, le-same, le-same-01, le-same-02, le-same-03, ls-add, ls-add-02, ls-add-03, ls-forward, ls-neg, ls-pos, ls-pos-01, ls-pos-02, ls-same, ls-same-01, ls-same-02, ls-same-03, ls-sub, minus-left, minus-one, minus-one-01, minus-one-02, modeqp, modeqp-copied, modlep, modlep-03, modlsp, modlsp-03, modlsp-04, modlsp-06, modneqp, mods-ls, mods-ls-01, mods-ls-02, mods-ls-03, mods-ls-04, modzero, modzero-01, modzero-02, modzero-03, modzero-04, modzero-05, modzero-06, noeth-ls-pos, noeth-modlep, noeth-zero-ls, one-01, ple-pos, pls-neg, pls-pos, pred-rmerge, square-abs, square-eq, square-gez, square-gez-01, square-gez-02, square-le, square-le-01, square-le-02, square-le-03, square-lez-01, square-ls, square-ls-01, square-minus, square-one-le, square-zero, succ-rmerge, zero-eq, zero-ge, zero-ge-01, zero-ge-02, zero-ge-03, zero-ge-add, zero-ge-add-01, zero-ge-add-02, zero-ge-case, zero-gr, zero-gr-01, zero-gr-02, zero-gr-03, zero-gr-case, zero-le, zero-le-01, zero-le-02, zero-le-03, zero-le-case, zero-ls, zero-ls-01, zero-ls-02, zero-ls-03, zero-ls-case, zero-ls-sub, zero-ls-two
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf dist-lsplit}
+
+\medskip
+
+ \Fol (i + $\mbox{i}_{0}$) $*$ j = i $*$ j + $\mbox{i}_{0}$ $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-rsplit, commutativity, associativity
+\item       used by      : four, ls-add-02, ls-add-03, zero-ge-add-02, zero-ls-two
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf dist-rmerge}
+
+\medskip
+
+ \Fol i $*$ j + i $*$ $\mbox{j}_{0}$ = i $*$ (j + $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-rsplit
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf dist-rsplit}
+
+\medskip
+
+ \Fol i $*$ (j + $\mbox{j}_{0}$) = i $*$ j + i $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : succ-rsplit, Mult-zero
+\item       used by      : associativity, dist-lsplit, dist-rmerge, dist-sub-merge, dist-sub-split, eq-dist, eq-succ, ls-pos, modeqp, modlep-03, modlsp, modlsp-03, modzero-01, modzero-02, modzero-03, modzero-04, modzero-05, modzero-06, noeth-ls-pos, noeth-modlep, noeth-zero-ls, pred-rmerge, succ-rmerge, zero-ge-add
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf dist-sub-merge}
+
+\medskip
+
+ \Fol i $*$ j - i $*$ $\mbox{j}_{0}$ = i $*$ (j - $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-rsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf dist-sub-split}
+
+\medskip
+
+ \Fol (i - j) $*$ $\mbox{j}_{0}$ = i $*$ $\mbox{j}_{0}$ - j $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-rsplit, commutativity, associativity
+\item       used by      : minus-left
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-dist}
+
+\medskip
+
+ \Fol (i + j) $*$ $\mbox{i}_{0}$ = $\mbox{j}_{0}$ + j $*$ $\mbox{i}_{0}$ \Equiv i $*$ $\mbox{i}_{0}$ = $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-rsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-neg}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j = i $*$ $\mbox{j}_{0}$ \Equiv j = $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : associativity, Mult-zero, eq-nonzero, commutativity
+\item       used by      : abs-eqneg, square-eq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-nonzero}
+
+\medskip
+
+ \Fol i $\neq$ 0 \Imp (i $*$ j = i $*$ $\mbox{j}_{0}$ \Equiv j = $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos, associativity, ls-neg, commutativity
+\item       used by      : eq-neg, eq-pos, zero-eq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-one}
+
+\medskip
+
+ \Fol i $*$ j = 1 \Equiv abs(i) = 1 \And i = j
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-03, one-01, one, minus-left, minus-one, commutativity, associativity, Mult-zero, pzero-ls, pls-pos
+\item       used by      : neq-two
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-pos}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j = i $*$ $\mbox{j}_{0}$ \Equiv j = $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : associativity, Mult-zero, eq-nonzero, commutativity
+\item       used by      : modlep, square-eq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-succ}
+
+\medskip
+
+ \Fol i $*$ ($\mbox{i}_{0}$ + 1) + j = i + $\mbox{j}_{0}$ \Equiv i $*$ $\mbox{i}_{0}$ + j = $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf four}
+
+\medskip
+
+ \Fol (1 + 1) $*$ (1 + 1) = 1 + 1 + 1 + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-lsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-neg}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j $\le$ i $*$ $\mbox{i}_{0}$ \Equiv $\mbox{i}_{0}$ $\le$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-neg, commutativity, associativity
+\item       used by      : le-same-02, le-same-03, zero-le-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-pos}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j $\le$ i $*$ $\mbox{i}_{0}$ \Equiv j $\le$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos, commutativity, associativity
+\item       used by      : le-pos-01, le-same, le-same-01, modlep, zero-ge, zero-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-pos-01}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (j $*$ i $\le$ $\mbox{i}_{0}$ $*$ i \Equiv j $\le$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : le-pos, commutativity, associativity
+\item       used by      : noeth-modlep
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-same}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j $\le$ i \Equiv j $\le$ 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, le-pos, ls-same-01, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-same-01}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $\le$ i $*$ j \Equiv 1 $\le$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr, one, ls-same, commutativity, associativity, le-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-same-02}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j $\le$ i \Equiv 1 $\le$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-01, one, ls-same-03, commutativity, associativity, le-neg
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-same-03}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $\le$ i $*$ j \Equiv j $\le$ 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, le-neg, ls-same-02, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-add}
+
+\medskip
+
+ \Fol 0 $\le$ $\mbox{j}_{1}$ \And $\mbox{j}_{1}$ $<$ j \Imp ($\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$ $<$ j \Equiv $\mbox{i}_{0}$ $\le$ 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr, one-01, one, commutativity, associativity, modlsp-02
+\item       used by      : modeqp
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-add-02}
+
+\medskip
+
+ \Fol i $*$ (j + $\mbox{j}_{1}$) + $\mbox{i}_{0}$ $<$ i $*$ j + $\mbox{j}_{0}$ \Equiv i $*$ $\mbox{j}_{1}$ + $\mbox{i}_{0}$ $<$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-lsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-add-03}
+
+\medskip
+
+ \Fol i $*$ j + $\mbox{i}_{0}$ $<$ i $*$ (j + $\mbox{j}_{1}$) + $\mbox{j}_{0}$ \Equiv $\mbox{i}_{0}$ $<$ i $*$ $\mbox{j}_{1}$ + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : dist-lsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-forward}
+
+\medskip
+
+ \Fol i $*$ j $<$ i $*$ $\mbox{j}_{0}$ \Imp i $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-left, commutativity, associativity
+\item       used by      : ls-pos-02, modneqp, noeth-ls-pos, noeth-zero-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-neg}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j $<$ i $*$ $\mbox{j}_{0}$ \Equiv $\mbox{j}_{0}$ $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-left, commutativity, associativity, ls-pos
+\item       used by      : eq-nonzero, le-neg, ls-same-02, ls-same-03, pls-neg, zero-ls-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-pos}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j $<$ i $*$ $\mbox{j}_{0}$ \Equiv j $<$ $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, zero-gr, commutativity, associativity, Mult-zero
+\item       used by      : eq-nonzero, le-pos, ls-neg, ls-pos-01, ls-same, ls-same-01, ls-sub, modlsp, modneqp, pls-pos, zero-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-pos-01}
+
+\medskip
+
+ \Fol 0 $<$ j \Imp (i $*$ j $<$ $\mbox{i}_{0}$ $*$ j \Equiv i $<$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos, commutativity, associativity
+\item       used by      : ls-pos-02, ple-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-pos-02}
+
+\medskip
+
+ \Fol abs($\mbox{j}_{0}$) $<$ j \Imp (i $*$ j $<$ $\mbox{i}_{0}$ $*$ j \Equiv i $<$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-forward, commutativity, associativity, ls-pos-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j $<$ i \Equiv j $<$ 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, commutativity, associativity, ls-pos
+\item       used by      : le-same-01, square-le-01, square-le-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same-01}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $<$ i $*$ j \Equiv 1 $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, commutativity, associativity, ls-pos
+\item       used by      : le-same
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same-02}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j $<$ i \Equiv 1 $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, commutativity, associativity, ls-neg
+\item       used by      : le-same-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-same-03}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $<$ i $*$ j \Equiv j $<$ 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, commutativity, associativity, ls-neg
+\item       used by      : le-same-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-sub}
+
+\medskip
+
+ \Fol $\mbox{i}_{0}$ $<$ i \Imp ((i - $\mbox{i}_{0}$) $*$ j $<$ (i - $\mbox{i}_{0}$) $*$ $\mbox{j}_{0}$ \Equiv j $<$ $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf minus-left}
+
+\medskip
+
+ \Fol $\tildesym$ i $*$ j = $\tildesym$(i $*$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-left, commutativity, associativity, dist-sub-split
+\item       used by      : abs-eqall, abs-eqneg, eq-one, ls-neg, minus-one, modlsp-04, modlsp-06, noeth-ls-pos, noeth-modlep, noeth-zero-ls, square-eq, zero-gr, zero-gr-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf minus-one}
+
+\medskip
+
+ \Fol i + 1 = 0 \Imp i $*$ j = $\tildesym$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, minus-left, commutativity, associativity
+\item       used by      : eq-one, minus-one-01, modzero-01, modzero-02, modzero-03, modzero-04, modzero-05, modzero-06, noeth-ls-pos, noeth-zero-ls, square-one-le, zero-ge-add
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf minus-one-01}
+
+\medskip
+
+ \Fol i $*$ $\tildesym$1 = $\tildesym$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-one, commutativity, associativity
+\item       used by      : minus-one-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf minus-one-02}
+
+\medskip
+
+ \Fol $\tildesym$1 $*$ i = $\tildesym$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-one-01, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modeqp}
+
+\medskip
+
+i $*$ j + $\mbox{j}_{0}$ = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j, \\
+0 $\le$ $\mbox{j}_{1}$, \\
+$\mbox{j}_{1}$ $<$ j \Fol i = $\mbox{i}_{0}$ \And $\mbox{j}_{0}$ = $\mbox{j}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, zero-ge-add, zero-eq, ls-add, commutativity, associativity, Mult-zero
+\item       used by      : modlep, mods-eq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modeqp-copied}
+
+\medskip
+
+i $*$ j + $\mbox{j}_{0}$ = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j, \\
+0 $\le$ $\mbox{j}_{1}$, \\
+$\mbox{j}_{1}$ $<$ j \Fol i = $\mbox{i}_{0}$ \And $\mbox{j}_{0}$ = $\mbox{j}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, modlep-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlep}
+
+\medskip
+
+j $*$ i $\le$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : modlsp, eq-pos, modeqp, le-pos, commutativity, associativity
+\item       used by      : modlep-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlep-01}
+
+\medskip
+
+j $*$ i $\le$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, \\
+abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : modlep
+\item       used by      : modlep-02, mods-ls-02, mods-ls-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlep-02}
+
+\medskip
+
+j $*$ i + $\mbox{j}_{0}$ $\le$ j $*$ $\mbox{i}_{0}$, \\
+abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : modlep-01
+\item       used by      : modlep-03, mods-ls, mods-ls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlep-03}
+
+\medskip
+
+j $*$ i + $\mbox{j}_{0}$ $\le$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{1}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j, \\
+abs($\mbox{j}_{1}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, associativity, commutativity, modlep-02
+\item       used by      : modeqp-copied, modneqp
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp}
+
+\medskip
+
+j $*$ i $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, associativity, ls-pos, commutativity
+\item       used by      : modlep, modlsp-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp-01}
+
+\medskip
+
+j $*$ i $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, \\
+abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : modlsp
+\item       used by      : modlsp-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp-02}
+
+\medskip
+
+j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$, \\
+abs($\mbox{j}_{0}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : modlsp-01
+\item       used by      : ls-add, modlsp-03, modlsp-04, mods-ls-04, modzero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp-03}
+
+\medskip
+
+j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{1}$, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j, \\
+abs($\mbox{j}_{1}$) $<$ j \Fol i $\le$ $\mbox{i}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, associativity, commutativity, modlsp-02
+\item       used by      : modlsp-06
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp-04}
+
+\medskip
+
+j $*$ i $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$, \\
+j $<$ 0, \\
+abs($\mbox{j}_{0}$) $<$ abs(j) \Fol $\mbox{i}_{0}$ $\le$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-left, commutativity, associativity, modlsp-02
+\item       used by      : modlsp-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp-05}
+
+\medskip
+
+j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$, \\
+j $<$ 0, \\
+abs($\mbox{j}_{0}$) $<$ abs(j) \Fol $\mbox{i}_{0}$ $\le$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : modlsp-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modlsp-06}
+
+\medskip
+
+j $*$ i + $\mbox{j}_{0}$ $<$ j $*$ $\mbox{i}_{0}$ + $\mbox{j}_{1}$, \\
+j $<$ $\mbox{j}_{1}$, \\
+$\mbox{j}_{1}$ $\le$ 0, \\
+abs($\mbox{j}_{0}$) $<$ abs(j) \Fol $\mbox{i}_{0}$ $\le$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-left, commutativity, associativity, modlsp-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modneqp}
+
+\medskip
+
+i $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$ = $\mbox{i}_{1}$ $*$ j + $\mbox{j}_{1}$, \\
+0 $\le$ $\mbox{j}_{1}$, \\
+$\mbox{j}_{1}$ $<$ j, \\
+0 $\le$ $\mbox{j}_{0}$, \\
+$\mbox{j}_{0}$ $<$ j, \\
+0 $\le$ $\mbox{i}_{0}$, \\
+$\mbox{i}_{0}$ $\le$ j, \\
+0 $\le$ i, \\
+i $<$ $\mbox{i}_{1}$ \Fol 
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos, ls-forward, associativity, modlep-03, commutativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mods-eq}
+
+\medskip
+
+\Fol \tabi 0 $\le$ i \And 0 $\le$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{1}$ \And $\mbox{j}_{0}$ $<$ j \And $\mbox{j}_{1}$ $<$ j \\
+ \tabf \Imp (i $*$ j + $\mbox{j}_{0}$ = $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$ \Equiv i = $\mbox{i}_{0}$ \And $\mbox{j}_{0}$ = $\mbox{j}_{1}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : modeqp
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mods-ls}
+
+\medskip
+
+ \Fol i $<$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j \Imp i $*$ j $<$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, modlep-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mods-ls-01}
+
+\medskip
+
+ \Fol i $<$ $\mbox{i}_{0}$ \And abs($\mbox{j}_{0}$) $<$ j \Imp i $*$ j $<$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, modlep-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mods-ls-02}
+
+\medskip
+
+ \Fol i $<$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ $\mbox{i}_{0}$ $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, modlep-01
+\item       used by      : mods-ls-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mods-ls-03}
+
+\medskip
+
+ \Fol i $<$ $\mbox{i}_{0}$ \And abs($\mbox{j}_{0}$) $<$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ $\mbox{i}_{0}$ $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, modlep-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mods-ls-04}
+
+\medskip
+
+ \Fol $\mbox{j}_{0}$ $<$ j \And 0 $\le$ i \And 0 $\le$ $\mbox{i}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \Imp (i $*$ j + $\mbox{j}_{0}$ $<$ $\mbox{i}_{0}$ $*$ j \Equiv i $<$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, modlsp-02, mods-ls-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero}
+
+\medskip
+
+ \Fol 0 $<$ i \And abs($\mbox{j}_{0}$) $<$ j \Imp \Not i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-left, commutativity, associativity, modlsp-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero-01}
+
+\medskip
+
+ \Fol i $<$ 0 \And $\mbox{j}_{0}$ $<$ j \And 0 $\le$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-left, one, minus-one, dist-rsplit, commutativity, associativity, zero-ge-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero-02}
+
+\medskip
+
+ \Fol i $<$ 0 \And $\mbox{j}_{0}$ $<$ j \And 0 $<$ j \Imp i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, minus-one, dist-rsplit, commutativity, associativity, zero-ge-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero-03}
+
+\medskip
+
+ \Fol i $<$ 0 \And $\mbox{j}_{0}$ $<$ j \And 0 $<$ j \Imp \Not 0 $\le$ i $*$ j + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, minus-one, dist-rsplit, commutativity, associativity, zero-ge-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero-04}
+
+\medskip
+
+ \Fol i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And j $<$ 0 \Imp \Not i $*$ j + $\mbox{j}_{0}$ $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, minus-one, dist-rsplit, commutativity, associativity, zero-ls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero-05}
+
+\medskip
+
+ \Fol i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And j $<$ 0 \Imp 0 $\le$ i $*$ j + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, minus-one, dist-rsplit, commutativity, associativity, zero-ls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modzero-06}
+
+\medskip
+
+ \Fol i $<$ 0 \And j $<$ $\mbox{j}_{0}$ \And j $<$ 0 \Imp 0 $<$ i $*$ j + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, minus-one, dist-rsplit, commutativity, associativity, zero-ls-01
+\item       used by      : abs-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf neq-two}
+
+\medskip
+
+ \Fol (1 + 1) $*$ i $\neq$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : eq-one
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf noeth-ls-pos}
+
+\medskip
+
+ \Fol \All $\mbox{i}_{0}$. abs($\mbox{i}_{0}$) $<$ i \Imp (0 $<$ abs($\mbox{i}_{0}$) \Imp (abs($\mbox{i}_{0}$) $*$ j $<$ abs($\mbox{i}_{0}$) $*$ $\mbox{j}_{0}$ \Equiv j $<$ $\mbox{j}_{0}$))
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, ls-forward, minus-one, minus-left, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf noeth-modlep}
+
+\medskip
+
+ \Fol abs(j) $<$ $\mbox{j}_{1}$ \Imp (abs(j) $*$ i $\le$ abs(j) $*$ $\mbox{i}_{0}$ + $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{j}_{0}$ \And $\mbox{j}_{0}$ $<$ abs(j) \Imp i $\le$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Mult-zero, le-pos-01, one, dist-rsplit, minus-left, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf noeth-zero-ls}
+
+\medskip
+
+abs(i) $<$ $\mbox{i}_{0}$, \\
+0 $<$ abs(i), \\
+0 $<$ j \Fol 0 $<$ abs(i) $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-forward, one, dist-rsplit, minus-one, minus-left, commutativity, associativity
+\item       used by      : zero-gr
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one}
+
+\medskip
+
+ \Fol 1 $*$ i = i
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-left, succ-lsplit
+\item       used by      : associativity, eq-one, eq-succ, four, le-same, le-same-01, le-same-02, le-same-03, ls-add, ls-pos, ls-same, ls-same-01, ls-same-02, ls-same-03, minus-one, modeqp, modlep-03, modlsp, modlsp-03, modzero-01, modzero-02, modzero-03, modzero-04, modzero-05, modzero-06, noeth-ls-pos, noeth-modlep, noeth-zero-ls, one-01, pred-rmerge, square-one-le, succ-rmerge, zero-ge-add, zero-ls-two
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one-01}
+
+\medskip
+
+ \Fol i = 1 \Imp i $*$ j = j
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, commutativity, associativity
+\item       used by      : eq-one, ls-add
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ple-neg}
+
+\medskip
+
+i $<$ 0, \\
+j $<$ 0, \\
+$\mbox{i}_{0}$ $\le$ i, \\
+$\mbox{j}_{0}$ $<$ j \Fol i $*$ j $\le$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : pls-neg
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ple-pos}
+
+\medskip
+
+0 $<$ i, \\
+0 $<$ j, \\
+i $\le$ $\mbox{i}_{0}$, \\
+j $\le$ $\mbox{j}_{0}$ \Fol i $*$ j $\le$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos-01, commutativity, associativity, pls-pos
+\item       used by      : square-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf pls-neg}
+
+\medskip
+
+i $<$ 0, \\
+j $<$ 0, \\
+$\mbox{i}_{0}$ $\le$ i, \\
+$\mbox{j}_{0}$ $<$ j \Fol i $*$ j $<$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-neg, commutativity, associativity
+\item       used by      : ple-neg
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf pls-pos}
+
+\medskip
+
+0 $<$ i, \\
+0 $<$ j, \\
+i $\le$ $\mbox{i}_{0}$, \\
+j $<$ $\mbox{j}_{0}$ \Fol i $*$ j $<$ $\mbox{i}_{0}$ $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-pos, commutativity, associativity
+\item       used by      : eq-one, ple-pos, square-eq, square-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf pred-rmerge}
+
+\medskip
+
+ \Fol i $*$ j - i = i $*$ (j - 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf pzero-gr}
+
+\medskip
+
+0 $<$ i \And 0 $<$ j \Or i $<$ 0 \And j $<$ 0 \Fol 0 $<$ i $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf pzero-ls}
+
+\medskip
+
+0 $<$ i \And j $<$ 0 \Or i $<$ 0 \And 0 $<$ j \Fol i $*$ j $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-case
+\item       used by      : eq-one
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-abs}
+
+\medskip
+
+ \Fol abs(i $*$ i) = i $*$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, commutativity, associativity, abs-eqall
+\item       used by      : square-eq, square-le-02, square-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-eq}
+
+\medskip
+
+ \Fol i $*$ i = j $*$ j \Equiv abs(i) = abs(j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : eq-pos, eq-neg, abs-eqneg, minus-left, square-ls, square-abs, abs-eqall, square-zero, commutativity, associativity, Mult-zero, pls-pos
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-gez}
+
+\medskip
+
+ \Fol 0 $\le$ i $*$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, commutativity, associativity
+\item       used by      : square-gez-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-gez-01}
+
+\medskip
+
+ \Fol 0 $\le$ i $*$ i + j $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-gez, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-gez-02}
+
+\medskip
+
+ \Fol 0 $\le$ i + i $*$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, square-le-01, commutativity, associativity, square-le-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-le}
+
+\medskip
+
+ \Fol i $*$ i $\le$ j $*$ j \Equiv abs(i) $\le$ abs(j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-ls, associativity, commutativity
+\item       used by      : square-one-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-le-01}
+
+\medskip
+
+ \Fol i $\le$ i $*$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, commutativity, associativity, ls-same
+\item       used by      : square-gez-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-le-02}
+
+\medskip
+
+ \Fol abs(i) $\le$ i $*$ i
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, Mult-zero, ls-same, square-abs, commutativity, associativity, abs-eqall
+\item       used by      : square-gez-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-le-03}
+
+\medskip
+
+ \Fol $\mbox{i}_{0}$ $\le$ i \Imp $\mbox{i}_{0}$ $\le$ i + j $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-lez}
+
+\medskip
+
+ \Fol \Not i $*$ i $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-case
+\item       used by      : square-abs, square-gez, square-gez-02, square-le-01, square-le-02, square-le-03, square-ls, square-ls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-lez-01}
+
+\medskip
+
+ \Fol i $*$ i $\le$ 0 \Equiv i = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-le-case, commutativity, associativity, Mult-zero
+\item       used by      : square-ls, square-minus
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-ls}
+
+\medskip
+
+ \Fol i $*$ i $<$ j $*$ j \Equiv abs(i) $<$ abs(j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez-01, pls-pos, square-abs, abs-eqall, square-lez, commutativity, associativity, Mult-zero, ple-pos
+\item       used by      : square-eq, square-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-ls-01}
+
+\medskip
+
+ \Fol i $<$ $\mbox{i}_{0}$ \Imp i $<$ $\mbox{i}_{0}$ + j $*$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-minus}
+
+\medskip
+
+ \Fol $\tildesym$(i $*$ i) $<$ 0 \Equiv i $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : square-lez-01, commutativity, associativity, Mult-zero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-one-le}
+
+\medskip
+
+ \Fol i $*$ i $\le$ 1 \Equiv i = 0 \Or i = 1 \Or i = $\tildesym$1
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-one, Mult-zero, one, commutativity, associativity, square-le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-zero}
+
+\medskip
+
+ \Fol i $*$ i = 0 \Equiv i = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-eq, commutativity, associativity, Mult-zero
+\item       used by      : square-eq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf succ-lsplit}
+
+\medskip
+
+ \Fol (i + 1) $*$ j = i $*$ j + j
+
+\begin{itemize}
+
+
+\item       used lemmas  : succ-rsplit, Mult-zero
+\item       used by      : commutativity, one, zero-gr-add
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf succ-rmerge}
+
+\medskip
+
+ \Fol i $*$ j + i = i $*$ (j + 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-rsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf succ-rsplit}
+
+\medskip
+
+ \Fol i $*$ (j + 1) = i $*$ j + i
+
+\begin{itemize}
+
+
+\item       used lemmas  : Mult-succ
+\item       used by      : commutativity, dist-rsplit, succ-lsplit, zero-left
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-eq}
+
+\medskip
+
+ \Fol i $*$ j = 0 \Equiv i = 0 \Or j = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, associativity, Mult-zero, eq-nonzero
+\item       used by      : modeqp, square-zero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (0 $\le$ i $*$ j \Equiv 0 $\le$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : Mult-zero, le-pos, zero-ls, commutativity, associativity
+\item       used by      : zero-ge-01, zero-ge-03, zero-ge-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-01}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (0 $\le$ i $*$ j \Equiv j $\le$ 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-01, zero-ge, commutativity, associativity
+\item       used by      : abs-eqall, modzero-01, modzero-02, modzero-03, zero-ge-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-02}
+
+\medskip
+
+ \Fol 0 $\le$ i \Imp (0 $\le$ i $*$ j \Equiv \Not \Not (i = 0 \Or 0 $\le$ j))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-02, zero-ge-01, commutativity, associativity
+\item       used by      : abs-eqall
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-03}
+
+\medskip
+
+ \Fol i $\le$ 0 \Imp (0 $\le$ i $*$ j \Equiv \Not \Not (i = 0 \Or j $\le$ 0))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-03, zero-ge, commutativity, associativity
+\item       used by      : zero-ge-add, zero-ge-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-add}
+
+\medskip
+
+ \Fol 0 $\le$ $\mbox{j}_{1}$ \And $\mbox{j}_{1}$ $<$ j \Imp (0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{1}$ \Equiv 0 $\le$ $\mbox{i}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls, minus-one, one, dist-rsplit, commutativity, associativity, zero-ge-03
+\item       used by      : modeqp
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-add-01}
+
+\medskip
+
+ \Fol 0 $\le$ j \And 0 $\le$ $\mbox{j}_{0}$ \And 0 $\le$ $\mbox{i}_{0}$ \Imp 0 $\le$ $\mbox{i}_{0}$ $*$ j + $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-02, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-add-02}
+
+\medskip
+
+ \Fol 0 $\le$ i + j \And 0 $<$ $\mbox{j}_{0}$ \Imp 0 $\le$ i $*$ $\mbox{j}_{0}$ + j $*$ $\mbox{j}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : associativity, Mult-zero, zero-ls, commutativity, dist-lsplit
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ge-case}
+
+\medskip
+
+ \Fol 0 $\le$ i $*$ j \Equiv i = 0 \Or j = 0 \Or 0 $\le$ i \And 0 $\le$ j \Or i $\le$ 0 \And j $\le$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ge-03, commutativity, associativity, zero-ge
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-gr}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (0 $<$ i $*$ j \Equiv 0 $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-left, commutativity, associativity, Mult-zero, noeth-zero-ls
+\item       used by      : le-same-01, ls-add, ls-pos, zero-gr-01, zero-gr-02, zero-gr-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-gr-01}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (0 $<$ i $*$ j \Equiv j $<$ 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : minus-left, commutativity, associativity, zero-gr
+\item       used by      : zero-gr-03, zero-gr-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-gr-02}
+
+\medskip
+
+ \Fol 0 $\le$ i \Imp (0 $<$ i $*$ j \Equiv \Not \Not (0 $<$ j \And i $\neq$ 0))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr, commutativity, associativity, Mult-zero
+\item       used by      : zero-gr-03, zero-le-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-gr-03}
+
+\medskip
+
+ \Fol i $\le$ 0 \Imp (0 $<$ i $*$ j \Equiv \Not \Not (j $<$ 0 \And i $\neq$ 0))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr-02, zero-gr-01, commutativity, associativity, Mult-zero
+\item       used by      : zero-gr-case, zero-le-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-gr-add}
+
+\medskip
+
+ \Fol 0 $<$ j \Imp (0 $<$ i $*$ j + j \Equiv 0 $\le$ i)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr-case, succ-lsplit
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-gr-case}
+
+\medskip
+
+ \Fol 0 $<$ i $*$ j \Equiv 0 $<$ i \And 0 $<$ j \Or i $<$ 0 \And j $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-gr-03, zero-gr-01, commutativity, associativity, zero-gr
+\item       used by      : pzero-gr, zero-gr-add
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-le}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j $\le$ 0 \Equiv j $\le$ 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, associativity, Mult-zero, le-pos
+\item       used by      : zero-le-02, zero-le-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-le-01}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j $\le$ 0 \Equiv 0 $\le$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, associativity, Mult-zero, le-neg
+\item       used by      : abs-eqall, zero-le-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-le-02}
+
+\medskip
+
+ \Fol 0 $\le$ i \Imp (i $*$ j $\le$ 0 \Equiv \Not \Not (i = 0 \Or j $\le$ 0))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-le, zero-gr-02, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-le-03}
+
+\medskip
+
+ \Fol i $\le$ 0 \Imp (i $*$ j $\le$ 0 \Equiv \Not \Not (i = 0 \Or 0 $\le$ j))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-le-01, zero-gr-03, commutativity, associativity
+\item       used by      : zero-le-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-le-case}
+
+\medskip
+
+ \Fol i $*$ j $\le$ 0 \Equiv i = 0 \Or j = 0 \Or 0 $\le$ i \And j $\le$ 0 \Or i $\le$ 0 \And 0 $\le$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-le-03, commutativity, associativity, zero-le
+\item       used by      : square-lez-01, zero-le-two
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-le-two}
+
+\medskip
+
+ \Fol (1 + 1) $*$ i $\le$ 0 \Equiv i $\le$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-le-case
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-left}
+
+\medskip
+
+ \Fol 0 $*$ i = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : succ-rsplit, Mult-zero
+\item       used by      : commutativity, ls-forward, minus-left, modzero, modzero-01, one
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls}
+
+\medskip
+
+ \Fol 0 $<$ i \Imp (i $*$ j $<$ 0 \Equiv j $<$ 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : commutativity, associativity, Mult-zero, ls-pos
+\item       used by      : zero-ge, zero-ge-add, zero-ge-add-02, zero-ls-01, zero-ls-02, zero-ls-03, zero-ls-case, zero-ls-sub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls-01}
+
+\medskip
+
+ \Fol i $<$ 0 \Imp (i $*$ j $<$ 0 \Equiv 0 $<$ j)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-03, zero-ls, commutativity, associativity
+\item       used by      : le-same-02, modzero-04, modzero-05, modzero-06, zero-ge-01, zero-ls-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls-02}
+
+\medskip
+
+ \Fol 0 $\le$ i \Imp (i $*$ j $<$ 0 \Equiv \Not \Not (j $<$ 0 \And i $\neq$ 0))
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-01, zero-ls, commutativity, associativity, Mult-zero
+\item       used by      : zero-ge-02, zero-ge-add-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls-03}
+
+\medskip
+
+ \Fol i $\le$ 0 \Imp (i $*$ j $<$ 0 \Equiv \Not \Not (0 $<$ j \And i $\neq$ 0))
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-neg, zero-ls, commutativity, associativity, Mult-zero
+\item       used by      : eq-one, zero-ge-03, zero-ls-01, zero-ls-case, zero-ls-sub
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls-case}
+
+\medskip
+
+ \Fol i $*$ j $<$ 0 \Equiv 0 $<$ i \And j $<$ 0 \Or i $<$ 0 \And 0 $<$ j
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-03, commutativity, associativity, zero-ls
+\item       used by      : pzero-ls, square-lez
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls-sub}
+
+\medskip
+
+ \Fol i $<$ j \Imp ((i - j) $*$ $\mbox{j}_{0}$ $<$ 0 \Equiv 0 $<$ $\mbox{j}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-ls-03, zero-ls, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-ls-two}
+
+\medskip
+
+ \Fol (1 + 1) $*$ i $<$ 0 \Equiv i $<$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : one, dist-lsplit, commutativity, associativity
+
+\end{itemize}
+
+\medskip
+
+
+
+\end{document}
+

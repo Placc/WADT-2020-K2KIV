@@ -1,0 +1,13 @@
+instantiate parameter elem < rtc with heap by mapping
+
+ : elem → heap;
+
+a → H;
+b → H0;
+c → H1;
+
+rename
+
+Pelem → PHH;
+
+end instantiate

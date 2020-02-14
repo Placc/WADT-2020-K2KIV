@@ -1,0 +1,30 @@
+enrich maplet, gownership with
+
+functions
+! : id × (ref → id) × (heap → bool) → heap → bool;
+
+predicates
+rely : id × (ref → id) × heap × (ref → id) × heap;
+guar : id × (ref → id) × heap × (ref → id) × heap;
+
+variables
+me : id;
+O0,O1,O2 : ref → id;
+
+axioms
+
+rely:
+rely(me,O1,H1,O2,H2)
+  ↔ ∀ r.   (O1(r) = me ↔ O2(r) = me)
+         ∧ (O1(r) = me →   (r ∈ H1 ↔ r ∈ H2)
+                         ∧ (r ∈ H1 → H1[r] = H2[r]));
+
+guar:
+guar(me,O1,H1,O2,H2)
+  ↔ ∀ id. id ≠ me → rely(id,O1,H1,O2,H2);
+
+owned:
+!(id, O, P)(H)
+  ↔ (P(H) ∧ ∀ r. r ∈ H → O(r) = id);
+
+end enrich

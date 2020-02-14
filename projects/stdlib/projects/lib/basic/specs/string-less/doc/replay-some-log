@@ -1,0 +1,18 @@
+: successful
+### No save necessary ###
+### Next replay: eqpos ###
+eqpos: successful
+### No save necessary ###
+### Next replay: insorted ###
+insorted: successful
+### No save necessary ###
+### Next replay: len-str ###
+len-str: successful
+### No save necessary ###
+### Next replay: len-str-01 ###
+len-str-01: successful
+### No save necessary ###
+### Next replay: val-total-01 ###
+val-total-01: successful
+### Done ###
+### Saving lemmas next ###

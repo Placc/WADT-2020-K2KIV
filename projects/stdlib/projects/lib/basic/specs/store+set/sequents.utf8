@@ -1,0 +1,107 @@
+;; file: /quadly/swt/kiv/v6/projects/lib/basic/specs/store+set/sequents
+
+
+variables a1 : elem;
+
+lemmas
+
+in-dom-inter: a ∈ st → (a ∈ dom st ∩ s ↔ a ∈ s); used for: s,ls;
+diff-get-add: a ≠ b ∧ ¬ b ∈ s → (st \ (s ++ a))[b] = st[b]; used for: s,ls;
+diff-add-rem: a ∈ st → (st \ (s ++ a)) -- a = st \ (s ++ a); used for: s,ls;
+restrict-empty: st | ∅ = ∅; used for: s,ls;
+restrict-in: a ∈ (st | s) ↔ a ∈ st ∧ a ∈ s; used for: s,ls;
+restrict-at: a ∈ st ∧ a ∈ s → (st | s)[a] = st[a]; used for: s,ls;
+restrict-intersect-empty: dom st ∩ s = ∅ → st \ s = st; used for: s,ls;
+restrict-intersect-empty-write-add: dom st ∩ s = ∅ → st[a, d] \ (s -- a) = st[a, d]; used for: s,ls;
+diff-add-notin: ¬ a ∈ st → st \ (s ++ a) = st \ s; used for: s,ls;
+dom-rem: dom (st \ s) = dom st \ s;used for: s,ls;
+dom-restrict: s ⊆ dom st → dom (st | s) = s; used for : s,ls;
+dom-add-in: a ∈ st → dom st ++ a = dom st; used for: s,ls;
+rem-write: ¬ a ∈ s → (st[a, d] \ s) = (st \ s)[a, d];
+rem-write-other: a ∈ s → (st[a, d] \ s) = st \ s; used for: s,ls;
+rem-write-cases: (st[a, d] \ s) = (a ∈ s ⊃ st \ s; (st \ s)[a, d]);
+dom-union-l: dom(st0 ⊕ st1) = dom st0 ∪ dom st1; used for: s,ls;
+
+;;; HMM, wenn dann direkt in store
+;;; notin-emp:
+;;; st = ∅ → ¬ a ∈ st;
+;;; used for: s,ls;
+;;; 
+;;; in-notemp:
+;;; a ∈ st → st ≠ ∅;
+;;; used for: s,ls;
+
+Diff-mems-get: a ∈ s → (st \ s)[a] = ∅[a];
+used for: s,ls;
+
+Diff-Diff-com: (st \ s) \ s0 = (st \ s0) \ s;
+;;; keine simprule
+
+Diff-del-rw: (st -- a) \ s = (st \ s) -- a;
+used for: s, ls;
+
+Diff-get: ¬ a ∈ s → (st \ s)[a] = st[a];
+used for: s,ls;
+
+Diff-ext : a ∈ st \ s  ↔ a ∈ st ∧ ¬ a ∈ s;
+used for: s,ls;
+Diff-rec-rev: st \ (s ++ a) = (st -- a) \ s ;
+;; keine simprule
+Diff-mod: st[a,d] \ (s ++ a) = st \ (s ++ a);
+used for: s,ls;
+Diff-empty: (∅ :: store) \ s = ∅;
+used for: s,ls;
+ 
+In-data-in:
+a ∈ st ⊦ st[a] ∈ st;
+used for: s,ls;
+
+Data-notin-other:
+d0 ≠ d1 ∧ ¬ d0 ∈ st → ¬ d0 ∈ st[a,d1];
+used for: s,ls;
+
+Data-notin-other-2:
+d0 ≠ d1 ∧ d0 ≠ d2 ∧ ¬ d0 ∈ st → ¬ d0 ∈ st[a,d1][b,d2];
+used for: s,ls;
+
+Data-notin-other-3:
+d ≠ d0 ∧ d0 ≠ d1 ∧ d0 ≠ d2 ∧ ¬ d0 ∈ st → ¬ d0 ∈ st[a,d1][b,d2][c,d];
+used for: s,ls;
+
+Data-in-del:
+¬ d0 ∈ st → ¬ d0 ∈ (st -- a);
+used for: s,ls;
+
+Data-in-putdel:
+¬ d0 ∈ st ∧ d0 ≠ d1 → ¬ d0 ∈ (st -- a)[b,d1];
+used for: s,ls;
+
+Data-in-delput:
+¬ d0 ∈ st ∧ d0 ≠ d1 → ¬ d0 ∈ (st[b,d1] -- a);
+used for: s,ls;
+
+Data-in-putdelput:
+¬ d0 ∈ st ∧ d0 ≠ d1 ∧ d0 ≠ d2 → ¬ d0 ∈ (st[b,d1] -- a)[c,d2];
+used for: s,ls;
+
+Data-in-delput-2:
+¬ d0 ∈ st ∧ d0 ≠ d1 ∧ d0 ≠ d2 → ¬ d0 ∈ (st[b,d1][c,d2] -- a);
+used for: s,ls;
+
+
+Data-in-putsame:
+d ∈ st[a, d];
+used for: s,ls;
+
+Data-in-puteq:
+d0 = d1 → d0 ∈ st[a, d1];
+used for: s,ls;
+
+dom-isemp: dom st = ∅ ↔ st = ∅; used for: s,ls;
+dom-emp: dom ∅ = ∅; used for: s,ls;
+
+dom-ins: dom (st[a,d]) = (dom st) ++ a; used for: s,ls;
+dom-del: dom (st -- a) = (dom st) -- a; used for: s,ls;
+
+dom-isemp: dom st = ∅ ↔ st = ∅; used for: s,ls;
+

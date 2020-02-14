@@ -1,0 +1,87 @@
+
+;; variables m : nat;
+
+lemmas
+injectivity : encode(m) = encode(n) ↔ m = n; used for : s,ls;
+injectivity : encode(i) = encode(j) ↔ i = j; used for : s,ls;
+;;; END
+enc-zero : encode(i) = 0 ↔ i = 0; used for : s,ls;
+enc-zero : encode(n) = 0 ↔ n = 0; used for : s,ls;
+dec-nat : decode(encode(n)) = n; used for : s,ls;
+dec-int : decode(encode(i)) = i; used for : s,ls;
+
+dec-nat : encode(decode(n)) = n; used for : s,ls;
+dec-int : encode(decode(i)) = i; used for : s,ls;
+
+exencode : ∃ i, j. i × j = i0;
+enc-invert : i.1 × i.2 = i;
+
+enc-zero : i × j = 0 ↔ ¬ ¬ (i = 0 ∧ j = 0); used for : s,ls;
+
+injectivity : i × j = i0 × j0 ↔ i = i0 ∧ j = j0; used for : s, ls;
+sel-fst :     (i × j).1 = i; used for : s,ls;
+sel-snd :     (i × j).2 = j; used for : s,ls;
+;;; END
+mkpospair-ls : 0 ≤ i ∧ 0 ≤ j ∧ 0 ≤ i0 ∧ 0 ≤ j0 → (i × j < i0 × j0 ↔ (i + j) * (i + j + 1) + 2 * j < (i0 + j0) * (i0 + j0 + 1) + 2 * j0);
+ 
+maxi-square : 0 ≤ i ∧ 0 ≤ j → maxI(((i + j) * (i + j + 1)) / 2 + j) = i + j; used for : ls;
+max-rev : 0 ≤ i ∧ maxI(i0, i) = j ∧ 0 ≤ i0 ∧ (i0 * (i0 + 1)) / 2 ≤ i → (j * (j + 1)) / 2 ≤ i ∧ i < ((j + 1) * (j + 2)) / 2;
+
+max-pos : 0 ≤ j ∧ (j * (j + 1)) / 2 ≤ i → ¬ maxI(j, i) < 0; used for : s,ls; ;; i→n(i - j)
+max-def : (j * (j + 1)) / 2 ≤ i ∧ i < ((j + 1) * (j + 2)) / 2 ∧ 0 ≤ i0 ∧ 0 ≤ i ∧ 0 ≤ j ∧ (i0 * (i0 + 1)) / 2 ≤ i → maxI(i0, i) = j; ;; i→n(i - i0)
+
+maxi-def : (j * (j + 1)) / 2 ≤ i ∧ i < ((j + 1) * (j + 2)) / 2 ∧ 0 ≤ j ∧ 0 ≤ i → maxI(i) = j;
+
+maxi-rev : 0 ≤ i ∧ maxI(i) = j → (j * (j + 1)) / 2 ≤ i ∧ i < ((j + 1) * (j + 2)) / 2;
+maxi-pos : 0 ≤ i → ¬ maxI(i) < 0;
+maxi-le  : 0 ≤ i → maxI(i) ≤ i;
+
+posfst-def : 0 ≤ i ∧ 0 ≤ j → (i × j).1 = i; used for : s,ls;
+possnd-def : 0 ≤ i ∧ 0 ≤ j → (i × j).2 = j; used for : s,ls;
+
+fst-def : (i × j).1 = i; used for : s,ls;
+snd-def : (i × j).2 = j; used for : s,ls;
+
+mkpospair-zero : 0 ≤ i ∧ 0 ≤ j → (0 = i ×pos j ↔ i = 0 ∧ j = 0); used for : s,ls;
+mkpair-zero : (0 = i × j ↔ i = 0 ∧ j = 0); used for : s,ls;
+
+inj-posenc : posenc(i) = posenc(i0) ↔ i = i0; used for : s,ls;
+
+inj-mkpospair : 0 ≤ i, 0 ≤ j, 0 ≤ i0, 0 ≤ j0 ⊦ (i ×pos j = i0 ×pos j0 ↔ i = i0 ∧ j = j0); used for : ls;
+inj-mkpair : (i × j = i0 × j0 ↔ i = i0 ∧ j = j0); used for : ls;
+
+mkpospair-pos : 0 ≤ i ∧ 0 ≤ j → ¬ i ×pos j < 0; used for : s,ls;
+mkpair-pos : ¬ i × j < 0; used for : s,ls;
+
+posenc-pos : ¬ posenc(i) < 0; used for : s,ls;
+mkpair-zero : i × j = 0 ↔ i = 0 ∧ j = 0;
+mkpospair-zero : 0 ≤ i, 0 ≤ j ⊦ i ×pos j = 0 ↔ i = 0 ∧ j = 0; used for : ls;
+inj-mkpospair : 0 ≤ i ∧ 0 ≤ j ∧ 0 ≤ i0 ∧ 0 ≤ j0 → (i ×pos j = i0 ×pos j0 ↔ i = i0 ∧ j = j0); used for : s,ls;
+
+
+
+;; <name> : <sequent> ; 
+;; used for : <some_flags> ; comment : <some_comment> ;
+
+;;; END
+
+;;;****************************************************************************************
+;;; This file is used to add additional theorems. 
+;;; 1. Two semicolons start a line comment
+;;; 2. (: ... :) delimit a comment. They can be nested!
+;;; 3. Reading stops after ;;; END
+;;; 4. Theorems have the form
+       
+<name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+
+     'used for' and 'comment' are optional.
+     <some_comment> may be any text not containing a ;
+     <some_flags> is a comma separated list with information that the lemma should
+     be used as a simplifier rule or something like that. Since you can add or delete
+     simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+     Note: changing the flags or the comment only works if the sequent is also changed!!!
+     possible flags are:
+
+     s (simplifier rule), ls (local simplifier rule), f (forward), lf (local forward),
+     e (elimination), c (cut), lc (local cut)
+

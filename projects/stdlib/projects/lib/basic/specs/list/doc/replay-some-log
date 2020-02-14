@@ -1,0 +1,12 @@
+: successful
+### No save necessary ###
+### Next replay: len-04 ###
+len-04: successful
+### No save necessary ###
+### Next replay: split-first ###
+split-first: successful
+### No save necessary ###
+### Next replay: split-rest ###
+split-rest: successful
+### Done ###
+### Saving lemmas next ###

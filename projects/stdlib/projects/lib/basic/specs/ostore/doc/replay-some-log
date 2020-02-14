@@ -1,0 +1,30 @@
+: successful
+### No save necessary ###
+### Next replay: butmin-rewput ###
+butmin-rewput: successful
+### No save necessary ###
+### Next replay: butmin-size ###
+butmin-size: successful
+### No save necessary ###
+### Next replay: del-01 ###
+del-01: successful
+### No save necessary ###
+### Next replay: insert-01 ###
+insert-01: failed
+### No save necessary ###
+### Next replay: insert-02 ###
+insert-02: failed
+### No save necessary ###
+### Next replay: insert-03 ###
+insert-03: successful
+### No save necessary ###
+### Next replay: min-def ###
+min-def: successful
+### No save necessary ###
+### Next replay: min-put ###
+min-put: successful
+### No save necessary ###
+### Next replay: mk-in ###
+mk-in: successful
+### Done ###
+### Saving lemmas next ###

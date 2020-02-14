@@ -1,0 +1,9 @@
+generic data specification
+  parameter ownership
+
+idxO = . × . (. .id : id; . .O : ref → id);
+
+variables
+idxO : idxO;
+
+end generic data specification

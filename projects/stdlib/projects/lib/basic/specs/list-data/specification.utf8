@@ -1,0 +1,17 @@
+generic data specification
+
+parameter elem
+       
+using nat
+
+data types
+
+list = [] | . + . (. .head : elem; . .tail : list) ;
+
+variables x,y,z : list;
+
+size functions # . : list → nat;
+
+order predicates . < . : list × list;
+
+end generic data specification

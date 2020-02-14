@@ -1,0 +1,73 @@
+enrich stream with
+
+
+functions filter : (elem → bool) × stream → stream;
+          cnt : elem × stream → natinf;
+
+          lastoc: elem × stream → natinf;
+           comment: defined by two complementary cases.;
+
+          rem : stream × (nat → bool) → stream;
+          comment: removes all elements at positions, that satisfy the predicate.;
+
+predicates mon : (nat → stream);
+           . ⊑ . : stream × stream;
+
+variables σf : nat → stream;
+          p : elem → bool;
+          σ0 : stream;
+          nnf: nat → nat;
+          np : nat → bool;
+
+;; induction ;
+partial functions
+          lim : (nat → stream) → stream with λ σf. mon(σf);
+
+axioms
+
+rem-base: rem([],np) = [];
+used for: s,ls;
+
+rem-rec: rem(⌜x⌝ + ⌜a '⌝,np) = rem(⌜x⌝ ,np) + (np(# x) ⊃ []; ⌜a '⌝);
+used for: s,ls;
+
+rem-inf: rem(⌜nf⌝,np) = lim(λ n. rem(⌜nf to n⌝,np));
+comment: definition justified by lemma mon-remfun.;
+
+
+lastoc-fin:
+lastoc(a,σ) = ⌜n⌝ ↔ ⌜n⌝ < # σ ∧ σ[n] = a ∧ ∀ n0. n < n0 ∧ ⌜n0⌝ < # σ → σ[n0] ≠ a;
+used for: s,ls;
+
+lastoc-inf:
+lastoc(a,σ) = ∞ ↔ ¬ ∃ n. ⌜n⌝ < # σ ∧ σ[n] = a ∧ ∀ n0. n < n0 ∧ ⌜n0⌝ < # σ → σ[n0] ≠ a;
+used for: ss,lss;
+
+
+
+count-def:
+cnt(a,σ) = # filter(λ b. b = a,σ);
+
+filter-base:
+filter(p,[]) = [];
+
+filter-rec:
+filter(p,⌜a '⌝ + ⌜x⌝) = (p(a) ⊃ ⌜a '⌝ ; []) + filter(p,⌜x⌝);
+
+filter-inf:
+filter(p,⌜nf⌝) = lim(λ n. filter(p,⌜nf to n⌝));
+
+prefix-def:
+σ ⊑ σ0 ↔ ∃ σ1. σ + σ1 = σ0;
+
+mon-def:
+mon(σf) ↔ ∀ n. σf(n) ⊑ σf(n + 1);
+
+
+lim-def: mon(σf) →   (∀ n. σf(n) ⊑ lim(σf)) ∧ ∀ m. ¬ # lim(σf) < ⌜m⌝ → ∃ n. lim(σf) to m ⊑ σf(n);
+comment: definition justified as skolem-function of theorems lim-exists and lim-unique.;
+
+
+
+
+end enrich

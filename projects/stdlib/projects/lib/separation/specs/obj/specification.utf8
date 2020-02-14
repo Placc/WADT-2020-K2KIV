@@ -1,0 +1,6 @@
+specification
+
+sorts obj;
+variables o,o0,o1: obj;
+
+end specification

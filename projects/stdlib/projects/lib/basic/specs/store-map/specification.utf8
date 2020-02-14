@@ -1,0 +1,17 @@
+enrich store+set with
+
+functions
+. .map(.) : store × (data → data) → store;
+. .map(.) : store × (elem × data → data) → store;
+
+variables
+dataf : data → data;
+elemdataf : elem × data → data;
+
+axioms
+map-in: a ∈ st.map(dataf) ↔ a ∈ st; used for: s,ls;
+map-at: a ∈ st → st.map(dataf)[a] = dataf(st[a]); used for: ls;
+mapi-in: a ∈ st.map(elemdataf) ↔ a ∈ st; used for: s,ls;
+mapi-at: a ∈ st → st.map(elemdataf)[a] = elemdataf(a, st[a]); used for: ls;
+
+end enrich

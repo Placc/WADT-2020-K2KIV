@@ -1,0 +1,82 @@
+
+variables m0 : nat;
+
+lemmas
+inj-add : encode(m, n) + encode(n, m) = encode(m0, n0) + encode(n0, m0) ↔
+          m = m0 ∧ n = n0 ∨ m = n0 ∧ n = m0;
+;;; END
+snd-le  : m .2 ≤ m; used for : s;
+snd-ls  : m .2 < m ↔ m ≠ 0; used for : s,ls;
+fst-nle : m0 ≠ 0, m0 ≠ 1 ⊦ n + m * (* m0) ≤ m .1 ↔ m = 0 ∧ n = 0; used for : s,ls;
+snd-nle : m0 ≠ 0 ⊦ n + m * (* m0) ≤ m .2 ↔ m = 0 ∧ n = 0; used for : s,ls;
+;;; END
+snd-eq  : m .2 = m ↔ m = 0; used for : s,ls;
+fst-zero : 0 .1 = 0;used for : s,ls;
+snd-zero : 0 .2 = 0;used for : s,ls;
+fst-ls-01  : m .1 < m ↔ m ≠ 0 ∧ m ≠ 1; used for : s,ls;
+snd-one : 1 .2 = 0; used for : s,ls;
+fst-one : 1 .1 = 1; used for : s,ls;
+;;; END
+max-snd-nle : m ≠ 0 ∧ m ≠ 1 → ¬ m + m .2 ≤ maxenc(m); used for : s,ls;
+max-two : maxenc(2) = 1; used for : s,ls;
+max-one : maxenc(1) = 1; used for : s,ls;
+max-zero : maxenc(0) = 0; used for : s,ls;
+;;; END
+max-bigger : m ≤ maxenc(m, n);
+max-zero : maxenc(m) = 0 ↔ m = 0; used for : s,ls;
+max-zero : maxenc(m) = 1 ↔ m = 1 ∨ m = 2; used for : s,ls;
+max-snd-nls : ¬ maxenc(m) < m .2; used for : s,ls;
+max-snd-le  : m .2 ≤ maxenc(m); used for : s,ls;
+;;; END
+max-nls : ¬ m < (maxenc(m) * maxenc(m) + maxenc(m)) / 2; used for : s,ls;
+fst-le  : m .1 ≤ m; used for : s,ls;
+;;; END
+max-size : (maxenc(m) * (maxenc(m) + 1)) / 2 ≤ m ∧ m < ((maxenc(m) + 1) * (maxenc(m) + 2)) / 2;
+max-size : (maxenc(m) * (maxenc(m) + 1)) ≤ 2 * m ∧ 2 * m < ((maxenc(m) + 1) * (maxenc(m) + 2));
+
+exencode : ⊦ ∃ m, n. encode(m, n) = n0;
+enc-invert : ⊦ encode(m .1, m .2) = m; used for : s,ls;
+encode-zero : ⊦ encode(0, 0) = 0; used for : s,ls;
+injectivity : encode(m, n) = encode(m0, n0) ↔ m = m0 ∧ n = n0; used for : ls;
+
+encode-zero : encode(m, n) = 0 ↔ m = 0 ∧ n = 0; used for : s,ls;
+
+fst-def : encode(m, n).1 = m; used for : s,ls;
+snd-def : encode(m, n).2 = n; used for : s,ls;
+
+max-square : maxenc(((m + n) * (m + n + 1)) / 2 + n) = m + n; used for : ls;
+max-rev : maxenc(m0, m) = n ∧ (m0 * (m0 + 1)) / 2 ≤ m → (n * (n + 1)) / 2 ≤ m ∧ m < ((n + 1) * (n + 2)) / 2; ;; i→n(m - m0)
+
+max-def : (n * (n + 1)) / 2 ≤ m ∧ m < ((n + 1) * (n + 2)) / 2 ∧ (m0 * (m0 + 1)) / 2 ≤ m → maxenc(m0, m) = n; ;; i→n(m - m0)
+
+max-def : (n * (n + 1)) / 2 ≤ m ∧ m < ((n + 1) * (n + 2)) / 2 → maxenc(m) = n;
+
+max-rev : maxenc(m) = n → (n * (n + 1)) / 2 ≤ m ∧ m < ((n + 1) * (n + 2)) / 2;
+max-le  : maxenc(m) ≤ m;
+
+
+;; <name> : <sequent> ; 
+;; used for : <some_flags> ; comment : <some_comment> ;
+
+;;; END
+
+;;;****************************************************************************************
+;;; This file is used to add additional theorems. 
+;;; 1. Two semicolons start a line comment
+;;; 2. (: ... :) delimit a comment. They can be nested!
+;;; 3. Reading stops after ;;; END
+;;; 4. Theorems have the form
+       
+<name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+
+     'used for' and 'comment' are optional.
+     <some_comment> may be any text not containing a ;
+     <some_flags> is a comma separated list with information that the lemma should
+     be used as a simplifier rule or something like that. Since you can add or delete
+     simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+     Note: changing the flags or the comment only works if the sequent is also changed!!!
+     possible flags are:
+
+     s (simplifier rule), ls (local simplifier rule), f (forward), lf (local forward),
+     e (elimination), c (cut), lc (local cut)
+

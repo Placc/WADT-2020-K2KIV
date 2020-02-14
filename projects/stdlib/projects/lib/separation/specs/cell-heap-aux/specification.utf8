@@ -1,0 +1,21 @@
+actualize rg with cell by morphism
+
+:obj → cell; 
+
+o → ce;
+o0 → ce0;
+o1 → ce1;
+
+a → o;
+a0 → o0;
+a1 → o1;
+
+f → cf;
+f0 → cf0;
+f1 → cf1;
+
+g → af;
+g0 → af0;
+g1 → af1;
+
+end actualize

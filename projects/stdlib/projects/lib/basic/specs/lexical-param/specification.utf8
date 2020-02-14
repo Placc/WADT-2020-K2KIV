@@ -1,0 +1,20 @@
+specification
+
+  using 
+  
+  rename wellfounded by morphism 
+    elem → elem1; 
+          ≪ → ≪1;    
+  end rename,
+  
+  rename wellfounded by morphism 
+    elem → elem2; 
+          ≪ → ≪2;
+    a → b;
+    a0 → b0;
+    a1 → b1;
+    IHP → IHQ;
+  end rename
+ 
+
+end specification

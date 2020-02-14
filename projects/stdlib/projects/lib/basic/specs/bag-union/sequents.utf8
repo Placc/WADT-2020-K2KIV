@@ -1,0 +1,207 @@
+
+;; variables m : nat;
+
+lemmas
+
+in-at:
+a ∈ bag ++ a;
+used for: s,ls;
+
+in-rem-notrem:
+a ≠ b → (¬ a ∈ bag -- b ↔ ¬ a ∈ bag);
+used for: s,ls;
+
+bag-rm-add-eq:
+bag -- a ++ a = bag ↔ a ∈ bag;
+used for : s;
+
+union:
+count(a, bag0 ∪ bag1) = count(a, bag0) + count(a, bag1);
+used for: ls;
+
+(:
+intersection:
+count(a, bag0 ∩ bag1) = (count(a, bag0) ≤ count(a, bag1)
+                         ⊃ count(a, bag0) ; count(a, bag1));
+used for: ls;
+:)
+
+differente-notin:
+a ∈ bag0 ∧ ¬ a ∈ bag1
+  → (¬ a ∈ bag0 \ bag1 ↔ false);
+used for: s,ls;
+
+in-one:
+a ∈ {b} ↔ a = b;
+used for: s,ls;
+
+in-emp:
+¬ a ∈ ∅;
+used for: s,ls;
+
+count-one:
+count(a, {b}) = (a = b ⊃ 1 ; 0);
+used for: s,ls;
+
+in-union:
+a ∈ bag0 ∪ bag1 ↔ a ∈ bag0 ∨ a ∈ bag1;
+used for: s,ls;
+
+in-diff-notfirst:
+¬ a ∈ bag0 → ¬ a ∈ bag0 \ bag1;
+used for: s,ls;
+
+difference:
+count(a, bag0 \ bag1) = (count(a, bag1) ≤ count(a, bag0) ⊃ count(a, bag0) - count(a, bag1); 0);
+used for: ls;
+
+count-del:
+count(a, bag -- b) = count(a, bag) - (a = b ∧ count(a, bag) ≠ 0 ⊃ 1 ; 0);
+used for: ls;
+
+subset-empty-size:
+bag ⊆ ∅ → # bag = 0;
+used for: s,ls;
+
+subset-plus:
+¬ ¬ bag0 ++ a ⊆ bag1
+        ↔ ∃ bag2. bag1 = bag2 ++ a ∧ bag0 ⊆ bag2;
+used for: s,ls;
+
+subset-plusplus:
+bag0 ++ a ⊆ bag1 ++ a
+    ↔ bag0 ⊆ bag1;
+used for: s,ls;
+
+subset-in:
+bag0 ++ a ⊆ bag1 → (count(a, bag1) = 0 ↔ false);
+used for: s,ls;
+
+subset-elem:
+bag0 ⊆ bag1 ∧ a ∈ bag0
+  → (¬ a ∈ bag1 ↔ false);
+used for: s,ls;
+
+subset-plusminus:
+count(a, bag1) ≠ 0
+    → (bag0 ⊆ bag1 -- a ↔ bag0 ++ a ⊆ bag1);
+used for: s,ls;
+
+exin:
+a ∈ bag → ∃ bag0. bag = bag0 ++ a;
+
+some:
+bag ≠ ∅ ↔ ∃ a. a ∈ bag;
+
+subset-emp:
+bag ⊆ ∅ ↔ bag = ∅;
+used for: s,ls;
+
+subset-one:
+∅ ++ a ⊆ bag ↔ a ∈ bag;
+used for: s,ls;
+
+subset-smaller:
+bag0 ++ a ⊆ bag1
+    → (¬ bag0 ⊆ bag1 ↔ false);
+used for: s,ls;
+
+subset-antisym:
+bag0 ⊆ bag1 → (bag1 ⊆ bag0 ↔ bag0 = bag1);
+used for: s,ls;
+
+subset-size:
+bag0 ⊆ bag1 → # bag0 ≤ # bag1;
+used for: s,ls;
+
+diff-empty1:
+∅ \ bag = ∅;
+used for: s,ls;
+
+union-com:
+bag0 ∪ bag1 = bag1 ∪ bag0;
+used for: s,ls;
+
+union-ass:
+bag0 ∪ (bag1 ∪ bag2) = (bag0 ∪ bag1) ∪ bag2;
+used for: s,ls;
+
+union-subset-inj:
+bag ∪ bag1 ⊆ bag ∪ bag2 ↔ bag1 ⊆ bag2;
+used for: s,ls;
+
+union-inj:
+bag ∪ bag1 = bag ∪ bag2 ↔ bag1 = bag2;
+used for: s,ls;
+
+union-subset:
+bag ⊆ bag ∪ bag0;
+used for: s,ls;
+
+subset-exdiff:
+bag0 ⊆ bag1 ↔ ∃ bag. bag0 ∪ bag = bag1;
+
+(:
+subset-inter:
+bag0 ⊆ bag1
+    ⊦ bag0 ∩ bag1 = bag0;
+used for: s,ls;
+:)
+
+union-diff-cancel:
+(bag0 ∪ bag1) \ bag1 = bag0;
+used for: s,ls;
+
+union-diff-distr:
+bag1 ⊆ bag0
+    ⊦ (bag0 \ bag1) ∪ bag2 = (bag0 ∪ bag2) \ bag1;
+used for: s,ls;
+
+count-diff-subset:
+bag0 ⊆ bag1 → count(a, bag1 \ bag0) = count(a, bag1) - count(a, bag0);
+used for: s,ls;
+
+subset-refl:
+bag ⊆ bag;
+used for: s,ls;
+
+subset-trans:
+bag0 ⊆ bag1 ∧ bag1 ⊆ bag2 → bag0 ⊆ bag2;
+used for: f,lf;
+
+union-size:
+# (bag0 ∪ bag1) = # bag0 + # bag1;
+used for: s,ls;
+
+del-size:
+# (bag -- a) = # bag - (a ∈ bag ⊃ 1 ; 0);
+used for: s,ls;
+
+del-notin:
+count(a, bag) = 0 → bag -- a = bag;
+used for: s,ls;
+
+diff-size:
+bag1 ⊆ bag0
+    ⊦ # (bag0 \ bag1) = # bag0 - # bag1;
+used for: s,ls;
+
+still-in-rem:
+a ∈ (bag0 -- b)
+  → (¬ a ∈ bag0 ↔ false);
+used for: s,ls;
+
+in-add:
+a ∈ bag ++ b ↔ a ∈ bag ∨ a = b;
+used for: s,ls;
+
+still-in-diff:
+a ∈ (bag0 \ bag1)
+  → (¬ a ∈ bag0 ↔ false);
+used for: s,ls;
+
+diff-add-sw:
+¬ a ∈ bag1
+  → (bag0 ++ a) \ bag1 = (bag0 \ bag1) ++ a;
+
+;;; END

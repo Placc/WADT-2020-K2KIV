@@ -1,0 +1,6 @@
+: successful
+### No save necessary ###
+### Next replay: swap-init-setequal ###
+swap-init-setequal: successful
+### Done ###
+### Saving lemmas next ###

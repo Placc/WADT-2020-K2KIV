@@ -1,0 +1,186 @@
+: successful
+### No save necessary ###
+### Next replay: a ###
+a: successful
+### No save necessary ###
+### Next replay: a-01 ###
+a-01: successful
+### No save necessary ###
+### Next replay: app-01-02 ###
+app-01-02: successful
+### No save necessary ###
+### Next replay: app-02 ###
+app-02: successful
+### No save necessary ###
+### Next replay: app-05 ###
+app-05: successful
+### No save necessary ###
+### Next replay: c ###
+c: successful
+### No save necessary ###
+### Next replay: cons ###
+cons: successful
+### No save necessary ###
+### Next replay: cons-01 ###
+cons-01: successful
+### No save necessary ###
+### Next replay: cons-02 ###
+cons-02: successful
+### No save necessary ###
+### Next replay: cons-03 ###
+cons-03: successful
+### No save necessary ###
+### Next replay: d ###
+d: successful
+### No save necessary ###
+### Next replay: dups-appex ###
+dups-appex: successful
+### No save necessary ###
+### Next replay: dups-eqsize-01 ###
+dups-eqsize-01: successful
+### No save necessary ###
+### Next replay: dups-eqsize-02 ###
+dups-eqsize-02: successful
+### No save necessary ###
+### Next replay: dups-firstoc-rew ###
+dups-firstoc-rew: successful
+### No save necessary ###
+### Next replay: dups-lesize ###
+dups-lesize: successful
+### No save necessary ###
+### Next replay: dups-sw ###
+dups-sw: successful
+### No save necessary ###
+### Next replay: e-01 ###
+e-01: successful
+### No save necessary ###
+### Next replay: eq ###
+eq: successful
+### No save necessary ###
+### Next replay: eq-01 ###
+eq-01: successful
+### No save necessary ###
+### Next replay: f ###
+f: successful
+### No save necessary ###
+### Next replay: f-01 ###
+f-01: successful
+### No save necessary ###
+### Next replay: first ###
+first: successful
+### No save necessary ###
+### Next replay: first-01 ###
+first-01: successful
+### No save necessary ###
+### Next replay: firstoc ###
+firstoc: successful
+### No save necessary ###
+### Next replay: in-02-01 ###
+in-02-01: successful
+### No save necessary ###
+### Next replay: in-03-01 ###
+in-03-01: successful
+### No save necessary ###
+### Next replay: in-05-01 ###
+in-05-01: successful
+### No save necessary ###
+### Next replay: in-06 ###
+in-06: successful
+### No save necessary ###
+### Next replay: in-06-01 ###
+in-06-01: successful
+### No save necessary ###
+### Next replay: in-07 ###
+in-07: successful
+### No save necessary ###
+### Next replay: in-08 ###
+in-08: successful
+### No save necessary ###
+### Next replay: in-09 ###
+in-09: successful
+### No save necessary ###
+### Next replay: inapp ###
+inapp: successful
+### No save necessary ###
+### Next replay: inapp-01 ###
+inapp-01: successful
+### No save necessary ###
+### Next replay: l ###
+l: successful
+### No save necessary ###
+### Next replay: l-01 ###
+l-01: successful
+### No save necessary ###
+### Next replay: lastoc ###
+lastoc: successful
+### No save necessary ###
+### Next replay: n ###
+n: successful
+### No save necessary ###
+### Next replay: rec ###
+rec: successful
+### No save necessary ###
+### Next replay: rm-allsize ###
+rm-allsize: successful
+### No save necessary ###
+### Next replay: rm-empty ###
+rm-empty: successful
+### No save necessary ###
+### Next replay: rm-in ###
+rm-in: successful
+### No save necessary ###
+### Next replay: rm-in-01 ###
+rm-in-01: successful
+### No save necessary ###
+### Next replay: rm-in-02 ###
+rm-in-02: successful
+### No save necessary ###
+### Next replay: rm-in-03 ###
+rm-in-03: successful
+### No save necessary ###
+### Next replay: rm-in-04 ###
+rm-in-04: successful
+### No save necessary ###
+### Next replay: rm-in-05 ###
+rm-in-05: successful
+### No save necessary ###
+### Next replay: rm-notin ###
+rm-notin: successful
+### No save necessary ###
+### Next replay: rm-rm-01 ###
+rm-rm-01: successful
+### No save necessary ###
+### Next replay: rm-rm-02 ###
+rm-rm-02: successful
+### No save necessary ###
+### Next replay: rm-size ###
+rm-size: successful
+### No save necessary ###
+### Next replay: rm-size-01 ###
+rm-size-01: successful
+### No save necessary ###
+### Next replay: rm-size-02 ###
+rm-size-02: successful
+### No save necessary ###
+### Next replay: rm-size-04 ###
+rm-size-04: successful
+### No save necessary ###
+### Next replay: rm-size-05 ###
+rm-size-05: successful
+### No save necessary ###
+### Next replay: rm-size-in-01 ###
+rm-size-in-01: successful
+### No save necessary ###
+### Next replay: rm-size-le ###
+rm-size-le: successful
+### No save necessary ###
+### Next replay: rmdup-last ###
+rmdup-last: successful
+### No save necessary ###
+### Next replay: sym ###
+sym: successful
+### No save necessary ###
+### Next replay: two-03 ###
+two-03: successful
+### Done ###
+### Saving lemmas next ###

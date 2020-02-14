@@ -1,0 +1,15 @@
+enrich nat, elem with
+
+functions
+. ^* :       (elem × elem → bool) → elem × elem → bool;
+rtc  : nat × (elem × elem → bool) → elem × elem → bool;
+
+variables
+Pelem : elem × elem → bool;
+
+axioms
+rtc:      (Pelem ^*)(a, b)        ↔ ∃ n. rtc(n, Pelem)(a, b);
+rtc-base: rtc(0, Pelem)(a, b)     ↔ a = b; used for: ls;
+rtc-rec:  rtc(n + 1, Pelem)(a, b) ↔ ∃ c. Pelem(a, c) ∧ rtc(n, Pelem)(c, b); used for: ls;
+
+end enrich

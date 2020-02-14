@@ -1,0 +1,17 @@
+rename klist by morphism
+
+  klist → ksequence;
+  + :: (klist × klist → klist) → ~>;
+  + :: (K × klist → klist) → ~>;
+  [] → .K;
+
+  +2 → ~>;
+  mklist → mksequence;
+
+  x → ks;
+  y → ks0;
+  z → ks1;
+  x0 → ks2;
+  x1 → ks3;
+
+end rename

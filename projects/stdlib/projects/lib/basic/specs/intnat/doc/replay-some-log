@@ -1,0 +1,204 @@
+: successful
+### No save necessary ###
+### Next replay: abs-neg ###
+abs-neg: successful
+### No save necessary ###
+### Next replay: abs-negp ###
+abs-negp: successful
+### No save necessary ###
+### Next replay: abs-pred ###
+abs-pred: successful
+### No save necessary ###
+### Next replay: abs-pred-01 ###
+abs-pred-01: successful
+### No save necessary ###
+### Next replay: abs-pred-02 ###
+abs-pred-02: successful
+### No save necessary ###
+### Next replay: abs-succ ###
+abs-succ: successful
+### No save necessary ###
+### Next replay: abs-succ-01 ###
+abs-succ-01: successful
+### No save necessary ###
+### Next replay: abs-succ-03 ###
+abs-succ-03: successful
+### No save necessary ###
+### Next replay: abs-zero ###
+abs-zero: successful
+### No save necessary ###
+### Next replay: add ###
+add: successful
+### No save necessary ###
+### Next replay: i2i-neg-01 ###
+i2i-neg-01: successful
+### No save necessary ###
+### Next replay: i2i-pos-01 ###
+i2i-pos-01: successful
+### No save necessary ###
+### Next replay: i2n ###
+i2n: successful
+### No save necessary ###
+### Next replay: i2n-divtwo ###
+i2n-divtwo: successful
+### No save necessary ###
+### Next replay: i2n-mod ###
+i2n-mod: successful
+### No save necessary ###
+### Next replay: i2np ###
+i2np: successful
+### No save necessary ###
+### Next replay: ini2-abs ###
+ini2-abs: successful
+### No save necessary ###
+### Next replay: inni-le ###
+inni-le: successful
+### No save necessary ###
+### Next replay: labs ###
+labs: successful
+### No save necessary ###
+### Next replay: labs-01 ###
+labs-01: successful
+### No save necessary ###
+### Next replay: labsp ###
+labsp: successful
+### No save necessary ###
+### Next replay: le-fin-add ###
+le-fin-add: successful
+### No save necessary ###
+### Next replay: le-int-le-nat ###
+le-int-le-nat: successful
+### No save necessary ###
+### Next replay: ls-03 ###
+ls-03: successful
+### No save necessary ###
+### Next replay: ls-fin-add ###
+ls-fin-add: successful
+### No save necessary ###
+### Next replay: ls-int-ls-nat ###
+ls-int-ls-nat: successful
+### No save necessary ###
+### Next replay: minus-one ###
+minus-one: successful
+### No save necessary ###
+### Next replay: mult-ls-02 ###
+mult-ls-02: successful
+### No save necessary ###
+### Next replay: mult-ls-03 ###
+mult-ls-03: successful
+### No save necessary ###
+### Next replay: mult-ls-04 ###
+mult-ls-04: successful
+### No save necessary ###
+### Next replay: mult-ls-05 ###
+mult-ls-05: successful
+### No save necessary ###
+### Next replay: nat ###
+nat: successful
+### No save necessary ###
+### Next replay: nat-to-int-ge-0 ###
+nat-to-int-ge-0: successful
+### No save necessary ###
+### Next replay: nat2int ###
+nat2int: successful
+### No save necessary ###
+### Next replay: nat2int-01 ###
+nat2int-01: successful
+### No save necessary ###
+### Next replay: nat2int-04 ###
+nat2int-04: successful
+### No save necessary ###
+### Next replay: nat2int-06 ###
+nat2int-06: successful
+### No save necessary ###
+### Next replay: nat2int-12 ###
+nat2int-12: successful
+### No save necessary ###
+### Next replay: nat2int-13 ###
+nat2int-13: successful
+### No save necessary ###
+### Next replay: natpos ###
+natpos: successful
+### No save necessary ###
+### Next replay: num-i2n-le ###
+num-i2n-le: successful
+### No save necessary ###
+### Next replay: num-i2n-ls ###
+num-i2n-ls: successful
+### No save necessary ###
+### Next replay: num-i2n-ls-02 ###
+num-i2n-ls-02: successful
+### No save necessary ###
+### Next replay: num-n2i-ls ###
+num-n2i-ls: successful
+### No save necessary ###
+### Next replay: num-n2i-ls-02 ###
+num-n2i-ls-02: successful
+### No save necessary ###
+### Next replay: num-n2i-ls-03 ###
+num-n2i-ls-03: successful
+### No save necessary ###
+### Next replay: num-n2i-ls-06 ###
+num-n2i-ls-06: successful
+### No save necessary ###
+### Next replay: num-n2i-ls-07 ###
+num-n2i-ls-07: successful
+### No save necessary ###
+### Next replay: pos-add ###
+pos-add: successful
+### No save necessary ###
+### Next replay: pos-int ###
+pos-int: successful
+### No save necessary ###
+### Next replay: qzero ###
+qzero: successful
+### No save necessary ###
+### Next replay: qzero-01 ###
+qzero-01: successful
+### No save necessary ###
+### Next replay: rax ###
+rax: successful
+### No save necessary ###
+### Next replay: rax-01 ###
+rax-01: successful
+### No save necessary ###
+### Next replay: rax-02 ###
+rax-02: successful
+### No save necessary ###
+### Next replay: rax-03 ###
+rax-03: successful
+### No save necessary ###
+### Next replay: rax-04 ###
+rax-04: successful
+### No save necessary ###
+### Next replay: sub-01 ###
+sub-01: successful
+### No save necessary ###
+### Next replay: sub-same ###
+sub-same: successful
+### No save necessary ###
+### Next replay: zero-01 ###
+zero-01: successful
+### No save necessary ###
+### Next replay: zero-02 ###
+zero-02: successful
+### No save necessary ###
+### Next replay: zero-08 ###
+zero-08: successful
+### No save necessary ###
+### Next replay: zero-09 ###
+zero-09: successful
+### No save necessary ###
+### Next replay: zero-10 ###
+zero-10: successful
+### No save necessary ###
+### Next replay: zero-11 ###
+zero-11: successful
+### No save necessary ###
+### Next replay: zero-12 ###
+zero-12: successful
+### No save necessary ###
+### Next replay: zero-13 ###
+zero-13: successful
+### Done ###
+### Saving lemmas next ###

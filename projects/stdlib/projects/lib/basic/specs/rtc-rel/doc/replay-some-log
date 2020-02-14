@@ -1,0 +1,33 @@
+: successful
+### No save necessary ###
+### Next replay: inv-propagate ###
+inv-propagate: successful
+### No save necessary ###
+### Next replay: invx ###
+invx: successful
+### No save necessary ###
+### Next replay: rtc+-unfold ###
+rtc+-unfold: successful
+### No save necessary ###
+### Next replay: rtc+-unfold-last ###
+rtc+-unfold-last: successful
+### No save necessary ###
+### Next replay: rtc-last ###
+rtc-last: successful
+### No save necessary ###
+### Next replay: rtc-one ###
+rtc-one: successful
+### No save necessary ###
+### Next replay: rtc-refl ###
+rtc-refl: successful
+### No save necessary ###
+### Next replay: rtc-trans ###
+rtc-trans: successful
+### No save necessary ###
+### Next replay: rtc-unfold ###
+rtc-unfold: successful
+### No save necessary ###
+### Next replay: rtc1 ###
+rtc1: successful
+### Done ###
+### Saving lemmas next ###

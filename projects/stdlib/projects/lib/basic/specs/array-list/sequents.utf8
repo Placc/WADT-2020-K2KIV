@@ -1,0 +1,8 @@
+
+;; variables m : nat;
+
+lemmas
+
+cut:
+  ar = []
+∨ ∃ a,ar0. ar = a + ar0;

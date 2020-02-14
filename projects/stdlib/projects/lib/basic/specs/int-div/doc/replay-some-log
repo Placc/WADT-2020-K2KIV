@@ -1,0 +1,768 @@
+: successful
+### No save necessary ###
+### Next replay: abs ###
+abs: successful
+### No save necessary ###
+### Next replay: abs-shift ###
+abs-shift: successful
+### No save necessary ###
+### Next replay: abs-shift-01 ###
+abs-shift-01: successful
+### No save necessary ###
+### Next replay: add-div-mult ###
+add-div-mult: successful
+### No save necessary ###
+### Next replay: div-add-neg ###
+div-add-neg: successful
+### No save necessary ###
+### Next replay: div-add-nosucc ###
+div-add-nosucc: successful
+### No save necessary ###
+### Next replay: div-add-nosucc-neg ###
+div-add-nosucc-neg: successful
+### No save necessary ###
+### Next replay: div-add-pos ###
+div-add-pos: successful
+### No save necessary ###
+### Next replay: div-add-succ ###
+div-add-succ: successful
+### No save necessary ###
+### Next replay: div-add1-negpos-neg-01 ###
+div-add1-negpos-neg-01: successful
+### No save necessary ###
+### Next replay: div-add1-negpos-neg-02 ###
+div-add1-negpos-neg-02: successful
+### No save necessary ###
+### Next replay: div-add1-posneg-neg ###
+div-add1-posneg-neg: successful
+### No save necessary ###
+### Next replay: div-add1-posneg-pos-01 ###
+div-add1-posneg-pos-01: successful
+### No save necessary ###
+### Next replay: div-add1-posneg-pos-02 ###
+div-add1-posneg-pos-02: successful
+### No save necessary ###
+### Next replay: div-addthree-rew ###
+div-addthree-rew: successful
+### No save necessary ###
+### Next replay: div-am-rew ###
+div-am-rew: successful
+### No save necessary ###
+### Next replay: div-div ###
+div-div: successful
+### No save necessary ###
+### Next replay: div-div-pred ###
+div-div-pred: successful
+### No save necessary ###
+### Next replay: div-div-pred-01 ###
+div-div-pred-01: successful
+### No save necessary ###
+### Next replay: div-elim ###
+div-elim: successful
+### No save necessary ###
+### Next replay: div-elim-negneg ###
+div-elim-negneg: successful
+### No save necessary ###
+### Next replay: div-elim-negpos ###
+div-elim-negpos: successful
+### No save necessary ###
+### Next replay: div-elim-pospos ###
+div-elim-pospos: successful
+### No save necessary ###
+### Next replay: div-elim1 ###
+div-elim1: successful
+### No save necessary ###
+### Next replay: div-elim2 ###
+div-elim2: successful
+### No save necessary ###
+### Next replay: div-elim3 ###
+div-elim3: successful
+### No save necessary ###
+### Next replay: div-eq-same ###
+div-eq-same: successful
+### No save necessary ###
+### Next replay: div-eq-same-01 ###
+div-eq-same-01: successful
+### No save necessary ###
+### Next replay: div-eq-zero ###
+div-eq-zero: successful
+### No save necessary ###
+### Next replay: div-eq-zero-01 ###
+div-eq-zero-01: successful
+### No save necessary ###
+### Next replay: div-est-denom-pos ###
+div-est-denom-pos: successful
+### No save necessary ###
+### Next replay: div-est-nle-pos ###
+div-est-nle-pos: successful
+### No save necessary ###
+### Next replay: div-est-nls ###
+div-est-nls: successful
+### No save necessary ###
+### Next replay: div-est-num ###
+div-est-num: successful
+### No save necessary ###
+### Next replay: div-le-modnotzero ###
+div-le-modnotzero: successful
+### No save necessary ###
+### Next replay: div-le-modzero ###
+div-le-modzero: successful
+### No save necessary ###
+### Next replay: div-le-modzero-01 ###
+div-le-modzero-01: successful
+### No save necessary ###
+### Next replay: div-le-pos ###
+div-le-pos: successful
+### No save necessary ###
+### Next replay: div-le-same ###
+div-le-same: successful
+### No save necessary ###
+### Next replay: div-le-same-neg ###
+div-le-same-neg: successful
+### No save necessary ###
+### Next replay: div-lezero ###
+div-lezero: successful
+### No save necessary ###
+### Next replay: div-ls ###
+div-ls: successful
+### No save necessary ###
+### Next replay: div-ls-01 ###
+div-ls-01: successful
+### No save necessary ###
+### Next replay: div-ls-02 ###
+div-ls-02: successful
+### No save necessary ###
+### Next replay: div-ls-modzero ###
+div-ls-modzero: successful
+### No save necessary ###
+### Next replay: div-ls-mone ###
+div-ls-mone: successful
+### No save necessary ###
+### Next replay: div-ls-pos-better ###
+div-ls-pos-better: successful
+### No save necessary ###
+### Next replay: div-ls-same ###
+div-ls-same: successful
+### No save necessary ###
+### Next replay: div-ls-zero ###
+div-ls-zero: successful
+### No save necessary ###
+### Next replay: div-minus-onediff ###
+div-minus-onediff: successful
+### No save necessary ###
+### Next replay: div-minus-onediff-01 ###
+div-minus-onediff-01: successful
+### No save necessary ###
+### Next replay: div-mult-01 ###
+div-mult-01: successful
+### No save necessary ###
+### Next replay: div-mult-le ###
+div-mult-le: successful
+### No save necessary ###
+### Next replay: div-mult-ls ###
+div-mult-ls: successful
+### No save necessary ###
+### Next replay: div-mult-ls-pos ###
+div-mult-ls-pos: successful
+### No save necessary ###
+### Next replay: div-mult-neg ###
+div-mult-neg: successful
+### No save necessary ###
+### Next replay: div-mult-nle-est ###
+div-mult-nle-est: successful
+### No save necessary ###
+### Next replay: div-mult-nls-est ###
+div-mult-nls-est: successful
+### No save necessary ###
+### Next replay: div-mult-nls-est-01 ###
+div-mult-nls-est-01: successful
+### No save necessary ###
+### Next replay: div-mult-nls-zero ###
+div-mult-nls-zero: successful
+### No save necessary ###
+### Next replay: div-mult-shift-holds ###
+div-mult-shift-holds: successful
+### No save necessary ###
+### Next replay: div-mult-three ###
+div-mult-three: successful
+### No save necessary ###
+### Next replay: div-mult-three-nls ###
+div-mult-three-nls: successful
+### No save necessary ###
+### Next replay: div-mult-two-nls-01 ###
+div-mult-two-nls-01: successful
+### No save necessary ###
+### Next replay: div-nearer-zero ###
+div-nearer-zero: successful
+### No save necessary ###
+### Next replay: div-nls ###
+div-nls: successful
+### No save necessary ###
+### Next replay: div-nls-01 ###
+div-nls-01: successful
+### No save necessary ###
+### Next replay: div-same ###
+div-same: successful
+### No save necessary ###
+### Next replay: div-shift-two ###
+div-shift-two: successful
+### No save necessary ###
+### Next replay: div-sum-ls ###
+div-sum-ls: successful
+### No save necessary ###
+### Next replay: div-sum-ls-01 ###
+div-sum-ls-01: successful
+### No save necessary ###
+### Next replay: div-two-intro ###
+div-two-intro: successful
+### No save necessary ###
+### Next replay: div-two-zero-01 ###
+div-two-zero-01: successful
+### No save necessary ###
+### Next replay: div-twoodd-01 ###
+div-twoodd-01: successful
+### No save necessary ###
+### Next replay: div-twoodd-02 ###
+div-twoodd-02: successful
+### No save necessary ###
+### Next replay: div-twoodd-03 ###
+div-twoodd-03: successful
+### No save necessary ###
+### Next replay: div-twoodd-04 ###
+div-twoodd-04: successful
+### No save necessary ###
+### Next replay: div-twoodd-05 ###
+div-twoodd-05: successful
+### No save necessary ###
+### Next replay: div-twoodd-06 ###
+div-twoodd-06: successful
+### No save necessary ###
+### Next replay: div-twoodd-07 ###
+div-twoodd-07: successful
+### No save necessary ###
+### Next replay: div-zero-02 ###
+div-zero-02: successful
+### No save necessary ###
+### Next replay: div-zero-04 ###
+div-zero-04: successful
+### No save necessary ###
+### Next replay: div-zero-06 ###
+div-zero-06: successful
+### No save necessary ###
+### Next replay: div-zero-ngr ###
+div-zero-ngr: successful
+### No save necessary ###
+### Next replay: div-zero-ngr-01 ###
+div-zero-ngr-01: successful
+### No save necessary ###
+### Next replay: div-zero-nls ###
+div-zero-nls: successful
+### No save necessary ###
+### Next replay: div2-add-neg ###
+div2-add-neg: successful
+### No save necessary ###
+### Next replay: div2-neg ###
+div2-neg: successful
+### No save necessary ###
+### Next replay: div2-neg-01 ###
+div2-neg-01: successful
+### No save necessary ###
+### Next replay: div2-nle-02 ###
+div2-nle-02: successful
+### No save necessary ###
+### Next replay: div2-nls ###
+div2-nls: successful
+### No save necessary ###
+### Next replay: div2-nls-01 ###
+div2-nls-01: successful
+### No save necessary ###
+### Next replay: div2-nls-02 ###
+div2-nls-02: successful
+### No save necessary ###
+### Next replay: div2-nls-03 ###
+div2-nls-03: successful
+### No save necessary ###
+### Next replay: div2-odd-01 ###
+div2-odd-01: successful
+### No save necessary ###
+### Next replay: div2-zero ###
+div2-zero: successful
+### No save necessary ###
+### Next replay: diveq-neg ###
+diveq-neg: successful
+### No save necessary ###
+### Next replay: estimate-01 ###
+estimate-01: successful
+### No save necessary ###
+### Next replay: even-not ###
+even-not: successful
+### No save necessary ###
+### Next replay: even-not-ex ###
+even-not-ex: successful
+### No save necessary ###
+### Next replay: exeven ###
+exeven: successful
+### No save necessary ###
+### Next replay: exodd ###
+exodd: successful
+### No save necessary ###
+### Next replay: le-abs-numerator ###
+le-abs-numerator: successful
+### No save necessary ###
+### Next replay: leone-two ###
+leone-two: successful
+### No save necessary ###
+### Next replay: less-mult-div ###
+less-mult-div: successful
+### No save necessary ###
+### Next replay: less-mult-div-01 ###
+less-mult-div-01: successful
+### No save necessary ###
+### Next replay: ls ###
+ls: successful
+### No save necessary ###
+### Next replay: ls-01 ###
+ls-01: successful
+### No save necessary ###
+### Next replay: ls-02 ###
+ls-02: successful
+### No save necessary ###
+### Next replay: ls-03 ###
+ls-03: successful
+### No save necessary ###
+### Next replay: ls-even-01 ###
+ls-even-01: successful
+### No save necessary ###
+### Next replay: ls-same-pos ###
+ls-same-pos: successful
+### No save necessary ###
+### Next replay: ls-same-pos-01 ###
+ls-same-pos-01: successful
+### No save necessary ###
+### Next replay: ls-same-pos-02 ###
+ls-same-pos-02: successful
+### No save necessary ###
+### Next replay: ls-succ ###
+ls-succ: successful
+### No save necessary ###
+### Next replay: lsf ###
+lsf: successful
+### No save necessary ###
+### Next replay: lsf-01 ###
+lsf-01: successful
+### No save necessary ###
+### Next replay: lsf-02 ###
+lsf-02: successful
+### No save necessary ###
+### Next replay: lsfc-01 ###
+lsfc-01: successful
+### No save necessary ###
+### Next replay: lsfc-02 ###
+lsfc-02: successful
+### No save necessary ###
+### Next replay: mod-add-01 ###
+mod-add-01: successful
+### No save necessary ###
+### Next replay: mod-add-neg ###
+mod-add-neg: successful
+### No save necessary ###
+### Next replay: mod-add-pos ###
+mod-add-pos: successful
+### No save necessary ###
+### Next replay: mod-add-zero ###
+mod-add-zero: successful
+### No save necessary ###
+### Next replay: mod-add1-negpos-neg ###
+mod-add1-negpos-neg: successful
+### No save necessary ###
+### Next replay: mod-add1-posneg-pos ###
+mod-add1-posneg-pos: successful
+### No save necessary ###
+### Next replay: mod-by6 ###
+mod-by6: successful
+### No save necessary ###
+### Next replay: mod-div-ls ###
+mod-div-ls: successful
+### No save necessary ###
+### Next replay: mod-div-zero ###
+mod-div-zero: successful
+### No save necessary ###
+### Next replay: mod-gez ###
+mod-gez: successful
+### No save necessary ###
+### Next replay: mod-grz ###
+mod-grz: successful
+### No save necessary ###
+### Next replay: mod-grz-01 ###
+mod-grz-01: successful
+### No save necessary ###
+### Next replay: mod-grz-02 ###
+mod-grz-02: successful
+### No save necessary ###
+### Next replay: mod-le ###
+mod-le: successful
+### No save necessary ###
+### Next replay: mod-le-01 ###
+mod-le-01: successful
+### No save necessary ###
+### Next replay: mod-le-num ###
+mod-le-num: successful
+### No save necessary ###
+### Next replay: mod-les ###
+mod-les: successful
+### No save necessary ###
+### Next replay: mod-less-01 ###
+mod-less-01: successful
+### No save necessary ###
+### Next replay: mod-ls-same ###
+mod-ls-same: successful
+### No save necessary ###
+### Next replay: mod-ls-same-01 ###
+mod-ls-same-01: successful
+### No save necessary ###
+### Next replay: mod-ls-same-02 ###
+mod-ls-same-02: successful
+### No save necessary ###
+### Next replay: mod-ls-zero ###
+mod-ls-zero: successful
+### No save necessary ###
+### Next replay: mod-lsz ###
+mod-lsz: successful
+### No save necessary ###
+### Next replay: mod-lsz-01 ###
+mod-lsz-01: successful
+### No save necessary ###
+### Next replay: mod-mult ###
+mod-mult: successful
+### No save necessary ###
+### Next replay: mod-mult-neg ###
+mod-mult-neg: successful
+### No save necessary ###
+### Next replay: mod-mult-neg-02 ###
+mod-mult-neg-02: successful
+### No save necessary ###
+### Next replay: mod-mult-pos ###
+mod-mult-pos: successful
+### No save necessary ###
+### Next replay: mod-mult-pos-01 ###
+mod-mult-pos-01: successful
+### No save necessary ###
+### Next replay: mod-neq ###
+mod-neq: successful
+### No save necessary ###
+### Next replay: mod-next-square ###
+mod-next-square: successful
+### No save necessary ###
+### Next replay: mod-ngez-01 ###
+mod-ngez-01: successful
+### No save necessary ###
+### Next replay: mod-ngr ###
+mod-ngr: successful
+### No save necessary ###
+### Next replay: mod-nle-02 ###
+mod-nle-02: successful
+### No save necessary ###
+### Next replay: mod-nls-01 ###
+mod-nls-01: successful
+### No save necessary ###
+### Next replay: mod-nls-02 ###
+mod-nls-02: successful
+### No save necessary ###
+### Next replay: mod-nls-04 ###
+mod-nls-04: successful
+### No save necessary ###
+### Next replay: mod-nls-05 ###
+mod-nls-05: successful
+### No save necessary ###
+### Next replay: mod-nls-06 ###
+mod-nls-06: successful
+### No save necessary ###
+### Next replay: mod-pred-02 ###
+mod-pred-02: successful
+### No save necessary ###
+### Next replay: mod-pred-03 ###
+mod-pred-03: successful
+### No save necessary ###
+### Next replay: mod-pred-neg ###
+mod-pred-neg: successful
+### No save necessary ###
+### Next replay: mod-pred-neg-01 ###
+mod-pred-neg-01: successful
+### No save necessary ###
+### Next replay: mod-shift ###
+mod-shift: successful
+### No save necessary ###
+### Next replay: mod-sub ###
+mod-sub: successful
+### No save necessary ###
+### Next replay: mod-sub-01 ###
+mod-sub-01: successful
+### No save necessary ###
+### Next replay: mod-succ-01 ###
+mod-succ-01: successful
+### No save necessary ###
+### Next replay: mod-two-06 ###
+mod-two-06: successful
+### No save necessary ###
+### Next replay: mod-two-pred-01 ###
+mod-two-pred-01: successful
+### No save necessary ###
+### Next replay: mod-zero ###
+mod-zero: successful
+### No save necessary ###
+### Next replay: mod-zero-02 ###
+mod-zero-02: successful
+### No save necessary ###
+### Next replay: mod-zero-05 ###
+mod-zero-05: successful
+### No save necessary ###
+### Next replay: mod-zero-06 ###
+mod-zero-06: successful
+### No save necessary ###
+### Next replay: mod-zero-09 ###
+mod-zero-09: successful
+### No save necessary ###
+### Next replay: mod-zero-ls ###
+mod-zero-ls: successful
+### No save necessary ###
+### Next replay: mod-zero-one ###
+mod-zero-one: successful
+### No save necessary ###
+### Next replay: mod2-add-neg ###
+mod2-add-neg: successful
+### No save necessary ###
+### Next replay: modeq-neg-02 ###
+modeq-neg-02: successful
+### No save necessary ###
+### Next replay: modeq-pos-01 ###
+modeq-pos-01: successful
+### No save necessary ###
+### Next replay: modeq-pos-04 ###
+modeq-pos-04: successful
+### No save necessary ###
+### Next replay: modeven-pos ###
+modeven-pos: successful
+### No save necessary ###
+### Next replay: modex ###
+modex: successful
+### No save necessary ###
+### Next replay: modex-odd ###
+modex-odd: successful
+### No save necessary ###
+### Next replay: modex-odd-neg ###
+modex-odd-neg: successful
+### No save necessary ###
+### Next replay: modmod-add ###
+modmod-add: successful
+### No save necessary ###
+### Next replay: modmod-add-01 ###
+modmod-add-01: successful
+### No save necessary ###
+### Next replay: modmod-add-03 ###
+modmod-add-03: successful
+### No save necessary ###
+### Next replay: modmod-add-04 ###
+modmod-add-04: successful
+### No save necessary ###
+### Next replay: modmod-add-case ###
+modmod-add-case: successful
+### No save necessary ###
+### Next replay: modmod-add-if ###
+modmod-add-if: successful
+### No save necessary ###
+### Next replay: modmod-add-if3 ###
+modmod-add-if3: successful
+### No save necessary ###
+### Next replay: modmod-add-law ###
+modmod-add-law: successful
+### No save necessary ###
+### Next replay: modmod-add-zero ###
+modmod-add-zero: successful
+### No save necessary ###
+### Next replay: modmod-add2-negpos-neg ###
+modmod-add2-negpos-neg: successful
+### No save necessary ###
+### Next replay: modmod-add2-negpos-pos-01 ###
+modmod-add2-negpos-pos-01: successful
+### No save necessary ###
+### Next replay: modmod-add2-negpos-pos-02 ###
+modmod-add2-negpos-pos-02: successful
+### No save necessary ###
+### Next replay: modmod-add2-posneg-neg ###
+modmod-add2-posneg-neg: successful
+### No save necessary ###
+### Next replay: modmod-add2-posneg-neg-02 ###
+modmod-add2-posneg-neg-02: successful
+### No save necessary ###
+### Next replay: modmod-add2-posneg-pos ###
+modmod-add2-posneg-pos: successful
+### No save necessary ###
+### Next replay: modmod-ma ###
+modmod-ma: successful
+### No save necessary ###
+### Next replay: modmod-ma-01 ###
+modmod-ma-01: successful
+### No save necessary ###
+### Next replay: modmod-ma-negpos-neg ###
+modmod-ma-negpos-neg: successful
+### No save necessary ###
+### Next replay: modmod-mult ###
+modmod-mult: successful
+### No save necessary ###
+### Next replay: modmod-mult-01 ###
+modmod-mult-01: successful
+### No save necessary ###
+### Next replay: modmod-mult-02 ###
+modmod-mult-02: successful
+### No save necessary ###
+### Next replay: modmod-mult-03 ###
+modmod-mult-03: successful
+### No save necessary ###
+### Next replay: modmod-mult-04 ###
+modmod-mult-04: successful
+### No save necessary ###
+### Next replay: modmod-mult-05 ###
+modmod-mult-05: successful
+### No save necessary ###
+### Next replay: modmod-mult-07 ###
+modmod-mult-07: successful
+### No save necessary ###
+### Next replay: modmod-mult-09 ###
+modmod-mult-09: successful
+### No save necessary ###
+### Next replay: modmod-pos ###
+modmod-pos: successful
+### No save necessary ###
+### Next replay: mult ###
+mult: successful
+### No save necessary ###
+### Next replay: mult-02 ###
+mult-02: successful
+### No save necessary ###
+### Next replay: mult-03 ###
+mult-03: successful
+### No save necessary ###
+### Next replay: mult-ls ###
+mult-ls: successful
+### No save necessary ###
+### Next replay: mult-ls-01 ###
+mult-ls-01: successful
+### No save necessary ###
+### Next replay: mult-split-mod ###
+mult-split-mod: successful
+### No save necessary ###
+### Next replay: num-ls ###
+num-ls: successful
+### No save necessary ###
+### Next replay: nummult-le ###
+nummult-le: successful
+### No save necessary ###
+### Next replay: nummult-le-01 ###
+nummult-le-01: successful
+### No save necessary ###
+### Next replay: nummult-le-02 ###
+nummult-le-02: successful
+### No save necessary ###
+### Next replay: nummult-le-03 ###
+nummult-le-03: successful
+### No save necessary ###
+### Next replay: nummult-ls ###
+nummult-ls: successful
+### No save necessary ###
+### Next replay: nummult-ls-01 ###
+nummult-ls-01: successful
+### No save necessary ###
+### Next replay: nummult-ls-01-01 ###
+nummult-ls-01-01: successful
+### No save necessary ###
+### Next replay: nummult-ls-02 ###
+nummult-ls-02: successful
+### No save necessary ###
+### Next replay: nummult-ls-02-01 ###
+nummult-ls-02-01: successful
+### No save necessary ###
+### Next replay: nummult-ls-03 ###
+nummult-ls-03: successful
+### No save necessary ###
+### Next replay: one ###
+one: successful
+### No save necessary ###
+### Next replay: one-04 ###
+one-04: successful
+### No save necessary ###
+### Next replay: one-neg ###
+one-neg: successful
+### No save necessary ###
+### Next replay: one-pos ###
+one-pos: successful
+### No save necessary ###
+### Next replay: pdiv-ls ###
+pdiv-ls: successful
+### No save necessary ###
+### Next replay: pos ###
+pos: successful
+### No save necessary ###
+### Next replay: prod-div-less ###
+prod-div-less: successful
+### No save necessary ###
+### Next replay: square-even ###
+square-even: successful
+### No save necessary ###
+### Next replay: square-even-01 ###
+square-even-01: successful
+### No save necessary ###
+### Next replay: square-inject ###
+square-inject: successful
+### No save necessary ###
+### Next replay: square-interval ###
+square-interval: successful
+### No save necessary ###
+### Next replay: square-ls ###
+square-ls: successful
+### No save necessary ###
+### Next replay: square-nle ###
+square-nle: successful
+### No save necessary ###
+### Next replay: square-nls ###
+square-nls: successful
+### No save necessary ###
+### Next replay: square-nls-02 ###
+square-nls-02: successful
+### No save necessary ###
+### Next replay: sub-ls ###
+sub-ls: successful
+### No save necessary ###
+### Next replay: sub-ls-01 ###
+sub-ls-01: successful
+### No save necessary ###
+### Next replay: two-add-square ###
+two-add-square: successful
+### No save necessary ###
+### Next replay: two-add-square-01 ###
+two-add-square-01: successful
+### No save necessary ###
+### Next replay: zero ###
+zero: successful
+### No save necessary ###
+### Next replay: zero-01 ###
+zero-01: successful
+### No save necessary ###
+### Next replay: zero-02 ###
+zero-02: successful
+### No save necessary ###
+### Next replay: zero-03 ###
+zero-03: successful
+### No save necessary ###
+### Next replay: zero-04 ###
+zero-04: successful
+### No save necessary ###
+### Next replay: zero-05 ###
+zero-05: successful
+### No save necessary ###
+### Next replay: zero-06 ###
+zero-06: successful
+### No save necessary ###
+### Next replay: zero-07 ###
+zero-07: successful
+### Done ###
+### Saving lemmas next ###

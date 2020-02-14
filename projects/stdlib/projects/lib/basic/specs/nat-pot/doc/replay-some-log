@@ -1,0 +1,33 @@
+: successful
+### No save necessary ###
+### Next replay: div-eq-zero ###
+div-eq-zero: successful
+### No save necessary ###
+### Next replay: lls ###
+lls: successful
+### No save necessary ###
+### Next replay: lls-01 ###
+lls-01: successful
+### No save necessary ###
+### Next replay: lls-02 ###
+lls-02: successful
+### No save necessary ###
+### Next replay: lpot ###
+lpot: successful
+### No save necessary ###
+### Next replay: lsucc-01 ###
+lsucc-01: successful
+### No save necessary ###
+### Next replay: ltwo-03 ###
+ltwo-03: successful
+### No save necessary ###
+### Next replay: pot-mon ###
+pot-mon: successful
+### No save necessary ###
+### Next replay: potex ###
+potex: successful
+### No save necessary ###
+### Next replay: potmonleq ###
+potmonleq: successful
+### Done ###
+### Saving lemmas next ###

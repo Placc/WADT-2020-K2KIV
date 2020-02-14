@@ -1,0 +1,26 @@
+enrich maplet with
+
+functions
+mk : refset Ô (ref ­ obj) ­ heap;
+
+predicates
+. [ . ] : (heap ­ bool) Ô refset Ô (ref ­ obj);
+
+variables
+f : ref ­ obj;
+
+axioms
+
+in-mk:
+r ² mk(rs, f) ° r ² rs;
+used for: s,ls;
+
+at-mk:
+r ² rs ­ mk(rs, f)[r] = f(r);
+used for: s,ls,c,lc;
+
+apply:
+P[rs,f] ° P(mk(rs,f));
+used for: ls;
+
+end enrich

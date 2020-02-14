@@ -1,0 +1,171 @@
+
+variables
+a1 : elem;
+
+lemmas
+
+subset-new:
+µ a ² st ­ (st Â st0[a,d] ° st Â st0);
+used for: s,ls;
+
+Del-at-strong:
+a Ü b ¥ (st -- b)[a] = st[a];
+used for: s,ls;
+
+Del-notin:
+µ a ² st -- a;
+used for: s,ls;
+
+Del-other-data:
+st[a] Ü st[b] ­ (a ² st -- b ° a ² st);
+used for: s,ls;
+
+eq-shift-del : µ a ² st ­ (st[a, d] = st0 ° st = st0 -- a ¸ a ² st0 ¸ st0[a] = d);
+
+subset-delete-02 : st Â st0 ­ (µ st -- a Â st0 ° false);used for : s,ls;
+
+subset-delete-01 : st Â st0 ­ st -- a Â st0 ;used for : s,ls;
+
+;; testmodel: st Ü st;
+
+;; KODKOD BEGIN
+
+k-Extension : st1 = st2 ° ³ a. (a ² st1 ° a ² st2) ¸ (a ² st1 ­ st1[a] = st2[a]); used for : ls,kodkodax;
+
+k-At-same  : a = b ­ st[b, d][a] = d; used for : s,ls,kodkodax;
+
+empty-01      :  ¥ à -- a = à ; used for : kodkodax;
+k-Del-rec1: µ a ² st ­ st[a,d] -- a = st; used for : kodkodax;
+k-Del-rec2: a Ü b ¸ µ a ² st ­ st[a,d] -- b = (st -- b)[a,d]; used for : kodkodax;
+
+;; KODKOD END
+
+
+del-exists: a ² st ¥ ´ st0. µ a ² st0 ¸ st = st0[a,st[a]];
+
+
+At-in-out: b ² st ¸ µ a ² st ­ st[a,d][b] = st[b];
+used for : s,ls;
+
+subset-put : ¥ st Â st[a, st[a]]; used for : s,ls;
+subset-put : st[a] = d ­ st Â st[a,d]; used for : s,ls;
+
+subset-delete : st Â st0 ­ st -- a Â st0 -- a;
+
+subset-put-strong:
+st Â st0 ­ st[a,d] Â st0[a,d];
+
+subset-put-strong-01:
+st Â st0 ­ st[a,d][a0,d0] Â st0[a,d][a0,d0];
+
+subset-put-strong-02:
+st Â st0 ­ st[a,d][a0,d0][a1,d1] Â st0[a,d][a0,d0][a1,d1];
+
+subset-put-strong-03:
+µ st[a,d] Â st0[a,d] ­ µ st Â st0; used for:s,ls;
+
+subset-put-strong-04:
+µ st[a,d][a0,d0] Â st0[a,d][a0,d0] ­ µ st Â st0; used for:s,ls;
+
+subset-put-strong-05:
+µ st[a,d][a0,d0][a1,d1] Â st0[a,d][a0,d0][a1,d1] ­ µ st Â st0; used for:s,ls;
+
+subset-size :
+# st0 < # st ­ µ st Â st0; used for : s,ls;
+ins-same : a ² st ­ st[a, st[a]] = st; used for : s,ls;
+
+superset-elem-in: b ² st ¸ st Â st0 ­ b ² st0;
+superset-elem-in: b ² st ¸ µ b ² st0 ­ µ st Â st0; used for : s,ls;
+
+superset-elem-eq:
+b ² st ¸ st Â st1 ­ st1[b] = st[b]; 
+
+At-other-num : a Ü b ¥ st[(* b), d][(* a)] = st[a]; used for : s,ls;
+
+subset-elem-eq-02:
+b ² st ¸ st Â st1 ­ (st[b] Ü st1[b] ° false); 
+
+
+subset-elem-eq-01:
+b ² st ¸ µ st[b] = st1[b] ­ µ st Â st1; used for: s,ls;
+
+subset-elem-eq:
+b ² st ¸ st Â st1 ­ st[b] = st1[b]; 
+
+
+delete-put-rew : a Ü b ­ (st -- b)[a, d] = st[a, d] -- b;
+
+ins-same : st[a, st[a]] = st ° a ² st; used for : s,ls;
+
+size-subset : st Â st0 ­ # st ¨ # st0;
+
+eq-shift-put : a ² st ­ (st[a, d] = st0 ° st = st0[a, st[a]] ¸ a ² st0 ¸ st0[a] = d);
+
+subset-put-01 : st Â st0[a, d] ° st Â st0 ¸ µ a ² st ¹ a Ô d ² st ¸ st -- a Â st0 -- a;
+
+subset-put : st[a, d] Â st0 ° st -- a Â st0 ¸ a Ô d ² st0;
+subset-put : st[a, d] Â st0 ° st -- a Â st0 -- a ¸ a Ô d ² st0;
+
+subset-empty : à Â st ; used for : s,ls;
+subset-empty : st Â à ° st = à; used for : s, ls;
+
+in-neq : a Ü b ­ (a ² st[b, d] ° a ² st); used for : s,ls;
+
+del-put : (st -- a)[a,d] = st[a,d]; used for : s,ls;
+del-notin : µ a ² st ­ st -- a = st; used for : s,ls;
+inj-put : a Ü b ­ (st[a,d][b,d0] = st[b,d0] ° a ² st ¸ st[a] = d); used for : s,ls;
+put-same : a = b ­ st[a,d][b,d0] = st[b,d0]; used for : s,ls;
+put-neq : st Ü st0 ¸ µ a ² st ¸ µ a ² st0 ­ st[a,d] Ü st0[a,d]; used for : s,ls;
+
+inj-put : µ a ² st ¸ µ a ² st0 ­ (st[a,d] = st0[a,d] ° st = st0); used for : s,ls;
+put-neq : d Ü d0 ­ st[a,d] Ü st0[a,d0]; used for : s,ls;
+exputin : ¥ ´ st0. st0[a,d] = st[a,d] ¸ µ a ² st0;
+
+exin : ¥ a ² st ° ´ d, st0. st = st0[a,d] ¸ µ a ² st0;
+
+del-putsame : a ² st ­ (st -- a)[a, st[a]] = st; used for : s,ls;
+exnotempty : st = à ° µ ´ a, d, st0. st = st0[a,d] ¸ µ a ² st0;
+
+deldel : ¥ st -- a -- a = st -- a; used for : s,ls;
+indef : ¥ a ² st ° st = (st -- a)[a, st[a]];
+
+size-neq : ¥ # (st[a, d]) Ü # (st[a, d0]) ° false; used for : s,ls;
+key-size : ³ a. a ² st ° a ² st0 ¥ # st = # st0;
+
+size-in : ¥ a ² st ­ # (st[a,d]) = # st; used for : s,ls;
+indef : ¥ a ² st ° st = st[a, st[a]];
+inex : ¥ a ² st ­ ´ d, st0. st = st0[a,d] ¸ µ a ² st0;
+
+empty         :  ¥ # st = 0 ° st = à ;
+     used for : s, ls ;
+
+
+in-pair       :  ¥ a Ô d ² st ° µ µ (a ² st ¸ (st[a]) = d) ;
+     used for : s, ls ;
+ins           :  ¥ (st[a]) = d ¸ a ² st ­ (st[a, d]) = st ;
+     used for : s, ls ;
+ins3          :  ¥ (((st[a, d1])[b, d0])[a, d]) = ((st[b, d0])[a, d]) ;
+     used for : s, ls ;
+ins4          :  ¥ (((st[a, d2])[b, d1][c, d0])[a, d]) = ((st[b, d1][c, d0])[a, d]) ;
+     used for : s, ls ;
+insert        :  ¥ (st[a, d]) -- a = st -- a ;
+     used for : s, ls ;
+insin         :  ¥ a ² (st[a, d]) ;
+     used for : s ;
+insins        :  ¥ ((st[a, d0])[a, d]) = (st[a, d]) ;
+     used for : s, ls ;
+lookupisempty :  ¥ ((st -- a)[a]) = (à[a]) ;
+     used for : ls ;
+neq           :  ¥ (st[a, d]) Ü à ;
+     used for : s ;
+notmemlookup  :  ¥ µ a ² st ­ (st[a]) = (à[a]) ;
+rew           :  ¥ a Ü b ­ ((st[b, d0])[a, d]) = ((st[a, d])[b, d0]) ;
+size          :  ¥ a ² st ­ # (st -- a) = (# st) -1 ;
+     used for : s, ls ;
+sub-ref       :  ¥ st Â st ;
+     used for : s, ls ;
+sub-trans     :  ¥ st Â st0 ¸ st0 Â st1 ­ st Â st1 ;
+     used for : f, lf ;
+sw            :  ¥ a Ü b ­ (st[b, d]) -- a = ((st -- a)[b, d]) ;
+sw-01         :  ¥ (st -- a) -- b = (st -- b) -- a ;
+

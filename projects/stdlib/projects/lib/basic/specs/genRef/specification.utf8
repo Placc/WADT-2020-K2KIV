@@ -1,0 +1,21 @@
+generic specification
+
+       parameter Ref
+       
+       target
+
+;; sorts ;
+
+;; constants ;
+
+;; functions ;
+
+;; predicates ;
+
+;; variables ;
+
+;; induction ;
+
+;; axioms
+
+end generic specification

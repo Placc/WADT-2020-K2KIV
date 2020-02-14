@@ -1,0 +1,91 @@
+enrich string-less, kint with
+
+functions
+	find:  string × string × int → int;
+	find:  string × string → int;
+	rfind: string × string × int → int;
+	rfind: string × string → int;
+
+	findChar:  string × string × int → int;
+	rfindChar: string × string × int → int;
+
+	replaceAll:   string × string × string → string;
+	replaceN:     string × string × string × int → string;
+	replaceFirst: string × string × string → string;
+	count:        string × string → int;
+	string2Int:   string → int;
+	int2String:   int → string;
+	string2Base:  string × int → int;
+	base2String:  int × int → string;
+	toDigit:      char → int; 
+	toChar:       int → char;
+	substr:       string × int × int → string;
+	size:         string → int;
+
+predicates
+	unequal: string × string;
+	. > . :  string × string;
+	. ≥ . :  string × string;
+	. ≤ . :  string × string;
+
+axioms
+	unequal-def: unequal(str, str0) ↔ str ≠ str0; used for : s, ls;
+	greater-def: str > str0 ↔ str0 < str; used for : s, ls;
+	greater-equal-def: str ≥ str0 ↔ (str > str0 ∨ str = str0); used for : s, ls;
+	less-equal-def: str ≤ str0 ↔ (str < str0 ∨ str = str0); used for : s, ls;
+	find-def: i ≥ 0 → find(str, str0, i) = find(sublist(i→n(i), #(str), str), str0); used for : s, ls;
+	find-base1: find("", str0) = ~ 1; used for : s, ls;
+	find-base2: find(str, "") = ~ 1; used for : s, ls;
+	find-rec1: #(str0) > 0 → find(str0 + str, str0) = 0; used for : s, ls;
+	find-rec2: (#(char + str1) = #(str0) ∧ (char + str1) ≠ str0) → find(char + str1 + str, str0) = 1 + find(str1 + str, str0); used for : s, ls;
+	rfind-def: i ≥ 0 → rfind(str, str0, i) = rfind(sublist(i→n(i), #(str), str), str0); used for : s, ls;
+	rfind-base1: rfind("", str0) = ~ 1; used for : s, ls;
+	rfind-base2: rfind(str, "") = ~ 1; used for : s, ls;
+	rfind-rec1: #(str0) > 0 → rfind(str + str0, str0) = n→i(#(str)); used for : s, ls;
+	rfind-rec2: (#(str1 + char) = #(str0) ∧ (str1 + char) ≠ str0) → rfind(str + str1 + char, str0) = rfind(str + str1, str0); used for : s, ls;
+	replace-first-def1: find(str, str0) ≥ 0 → replaceFirst(str, str0, str1) = sublist(0, i→n(find(str, str0)), str) + str1 + sublist(i→n(find(str, str0)) + #(str0), #(str) - #(str0) - i→n(find(str, str0)), str); used for : s, ls;
+	replace-first-def2: find(str, str0) < 0 → replaceFirst(str, str0, str1) = str; used for : s, ls;
+	replace-n-base: replaceN(str, str0, str1, 0) = str; used for : s, ls;
+	replace-n-rec: i > 0 → replaceN(str, str0, str1, i) = replaceN(replaceFirst(str, str0, str1), str0, str1, i - 1); used for : s, ls;
+	replace-all-base: find(str, str0) = ~ 1 → replaceAll(str, str0, str1) = str; used for : s, ls;
+	replace-all-rec: find(str, str0) ≥ 0 → replaceAll(str, str0, str1) = replaceAll(replaceFirst(str, str0, str1), str0, str1); used for : s, ls;
+	count-base: find(str, str0) < 0 → count(str, str0) = 0; used for : s, ls;
+	count-rec: find(str, str0) ≥ 0 → count(str, str0) = 1 + count(sublist(i→n(find(str, str0)) + 1, #(str) - i→n(find(str, str0)) - 1, str), str0); used for : s, ls;
+	to-digit-def-0: toDigit(`0`) = 0; used for : s, ls;
+	to-digit-def-1: toDigit(`1`) = 1; used for : s, ls;
+	to-digit-def-2: toDigit(`2`) = 2; used for : s, ls;
+	to-digit-def-3: toDigit(`3`) = 3; used for : s, ls;
+	to-digit-def-4: toDigit(`4`) = 4; used for : s, ls;
+	to-digit-def-5: toDigit(`5`) = 5; used for : s, ls;
+	to-digit-def-6: toDigit(`6`) = 6; used for : s, ls;
+	to-digit-def-7: toDigit(`7`) = 7; used for : s, ls;
+	to-digit-def-8: toDigit(`8`) = 8; used for : s, ls;
+	to-digit-def-9: toDigit(`9`) = 9; used for : s, ls;
+	to-digit-def-A: toDigit(`A`) = 10; used for : s, ls;
+	to-digit-def-B: toDigit(`B`) = 11; used for : s, ls;
+	to-digit-def-C: toDigit(`C`) = 12; used for : s, ls;
+	to-digit-def-D: toDigit(`D`) = 13; used for : s, ls;
+	to-digit-def-E: toDigit(`E`) = 14; used for : s, ls;
+	to-digit-def-F: toDigit(`F`) = 15; used for : s, ls;
+	to-char-def: toChar(i) = char ↔ toDigit(char) = i; used for : s, ls;
+	string-to-base-base: i ≥ 2 → string2Base("", i) = 0; used for : s, ls;
+	string-to-base-rec: i ≥ 2 ∧ ((str + char).char1 ≠ `-`) → string2Base(str + char, i) = i * string2Int(str) + toDigit(char); used for : s, ls; 
+	string-to-base-neg: i ≥ 2 → string2Base(`-` + str, i) = ~ string2Base(str, i); used for : s, ls;
+	base-to-string-rec: j ≠ 0 ∧ i ≥ 2 → base2String(j, i) = (j < 0 ⊃ "-" ; "") + base2String(abs(j) / i, i) + toChar(abs(j) % i); used for : s, ls;
+	base-to-string-base: i ≥ 2 → base2String(0, i) = "0"; used for : s, ls;
+	string-to-int-def: string2Int(str) = string2Base(str, 10); used for : s, ls;
+	int-to-string-def: int2String(i) = base2String(i, 10); used for : s, ls;
+	substr-def: substr(str, i, j) = sublist(i→n(i), i→n(j) - 1, str); used for : s, ls;
+	size-def: size(str) = n→i(#(str)); used for : s, ls;
+
+    findchar-empty: findChar(str, "", i) = ~1; used for: s;
+    findchar-rec: str1 ≠ "" → findChar(str0, str1, i) = (find(str0, str1.char1 ', i) = ~1
+      ⊃ findChar(str0, str1.rstring, i)
+      ; (findChar(str0, str1.rstring, i) = ~1
+        ⊃ find(str0, str1.char1 ', i)
+        ; min(find(str0, str1.char1 ', i), findChar(str0, str1.rstring, i))));
+
+    rfindchar-empty: rfindChar(str, "", i) = ~1;
+    rfindchar-rec: str1 ≠ "" → rfindChar(str0, str1, i) = max(rfind(str0, str1.char1 ', i), rfindChar(str0, str1.rstring, i));
+
+end enrich

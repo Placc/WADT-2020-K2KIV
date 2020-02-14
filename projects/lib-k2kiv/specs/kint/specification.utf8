@@ -1,0 +1,39 @@
+enrich int-pot with
+
+
+functions
+	ediv:          int × int → int;
+	. mod . :      int × int → int;
+	log2 :         int → int;
+	. << . :       int × int → int;
+	. >> . :       int × int → int;
+	bitwiseNot:    int → int;
+	bitwiseAnd:    int × int → int;
+	bitwiseAndSum: int × int × int → int;
+	bitwiseOr:     int × int → int;
+	bitwiseXor:    int × int → int;
+
+predicates
+	unequal : int × int; 
+
+variables
+	i1: int;
+
+axioms
+	ediv-def: ediv(i, j) = (i < 0 ⊃ (i + 1 - j) / j ; i / j); used for : s, ls;
+	mod-def: j ≠ 0 → i mod j = ((i % j) + j) % j; used for : s, ls;
+	shiftLeft-def: i << j = i * (2 ^ j); used for : s, ls;
+	shiftRight-def: i >> j = i / (2 ^ j); used for : s, ls;
+	not-def: bitwiseNot(i) = (~ i) - 1; used for : s, ls;
+	log2-def-base: log2(1) = 0; used for : s, ls;
+	log2-def-rec: i > 0 → log2(i) = 1 + log2(i / 2); used for : s, ls;
+	and-def: bitwiseAnd(i0, i1) = bitwiseAndSum(abs(i0), abs(i1), log2(max(abs(i0), abs(i1)))) * (i0 < 0 ∧ i1 < 0 ⊃ ~ 1 ; 1); used for : s, ls;
+	andsum-def: bitwiseAndSum(i0, i1, 0) = (i0 % 2) * (i1 % 2); used for : s, ls;
+	andsum-rec: j > 0 → bitwiseAndSum(i0, i1, j) = (2 ^ j) * ((i0 >> j) % 2) * ((i1 >> j) % 2) + bitwiseAndSum(i0, i1, j - 1); used for : s, ls;
+	or-def: bitwiseOr(i, j) = bitwiseNot(bitwiseAnd(bitwiseNot(i), bitwiseNot(j))); used for : s, ls;
+	xor-def: bitwiseXor(i, j) = bitwiseAnd(bitwiseOr(i, j), bitwiseNot(bitwiseAnd(i, j))); used for : s, ls;
+	unequal-def: unequal(i, j) ↔ i ≠ j; used for : s, ls;
+	
+;; declaration
+
+end enrich

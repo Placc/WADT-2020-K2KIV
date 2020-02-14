@@ -1,0 +1,28 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+lls-unfold-head-simp
+lls-unfold-head
+lls-one
+lls-null
+lls-fold-tail
+lls-consecutive
+ll-trav2-next
+ll-trav2-init
+ll-trav2-end
+ll-trav1-next
+ll-trav1-init
+ll-trav1-end
+
+
+*** Failures: ***
+
+lls-unfold-tail
+lls-fold-head
+

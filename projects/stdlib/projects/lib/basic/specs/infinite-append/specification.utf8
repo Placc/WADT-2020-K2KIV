@@ -1,0 +1,36 @@
+enrich stream, nat with
+
+;; sorts ;
+
+;; constants ;
+
+;; functions ;
+
+;; predicates ;
+
+
+variables
+(: the infinitely many lists that are appended :)
+           lf : nat → list;
+(: auxiliary choice functions :)
+           ii,jj : nat → nat;
+           iigen : nat → nat → nat;
+           nfgen : nat → nat → elem;
+           nextl : nat × elem  → list;
+           nextj : nat × elem  → nat;
+           lfgen : nat → nat → list;
+
+
+;; induction ;
+
+;; axioms
+
+(: appending the list gives σ :)
+(:
+theorem: (: ∀ lf. :)
+        ∃ σ, ii. ∀ n.   ii(0) = 0
+                      ∧ ii(n + 1) = ii(n) + # lf(n)
+                      ∧ σ from ii(n) to #lf(n) = lf(n)
+                      ∧ (finp(σ) ↔ ∃ n. ∀ m. n ≤ m → lf(n) = [])
+:)
+end enrich         

@@ -1,0 +1,28 @@
+enrich maplet, store with
+
+functions
+. ⊗_ . : (elem × data → heap → bool) × store → heap → bool prio 12;
+. ∧_ . : (elem × data → heap → bool) × store → heap → bool prio 11;
+
+variables
+adP : elem × data → heap → bool;
+
+axioms
+
+Sep-emp:
+adP ⊗_ ∅ = emp;
+used for: s,ls;
+
+Sep-ins:
+¬ a ∈ st → adP ⊗_ (st[a,d]) = adP(a,d) * (adP ⊗_ st);
+used for: s,ls;
+
+And-emp:
+adP ∧_ ∅ = true;
+used for: s,ls;
+
+And-ins:
+¬ a ∈ st → adP ∧_ (st[a,d]) = (adP(a,d) ∧ (adP ∧_ st));
+used for: s,ls;
+
+end enrich

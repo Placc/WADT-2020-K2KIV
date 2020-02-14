@@ -1,0 +1,45 @@
+: successful
+### No save necessary ###
+### Next replay: eo-02 ###
+eo-02: successful
+### No save necessary ###
+### Next replay: even-add ###
+even-add: successful
+### No save necessary ###
+### Next replay: even-mult ###
+even-mult: successful
+### No save necessary ###
+### Next replay: max-a ###
+max-a: successful
+### No save necessary ###
+### Next replay: max-c ###
+max-c: successful
+### No save necessary ###
+### Next replay: max-distr ###
+max-distr: successful
+### No save necessary ###
+### Next replay: min-a ###
+min-a: successful
+### No save necessary ###
+### Next replay: min-c ###
+min-c: successful
+### No save necessary ###
+### Next replay: min-distr ###
+min-distr: successful
+### No save necessary ###
+### Next replay: odd-add ###
+odd-add: successful
+### No save necessary ###
+### Next replay: odd-mult ###
+odd-mult: successful
+### No save necessary ###
+### Next replay: otwo-02 ###
+otwo-02: successful
+### No save necessary ###
+### Next replay: plus ###
+plus: successful
+### No save necessary ###
+### Next replay: two-02 ###
+two-02: successful
+### Done ###
+### Saving lemmas next ###

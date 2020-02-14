@@ -1,0 +1,148 @@
+lemmas
+
+(:
+to-new:
+(↓ P)(H,H) ↔ (↑ P)(H,H);
+used for: s,ls;
+
+true-new:
+↓ true = ↑ true;
+used for: s,ls;
+
+prop-new:
+↓ ⌜bv⌝ = ↑ ⌜bv⌝;
+used for: s,ls;
+
+split-old:
+↓ (P0 * P1) = ↓ P0 * ↓ P1;
+used for: s,ls;
+
+merge-new:
+↑ P0 * ↑ P1 = ↑ (P0 * P1);
+used for: s,ls;
+
+map-new:
+H0[r] = H1[r], r ∈ H0, r ∈ H1
+⊦ (↓ (r => o) * R)(H0,H1) ↔ (↑ (r => o) * R)(H0,H1);
+
+split-union:
+R0(H0,H1) ∧ R1(H2,H3) ∧ H0 ⊥ H2 ∧ H1 ⊥ H3
+  → (¬ (R0 * R1)(H0 ∪ H2, H1 ∪ H3) ↔ false);
+used for: s,ls;
+:)
+
+guar-rely:
+guar(id,O1,H1,O2,H2) ∧ id ≠ me
+  → rely(me,O1,H1,O2,H2);
+used for: ss,lss;
+
+rely-refl:
+rely(me,O,H,O,H);
+used for: s,ls;
+
+guar-refl:
+guar(me,O,H,O,H);
+used for: s,ls;
+
+rely-trans:
+rely(me,O0,H0,O1,H1) ∧ rely(me,O1,H1,O2,H2)
+  → rely(me,O0,H0,O2,H2);
+used for: f,lf;
+
+owned-emp:
+!(me, O, emp) = emp;
+used for: s,ls;
+
+owned-P:
+!(me, O, P)(H) ∧ ¬ P(H) → false;
+used for: f,lf;
+
+owned-r:
+!(me, O, P)(H) ∧ O(r) ≠ me
+  → ¬ r ∈ H;
+used for: s,ls;
+
+ex-shift-o:
+(!(me, O, _∃ oP) * P)(H)
+  ↔ ∃ o. (!(me, O, oP(o)) * P)(H);
+used for: s,ls;
+
+ex-shift-o-p:
+(!(me,O, (_∃ oP) * P0) * P)(H)
+  ↔ ∃ o. (!(me, O, oP(o) * P0) * P)(H);
+used for: s,ls;
+
+compact-local:
+!(me, O, P0) * !(me, O, P1)
+  = !(me, O, P0 * P1);
+used for: s,ls;
+
+switch-ownership:
+rely(me,O1,H1,O2,H2)
+  → !(me, O1, P) = !(me, O2, P);
+used for: s,ls;
+
+lift-mapex:
+r =>_ = !(me, O(r;me), r =>_);
+
+lift-map:
+r => o = !(me, O(r;me), r => o);
+
+propagate:
+  id ≠ me
+∧ rely(me,O1,H1,O2,H2)
+∧ (!(me, O2, P) * P0)(H1)
+  → ((!(id, O2, P1) * true)(H2)
+     ↔ (!(me, O2, P) * !(id, O2, P1) * true)(H2));
+used for: s,ls;
+
+;; drop-ownership-p:
+;; rely(me,O1(r;id),H1,O2,H2)
+;;   → ((!(me, O1, r => o * P) * P0)(H1)
+;;      ↔ (!(me, O2, P)  * !(id, O2, r => o) * P0)(H1));
+;; used for: s,ls;
+;; 
+;; drop-ownership:
+;;   id ≠ me
+;; ∧ rely(me,O1(r;id),H1,O2,H2)
+;;   → ((!(me, O1, r => o) * P0)(H1)
+;;      ↔ (!(id, O2, r => o) * P0)(H1));
+;; used for: s,ls;
+
+alloc-p:
+  r ≠ null ∧ ¬ r ∈ H1
+∧ rely(me,O1(r;me),H1 ++ r,O2,H2)
+  → ((!(me, O1, P) * P0)(H1)
+     ↔ (!(me, O2, r =>_ * P) * P0)(H1 ++ r));
+used for: s,ls;
+
+alloc:
+  r ≠ null ∧ ¬ r ∈ H1
+∧ rely(me,O1(r;me),H1 ++ r,O2,H2)
+  → ((P0 * true)(H1)
+     ↔ (!(me, O2, r =>_) * P0 * true)(H1 ++ r));
+used for: s,ls;
+
+write-known-p:
+rely(me,O1,H1[r,o1],O2,H2)
+  → ((!(me, O2, r => o0 * P) * P0)(H1)
+     ↔ (!(me, O2, r => o1 * P) * P0)(H1[r,o1]) ∧ H1[r] = o0 ∧ r ∈ H1);
+used for: s,ls;
+
+write-known:
+rely(me,O1,H1[r,o1],O2,H2)
+  → ((!(me, O2, r => o0) * P0)(H1)
+     ↔ (!(me, O2, r => o1) * P0)(H1[r,o1]) ∧ H1[r] = o0 ∧ r ∈ H1);
+used for: s,ls;
+
+write-unknown-p:
+rely(me,O1,H1[r,o1],O2,H2)
+  → ((!(me, O2, r =>_ * P) * P0)(H1)
+     ↔ (!(me, O2, r => o1 * P) * P0)(H1[r,o1]) ∧ r ∈ H1);
+used for: s,ls;
+
+write-unknown:
+rely(me,O1,H1[r,o1],O2,H2)
+  → ((!(me, O2, r =>_) * P0)(H1)
+     ↔ (!(me, O2, r => o1) * P0)(H1[r,o1]) ∧ r ∈ H1);
+used for: s,ls;

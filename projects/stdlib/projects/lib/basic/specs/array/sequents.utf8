@@ -1,0 +1,57 @@
+
+(: variables    ; :)
+
+lemmas
+size-0: # ar = 0 → (mkarray(0) = ar ↔ true); used for: ss,lss;
+ext-rec:
+ar1 = ar0[n,a]
+  ↔   # ar0 = # ar1
+    ∧ ∀ m. m < # ar0 → ar1[m] = (n = m ⊃ a ; ar0[m]);
+
+cputput-reverse:
+m ≠ n ⊦ ar[m, a][n, b] = ar[n, b][m, a];
+
+cputput:
+m < # ar ⊦ ar[m, a][m, b] = ar[m, b]; used for: s,ls;
+
+cgetput      : m < # ar ⊦ ar[m, a][m] = a ;
+    used for : s, ls ;
+
+
+cngetput     : m ≠ n ⊦ ar[m, a][n] = ar[n] ;
+    used for : ls ;
+cngetput-num: m ≠ n ⊦ ar[(* m), a][(* n)] = ar[n];
+used for : s;
+
+put-same-content:
+ar[n] = a → ar[n, a] = ar;
+used for : s;
+
+
+;;; END
+
+;;; durch cngetput-num mit generischen numerals ersetzt
+;;; ngp          :  ⊦ ((ar[0, a])[1]) = (ar[1]) ;
+;;;     used for : s, ls ;
+;;; ngp-01       :  ⊦ ((ar[1, a])[0]) = (ar[0]) ;
+;;;     used for : s, ls ;
+;;; ngp-02       :  ⊦ ((ar[0, a])[2]) = (ar[2]) ;
+;;;     used for : s, ls ;
+;;; ngp-03       :  ⊦ ((ar[2, a])[0]) = (ar[0]) ;
+;;;     used for : s, ls ;
+;;; ngp-04       :  ⊦ ((ar[2, a])[1]) = (ar[1]) ;
+;;;     used for : s, ls ;
+;;; ngp-05       :  ⊦ ((ar[1, a])[2]) = (ar[2]) ;
+;;;     used for : s, ls ;
+ngp-06       :  ⊦ m < n → ar[m, a][n] = ar[n] ;
+    used for : s, ls ;
+ngp-07       :  ⊦ n < m → ar[m, a][n] = ar[n) ;
+    used for : s, ls ;
+ngp-08       :  ⊦ m + m0 < n → ar[m, a][n] = ar[n] ;
+    used for : s, ls ;
+ngp-09       :  ⊦ n + n0 < m → ar[m, a][n] = ar[n] ;
+    used for : s, ls ;
+ngp-10       :  ⊦ ar[m + 1, a][m] = ar[m] ;
+    used for : s, ls ;
+putgetinv    : m < # ar ⊦ ar[m, ar[m]] = ar ;
+    used for : s, ls ;

@@ -1,0 +1,16 @@
+(: must be identical to nat-mult in system/basicrules! :)
+
+enrich nat with
+
+functions
+
+	. * . : nat × nat → nat prio 10;
+
+axioms
+
+mult-base: m * 0 = 0;
+mult-rec: m * (n +1) = m * n + m;
+
+end enrich
+
+

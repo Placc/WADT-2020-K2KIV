@@ -1,0 +1,35 @@
+enrich list-del with
+
+functions 
+
+    . ∪ . : list × list → list;
+
+   . \  . : list × list → list; 
+            comment: x \ y : remove from x all elements that are in y;
+
+   filter : list × list → list;
+            comment: filter(x,y) : remove from x all elements that are not in y.;
+
+predicates
+
+          . ⊆ . : list × list;
+
+axioms
+
+subset : x ⊆ y ↔ ∀ a. a ∈ x → a ∈ y; used for : ls;
+
+union : x ∪ y = rmdup(x + y); used for : nokodkodax;
+
+diff-e : [] \ y = []; used for : s,ls;
+
+diff-y :   a ∈ y → (a ' + x) \ y = x \ y; used for : s,ls,lc;
+
+diff-n : ¬ a ∈ y → (a ' + x) \ y = a + (x \ y); used for : s,ls;
+
+filt-e : filter([],y) = []; used for : s,ls;
+
+filt-y :   a ∈ y → filter(a ' + x, y) = a ' + filter(x,y); used for : s,ls,lc;
+
+filt-n : ¬ a ∈ y → filter(a ' + x, y) = filter(x,y); used for : s,ls;
+
+end enrich

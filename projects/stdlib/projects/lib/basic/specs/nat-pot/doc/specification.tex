@@ -1,0 +1,32 @@
+\begin{tabbing}\label{nat-pot-spec}%
+nat-pot = \\
+{\bf enr}\={\bf ich} nat-div {\bf with}\+\\
+{\bf func}\={\bf tions}\+\\
+\begin{tabular}{lclcll}
+. $\hatsym$ . & : & nat $\times$ nat & \Imp & nat & {\bf prio} 12; \\
+log & : & nat $\times$ nat & \Imp & nat &; \\
+2$\hatsym$ . & : & nat & \Imp & nat &; \\
+log2 . & : & nat & \Imp & nat &; \\
+\end{tabular}\-
+\end{tabbing}
+{\bf axioms}
+
+
+
+\begin{quote}
+Pot-zero : n $\hatsym$ 0 = 1;
+
+Pot-succ : n $\hatsym$ m +1 = n $\hatsym$ m $*$ n;
+
+Logdef : m $\hatsym$ \Var{n}{0} $\le$ n \And n $<$ m $\hatsym$ \Var{n}{0} +1 \Imp log(m, n) = \Var{n}{0};
+
+Pot2-zero : 2$\hatsym$ 0 = 1;
+
+Pot2-succ : 2$\hatsym$ n +1 = 2 $*$ 2$\hatsym$ n;
+
+Log2def : 2$\hatsym$ m $\le$ n \And n $<$ 2$\hatsym$ m +1 \Imp log2 n = m;
+
+
+\end{quote}
+{\bf end enrich}
+

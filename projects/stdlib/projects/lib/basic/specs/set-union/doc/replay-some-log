@@ -1,0 +1,339 @@
+: successful
+### No save necessary ###
+### Next replay: add-inter-rem ###
+add-inter-rem: failed
+### No save necessary ###
+### Next replay: del-addeq ###
+del-addeq: successful
+### No save necessary ###
+### Next replay: del-addeq-01 ###
+del-addeq-01: successful
+### No save necessary ###
+### Next replay: del-addeq-02 ###
+del-addeq-02: successful
+### No save necessary ###
+### Next replay: del-addeq-04 ###
+del-addeq-04: successful
+### No save necessary ###
+### Next replay: del-addeq-05 ###
+del-addeq-05: successful
+### No save necessary ###
+### Next replay: del-addeq-06 ###
+del-addeq-06: failed
+### No save necessary ###
+### Next replay: del-addin ###
+del-addin: successful
+### No save necessary ###
+### Next replay: del-addin-01 ###
+del-addin-01: successful
+### No save necessary ###
+### Next replay: del-d ###
+del-d: successful
+### No save necessary ###
+### Next replay: del-d-01 ###
+del-d-01: successful
+### No save necessary ###
+### Next replay: del-del-one ###
+del-del-one: successful
+### No save necessary ###
+### Next replay: del-e ###
+del-e: successful
+### No save necessary ###
+### Next replay: del-e-01 ###
+del-e-01: successful
+### No save necessary ###
+### Next replay: del-e-02 ###
+del-e-02: successful
+### No save necessary ###
+### Next replay: del-eq ###
+del-eq: successful
+### No save necessary ###
+### Next replay: del-feq ###
+del-feq: successful
+### No save necessary ###
+### Next replay: del-feq-01 ###
+del-feq-01: successful
+### No save necessary ###
+### Next replay: del-feq-02 ###
+del-feq-02: successful
+### No save necessary ###
+### Next replay: del-in ###
+del-in: successful
+### No save necessary ###
+### Next replay: del-in-03 ###
+del-in-03: successful
+### No save necessary ###
+### Next replay: del-ne ###
+del-ne: successful
+### No save necessary ###
+### Next replay: del-neq-01 ###
+del-neq-01: successful
+### No save necessary ###
+### Next replay: del-neq-02 ###
+del-neq-02: successful
+### No save necessary ###
+### Next replay: del-size-01 ###
+del-size-01: successful
+### No save necessary ###
+### Next replay: del-three ###
+del-three: successful
+### No save necessary ###
+### Next replay: del-two ###
+del-two: successful
+### No save necessary ###
+### Next replay: delete-insert ###
+delete-insert: successful
+### No save necessary ###
+### Next replay: delete-shift ###
+delete-shift: successful
+### No save necessary ###
+### Next replay: delete-subset ###
+delete-subset: successful
+### No save necessary ###
+### Next replay: delsw ###
+delsw: successful
+### No save necessary ###
+### Next replay: delsw-01 ###
+delsw-01: successful
+### No save necessary ###
+### Next replay: delsw-02 ###
+delsw-02: successful
+### No save necessary ###
+### Next replay: diff-add-del ###
+diff-add-del: successful
+### No save necessary ###
+### Next replay: diff-del ###
+diff-del: successful
+### No save necessary ###
+### Next replay: diff-del-01 ###
+diff-del-01: successful
+### No save necessary ###
+### Next replay: diff-del-02 ###
+diff-del-02: successful
+### No save necessary ###
+### Next replay: diff-del-minus ###
+diff-del-minus: failed
+### No save necessary ###
+### Next replay: diff-del-minus-2 ###
+diff-del-minus-2: failed
+### No save necessary ###
+### Next replay: diff-del-minus-3 ###
+diff-del-minus-3: successful
+### No save necessary ###
+### Next replay: diff-del-plus-1 ###
+diff-del-plus-1: successful
+### No save necessary ###
+### Next replay: diff-del-plus-2 ###
+diff-del-plus-2: successful
+### No save necessary ###
+### Next replay: diff-sub-size ###
+diff-sub-size: successful
+### No save necessary ###
+### Next replay: diff-subset-01 ###
+diff-subset-01: successful
+### No save necessary ###
+### Next replay: equal-add-in ###
+equal-add-in: failed
+### No save necessary ###
+### Next replay: insdel-sub ###
+insdel-sub: successful
+### No save necessary ###
+### Next replay: int-a ###
+int-a: successful
+### No save necessary ###
+### Next replay: int-c ###
+int-c: successful
+### No save necessary ###
+### Next replay: int-del-rew ###
+int-del-rew: failed
+### No save necessary ###
+### Next replay: int-e ###
+int-e: successful
+### No save necessary ###
+### Next replay: int-empty ###
+int-empty: successful
+### No save necessary ###
+### Next replay: int-empty-01 ###
+int-empty-01: successful
+### No save necessary ###
+### Next replay: int-empty-02 ###
+int-empty-02: successful
+### No save necessary ###
+### Next replay: int-eq ###
+int-eq: successful
+### No save necessary ###
+### Next replay: int-idem ###
+int-idem: successful
+### No save necessary ###
+### Next replay: int-ins ###
+int-ins: successful
+### No save necessary ###
+### Next replay: int-inse ###
+int-inse: successful
+### No save necessary ###
+### Next replay: int-inserte ###
+int-inserte: successful
+### No save necessary ###
+### Next replay: int-notempty ###
+int-notempty: successful
+### No save necessary ###
+### Next replay: int-notempty-01 ###
+int-notempty-01: successful
+### No save necessary ###
+### Next replay: int-subs01 ###
+int-subs01: successful
+### No save necessary ###
+### Next replay: intdel-empty ###
+intdel-empty: successful
+### No save necessary ###
+### Next replay: intersect-add-rem ###
+intersect-add-rem: failed
+### No save necessary ###
+### Next replay: intersection-insert ###
+intersection-insert: successful
+### No save necessary ###
+### Next replay: intersection-shift ###
+intersection-shift: failed
+### No save necessary ###
+### Next replay: intexin ###
+intexin: successful
+### No save necessary ###
+### Next replay: intu-empty ###
+intu-empty: successful
+### No save necessary ###
+### Next replay: k-delete-rec ###
+k-delete-rec: failed
+### No save necessary ###
+### Next replay: k-diff-rec1 ###
+k-diff-rec1: successful
+### No save necessary ###
+### Next replay: k-intersect-rec1 ###
+k-intersect-rec1: successful
+### No save necessary ###
+### Next replay: k-intersect-rec2 ###
+k-intersect-rec2: successful
+### No save necessary ###
+### Next replay: rem-union-ins ###
+rem-union-ins: successful
+### No save necessary ###
+### Next replay: size-del-leq ###
+size-del-leq: successful
+### No save necessary ###
+### Next replay: size-union ###
+size-union: successful
+### No save necessary ###
+### Next replay: sub-ade ###
+sub-ade: successful
+### No save necessary ###
+### Next replay: sub-ade-01 ###
+sub-ade-01: successful
+### No save necessary ###
+### Next replay: sub-ade-02 ###
+sub-ade-02: successful
+### No save necessary ###
+### Next replay: sub-ade-03 ###
+sub-ade-03: successful
+### No save necessary ###
+### Next replay: sub-del ###
+sub-del: successful
+### No save necessary ###
+### Next replay: sub-del-01 ###
+sub-del-01: successful
+### No save necessary ###
+### Next replay: sub-del-02 ###
+sub-del-02: successful
+### No save necessary ###
+### Next replay: sub-del-03 ###
+sub-del-03: successful
+### No save necessary ###
+### Next replay: sub-del-04 ###
+sub-del-04: successful
+### No save necessary ###
+### Next replay: sub-del-05 ###
+sub-del-05: successful
+### No save necessary ###
+### Next replay: sub-union-03 ###
+sub-union-03: successful
+### No save necessary ###
+### Next replay: sub-union-04 ###
+sub-union-04: successful
+### No save necessary ###
+### Next replay: subset-is-union ###
+subset-is-union: successful
+### No save necessary ###
+### Next replay: subseteq-inter-empty-empty ###
+subseteq-inter-empty-empty: successful
+### No save necessary ###
+### Next replay: subseteq-rem-del ###
+subseteq-rem-del: successful
+### No save necessary ###
+### Next replay: subsub-del ###
+subsub-del: successful
+### No save necessary ###
+### Next replay: unadd ###
+unadd: successful
+### No save necessary ###
+### Next replay: unadd-01 ###
+unadd-01: successful
+### No save necessary ###
+### Next replay: undel ###
+undel: successful
+### No save necessary ###
+### Next replay: undel-01 ###
+undel-01: successful
+### No save necessary ###
+### Next replay: undel-02 ###
+undel-02: successful
+### No save necessary ###
+### Next replay: undel-04 ###
+undel-04: successful
+### No save necessary ###
+### Next replay: undel-06 ###
+undel-06: successful
+### No save necessary ###
+### Next replay: unindel ###
+unindel: successful
+### No save necessary ###
+### Next replay: uninsubdel ###
+uninsubdel: successful
+### No save necessary ###
+### Next replay: union-del ###
+union-del: successful
+### No save necessary ###
+### Next replay: union-inter-inter-union ###
+union-inter-inter-union: failed
+### No save necessary ###
+### Next replay: union-rem-add ###
+union-rem-add: successful
+### No save necessary ###
+### Next replay: union-size-02 ###
+union-size-02: successful
+### No save necessary ###
+### Next replay: union-size-03 ###
+union-size-03: successful
+### No save necessary ###
+### Next replay: union-size-le ###
+union-size-le: successful
+### No save necessary ###
+### Next replay: union-size-ls-in ###
+union-size-ls-in: successful
+### No save necessary ###
+### Next replay: union-size-not-less-01 ###
+union-size-not-less-01: successful
+### No save necessary ###
+### Next replay: union-size-not-less-02 ###
+union-size-not-less-02: successful
+### No save necessary ###
+### Next replay: union-sizele ###
+union-sizele: successful
+### No save necessary ###
+### Next replay: unsubdel ###
+unsubdel: successful
+### No save necessary ###
+### Next replay: unsubdel-01 ###
+unsubdel-01: successful
+### No save necessary ###
+### Next replay: unsubins ###
+unsubins: successful
+### Done ###
+### Saving lemmas next ###

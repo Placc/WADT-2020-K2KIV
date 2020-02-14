@@ -1,0 +1,335 @@
+
+;; variables m : nat;
+
+lemmas
+
+rem-rec-finsize: # σ = ⌜n⌝ → rem(σ + ⌜a '⌝,np) = rem(σ ,np) + (np(n) ⊃ []; ⌜a '⌝);
+rem-rec-gen: # σ ≠ ∞ → rem(σ + ⌜a '⌝,np) = rem(σ ,np) + (np((# σ).n) ⊃ []; ⌜a '⌝);
+
+cntrem-is-inf: cnt(a,rem(σ,np)) = ∞ ↔ # σ = ∞ ∧ ∀ m. ∃ n. m ≤ n ∧ ¬ np(n) ∧ σ[n] = a;
+
+
+reminf-infsize-strong: # rem(⌜nf⌝,np) = ∞ ↔ ∀ m. ∃ n. # rem(⌜nf to n⌝,np) = ⌜m⌝;
+rem-reminv-size-add: # rem(σ,np) + # rem(σ,λ n. ¬ np(n)) = # σ;
+
+rem-reminv-cnt-add:
+cnt(a,rem(σ,np)) + cnt(a,rem(σ,λ n. ¬ np(n))) = cnt(a,σ);
+
+remfin-append:
+rem(⌜x⌝ + σ,np) = rem(⌜x⌝,np) + rem(σ,λ n. np(n + # x));
+
+
+cntinf-infmany: cnt(a,σ) = ∞ ↔ # σ = ∞ ∧ ∀ n. ∃ m. n < m ∧ σ[m] = a;
+cntinf-tocntsurj: cnt(a,σ) = ∞ ↔ # σ = ∞ ∧ ∀ n. ∃ m. cnt(a,σ to m) = ⌜n⌝;
+
+
+rem-cntequal-fin: cnt(a, rem(⌜x⌝,np)) ≠ cnt(a,⌜x⌝) ↔ ∃ n. n < # x ∧ np(n) ∧ x[n] = a;
+used for: s,ls;
+
+remnone-cntequal: (∀ n. ⌜n⌝ < # σ ∧ np(n) → σ[n] ≠ a ) → cnt(a, rem(σ,np)) = cnt(a,σ);
+
+rem-cntleq: ¬ ¬ cnt(a,σ) < cnt(a, rem(σ,np)) ↔ false;
+used for: s,ls;
+
+
+filter-appendfromto:
+¬ # σ < ⌜n⌝ → filter(p,σ) = filter(p,σ to n) + filter(p,σ from n);
+;; no simprule!
+
+cnt-appendfromto:
+¬ # σ < ⌜n⌝ → cnt(a,σ) = cnt(a,σ to n) + cnt(a,σ from n);
+;; no simprule!
+
+lastocfin-cnteqcntto: ⌜n⌝ = lastoc(a,σ) + ⌜1⌝ → cnt(a,σ) = cnt(a,σ to n);
+used for : s,ls;
+
+cntfin-eqlen: # σ ≠ ∞ → (cnt(a,σ) = # σ ↔ ∀ n. ⌜n⌝ < # σ → σ[n] = a);
+
+cntinf-lastocinf: cnt(a,σ) = ∞ → lastoc(a,σ) = ∞;
+used for: s,ls;
+
+
+cntnotinf-lastocinf: cnt(a,σ) ≠ ∞ → (lastoc(a,σ) = ∞ ↔ ∀ n. ⌜n⌝ < # σ → ¬ σ[n] = a);
+used for: s,ls;
+
+lastoc-less-size: # σ < lastoc(a,σ) ↔ ¬ ¬ (# σ ≠ ∞ ∧ ∀ n. ⌜n⌝ < # σ → σ[n] ≠ a);
+used for: s,ls;
+
+lastoc-less-succsize: # σ < lastoc(a,σ) + ⌜1⌝ ↔ ¬ ¬ (# σ ≠ ∞ ∧ ∀ n. ⌜n⌝ < # σ → σ[n] ≠ a);
+;;; lastoc-less-succsize: # σ < lastoc(a,σ) + ⌜1⌝ ↔ ¬ ¬ (# σ ≠ ∞ ∧ (   (∀ n. ⌜n⌝ < # σ → σ[n] ≠ a)
+;;;                                                                  ∨ (∀ n. ⌜n⌝ < # σ → σ[n] = a)));
+;;; used for: s,ls;
+
+
+
+cnt-leq : ¬ # σ < cnt(a,σ);
+
+cnt-is-zero: cnt(a,σ) = ⌜0⌝ ↔ ∀ n. ⌜n⌝ < # σ → σ[n] ≠ a;
+cnt-is-succ: cnt(a,σ) = ⌜n⌝ + ⌜1⌝ ↔ ∃ m.   ⌜m⌝ < # σ 
+                                      ∧ cnt(a,σ to (m + 1)) = ⌜n⌝ + ⌜1⌝ 
+                                      ∧ σ[m] = a 
+                                      ∧ ∀ m0. m < m0 ∧ ⌜m0⌝ < # σ → σ[m0] ≠ a;
+
+lastoc-empty: lastoc(a, []) = ∞;
+used for: s,ls;
+
+lastoc-finrec-end: lastoc(a, ⌜x⌝ + ⌜b ' ⌝) = (a = b ⊃ ⌜# x⌝; lastoc(a,⌜x⌝));
+
+lastoc-finrec-end-expand: lastoc(a, ⌜x⌝) = (⌜x⌝ = [] ⊃ ∞; (a = x.last ⊃ ⌜# x - 1⌝; lastoc(a,⌜x.butlast⌝)));
+
+
+;;; 
+;;; 
+;;; lastoc-notin: ∀ n. ⌜n⌝ < # σ → σ[n] ≠ a → lastoc(a, σ) = ∞;
+;;; used for: s,ls;
+
+
+
+
+cnt-one: cnt(a,⌜b ' ⌝) = ⌜(a = b ⊃ 1; 0)⌝;
+used for: s,ls;
+cnt-rec-end: cnt(a, σ + ⌜b ' ⌝) = ⌜(a = b ∧ # σ ≠ ∞ ⊃ 1; 0)⌝ + cnt(a, σ);
+
+
+lastoc-rw-inf:
+((∀ n. ⌜n⌝ < # σ → σ[n] ≠ a) ∨ # σ = ∞ ∧ ∀ n. ∃ n0. n ≤ n0 ∧ σ[n0] = a) → lastoc(a,σ) = ∞;
+
+
+
+
+to-is-prefix: ⌜n⌝ < # σ → σ to n ⊑ σ;
+used for: s,ls;
+
+prefix-notsmallersize:
+σ ⊑ σ0 → (¬ ¬ # σ0 < # σ ↔ false);
+used for: s,ls;
+
+mon-filterprefix: σ ⊑ σ0 → (¬ filter(p,σ) ⊑  filter(p,σ0) ↔ false);
+mon-filterto: ⌜n⌝ < # σ → (¬ filter(p,σ to n) ⊑  filter(p,σ) ↔ false);
+mon-filtertoinf: n∞ < # σ → (¬ filter(p,σ to∞ n∞) ⊑  filter(p,σ) ↔ false);
+
+
+mon-cntprefix: σ ⊑ σ0 → ¬ cnt(a,σ0) < cnt(a,σ);
+mon-cntto: ¬ # σ < ⌜n⌝ → ¬ cnt(a,σ) < cnt(a,σ to n);
+mon-cnttoinf: ¬ # σ < n∞ → ¬ cnt(a,σ) < cnt(a,σ to∞ n∞);
+
+
+
+filter-rec-expand:
+filter(p,σ) = (σ = [] ⊃ []; (p(hd(σ)) ⊃ ⌜hd(σ) '⌝ ; []) + filter(p,tl(σ)));
+
+getfilter-sat-p: ⌜n⌝ < # filter(p,σ) → p(filter(p,σ)[n]);
+
+;;; END
+
+reminf-infsize: # rem(⌜nf⌝,np) = ∞ ↔ ∀ n. ∃ n0. n ≤ n0 ∧ ¬ np(n0);
+
+
+
+reminf-finsize: # rem(⌜nf⌝,np) ≠ ∞ ↔ ∃ n. rem(⌜nf⌝,np) = rem(⌜nf to n⌝,np) ∧ ∀ n0. n < n0 → np(n0);
+
+
+
+filter-inf-finsize-strong:
+# filter(p,⌜nf⌝) = ⌜n⌝ ↔ ∃ m. (∀ n. m ≤ n → ¬ p(nf(n))) ∧ # filter(p,⌜nf to m⌝) =  ⌜n⌝ ∧ filter(p,⌜nf⌝) = filter(p,⌜nf to m⌝);
+
+lim-infsize-strong: 
+mon(σf) ⊦  # lim(σf) = ∞ ↔ ∃ n. # σf(n) = ∞ ∨ ∀ m. ∃ n. ¬ # σf(n) < ⌜m⌝;
+
+mon-bd-or-unbound:
+mon(σf) ⊦   (∃ m. ∀ m0. m < m0 → σf(m0) = σf(m)) 
+          ∨ ∀ n. ∃ m. ¬ # σf(m) < ⌜n⌝;
+
+
+rem-one: rem(⌜a '⌝,np) = (np(0) ⊃ []; ⌜a '⌝);
+used for: s,ls;
+
+prefixself-equal:
+σ + σ0 ⊑ σ ↔ ¬ ¬ (σ0 = [] ∨ # σ = ∞);
+used for: s,ls;
+
+remfin-fin: finp(rem(⌜x⌝,np));
+used for: s,ls;
+
+remfin-fin2: # rem(⌜x⌝,np) ≠ ∞;
+used for: s,ls;
+
+remto-fin: # rem(σ to n,np) ≠ ∞;
+used for: s,ls;
+
+mon-remfun: mon(λ n. rem(⌜nf to n⌝ ,np));
+
+
+rem-shortens: ¬ ¬ # σ < # rem(σ,np) ↔ false;
+used for: s,ls;
+
+rem-equal-fin: rem(⌜x⌝,np) = ⌜x⌝ ↔ ∀ m. m < # x  → ¬ np(m);
+rem-equal-inf: (∀ m. ¬ np(m)) → rem(⌜nf⌝,np) = ⌜nf⌝;
+comment: the reverse implication is false!;
+
+
+rem-member1-fin: ⌜m⌝ <  # rem(⌜x⌝,np) → ∃ m0. m0 < # x ∧ x[m0] = rem(⌜x⌝,np)[m] ∧ ¬ np(m0);
+rem-member2-fin: m0 < # x ∧ ¬ np(m0) → ∃ m.  ⌜m⌝ < # rem(⌜x⌝,np) ∧ rem(⌜x⌝,np)[m] = x[m0];
+
+rem-member1: ⌜m⌝ <  # rem(σ,np) → ∃ m0. ⌜m0⌝ <  # σ ∧ σ[m0] = rem(σ,np)[m] ∧ ¬ np(m0);
+rem-member2: ⌜m0⌝ < # σ ∧ ¬ np(m0) → ∃ m.  ⌜m⌝ <  # rem(σ,np) ∧ rem(σ,np)[m] = σ[m0];
+
+rem-rec-rev-fin: rem(⌜a '⌝ + ⌜x⌝,np) = (np(0) ⊃ []; ⌜a '⌝)  + rem(⌜x⌝,λ n. np(n + 1));
+rem-rec-rev: rem(⌜a '⌝ + σ,np) = (np(0) ⊃ []; ⌜a '⌝)  + rem(σ,λ n. np(n + 1));
+
+
+;;; END
+
+
+
+;;; (∀ x. p(⌜x⌝)) ∧ (∀ n. p(⌜nf⌝ to n) → p(⌜nf⌝)) → p(σ)
+;;; map-filter: filter(p,map(f,σ)) = map(f,filter(λ a. p(f(a)),σ));
+
+cntfin-append:
+cnt(a,⌜x⌝ + σ) = cnt(a,⌜x⌝) + cnt(a,σ);
+;; no simprule(?)
+
+
+cntto-notinf: 
+cnt(a, σ to n) ≠ ∞;
+
+
+lastoc-inf-ant:
+lastoc(a,σ) = ∞ ↔ (∀ n. ⌜n⌝ < # σ → σ[n] ≠ a) ∨ # σ = ∞ ∧ ∀ n. ∃ n0. n ≤ n0 ∧ σ[n0] = a;
+
+lastoc-rw-inf:
+((∀ n. ⌜n⌝ < # σ → σ[n] ≠ a) ∨ # σ = ∞ ∧ ∀ n. ∃ n0. n ≤ n0 ∧ σ[n0] = a) → lastoc(a,σ) = ∞;
+
+used for: s,ls;
+(: simplifierrule for ant, lastoc-inf is for succ :)
+
+;;; lastoc-empty: lastoc(a, []) = ∞;
+;;; used for: s,ls;
+;;; 
+;;; 
+;;; lastoc-notin: ∀ n. ⌜n⌝ < # σ → σ[n] ≠ a → lastoc(a, σ) = ∞;
+;;; used for: s,ls;
+
+;;; wohl nicht benoetigt
+;;; lastoc(a,σ) ≠ ∞ → σ[lastoc(a,σ)] = a;
+
+
+cntfin-notinf: 
+cnt(a, ⌜x⌝) ≠ ∞;
+
+cnt-zero: 
+cnt(a, []) = ⌜0⌝;
+used for : s,ls;
+
+cntfin-rec-end:
+cnt(a, ⌜x⌝ + ⌜b '⌝) = ⌜(a = b ⊃ 1; 0)⌝ + cnt(a, ⌜x⌝);
+
+prefix-antisymm: σ ⊑ σ0 → (σ0 ⊑ σ ↔ σ = σ0);
+used for: s,ls;
+
+prefix-refl: σ ⊑ σ;
+used for: s,ls;
+
+prefix-trans: σ ⊑ σ0 ∧ σ0 ⊑ σ1 → σ ⊑ σ1;
+used for: f,lf;
+
+prefix-empty1: [] ⊑ σ;
+used for: s,ls;
+
+prefix-empty2:  σ ⊑ [] ↔ σ = [];
+used for: s,ls;
+
+prefix-append: σ ⊑ σ + σ0;
+used for: s,ls;
+
+
+cnt-rec-gen: cnt(a, ⌜b '⌝ + σ) = ⌜(a = b ⊃ 1; 0)⌝ + cnt(a, σ);
+
+cnt-inf: cnt(a,σ) = ∞ ↔ # σ = ∞ ∧ ∀ m. ∃ n. m < n ∧ σ[n] = a;
+
+cntinf-fin-weak: cnt(a,⌜nf⌝) = ⌜n⌝ ↔ ∃ m. cnt(a,⌜nf to m⌝) = ⌜n⌝ ∧ ∀ m0. m ≤ m0 → nf(m0) ≠ a;
+cntinf-fin-zero: cnt(a,⌜nf⌝) = ⌜0⌝ ↔ ∀ m. nf(m) ≠ a;
+;; at position m, the last a is found
+cntinf-fin-succ: cnt(a,⌜nf⌝) = ⌜n⌝ + ⌜1⌝ ↔ ∃ m. cnt(a,⌜nf to (m + 1)⌝) = ⌜n⌝ + ⌜1⌝ ∧ nf(m) = a ∧ ∀ m0. m < m0 → nf(m0) ≠ a;
+
+
+lim-finsize: 
+mon(σf) ⊦  # lim(σf) ≠ ∞ ↔ ∃ m. lim(σf) = σf(m) ∧ # σf(m) ≠ ∞ ∧ ∀ m0. m < m0 → σf(m0) = σf(m);
+
+lim-infsize: 
+mon(σf) ⊦  # lim(σf) = ∞ ↔ ∃ n. # σf(n) = ∞ ∨ ∀ m. ∃ n. m < n ∧ σf(m) ≠ σf(n);
+
+
+
+
+lim-evconst: 
+mon(σf) ∧ (∀ n. m < n → σf(m) = σf(n)) → lim(σf) = σf(m);
+
+
+filter-evconst: 
+(∀ n. m ≤ n → ¬ p(nf(n))) → filter(p,⌜nf⌝) = filter(p,⌜nf to m⌝);
+
+
+
+
+
+
+
+filter-one: filter(p, ⌜a '⌝) = (p(a) ⊃ ⌜a '⌝ ; []);
+used for: s,ls;
+
+filterfin-rec-end:
+filter(p, ⌜x⌝ + ⌜a '⌝) = filter(p, ⌜x⌝) + (p(a) ⊃ ⌜a '⌝ ; []);
+
+
+mon-filterfun: mon(λ n. filter(p,⌜nf to n⌝));
+
+finfilter-notinf:
+# filter(p,⌜x⌝) ≠ ∞;
+used for: s,ls;
+
+;;; filter-inf-lem:
+;;; 
+;;;   (∀ n. filter(p,⌜nf to n⌝) ⊑ filter(p,⌜nf⌝)) ∧ ∀ m. ¬ # filter(p,⌜nf⌝) < ⌜m⌝ → ∃ n. filter(p,⌜nf⌝) to m ⊑ filter(p,⌜nf to n⌝);
+
+
+
+filter-rec-gen:
+filter(p,⌜a '⌝ + σ) = (p(a) ⊃ ⌜a '⌝ ; []) + filter(p,σ);
+
+
+filterfin-append:
+filter(p,⌜x⌝ + σ) = filter(p,⌜x⌝) + filter(p,σ);
+;; falsch fuer unendlichen ersten stream!
+
+
+filter-lb:
+⌜n⌝ < # σ → filter(p,σ to n) ⊑ filter(p,σ);
+
+
+filter-ub:
+⌜n⌝ < # filter(p,σ) → ∃ m. ⌜m⌝ < # σ ∧ filter(p,σ) to n ⊑ filter(p,σ to m);
+
+filter-infsize:
+# filter(p,σ) = ∞ ↔ # σ = ∞ ∧ ∀ m. ∃ n. m ≤ n ∧ p(σ[n]);
+
+filter-inf-finsize:
+# filter(p,⌜nf⌝) = ⌜n⌝ ↔ ∃ m. (∀ n. m ≤ n → ¬ p(nf(n))) ∧ # filter(p,⌜nf to m⌝) = ⌜n⌝;
+
+
+
+
+
+mon-lem: mon(σf), m ≤ n ⊦ σf(m) ⊑ σf(n);
+
+lim-exists: mon(σf)
+⊦ ∃ σ.  (∀ n. σf(n) ⊑ σ) ∧ ∀ m. ¬ # σ < ⌜m⌝ → ∃ n. σ to m ⊑ σf(n);
+
+lim-unique:
+mon(σf), ∀ n. σf(n) ⊑ σ,  ∀ n. σf(n) ⊑ σ0,
+∀ m. ¬ # σ < ⌜m⌝ → ∃ n. σ to m ⊑ σf(n), 
+∀ m. ¬ # σ0 < ⌜m⌝ → ∃ n. σ0 to m ⊑ σf(n)
+⊦ σ = σ0;
+
+;;; END
+

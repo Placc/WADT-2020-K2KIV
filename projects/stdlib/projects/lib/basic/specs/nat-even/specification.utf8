@@ -1,0 +1,26 @@
+
+enrich nat-div with
+
+functions
+
+	max  : nat × nat → nat;
+	min  : nat × nat → nat;
+
+predicates
+
+	even : nat;
+	odd  : nat;
+
+axioms
+
+Even : even(n) ↔ ∃ m. m + m = n;
+
+Odd  : odd(n) ↔ ¬ even(n); used for : s, ls;
+
+Max-left  :   m < n → max(m,n) = n; used for : s,ls,lc;
+Max-right : ¬ m < n → max(m,n) = m; used for : s,ls;
+
+Min-left  :   m < n → min(m,n) = m; used for : s,ls,lc;
+Min-right : ¬ m < n → min(m,n) = n; used for : s,ls;
+
+end enrich

@@ -1,0 +1,61 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+stutf-slowincrease
+stutf-notbig
+stutf-monle
+stutf-maxinf-is-fin
+stutf-invmonls
+stutf-alltaken
+rem-preserves-monls
+not-ls-leninv
+monlsinf-notsmall
+monls-to
+monls-notsmall
+monls-mon-implies-monls
+monls-ls
+monls-from
+monls-exists-maxls
+monls-exists-maxleq
+monls-append2
+monls-append1
+monle-leq
+mon-eq
+mininv-stays-if-not-taken
+mininv-inverts-weak2
+mininv-inverts-inner-succ
+mininv-inverts-inner
+mininv-inverts
+min-stutters
+min-skolemf
+maxinf-skolemf
+maxinf-fin
+lsleninv-1
+less-leninv
+leq-leninv
+leninv-zero
+leninv-succ
+leninv-inf-strong
+leninv-inf
+inv-ls-succ
+inv-ls-notleq
+inv-inverts-leq
+inv-inverts-last
+inv-inverts
+inv-get-lslen
+inv-get-inverse-succ
+inv-get-inverse-last
+inv-get-inverse-between
+inv-get-inverse
+eq-leninv
+
+
+*** Failures: ***
+
+

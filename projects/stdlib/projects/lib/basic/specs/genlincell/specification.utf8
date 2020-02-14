@@ -1,0 +1,10 @@
+generic specification
+
+comment: this specification just creates a parameter of  linear memory values.;
+
+       parameter lincell
+       
+       target
+
+
+end generic specification

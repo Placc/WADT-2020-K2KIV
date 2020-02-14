@@ -1,0 +1,388 @@
+lemmas
+
+subset-union-left-rem: s0 ∪ s1 ⊆ s2 ∪ s1 ↔ s0 ⊆ s2 ∪ s1;used for: s,ls;
+rem-inter-empty3: (s \ s0) ∩ s1 = ∅ ∧ (s2 \ s) ∩ s1 = ∅ → (s2 \ s0) ∩ s1 = ∅;used for: s,ls;
+
+diff-diff-right: a ∈ s2 → (a ∈ s0 \ s1 \ s2 ↔ a ∈ s0); used for: s,ls;
+subseteq-rem-del: a ∈ s0 ∧ s0 ⊆ s1 → s1 \ (s0 -- a) = (s1 \ s0) ++ a; used for: s;
+int-del-rew : s ∩ (s0 -- a) = (s ∩ s0) -- a;
+;;;END
+union-inter-inter-union: (s0 ∪ s1) ∩ s2 = (s0 ∩ s2) ∪ (s1 ∩ s2);
+rem-union-ins: (s0 ∪ (s1 -- a)) ++ a = (s0 ∪ s1) ++ a; used for: s;
+add-inter-rem: ((s0 ++ a) ∩ s1) -- a = (s0 ∩ s1) -- a; used for: s;
+subseteq-inter-empty-empty: s0 ⊆ s1 ∧ s1 ∩ s2 = ∅ → s0 ∩ s2 = ∅; used for: s;
+union-diff-union-same: (s0 ∪ s1) \ (s2 ∪ s1) = s0 \ (s2 ∪ s1); used for : s;
+diff-supset-empty: s \ (s ∪ s0) = ∅;
+used for: s,ls;
+
+size-eq: s0 = s1 → (¬ # s0 = # s1 ↔ false);
+size-eq-ext: ∀ a. a ∈ s0 ↔ a ∈ s1 ⊦ (¬ # s0 = # s1 ↔ false);
+
+subset-is-union : s ⊆ s0 ↔ ∃ s1. s ∪ s1 = s0 ∧ s ∩ s1 = ∅;
+
+empty-intersection-diff:
+s ∩ s0 = ∅ → s \ s0 = s;
+used for: s,ls;
+
+;; testmodel: s ≠ s;
+
+;; KODKOD BEGIN
+
+k-union-base: ∅ ∪ s = s; used for : kodkodax;
+k-union-rec1: ¬ a ∈ s ∧ a ∈ s0 → (s ++ a) ∪ s0 = s ∪ s0; used for : kodkodax;
+k-union-rec2: ¬ a ∈ s ∧ ¬ a ∈ s0 → (s ++ a) ∪ s0 = (s ∪ s0) ++ a; used for : kodkodax;
+
+union-rem-unchdg: (s0 -- a) ∪ s1 = s0 ∪ s1 ↔ a ∈ s1 ∨ ¬ a ∈ s0; used for : s,ls;
+union-rem-add: a ∈ s0 → ((s0 -- a) ∪ s1) ++ a = s0 ∪ s1;
+
+del-e-01 :  ⊦ ∅ -- a = ∅ ; used for : s, ls, kodkodax;
+del-addeq-04    :  ⊦ ¬ a ∈ s → (s ++ a) -- a = s ; used for : s, ls, kodkodax;
+k-delete-rec: ¬ b ∈ s ∧ a ≠ b → (s ++ b) -- a = (s -- a) ++ b;  used for : kodkodax;
+
+intersect-add-rem: (s0 ++ a) ∩ (s1 -- a) = (s0 ∩ s1) -- a; used for : s,ls;
+intersect-empty-rem: s0 ∩ s1 = ∅ → ((s0 -- a) ∩ s1) = ∅; used for : s,ls;
+
+k-intersect-base: ∅ ∩ s = ∅; used for : kodkodax;
+k-intersect-rec1: a ∈ s ∧ a ∈ s0 → s ∩ s0 = ((s -- a) ∩ (s0 -- a)) ++ a; used for : kodkodax;
+k-intersect-rec2: ¬ a ∈ s ∨ ¬ a ∈ s0 → s ∩ s0 = (s -- a) ∩ (s0 -- a); used for : kodkodax;
+
+
+diff-e : s \ ∅ = s ; used for : s, ls, kodkodax;
+k-diff-rec1: ¬ a ∈ s ∧ a ∈ s0 → s \ s0 = s \ (s0 -- a); used for : kodkodax;
+k-diff-rec2: a ∈ s ∧ a ∈ s0 → s \ s0 = (s -- a) \ (s0 -- a); used for : kodkodax;
+
+;; KODKOD END
+
+
+
+
+
+une:  ⊦ s ∪ ∅ = s ; used for : s, ls,kodkodax;
+int-e:  ⊦ s ∩ ∅ = ∅ ; used for : s, ls, kodkodax;
+
+;;union-subset : s ⊆ s0 ∧ s1 ⊆ s2 → s ∪ s1 ⊆ s0 ∪ s2; used for : s,ls;
+union-subset : s ⊆ s0 ∧ s1 ⊆ s2 → s ∪ s1 ⊆ (s0 ∪ s2) ++ a; used for : s,ls;
+
+union-subset : s ⊆ s0 ∧ s1 ⊆ s2 ∧ s3 ⊆ s4 → s ∪ s1 ∪ s3 ⊆ s0 ∪ s2 ∪ s4; used for : s,ls;
+union-subset : s ⊆ s0 ∧ s1 ⊆ s2 ∧ s3 ⊆ s4 → s ∪ s1 ∪ s3 ⊆ (s0 ∪ s2 ∪ s4) ++ a; used for : s,ls;
+
+
+union-subset : s ⊆ s0 → s ∪ s1 ⊆ (s0 ∪ s1) ++ a; used for : s,ls;
+union-subset : s ⊆ s0 → s ∪ s1 ⊆ s0 ∪ s1; used for : s,ls;
+union-subset : ¬ s ∪ s1 ⊆ s0 ∪ s1 → ¬ s ⊆ s0; used for : s,ls;
+;;; END
+intersection-size :  ¬ # s0 + # s < # (s0 ∩ s); used for : s,ls;
+intersection-insert : ¬ a ∈ s → s ∩ (s0 ++ a) = (s ∩ s0); used for : s,ls;
+intersection-shift : a ∈ s → s ∩ (s0 ++ a) = (s ∩ s0) ++ a;
+
+union-size : # (s0 ∪ s1) = # s0 + # s1 - # (s0 ∩ s1);
+union-size-ls-in : a ∈ s0 ∧ a ∈ s1 → # (s0 ∪ s1) < # s0 + # s1;
+
+union-size-insert : ¬ a ∈ s ∧ ¬ a ∈ s0 → # (( s ∪ s0 ) ++ a) = # (s ∪ s0) + 1; used for : s,ls;
+
+union-size-not-less : # s0 ≤ m ∧ # s1 ≤ n → ¬ m + n < # (s0 ∪ s1); used for : s,ls;
+union-size-not-less : # s0 ≤ m ∧ # s1 ≤ n → ¬ m + n + 1 < # (s0 ∪ s1); used for : s,ls;
+delete-shift : a ∈ s → (s -- a = s0 ↔ s = s0 ++ a ∧ ¬ a ∈ s0);
+;;; END
+union-size-not-less : ¬ # s0 + # s1 < # (s0 ∪ s1); used for : s,ls;
+union-size-le : # (s0 ∪ s1) ≤ # s0 + # s1;
+
+int-empty-one : (∅ ++ a) ∩ s = ∅ ↔ ¬ a ∈ s; used for : s,ls;
+
+
+diff-del-minus: (s -- a) \ (s1 -- a) = (s -- a) \ s1; used for : s,ls;
+diff-del-minus-2: ¬ a ∈ s1 → (s -- a) \ s1 = (s \ s1) -- a; used for : s,ls;
+diff-del-minus-3:  a ∈ s1 → (s -- a) \ s1 = (s \ s1) ; used for : s,ls;
+
+diff-del-plus-1: a ∈ s1 → (s ++ a) \ s1 = s \ s1; used for : s,ls;
+diff-del-plus-2: ¬ a ∈ s1 → (s ++ a) \ s1 = (s \ s1) ++ a; used for : s,ls;
+
+
+;;; END
+size-del-leq :  # s ≤ # (s -- a) ↔ ¬ a ∈ s; used for: s,ls;
+union-difference:
+⊦ s ⊆ s0 →  s ∪ (s0 \ s) = s0; used for:s, ls;
+;;; END
+
+delete-subset : (s -- a) ++ b ⊆ s ++ b; used for : s,ls;
+delete-insert : (s -- a) ++ a = s ++ a; used for : s,ls;
+
+subsub-del : s -- a ⊆ s0 ∧ ¬ s ⊆ s0 ∧ a ∈ s → ¬ a ∈ s0; used for : f,lf;
+subset-del : s ⊆ s -- a ↔ ¬ a ∈ s; used for : s,ls;
+;;; END
+union-one : a ≠ b → (a ∈ {b} ∪ s ↔ a ∈ s); used for : s,ls;
+
+equal-add-in: 
+s ++ a = s0 ++ b ∧ s0 ++ b = (s1 -- c) ++ d ∧ b ≠ d → b ∈ (s1 -- c);
+union-size: ¬ a ∈ s ∧ a ∈ s0 → # (s ∪ s0) = #(s ∪ (s0 -- a)) + 1; 
+diff-subset : ((s -- a) ++ b) \ s0 ⊆ (s \ s0) -- a ++ b; used for : s,ls;
+
+diff-one : (∅ ++ a) \ s ⊆ s0 ++ a; used for : s,ls;
+diff-del : ¬ a ∈ s → s \ s0 ⊆ (s \ s0) -- a; used for : s,ls;
+diff-del : ¬ a ∈ s → s \ s0 ⊆ ((s \ s0) -- a) ++ b; used for : s,ls;
+
+sub-union : s ⊆ (s ∪ s0) ++ a ++ b ++ c; used for : s,ls;
+;;; END
+int-ins : s ∩ (s0 ++ a) = ∅ ↔ s ∩ s0 = ∅ ∧ ¬ a ∈ s; used for : s,ls;
+union-rewone : s ++ a = s ∪ { a }; comment: used for interactive rewriting;
+
+;;; END
+union-sizele : # (s ∪ s0) ≤ # s ↔ s0 ⊆ s; used for : s,ls;
+union-sizele : # ((s ∪ s0) ++ a) ≤ # s ↔ s0 ⊆ s ∧ a ∈ s; used for : s,ls;
+union-size : ¬ a ∈ s → ¬ # ((s ∪ s0) ++ a) ≤ # s; used for : s,ls;
+union-sizeeq : # (s ∪ s0) = # s ↔ s0 ⊆ s; used for : s,ls;
+union-size : ¬ # (s ∪ s0) < # s; used for : s,ls;
+union-sub : s0 ⊆ s → s ∪ s0 = s; used for : s,ls;
+union-sub : s0 ⊆ s → s0 ∪ s = s; used for : s,ls;
+
+sub-union : s ++ a ⊆ (s ∪ s0) ++ b ++ a; used for : s,ls;
+sub-union : s ++ a ⊆ (s ∪ s0) ++ a; used for : s,ls;
+sub-union : s ⊆ (s ∪ s0) ++ a ++ b; used for : s,ls;
+
+
+exit
+int-notempty : s ∩ s0 = ∅ → (s ∩ (s0 ++ b) ≠ ∅ ↔ b ∈ s); used for : s,ls;
+int-notempty : s ∩ s0 = ∅ → (s ∩ ((s0 -- a) ++ b) ≠ ∅ ↔ b ∈ s); used for : s,ls;
+sub-union : s ⊆ s0 → s ⊆ (s0 ∪ s1); used for : s,ls;
+sub-union : s ⊆ s0 → s ⊆ (s0 ∪ s1) ++ a; used for : s,ls;
+int-empty : s ∩ s0 = ∅ ∧ a ∈ s → (¬ ¬ a ∈ s0 ↔ false); used for : s,ls;
+union-del : a ∈ (s -- a) ∪ s0 ↔ a ∈ s0; used for : s,ls;
+diff-int : (s \ (s0 ∪ s1)) ∩ s0 = ∅; used for : s,ls;
+
+diff-sub : s \ s0 ⊆ s; used for : s,ls;
+diff-int : (s \ s0) ∩ s0 = ∅; used for : s,ls;
+
+intdel-empty : (s -- a) ∩ s0 ≠ ∅ → s ∩ s0 ≠ ∅; used for : f,lf;
+insdel-sub : ¬ s -- a ⊆ s0 ∧ a ∈ s → ¬ s ⊆ s0 ++ a; used for : s,ls;
+intu-empty : s ∩ (s0 ∪ s1) = ∅ ↔ s ∩ s0 = ∅ ∧ s ∩ s1 = ∅; used for : s,ls;
+int-empty : s ∩ s0 = ∅ ↔ ∀ a. ¬ a ∈ s ∨ ¬ a ∈ s0;
+
+diff-union : (s ∪ s0) \ s1 = (s \ s1) ∪ (s0 \ s1);
+
+diff-union : ¬ a ∈ s → (a ∈ ((s ∪ s2) \ s0) ∪ s1 ↔ a ∈ (s2 \ s0) ∪ s1); used for : s,ls;
+
+diff-union : ¬ a ∈ s → (a ∈ (s \ s0) ∪ s1 ↔ a ∈ s1); used for : s,ls;
+diff-union : a ∈ s0 → (a ∈ (s \ s0) ∪ s1 ↔ a ∈ s1); used for : s,ls;
+union-diff : ¬ a ∈ s0 ∧ ¬ a ∈ s1 → (a ∈ s \ (s0 ∪ s1) ↔ a ∈ s); used for : s,ls;
+
+exit
+diff-subset : ⊦ s \ (s0 ∪ s1) ⊆ s \ s1; used for : s,ls;
+
+one-min : ⊦ s = ∅ ++ a → s -- a = ∅ ; used for : s,ls;
+diff-empty : ⊦ s1 \ s2 = ∅ ∧ a ∈ s1 → a ∈ s2; used for : f,lf;
+one-in : a ∈ {b} ↔ a = b;
+       used for : s, ls ;
+del-addeq       : ⊦  a ≠ b ∧ ¬ a ∈ s ∧ ¬ a ∈ s0 → ((s ++ a) -- b = s0 ++ a ↔ s -- b = s0) ;
+       used for : s, ls ;
+del-addeq-01    :  ⊦ ((s ++ a) -- b) -- a = (s -- b) -- a ;
+       used for : s, ls ;
+del-addeq-02    :  ⊦ a ∈ s → (s -- a) ++ a = s ;
+       used for : s, ls, lc ;
+del-addeq-03    :  ⊦ a ∈ s ∧ a ≠ b → (s -- b) ++ a = s -- b ;
+       used for : s, ls, lc ;
+
+del-addeq-05    :  ⊦ (s ++ a) -- a = s -- a ;
+       used for : s, ls ;
+del-addeq-06    :  ⊦ ((s ++ a) ++ b) -- a = (s ++ b) -- a ;
+       used for : s, ls ;
+del-addin       :  ⊦ ¬ a ∈ s → (a ∈ ((s -- a0) ++ b) ++ c ↔ a = b ∨ a = c) ;
+       used for : s, ls ;
+del-addin-01    :  ⊦ ¬ a ∈ s → (a ∈ (s -- b) ++ c ↔ a = c) ;
+       used for : s, ls ;
+del-d           :  ⊦ (s -- a) -- a = s -- a ;
+       used for : s, ls ;
+del-d-01        :  ⊦ ((s -- a) -- b) -- a = (s -- b) -- a ;
+       used for : s, ls ;
+del-del-one     :  ⊦ a ≠ b → (∅ ++ a) -- b = ∅ ++ a ;
+       used for : s, ls ;
+del-e           :  ⊦ ¬ a ∈ s → ((s ++ a) -- b = ∅ ↔ s = ∅ ∧ a = b) ;
+       used for : s, ls ;
+
+del-e-02        :  ⊦ s -- a = ∅ ↔ s = ∅ ∨ s = ∅ ++ a ;
+       used for : s, ls ;
+del-eq          :  ⊦ a ∈ s ∧ a ∈ s0 → (s -- a = s0 -- a ↔ s = s0) ;
+       used for : s, ls ;
+del-feq         :  ⊦ s -- a = s0 ++ b → a ≠ b ∧ b ∈ s ∧ ¬ a ∈ s0 ;
+       used for : f, lf ;
+del-feq-01      :  ⊦ (s ++ a) -- b = s0 ++ c ∧ ¬ c ∈ s → a = c ∧ b ≠ c ;
+       used for : f, lf ;
+del-feq-02      :  ⊦ (s ++ a) -- b = s0 ++ c ∧ a ≠ b ∧ ¬ a ∈ s0 → a = c ;
+       used for : f, lf ;
+del-in          :  ⊦ ¬ a ∈ s → s -- a = s ;
+       used for : s, ls, lc ;
+del-in-01       :  ⊦ a ≠ b → (¬ a ∈ s -- b ↔ ¬ a ∈ s) ;
+       used for : s, ls ;
+del-in-02       :  ⊦ ¬ a ∈ s -- a ;
+       used for : s, ls ;
+del-in-03       :  ⊦ s -- a = s ↔ ¬ a ∈ s ;
+       used for : s, ls ;
+del-ne          :  ⊦ 1 < # s → s -- a ≠ ∅ ;
+       used for : s, ls ;
+del-neq         :  ⊦ s -- a ≠ s0 -- a → s ≠ s0 ;
+       used for : f, lf ;
+del-neq-01      :  ⊦ a ≠ b → (s ++ a) -- b ≠ ∅ ;
+       used for : s, ls ;
+del-neq-02      :  ⊦ s -- a ≠ s0 ++ a ;
+       used for : s, ls ;
+del-notin       :  ⊦ s0 = s -- a → ¬ a ∈ s0 ;
+       used for : s, ls ;
+del-rax         :  ⊦ a ∈ s -- b ↔ ¬ ¬ (a ≠ b ∧ a ∈ s) ;
+       used for : s, ls ;
+del-size        :  ⊦ a ∈ s → # (s -- a) = (# s) - 1 ;
+       used for : s, ls, lc ;
+del-size-01     :  ⊦ a ∈ s → (# s = n + 1 ↔ # (s -- a) = n) ;
+del-size-02     :  ⊦ a ∈ s ∧ a ≠ b → # ((s -- b) -- a) = (# (s -- b)) - 1 ;
+       used for : s, ls ;
+del-three       :  ⊦ 2 < # s → # ((s -- a) -- b) ≠ 0 ;
+       used for : s, ls ;
+del-three-01    :  ⊦ 2 < # s ∧ b ∈ s ∧ a ≠ b → # ((s -- a) -- b) = (# (s -- a)) - 1 ;
+       used for : s, ls ;
+del-two         : (s -- a) -- b = ∅ ⊦ s = ∅ ∨ s = ∅ ++ a ∨ s = ∅ ++ b ∨ s = (∅ ++ a) ++ b ;
+delsw           :  ⊦ a ≠ b → (s ++ b) -- a = (s -- a) ++ b ;
+       used for : lc ;
+delsw-01        :  ⊦ (s -- b) -- a = (s -- a) -- b ;
+delsw-02        :  ⊦ (s -- b) -- a = (s -- a) -- b ↔ true ;
+       used for : s, ls ;
+diff-add-del    :  ⊦ s1 \ (s2 ++ a) = (s1 \ s2) -- a ;
+       used for : s, ls ;
+diff-add-del-01 :  ⊦ ¬ a ∈ s1 → s1 \ (s2 ++ a) = s1 \ s2 ;
+       used for : s, ls ;
+diff-del        :  ⊦ s = s1 \ s2 ∧ ¬ a ∈ s → (s = (s1 -- a) \ (s2 -- a) ↔ true) ;
+       used for : s, ls ;
+
+diff-e-01       :  ⊦ ∅ \ s = ∅ ;
+       used for : s, ls ;
+diff-idem       :  ⊦ s \ s = ∅ ;
+       used for : s, ls ;
+diff-nin        :  ⊦ s = s1 \ s2 ∧ a ∈ s2 → ¬ a ∈ s ;
+       used for : f, lf ;
+diff-rc         :  ⊦ (s \ s1) \ s2 = (s \ s2) \ s1 ;
+       used for : ls ;
+diff-sub-size   : s = s0 \ s1, s1 ⊆ s0 ⊦ # s = # s0 - # s1 ;
+;; Sinn, wenn man ls austraegt?
+;;ext             :  ⊦ s1 = s2 ↔ (∀ a. a ∈ s1 ↔ a ∈ s2) ;
+;;       used for : ls ;
+int-a           :  ⊦ (s ∩ s0) ∩ s1 = s ∩ (s0 ∩ s1) ;
+       used for : s, ls ;
+int-c           :  ⊦ s ∩ s0 = s0 ∩ s ;
+       used for : s, ls ;
+
+int-empty       :  ⊦ s ∩ s0 = ∅ ∧ ¬ a ∈ s → s ∩ (s0 ++ a) = ∅ ;
+       used for : s, ls ;
+int-eq          :  ⊦ s = s ∩ s0 ↔ s ⊆ s0 ;
+       used for : s, ls ;
+int-idem        :  ⊦ s ∩ s = s ;
+       used for : s, ls ;
+int-inse        :  ⊦ s ∩ (s0 ++ a) = ∅ → s ∩ s0 = ∅ ∧ ¬ a ∈ s ;
+       used for : f, lf ;
+int-inserte     :  ⊦ a ∈ s → s ∩ (s0 ++ a) ≠ ∅ ;
+       used for : s, ls ;
+int-rax         :  ⊦ a ∈ s1 ∩ s2 ↔ ¬ ¬ (a ∈ s1 ∧ a ∈ s2) ;
+       used for : ls ;
+int-subs01      :  ⊦ s ∩ s0 ⊆ s ;
+       used for : s, ls ;
+intexin         : s ∩ s0 ≠ ∅ ⊦ ∃ a. a ∈ s ∧ a ∈ s0 ;
+selsub-diff     : s1 ⊆ s2 ⊦ s1 = s2, ∃ s. s ⊆ s2 ∧ s1 = s2 \ s ;
+size-union      :  ⊦ s ∩ s0 = ∅ → # (s ∪ s0) = # s + # s0 ;
+       used for : s, ls ;
+sub-ade         :  ⊦ s ⊆ s0 → (s -- a) ++ b ⊆ (s0 -- a) ++ b ;
+       used for : s, ls ;
+sub-ade-01      :  ⊦ s ⊆ s0 → ((s -- a) ++ b) ++ c ⊆ ((s0 -- a) ++ b) ++ c ;
+       used for : s, ls ;
+sub-ade-02      :  ⊦ s ⊆ s0 ∧ ¬ a ∈ s → s ⊆ (s0 -- a) ++ b ;
+       used for : s, ls ;
+sub-ade-03      :  ⊦ s ⊆ s0 ∧ ¬ a ∈ s → s ⊆ ((s0 -- a) ++ b) ++ c ;
+       used for : s, ls ;
+sub-del         :  ⊦ s ⊆ s0 → s -- a ⊆ s0 -- a ;
+       used for : s, ls ;
+sub-del-01      :  ⊦ s ⊆ s0 ∧ ¬ a ∈ s → s ⊆ s0 -- a ;
+       used for : s, ls ;
+sub-del-02      :  ⊦ s -- a ⊆ s ;
+       used for : s, ls ;
+sub-del-03      :  ⊦ s ⊆ s0 → s -- a ⊆ s0 ;
+       used for : s, ls, lc ;
+sub-del-04      :  ⊦ s ⊆ s0 -- a ↔ s ⊆ s0 ∧ ¬ a ∈ s ;
+       used for : s, ls ;
+sub-del-05      :  ⊦ a ≠ b ∧ ¬ a ∈ s → s -- b ⊆ (s -- b) -- a ;
+       used for : s, ls ;
+subdef          :  ⊦ s1 ⊆ s2 ↔ (∀ a. a ∈ s1 → a ∈ s2) ;
+       used for : ls ;
+una             :  ⊦ (s ∪ s0) ∪ s1 = s ∪ (s0 ∪ s1) ;
+       used for : s, ls ;
+unadd           :  ⊦ (s ++ a) ∪ s0 = (s ∪ s0) ++ a ;
+       used for : s, ls ;
+unadd-01        :  ⊦ s ∪ (s0 ++ a) = (s ∪ s0) ++ a ;
+       used for : s, ls ;
+unall           :  ⊦ s = s0 ∪ s ↔ (∀ a. a ∈ s0 → a ∈ s) ;
+unc             :  ⊦ s ∪ s0 = s0 ∪ s ;
+       used for : s, ls ;
+undel           :  ⊦ a ∈ s → s ∪ (s0 -- a) = s ∪ s0 ;
+       used for : s, ls ;
+undel-01        :  ⊦ (s ∪ s0) -- a = s ∪ (s0 -- a) ↔ ¬ a ∈ s ;
+       used for : s, ls ;
+undel-02        :  ⊦ (s ∪ s0) -- a = (s -- a) ∪ (s0 -- a) ;
+       used for : s ;
+undel-03        :  ⊦ ¬ a ∈ s → s ∪ (s0 -- a) = (s ∪ s0) -- a ;
+       used for : ls ;
+undel-04        :  ⊦ (s -- a) ∪ (s0 -- a) = (s ∪ s0) -- a ;
+       used for : ls ;
+undel-05        :  ⊦ ¬ a ∈ s ∧ ¬ a ∈ s0 → (s -- a) ∪ (s0 -- a) = s ∪ s0 ;
+undel-06        :  ⊦ ((s -- a) -- b) ∪ s0 ≠ ((s -- b) -- a) ∪ s0 ↔ false ;
+       used for : s ;
+
+une-01          :  ⊦ s1 ∪ s2 = ∅ ↔ s1 = ∅ ∧ s2 = ∅ ;
+       used for : s, ls ;
+uneq            :  ⊦ s ∪ s0 = s0 ↔ s ⊆ s0 ;
+       used for : s, ls ;
+unidem          :  ⊦ s ∪ s = s ;
+       used for : s, ls ;
+unin            :  ⊦ ¬ a ∈ s → (a ∈ s ∪ s0 ↔ a ∈ s0) ;
+       used for : s, ls ;
+unin-01         :  ⊦ ¬ a ∈ s ∪ s0 ↔ ¬ a ∈ s ∧ ¬ a ∈ s0 ;
+       used for : s, ls ;
+unindel         :  ⊦ ¬ a ∈ s ∪ s0 → ¬ a ∈ (s -- b) ∪ s0 ;
+       used for : s, ls ;
+uninsert        :  ⊦ a ∈ s → (s ∪ s0) ++ a = s ∪ s0 ;
+       used for : s, ls ;
+uninsubdel      :  ⊦ ¬ a ∈ s ∪ s0 ∧ s1 ⊆ s → ¬ a ∈ (s1 -- b) ∪ s0 ;
+       used for : s, ls ;
+unrax           :  ⊦ a ∈ s ∪ s0 ↔ ¬ ¬ (a ∈ s ∨ a ∈ s0) ;
+       used for : ls ;
+unsub           :  ⊦ s ⊆ s ∪ s0 ;
+       used for : s, ls ;
+unsub-union-01  :  ⊦ s1 ∪ s2 ⊆ s ↔ s1 ⊆ s ∧ s2 ⊆ s ;
+       used for : s, ls ;
+unsubdel        :  ⊦ s ⊆ s0 ∧ s1 ⊆ s2 ∧ ¬ a ∈ s ∧ ¬ a ∈ s1 → s ∪ s1 ⊆ (s0 -- a) ∪ (s2 -- a) ;
+       used for : s, ls ;
+unsubdel-01     :  ⊦ s ⊆ s0 ∧ ¬ a ∈ s → (s0 -- a) ∪ s = s0 -- a ;
+       used for : s, ls ;
+unsubins        :  ⊦ s ++ a ⊆ s ∪ s0 ↔ a ∈ s ∪ s0 ;
+       used for : s, ls ;
+unsubins-01     :  ⊦ s ⊆ (s ∪ s0) ++ a ;
+       used for : s, ls ;
+unsubsub        :  ⊦ s ⊆ s0 ∧ s1 ⊆ s2 → s ∪ s1 ⊆ s0 ∪ s2 ;
+       used for : s, ls ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Union           :  ⊦ a ∈ s1 ∪ s2 ↔ a ∈ s1 ∨ a ∈ s2 ;
+       used for : s, ls ;
+Intersect       :  ⊦ a ∈ s1 ∩ s2 ↔ a ∈ s1 ∧ a ∈ s2 ;
+       used for : s, ls ;
+Difference      :  ⊦ a ∈ s1 \ s2 ↔ a ∈ s1 ∧ ¬ a ∈ s2 ;
+       used for : s, ls ;
+Delete          :  ⊦ a ∈ s -- b ↔ a ≠ b ∧ a ∈ s ;
+       used for : s, ls ;
+One             :  ⊦ a ' = ∅ ++ a ;
+       used for : ls ;
+
+
+
+

@@ -1,0 +1,24 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+potmonleq
+potex
+pot-mon
+ltwo-03
+lsucc-01
+lpot
+lls-02
+lls-01
+lls
+div-eq-zero
+
+
+*** Failures: ***
+
+

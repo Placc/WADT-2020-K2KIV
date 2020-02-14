@@ -1,0 +1,28 @@
+enrich stream-of-streams, infinite-append with
+
+
+
+
+
+predicates mon : streamstream;
+           . ⊑ . : stream × stream;
+
+partial functions 
+lim : streamstream → stream with λ σσ. mon(σσ) ∧ σσ ≠ [];
+
+
+axioms
+
+prefix-def:
+σ ⊑ σ0 ↔ ∃ σ1. σ + σ1 = σ0;
+used for: ls;
+
+mon-def:
+mon(σσ) ↔ ∀ n. ⌜n⌝ + ⌜1⌝ < # σσ → σσ[n] ⊑ σσ[n + 1];
+used for: ls;
+
+lim-def: mon(σσ) ∧ σσ ≠ [] →   (∀ n. ⌜n⌝ < # σσ → σσ[n] ⊑ lim(σσ))
+                              ∧ ∀ m. ¬ # lim(σσ) < ⌜m⌝ → ∃ n. ⌜n⌝ < # σσ ∧ lim(σσ) to m ⊑ σσ[n];
+comment: definition justified as skolem-function of theorems lim-exists and lim-unique.;
+
+end enrich

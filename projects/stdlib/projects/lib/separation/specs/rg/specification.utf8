@@ -1,0 +1,50 @@
+enrich embed-aux with
+
+
+predicates
+
+rely : aux × refset × (ref → obj) × (ref → aux)
+            × refset × (ref → obj) × (ref → aux);
+
+owns-none: aux × refset × (ref → aux);
+owns-one: aux × ref × refset × (ref → aux);
+
+;;; guar : aux × refset × (ref → obj) × (ref → aux)
+;;;             × refset × (ref → obj) × (ref → aux);
+
+variables
+
+f,f0,f1 : ref → obj;
+g,g0,g1 : ref → aux;
+
+axioms
+
+;;; weaker version
+rely:
+  rely(a, rs0, f0, g0, rs1, f1, g1)
+↔ ∀ r.   (g0(r) = a ∧ r ∈ rs0 ↔ g1(r) = a ∧ r ∈ rs1) 
+       ∧ (g0(r) = a ∧ r ∈ rs0 → f0(r) = f1(r));
+used for : ls;
+
+;;; strong version gives problem with allocation g(r) = n does not imply that it is allocated
+;;; rely:
+;;;   rely(a, rs0, f0, g0, rs1, f1, g1)
+;;; ↔ ∀ r.   (g0(r) = a ↔ g1(r) = a) 
+;;;        ∧ (g0(r) = a → (r ∈ rs0 ↔ r ∈ rs1) ∧ (r ∈ rs0 → f0(r) = f1(r)));
+;;; used for : ls;
+
+
+
+owns-none:
+owns-none(a, rs, g) ↔ ∀ r. r ∈ rs → g(r) ≠ a;
+used for : ls;
+
+owns-one:
+owns-one(a, r, rs, g) ↔ r ≠ null ∧ r ∈ rs ∧ g(r) = a ∧ ∀ r0. r0 ∈ rs ∧ r0 ≠ r → g(r0) ≠ a;
+used for : ls;
+
+;;; guar:
+;;;   guar(a, rs0, f0, g0, rs1, f1, g1)
+;;; ↔ ∀ a0. a0 ≠ a → rely(a0, rs0, f0, g0, rs1, f1, g1);
+
+end enrich

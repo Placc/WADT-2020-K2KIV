@@ -1,0 +1,121 @@
+
+variables jj : nat → nat;
+
+lemmas
+
+
+infinite-append-lem : ∀ n.
+          ∃ nf, ii.   ii(0) = 0                     
+                   ∧ ∀ m. m < n →  ii(m + 1) = ii(m) + # lf(m)
+                                   ∧ nf from ii(m) to # lf(m) = lf(m)
+                                   ∧ ∀ m0. m0 ≤ m → ii(m0) ≤ ii(m) ;
+
+
+infinite-append: (: ∀ lf :: (nat → list). :)
+        ∃ σ, ii.   ii(0) = 0
+                 ∧ (∀ n.   ii(n + 1) = ii(n) + # lf(n)
+                         ∧ ¬ # σ < ⌜ii(n + 1)⌝
+                         ∧ σ from ii(n) to # lf(n) = ⌜lf(n)⌝)
+                 ∧ (∀ m, n. m ≤ n → ii(m) ≤ ii(n))
+                 ∧ (finp(σ) ⊃ (∃ n. # σ = ⌜ii(n)⌝ ∧ ∀ m. n ≤ m → lf(m) = [] ∧ ii(m) = ii(n))
+                            ; ∀ n. ∃ m. ii(m) ≤ n ∧ n < ii(m + 1));
+
+
+
+infinite-append-butlast: (: ∀ lf. :)
+       ∀ n. lf(n).last = lf(n + 1).first ∧ lf(n) ≠ []
+       ⊦
+        ∃ σ, ii.   ii(0) = 0
+                 ∧ (∀ n.   ii(n + 1) = ii(n) + # lf(n) - 1
+                         ∧ ⌜ii(n + 1)⌝ < # σ 
+                         ∧ σ from ii(n) to # lf(n) = ⌜lf(n)⌝)
+                 ∧ (∀ m, n. m ≤ n → ii(m) ≤ ii(n))
+                 ∧ (finp(σ) ⊃ (∃ n. # σ = ⌜ii(n) + 1⌝ ∧ ∀ m. n ≤ m → lf(m).rest = [] ∧ ii(m) = ii(n))
+                            ; ∀ n. ∃ m. ii(m) ≤ n ∧ n < ii(m + 1));
+
+
+
+diag-theorem-butlast: 
+  ∀ n, a. nextl(n,a) ≠ [] ∧ nextl(n,a).first = a
+⊦ ∃ σ, ii.   ii(0) = 0 ∧ σ[0] = a ∧ σ ≠ []
+           ∧ (∀ n.   ii(n + 1) = ii(n) + # nextl(n,σ[ii(n)]) - 1
+                   ∧ ⌜ii(n + 1)⌝ < # σ
+                   ∧ σ from ii(n) to # nextl(n,σ[ii(n)]) = ⌜nextl(n,σ[ii(n)])⌝)
+           ∧  (finp(σ) ⊃ (∃ n. # σ = ⌜ii(n) + 1⌝ ∧ ∀ m. n ≤ m → nextl(m,σ[ii(m)]) = σ[ii(m)] ' ∧ ii(n) = ii(m))
+                        ; ∀ n. ∃ m. ii(m) ≤ n ∧ n < ii(m + 1));
+
+
+weakmon-lem: ∀ n. ii(n) ≤ ii(n + 1) ⊦ (∀ n. ∃ m. ii(m) ≥ n) ∨ ∃ n. ∀ m. m ≥ n → ii(m) = ii(n);
+
+
+
+;; diesmal gegeben: s und Funktion nextl : nat × state → statelist
+
+
+nextl-lemma-butlast : 
+
+∃ lf. lf(0) = a ' ∧ ∀ n. lf(n + 1) = nextl(n, lf(n).last);
+
+
+(: ASM diagrams :)
+nextl-nextj-lemma-butlast : 
+(: ∀ nextl, nextj, n0 :)
+∃ lf, jj.   lf(0) = a ' ∧ jj(0) = n0
+          ∧ ∀ n. lf(n + 1) = nextl(jj(n), lf(n).last) ∧ jj(n + 1) = nextj(jj(n),lf(n).last);
+
+
+;;; END
+
+;;; nextl-lemma-butlast-new : 
+;;; ∀ n, a. nextl(n,a) ≠ []
+;;; ⊦
+;;; ∃ lf. lf(0) = a ' ∧ ∀ n. lf(n + 1) = nextl(n, lf(n).last) ∧ lf(n) ≠ [];
+
+nextl-lemma : ∃ lf. lf(0) = nextl(0,a)  ∧ ∀ n. lf(n + 1) = nextl(n + 1, lf(n).last);
+
+
+
+infinite-append-nextl-nextjdiag-butlast-add : (: ∀ nextl, nextj, as, n. :)
+⊦ ∃ σ, jj.   jj(0) = n ∧ σ[n] = a 
+           ∧ ∀ n.   i(n + 1) = ii(n) + # nextl(ii(n),σ[ii(n)]) - 1
+                  ∧ ¬ # σ < ⌜ii(n + 1)⌝
+                  ∧ σ from ii(n) to # nextl(ii(n),σ[ii(n)]) = ⌜nextl(ii(n),σ[ii(n)])⌝;
+
+
+
+;;; END
+∀ n. 
+ ∃ x, ii. 
+    ii(0) = 0 ∧ x[0] = a
+  ∧ (∀ m. 
+        m < n
+      →   ii(m + 1) = ii(m) + # nextl(ii(m), x[ii(m)]) - 1
+        ∧ # x = ii(m + 1)
+        ∧  (x from ii(m)) to # nextl(ii(m), x[ii(m)]) = nextl(ii(m), x[ii(m)]) )
+
+;;; END
+infinite-append-butlast: (: ∀ lf. :)
+       ∀ n. lf(n).last = lf(n + 1).first ∧ lf(n) ≠ []
+       ⊦
+        ∃ σ, ii.   ii(0) = 0
+                 ∧ (∀ n.   ii(n + 1) = ii(n) + # lf(n) - 1
+                         ∧ ⌜ii(n + 1)⌝ < # σ 
+                         ∧ σ from ii(n) to # lf(n) = ⌜lf(n)⌝)
+                 ∧ (∀ m, n. m ≤ n → ii(m) ≤ ii(n))
+                 ∧ (finp(σ) ⊃ (∃ n. # σ = ⌜ii(n) + 1⌝ ∧ ∀ m. n ≤ m → lf(m).rest = [] ∧ ii(m) = ii(n)));
+
+
+
+
+
+;;; END
+
+;;; diag-theorem: 
+;;; ⊦       ∃ σ, ii. ∀ n.   ii(0) =  # nextl(0,a) 
+;;;                       ∧ σ to ii(0) = ⌜nextl(0,a)⌝
+;;;                       ∧ ii(n + 1) = ii(n) + # nextl(n,σ[ii(n)])
+;;;                       ∧ ¬ # σ < ⌜ii(n + 1)⌝
+;;;                       ∧ σ from ii(n) to # nextl(n + 1,σ[ii(n)]) = ⌜nextl(n + 1,σ[ii(n)])⌝
+;;;                       ∧ (finp(σ) ↔ ∃ n. ∀ m. n ≤ m → nextl(m + 1,σ[ii(m)]) = [])
+;;;                       ∧ ∀ m. m ≤ n → ii(m) ≤ ii(n);
+

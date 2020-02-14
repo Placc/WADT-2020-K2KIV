@@ -1,0 +1,30 @@
+: successful
+### No save necessary ###
+### Next replay: add-cancel-num-02 ###
+add-cancel-num-02: successful
+### No save necessary ###
+### Next replay: add-cancel-num-04 ###
+add-cancel-num-04: successful
+### No save necessary ###
+### Next replay: add-less-fin-01 ###
+add-less-fin-01: successful
+### No save necessary ###
+### Next replay: add-ls-cancel-01 ###
+add-ls-cancel-01: successful
+### No save necessary ###
+### Next replay: lele-refl ###
+lele-refl: successful
+### No save necessary ###
+### Next replay: less-less-leftsucc ###
+less-less-leftsucc: successful
+### No save necessary ###
+### Next replay: ls-lsadd ###
+ls-lsadd: successful
+### No save necessary ###
+### Next replay: ls-notlssucc ###
+ls-notlssucc: successful
+### No save necessary ###
+### Next replay: lsle-trans ###
+lsle-trans: successful
+### Done ###
+### Saving lemmas next ###

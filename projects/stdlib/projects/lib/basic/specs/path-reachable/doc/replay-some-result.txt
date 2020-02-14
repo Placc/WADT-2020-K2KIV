@@ -1,0 +1,26 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+rem-stays-reachable-aux2
+rem-stays-reachable-aux1
+rem-stays-reachable-aux
+reachable-nodups-def
+reachable-n-rec-rev
+reachable-addnew-rev
+reach-n-split-le
+path-new-irrelevant-strong
+path-modify-strong
+path-modify
+path-delnonmember
+acyclic-rem-not-reachable
+
+
+*** Failures: ***
+
+

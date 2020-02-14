@@ -1,0 +1,29 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+two-le-two
+two-le-three
+two-even
+square-not-neg-05
+square-not-neg-03
+square-not-neg-01
+square-not-neg
+square-nls
+square-le-one
+root-pos
+root-le
+root-abs
+le-plus
+four-square-le-zero
+even
+
+
+*** Failures: ***
+
+

@@ -1,0 +1,1389 @@
+
+
+ variables i1, j1, j2 : int   ; 
+
+lemmas
+
+abs                  : j ≠ 0 ⊦ abs(i / j) = abs(i) / abs(j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+abs-01               : j ≠ 0 ⊦ abs(i / abs(j)) = abs(i / j) ;
+            used for : s, ls ;
+             remarks : proved ;
+abs-02               : j ≠ 0 ⊦ abs(abs(i) / j) = abs(i / j) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+abs-03               : 0 ≠ j ⊦ abs(i) / j * abs(i) / j = i / j * i / j ;
+            used for : s, ls ;
+             remarks : proved ;
+abs-intro            :  ⊦ 0 ≤ i ∧ 0 < j ∨ i < 0 ∧ j < 0 → i / j = abs(i) / abs(j) ;
+             remarks : proved, used ;
+abs-shift            :  ⊦ j ≠ 0 → abs(i % j) = abs(i) % abs(j) ;
+             remarks : proved, used ;
+abs-shift-01         :  ⊦ j ≠ 0 → abs(i % j) = abs(i) % j ;
+             remarks : proved ;
+add-div-mult         : 
+⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j
+  → (i / j + i0 / j) + (i % j + i0 % j) / j = (i + i0) / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-abs              :  ⊦ i ≠ 0 → i / abs(i) ≠ 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div-add-both         :  ⊦ i % j = 0 ∧ i0 % j = 0 ∧ 0 ≠ j → (i + i0) / j = i / j + i0 / j ;
+             remarks : proved, used ;
+div-add-neg          :  ⊦ i0 % j = 0 ∧ i < 0 ∧ i0 < 0 ∧ 0 < j → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add-nosucc       :  ⊦ 1 < j ∧ 0 ≤ i ∧ i % j = 0 → (i + (j - 1)) / j = i / j ;
+             remarks : proved, used ;
+div-add-nosucc-neg   :  ⊦ 1 < j ∧ i < 0 ∧ i % j = 0 → (i - (j - 1)) / j = i / j ;
+             remarks : proved, used ;
+div-add-pos          :  ⊦ i0 % j = 0 ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-add-rew          : 
+⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j + (i % j + i0 % j) / j ;
+             remarks : proved, used ;
+div-add-succ         :  ⊦ 1 < j ∧ 0 < i ∧ i % j ≠ 0 → (i + (j - 1)) / j = i / j + 1 ;
+             remarks : proved, used ;
+div-add-succ-neg     :  ⊦ 1 < j ∧ i < 0 ∧ i % j ≠ 0 → (i - (j - 1)) / j = i / j - 1 ;
+             remarks : proved, used ;
+div-add1-negneg      :  ⊦ i % j = 0 ∧ i < 0 ∧ i0 < 0 ∧ 0 < j → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add1-negpos-neg  : 
+⊦   i % j = 0 ∧ i + i0 < 0 ∧ i0 % j = 0 ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add1-negpos-neg-01 : 
+⊦   i % j = 0 ∧ i + i0 < 0 ∧ i0 % j ≠ 0 ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j + 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add1-negpos-neg-02 : 
+⊦   i % j = 0 ∧ i + i0 < 0 ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0) / j = i / j + (i0 + (j - 1)) / j ;
+             remarks : proved ;
+div-add1-negpos-pos  : 
+⊦   i % j = 0 ∧ 0 ≤ i + i0 ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add1-posneg-neg  : 
+⊦   i % j = 0 ∧ i + i0 < 0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-add1-posneg-pos  : 
+⊦   i % j = 0 ∧ 0 ≤ i + i0 ∧ i0 % j = 0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add1-posneg-pos-01 : 
+⊦   i % j = 0 ∧ 0 ≤ i + i0 ∧ i0 % j ≠ 0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+  → (i + i0) / j = i / j + i0 / j - 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-add1-posneg-pos-02 : 
+⊦   i % j = 0 ∧ 0 ≤ i + i0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+  → (i + i0) / j = i / j + (i0 - (j - 1)) / j ;
+             remarks : proved, used by proved unit ;
+div-add1-pospos      :  ⊦ i % j = 0 ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i + i0) / j = i / j + i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-addthree-rew     : 
+⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 ≤ i1 ∧ 0 < j
+  →   (i + i0 + i1) / j
+    = i / j + i0 / j + i1 / j + (i % j + i0 % j + i1 % j) / j ;
+             remarks : proved ;
+div-am-rew           : 
+⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j ∧ 0 ≤ i1
+  → (i + i0 * i1) / j = (i + i0 * i1 % j) / j + i0 * i1 / j ;
+             remarks : proved ;
+div-div              :  ⊦ j ≠ 0 ∧ j0 ≠ 0 → (i / j) / j0 = i / (j * j0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-div-intro        :  ⊦ j ≠ 0 ∧ j0 ≠ 0 → i / (j * j0) = (i / j) / j0 ;
+             remarks : proved ;
+div-div-num          : j ≠ 0, j0 ≠ 0 ⊦ (i / (* j)) / (* j0) = i / (j * j0) ;
+            used for : s, ls ;
+             remarks : proved ;
+div-div-pos          :  ⊦ 0 ≤ i ∧ 0 < j ∧ 0 < j0 → (i / j) / j0 = i / (j * j0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-div-pred         :  ⊦ i < 0 → ((i - 1) / 2 - 1) / 2 = (i - 3) / 4 ;
+             remarks : proved, used ;
+div-div-pred-01      :  ⊦ i < 0 → ((i - 3) / 4 - 1) / 2 = (i - 7) / 8 ;
+             remarks : proved ;
+div-div-switch       :  ⊦ j ≠ 0 ∧ i ≠ 0 ∧ i % j = 0 → i1 / i / j = (i1 * j) / i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-elim             : 
+⊦   0 < j ∧ 0 < i
+  → (i0 = i / j ∧ j0 = i % j ↔ i = i0 * j + j0 ∧ 0 ≤ j0 ∧ j0 < j) ;
+             remarks : proved, used, used by proved unit ;
+div-elim-divides     : 
+⊦   0 ≠ j ∧ i % j = 0
+  → (i0 = i / j ∧ j0 = i % j ↔ i = i0 * j + j0 ∧ j0 = 0) ;
+             remarks : proved ;
+div-elim-negneg      : 
+⊦   j < 0 ∧ i < 0
+  → (  i0 = i / j ∧ j0 = i % j
+     ↔ i = i0 * j + j0 ∧ j0 ≤ 0 ∧ j < j0 ∧ 0 ≤ i0) ;
+             remarks : proved, used ;
+div-elim-negpos      : 
+⊦   0 < j ∧ i < 0
+  → (  i0 = i / j ∧ j0 = i % j
+     ↔ i = i0 * j + j0 ∧ j0 ≤ 0 ∧ abs(j0) < j ∧ i0 ≤ 0) ;
+             remarks : proved, used, used by proved unit ;
+div-elim-pos         : 
+⊦   0 < j ∧ 0 ≤ i
+  → (i0 = i / j ∧ j0 = i % j ↔ i = i0 * j + j0 ∧ 0 ≤ j0 ∧ j0 < j) ;
+             remarks : proved, used ;
+div-elim-posneg      : 
+⊦   j < 0 ∧ 0 ≤ i
+  → (  i0 = i / j ∧ j0 = i % j
+     ↔ i = i0 * j + j0 ∧ 0 ≤ j0 ∧ j0 < abs(j) ∧ i0 ≤ 0) ;
+             remarks : proved, used ;
+div-elim-pospos      : 
+⊦   0 < j ∧ 0 ≤ i
+  → (  i0 = i / j ∧ j0 = i % j
+     ↔ i = i0 * j + j0 ∧ 0 ≤ j0 ∧ j0 < j ∧ 0 ≤ i0) ;
+             remarks : proved, used, used by proved unit ;
+div-elim1            : 
+⊦   j < 0 ∧ 0 ≤ i
+  → (i0 = i / j ∧ j0 = i % j ↔ i = i0 * j + j0 ∧ 0 ≤ j0 ∧ j0 < abs(j)) ;
+             remarks : proved, used ;
+div-elim2            : 
+⊦   0 < j ∧ i < 0
+  → (i0 = i / j ∧ j0 = i % j ↔ i = i0 * j + j0 ∧ j0 ≤ 0 ∧ abs(j0) < j) ;
+             remarks : proved, used ;
+div-elim3            : 
+⊦   j < 0 ∧ i < 0
+  → (i0 = i / j ∧ j0 = i % j ↔ i = i0 * j + j0 ∧ j0 ≤ 0 ∧ j < j0) ;
+             remarks : proved, used ;
+div-eq-same          :  ⊦ 0 ≠ j → (j * i / j = i ↔ i % j = 0) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+div-eq-same-01       : j ≠ 0 ⊦ i / j = i ↔ i = 0 ∨ j = 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-eq-zero          :  ⊦ 0 < i ∧ 0 < j → (i / j = 0 ↔ i < j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-eq-zero-01       :  ⊦ 0 ≠ j → (i / j = 0 ↔ abs(i) < abs(j)) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-est-denom-pos    :  ⊦ ¬ i0 ≤ i / j ∧ j ≤ j0 ∧ 0 ≤ i ∧ 0 < j → ¬ i0 ≤ i / j0 ;
+             remarks : proved ;
+div-est-nle-pos      :  ⊦ ¬ i0 * j ≤ i ∧ 0 ≤ i ∧ 0 < j → ¬ i0 ≤ i / j ;
+             remarks : proved, used by proved unit ;
+div-est-nls          :  ⊦ ¬ i < i0 ∧ 0 ≤ i0 ∧ 0 < j → ¬ i / j < i0 / j ;
+             remarks : proved ;
+div-est-num          :  ⊦ ¬ i / j < j0 ∧ i ≤ i0 ∧ 0 < j → ¬ i0 / j < j0 ;
+             remarks : proved, used by proved unit ;
+div-le-modnotzero    :  ⊦ i % j ≠ 0 ∧ 0 < j ∧ 0 ≤ i → (i0 ≤ i / j ↔ i0 * j < i) ;
+             remarks : proved ;
+div-le-modnotzero-01 :  ⊦ 0 ≤ i ∧ 0 < j → (i / j ≤ i0 ↔ ¬ i0 * j ≤ i ∨ i0 = i / j) ;
+             remarks : proved ;
+div-le-modzero       :  ⊦ i % j = 0 ∧ 0 < j → (i0 ≤ i / j ↔ i0 * j ≤ i) ;
+             remarks : proved ;
+div-le-modzero-01    :  ⊦ i % j = 0 ∧ 0 ≤ i ∧ 0 < j → (i / j ≤ i0 ↔ ¬ i0 * j < i) ;
+             remarks : proved ;
+div-le-pos           :  ⊦ j0 ≤ i / j ∧ i ≤ i0 ∧ 0 < j → j0 ≤ i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-le-same          :  ⊦ 0 < i ∧ 0 < j → (i ≤ i / j ↔ j = 1) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-le-same-neg      :  ⊦ i < 0 ∧ 0 < j → (i / j ≤ i ↔ i = 0 ∨ j = 1) ;
+            used for : s, ls ;
+             remarks : proved ;
+div-lezero           :  ⊦ 0 < j → (i / j ≤ 0 ↔ i < j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-ls               : j0 ≤ i / j, i < i0, i0 % j = 0, 0 < j, 0 ≤ i ⊦ j0 < i0 / j ;
+             remarks : proved, used ;
+div-ls-01            : i < i0, i0 % j = 0, 0 < j, 0 ≤ i ⊦ i / j < i0 / j ;
+             remarks : proved, used by proved unit ;
+div-ls-02            : 0 < j0, 0 ≤ i, i ≤ j, i / j0 ≠ j / j0 ⊦ i / j0 < j / j0 ;
+             remarks : proved, used by proved unit ;
+div-ls-modnotzero    :  ⊦ 0 ≤ i ∧ 0 < j → (i0 < i / j ↔ i0 * j ≤ i ∧ i0 ≠ i / j) ;
+             remarks : proved, used ;
+div-ls-modzero       :  ⊦ i % j = 0 ∧ 0 ≤ i ∧ 0 < j → (i0 < i / j ↔ i0 * j < i) ;
+             remarks : proved, used ;
+div-ls-mone          : 0 < j ⊦ i / (* j) < ~1 ↔ i + 2 * j ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+div-ls-pos-better    :  ⊦ 0 < j ∧ 0 ≤ i → (i / j < j0 ↔ i < j * j0) ;
+             remarks : proved ;
+div-ls-same          :  ⊦ 0 < j → (i < i / j ↔ i < 0 ∧ 1 < j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-ls-zero          : 0 < j ⊦ i / (* j) < 0 ↔ i + j ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-minus-onediff    :  ⊦ i % j ≠ 0 ∧ j0 = j - 1 ∧ i < 0 ∧ 0 < j → (i - j0) / j = i / j - 1 ;
+             remarks : proved, used ;
+div-minus-onediff-01 :  ⊦ i % j = 0 ∧ j0 = j - 1 ∧ i < 0 ∧ 0 < j → (i - j0) / j = i / j ;
+             remarks : proved, used ;
+div-minus255-256     :  ⊦ i % 256 ≠ 0 ∧ i < 0 → (i - 255) / 256 = i / 256 - 1 ;
+             remarks : proved ;
+div-minus255-256-01  :  ⊦ i % 256 = 0 ∧ i < 0 → (i - 255) / 256 = i / 256 ;
+             remarks : proved ;
+div-mone             :  ⊦ j + 1 = 0 → i / j = ~ i ;
+            used for : s, ls ;
+             remarks : proved ;
+div-mone-01          :  ⊦ i / ~1 = ~ i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-mult             : j ≠ 0 ⊦ (j * i) / j = i ;
+             remarks : proved ;
+div-mult-01          : j ≠ 0, i0 ≠ 0 ⊦ (i * i0) / (j * i0) = i / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-02          : 0 < j, 0 < i0, 0 ≤ i ⊦ (i * i0) / (j * i0) = i / j ;
+             remarks : proved, used ;
+div-mult-03          : j ≠ 0 ⊦ (i * j) / j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-le          :  ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → i * i0 / j ≤ (i * i0) / j ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+div-mult-le-01       :  ⊦ 0 ≤ i ∧ 0 < j → (i ≤ j * i / j ↔ i % j = 0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-ls          :  ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → ¬ (i * i0) / j < i * i0 / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-ls-pos      :  ⊦ i % j ≠ 0 ∧ 0 ≤ i ∧ 0 < j → i / j * j < i ;
+             remarks : proved ;
+div-mult-neg         :  ⊦ 0 < j ∧ i ≤ 0 ∧ i0 ≤ 0 ∧ abs(i0) < j → (j * i + i0) / j = i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-mult-nle-est     : 0 < i, 0 ≤ j ⊦ ¬ j / i ≤ i0 → ¬ j ≤ i * i0 ;
+             remarks : proved ;
+div-mult-nls-est     : 0 < i, 0 ≤ j ⊦ ¬ j / i < i0 → ¬ j < i * i0 ;
+             remarks : proved ;
+div-mult-nls-est-01  : 0 < i, 0 ≤ j ⊦ ¬ i0 ≤ j / i → ¬ i * i0 < j ;
+             remarks : proved ;
+div-mult-nls-zero    :  ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → ¬ (i * i0) / j < 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-num         : j ≠ 0, j0 % j = 0 ⊦ (i * (* j0)) / (* j) = i * j0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-mult-num-01      : j % j0 = 0, j ≠ 0, j0 ≠ 0 ⊦ (i * (* j0)) / (* j) = i / j / j0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-mult-pos         :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ i0 < j → (j * i + i0) / j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-pos-01      :  ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i + i0 * j) / j = i / j + i0 ;
+            used for : ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-pos-02      :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ i0 < j → (i * j + i0) / j = i ;
+            used for : s, ls ;
+             remarks : proved ;
+div-mult-pos-03      :  ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i + j * i0) / j = i / j + i0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-mult-pos-rew     :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 → i / j + i0 = (i + i0 * j) / j ;
+             remarks : proved, used ;
+div-mult-rew         :  ⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j
+   → (i * i0) / j = i / j * i0 + (i % j * i0) / j ;
+             remarks : proved, used ;
+div-mult-rew-01      :  ⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j
+   → i / j * i0 = (i * i0) / j - (i % j * i0) / j ;
+             remarks : proved ;
+div-mult-shift-holds :  ⊦ i % j * i0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i * i0) / j = i / j * i0 ;
+             remarks : proved ;
+div-mult-three       :  ⊦ 2 < i → 0 < (2 * i) / 3 ;
+            used for : s, ls ;
+             remarks : proved ;
+div-mult-three-nls   :  ⊦ 2 ≤ j → ¬ (j * j * j) / 3 < j ;
+            used for : s, ls ;
+             remarks : proved ;
+div-mult-two-nls     :  ⊦ 0 ≤ i ∧ 0 < j → ¬ (2 * i) / j < 2 * i / j ;
+            used for : s, ls ;
+             remarks : proved ;
+div-mult-two-nls-01  :  ⊦ 0 ≤ i ∧ 0 < j → ¬ 1 + 2 * i / j < (2 * i) / j ;
+            used for : s, ls ;
+             remarks : proved ;
+div-nearer-zero      : j ≠ 0 ⊦ abs(i / j * j) ≤ abs(i) ;
+             remarks : proved ;
+div-ngr-zero         :  ⊦ i < 0 ∧ 0 < j → (0 ≤ i / j ↔ abs(i) < j) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-nle              :  ⊦ 0 < j ∧ i < i0 ∧ 0 ≤ i → ¬ i0 ≤ i / j ;
+            used for : s, ls ;
+             remarks : proved ;
+div-nls              :  ⊦ ¬ i0 < i ∧ 0 ≤ i ∧ 0 < j → ¬ i0 < i / j ;
+             remarks : proved, used ;
+div-nls-01           :  ⊦ ¬ i0 < abs(i) ∧ i ≤ 0 ∧ j < 0 → ¬ i0 < i / j ;
+             remarks : proved ;
+div-rec              : 0 < j, j ≤ i ⊦ i / j = (i - j) / j + 1 ;
+             remarks : proved, used, used by proved unit ;
+div-rec-01           : j < 0, i ≤ j ⊦ i / j = (i - j) / j + 1 ;
+             remarks : proved, used ;
+div-same             : i ≠ 0 ⊦ i / i = 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-shift-two        : i0 = (i / 2) / j * 2, j ≠ 0, 0 ≤ i, 0 ≤ j
+⊦ i / j = i0 + (i - j * i0 < j ⊃ 0;1) ;
+             remarks : proved, used by proved unit ;
+div-sub              : j ≠ 0 ⊦ (j - i * j) / j = 1 - i ;
+            used for : s, ls ;
+             remarks : proved ;
+div-sub-01           : j ≠ 0, i % j = 0, i0 % j = 0 ⊦ i / j - i0 / j = (i - i0) / j ;
+             remarks : proved ;
+div-sum-ls           : 
+⊦     0 ≤ i ∧ 0 ≤ i1 ∧ 0 < i + i1 ∧ 0 < j1 ∧ 0 < j2 ∧ 0 < j ∧ j1 < j
+    ∧ j2 < j
+  → (i * j1 + i1 * j2) / j < i + i1 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-sum-ls-01        : 
+⊦   0 < i ∧ 0 < i1 ∧ 0 < j1 ∧ 0 < j2 ∧ 0 < j ∧ j1 < j ∧ j2 < j
+  → (i * j1 + i1 * j2) / j < i + i1 ;
+            used for : s, ls ;
+             remarks : proved ;
+div-two              :  ⊦ 0 ≤ i → (2 * i + 1) / 2 = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+div-two-01           : j ≠ 0 ⊦ (2 * i) / (2 * j) = i / j ;
+            used for : s, ls ;
+             remarks : proved ;
+div-two-intro        :  ⊦ j % 2 = 0 ∧ j ≠ 0 → i / j = (i / 2) / j / 2 ;
+             remarks : proved ;
+div-two-zero         :  ⊦ 0 < i → (i / 2 = 0 ↔ i = 1) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-two-zero-01      :  ⊦ 0 ≤ i / 2 ↔ ~1 ≤ i ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+div-twoodd           : 0 ≤ i, 0 < j ⊦ (2 * i + 1) / (2 * j) = i / j ;
+             remarks : proved, used ;
+div-twoodd-01        :  ⊦ i < 0 ∧ i % 2 = 0 → (i - 1) / 2 = i / 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+div-twoodd-02        : 0 ≤ i, j < 0 ⊦ (2 * i + 1) / (2 * j) = i / j ;
+             remarks : proved, used ;
+div-twoodd-03        : i < 0, 0 < j ⊦ (2 * i - 1) / (2 * j) = i / j ;
+             remarks : proved, used ;
+div-twoodd-04        : i < 0, j < 0 ⊦ (2 * i - 1) / (2 * j) = i / j ;
+             remarks : proved, used ;
+div-twoodd-05        : i < 0, 0 < j ⊦ (2 * i + 1) / (2 * j) = (i + 1) / j ;
+             remarks : proved ;
+div-twoodd-06        : 0 ≤ i, j ≠ 0 ⊦ (2 * i + 1) / (2 * j) = i / j ;
+             remarks : proved ;
+div-twoodd-07        : i < 0, j < 0 ⊦ (2 * i + 1) / (2 * j) = (i + 1) / j ;
+             remarks : proved ;
+div-zero             : 0 < j, 0 ≤ i, i < j ⊦ i / j = 0 ;
+             remarks : proved, used, used by proved unit ;
+div-zero-01          : 0 < j, i < 0, abs(i) < j ⊦ i / j = 0 ;
+             remarks : proved, used, used by proved unit ;
+div-zero-02          : abs(i) < abs(j) ⊦ i / j = 0 ;
+             remarks : proved, used, used by proved unit ;
+div-zero-03          : 0 < j ⊦ 0 ≤ i ∧ i < j → i / (* j) = 0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+div-zero-04          : 0 < j ⊦ 0 < i ∧ i < j → i / (* j) = 0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+div-zero-05          :  ⊦ i < j ∧ 0 < j ∧ 0 ≤ i → i / j = 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div-zero-06          :  ⊦ i < j ∧ 0 < j ∧ 0 < i → i / j = 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div-zero-ngr         :  ⊦ i < 0 ∧ 0 < j → ¬ 0 < i / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-zero-ngr-01      :  ⊦ 0 ≤ i ∧ j < 0 → ¬ 0 < i / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-zero-nls         :  ⊦ 0 ≤ i ∧ 0 < j → ¬ i / j < 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div-zero-nls-01      :  ⊦ j ≠ 0 → ¬ abs(i) / abs(j) < 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-add-neg         :  ⊦ j % 2 = 0 ∧ i ≤ 0 ∧ abs(i) ≤ j → (i + j) / 2 = (i - 1) / 2 + j / 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-neg             :  ⊦ i / 2 < 0 → i < 0 ;
+            used for : f, lf ;
+             remarks : proved, used ;
+div2-neg-01          :  ⊦ j < 0 → ¬ j / 2 ≤ j ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-neg-odd         :  ⊦ j < 0 → (j * 2 - 1) / 2 = j ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-nle             :  ⊦ 0 < i → ¬ i ≤ i / 2 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div2-nle-01          :  ⊦ 1 < i → ¬ i / 2 ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-nle-02          :  ⊦ 0 ≤ i ∧ i < j → ¬ j ≤ (i + j) / 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-nls             :  ⊦ i ≤ j → ¬ j < (i + j) / 2 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div2-nls-01          :  ⊦ i < j → ¬ j < (i + j) / 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-nls-02          :  ⊦ i ≤ j → ¬ (i + j) / 2 < i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div2-nls-03          :  ⊦ i < j → ¬ (i + j) / 2 < i ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-notzero         :  ⊦ j < 0 → (j - 1) / 2 ≠ 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-odd             : i % 2 = 0, 0 ≤ i ⊦ (i + 1) / 2 = i / 2 ;
+             remarks : proved, used ;
+div2-odd-01          :  ⊦ i < 0 → (1 - i * 2) / 2 = ~ i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div2-one             :  ⊦ 1 / 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2-zero            :  ⊦ i / 2 = 0 ↔ i = 0 ∨ i = 1 ∨ i = ~ 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2one              :  ⊦ i % 2 = 1 ∧ 0 < i → i / 2 * 2 + 1 = i ;
+            used for : s, ls ;
+             remarks : proved ;
+div2one-01           :  ⊦ i % 2 = 1 → (1 + i / 2) * 2 = i + 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+div2zero             :  ⊦ i % 2 ≠ 1 ∧ 0 < i → i / 2 * 2 = i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+div53                :  ⊦ (1 + 1 + 1 + 1 + 1) / (1 + 1 + 1) = 1 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+diveq-neg            : i0 * j + j0 < 0, i0 < 0, j0 ≤ 0, abs(j0) < j ⊦ (i0 * j + j0) / j = i0 ;
+             remarks : proved, used ;
+diveq-pos            : 0 ≤ i0 * j + j0, 0 ≤ j0, j0 < j ⊦ (i0 * j + j0) / j = i0 ;
+             remarks : proved, used ;
+divmod-rew           : j ≠ 0 ⊦ i / j * j + i % j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+divmult              : j ≠ 0 ⊦ i % j = 0 → i / j * j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+estimate-01          : 0 < i, 0 < i0, 0 < j, j < i, j0 < i0 ⊦ j0 < (i * i0) / j ;
+             remarks : proved ;
+even-add             :  ⊦ (i + j) % 2 = 0 ↔ i % 2 = 0 ∧ j % 2 = 0 ∨ i % 2 ≠ 0 ∧ j % 2 ≠ 0 ;
+             remarks : proved ;
+even-mult            :  ⊦ (i * j) % 2 = 0 ↔ i % 2 = 0 ∨ j % 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+even-not             :  ⊦ (2 * i + 1) % 2 ≠ 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+even-not-ex          :  ⊦ i % 2 ≠ 0 ↔ (∃ i0. i = 2 * i0 + 1) ;
+             remarks : proved, used ;
+even-or-succ-even    : 0 ≤ i ⊦ i % 2 = 0 ∨ (i + 1) % 2 = 0 ;
+             remarks : proved ;
+exeven               : i % 2 = 0 ⊦ ∃ j. i = 2 * j ;
+             remarks : proved, used ;
+exodd                : i % 2 = 1, 0 ≤ i ⊦ ∃ j. 0 ≤ j ∧ i = 2 * j + 1 ;
+             remarks : proved, used ;
+is-div               :  ⊦ 0 ≤ i0 ∧ 0 ≤ i ∧ 0 < j ∧ i0 * j ≤ i ∧ i < (i0 + 1) * j → i0 = i / j ;
+             remarks : proved, used ;
+le-abs-numerator     : j ≠ 0 ⊦ ~ abs(i) ≤ i / j ∧ i / j ≤ abs(i) ;
+             remarks : proved ;
+le-norest            : 
+⊦   i % j = 0 ∧ i0 % j = 0 ∧ 0 ≤ i ∧ 0 < j ∧ 0 ≤ i0
+  → (i / j ≤ i0 / j ↔ i ≤ i0) ;
+            used for : s, ls ;
+             remarks : proved ;
+leone-two            :  ⊦ i / 2 ≤ 1 ↔ i ≤ 1 + 1 + 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+less-mult-div        :  ⊦ 0 < i ∧ 0 < i1 ∧ 0 < j ∧ i1 < j → i * i1 / j < i ;
+             remarks : proved ;
+less-mult-div-01     :  ⊦ 0 < i ∧ 0 < j ∧ 0 < j1 ∧ i1 < j → (i * i1) / j < i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+less-mult-div-02     :  ⊦ 0 < i ∧ 0 < j ∧ i1 < j → (i * i1) / j < i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+letwo                :  ⊦ 1 < i → ¬ i ≤ i / 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+letwozero            :  ⊦ i < 0 → (0 ≤ i / 2 ↔ i = ~1) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+ls                   : 0 ≤ i0, 0 < i, 0 < j, i0 / i < i0 / j ⊦ j < i ;
+             remarks : proved, used ;
+ls-01                : i0 ≠ 0, j0 ≠ 0, 0 ≤ i, 0 ≤ i0, i ≤ j, i0 ≤ j0 ⊦ i / j0 ≤ j / i0 ;
+             remarks : proved, used ;
+ls-02                : 0 < i0, i / i0 < j / i0 ⊦ i < j ;
+             remarks : proved, used ;
+ls-03                : 0 < j0, 0 ≤ i, i ≤ j ⊦ i / j0 ≤ j / j0 ;
+             remarks : proved, used, used by proved unit ;
+ls-even              :  ⊦ i % 2 = 0 ∧ j % 2 = 0 ∧ 0 ≤ i ∧ 0 ≤ j → (i / 2 < j / 2 ↔ i < j) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+ls-even-01           :  ⊦ i % 2 = 0 ∧ j % 2 = 0 → (i / 2 < j / 2 ↔ i < j) ;
+            used for : s, ls ;
+             remarks : proved ;
+ls-same-pos          :  ⊦ 0 ≤ i ∧ 0 < j → i / j * j ≤ i ;
+            used for : s ;
+             remarks : proved, used ;
+ls-same-pos-01       :  ⊦ 0 ≤ i ∧ 0 < j → i < (i / j + 1) * j ;
+            used for : s ;
+             remarks : proved, used ;
+ls-same-pos-02       :  ⊦ 0 ≤ i ∧ 0 < j → ¬ i < i / j * j ;
+            used for : s ;
+             remarks : proved, used, used by proved unit ;
+ls-succ              :  ⊦ 0 < i ∧ 0 < j → i / (j + 1) ≤ i / j ;
+            used for : s, ls ;
+             remarks : proved ;
+lsf                  :  ⊦ i / i0 < j / i0 ∧ 0 < i0 → i < j ;
+             remarks : proved ;
+lsf-01               :  ⊦ i0 / i < i0 / j ∧ 0 ≤ i0 ∧ 0 < i ∧ 0 < j → j < i ;
+             remarks : proved ;
+lsf-02               :  ⊦ i / j < i / i0 ∧ 0 < j ∧ 0 < i0 ∧ i < 0 → j < i0 ;
+            used for : f ;
+             remarks : proved ;
+lsfc                 : 0 ≤ i0, 0 < i, 0 < j ⊦ i0 / i < i0 / j → j < i ;
+            used for : f ;
+             remarks : proved, used by proved unit ;
+lsfc-01              : 0 < i0 ⊦ i / i0 < j / i0 → i < j ;
+            used for : f ;
+             remarks : proved, used, used by proved unit ;
+lsfc-02              : 0 < i0 ⊦ i / i0 + j / i0 < 0 → i + j < 0 ;
+            used for : f ;
+             remarks : proved, used by proved unit ;
+lstwozero            :  ⊦ i < 0 → ¬ 0 < i / 2 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+minus-add            : j0 ≠ 0 ⊦ (i - j) / j0 + (j - i) / j0 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-abs              :  ⊦ j ≠ 0 → i % abs(j) = i % j ;
+             remarks : proved, used ;
+mod-abs-intro        :  ⊦ j ≠ 0 → i % j = i % abs(j) ;
+             remarks : proved ;
+mod-add              :  ⊦ 0 < i ∧ 0 ≤ j → (i + j) % i = j % i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-add-01           :  ⊦ 0 < i ∧ j < 0 ∧ i ≤ abs(j) → (i + j) % i = j % i ;
+            used for : s ;
+             remarks : proved, used ;
+mod-add-both-zero    :  ⊦ i % j = 0 ∧ i0 % j = 0 ∧ 0 ≠ j → (i + i0) % j = 0 ;
+             remarks : proved ;
+mod-add-neg          :  ⊦ i0 % j = 0 ∧ i < 0 ∧ i0 < 0 ∧ 0 < j → (i + i0) % j = i % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-add-pos          :  ⊦ i0 % j = 0 ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i + i0) % j = i % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-add-zero         :  ⊦ 0 ≤ i ∧ 0 < j ∧ 0 ≤ i1 ∧ i % j + j * i1 = 0 → i1 = 0 ;
+             remarks : proved ;
+mod-add1-negneg      :  ⊦ i % j = 0 ∧ i < 0 ∧ i0 < 0 ∧ 0 < j → (i + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-add1-negpos-neg  : 
+⊦   i % j = 0 ∧ i + i0 < 0 ∧ i < 0 ∧ 0 ≤ i0 ∧ i0 % j ≠ 0 ∧ 0 < j
+  → (i + i0) % j = i0 % j - j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-add1-negpos-pos  : 
+⊦   i % j = 0 ∧ 0 ≤ i + i0 ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-add1-posneg-neg  : 
+⊦   i % j = 0 ∧ i + i0 < 0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+  → (i + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-add1-posneg-pos  : 
+⊦   i % j = 0 ∧ 0 ≤ i + i0 ∧ 0 ≤ i ∧ i0 < 0 ∧ i0 % j ≠ 0 ∧ 0 < j
+  → (i + i0) % j = i0 % j + j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-add1-pospos      :  ⊦ i % j = 0 ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-by6              :  ⊦ 0 ≤ i → (i * (i + 1) * (2 * i + 1)) % 6 = 0 ;
+             remarks : proved, used by proved unit ;
+mod-div-ls           : 0 ≤ i0, i0 < i1, 0 < j, 0 ≤ i ⊦ (i0 + i1 * i % j) / j < i1 ;
+             remarks : proved ;
+mod-div-zero         :  ⊦ j ≠ 0 → (i % j) / j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-four             :  ⊦ 1 % (1 + 1 + 1 + 1) = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-gez              :  ⊦ j ≠ 0 → (0 ≤ i % j ↔ 0 ≤ i ∨ i % j = 0) ;
+             remarks : proved ;
+mod-grz              :  ⊦ 0 < j ∧ i < 0 → ¬ 0 < i % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-grz-01           :  ⊦ i < 0 ∧ j ≠ 0 → ¬ 0 < i % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-grz-02           :  ⊦ i < 0 ∧ j < 0 → ¬ 0 < i % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-le               :  ⊦ j ≤ j0 + 1 ∧ 0 ≤ i ∧ 0 < j → i % j ≤ j0 ;
+             remarks : proved ;
+mod-le-01            :  ⊦ j ≤ j0 ∧ 0 ≤ i ∧ 0 < j → i % j ≤ j0 ;
+             remarks : proved ;
+mod-le-num           : j < j0, 0 < j ⊦ i % (* j) ≤ (* j0) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-les              :  ⊦ 0 < j → ¬ j ≤ i % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-less             :  ⊦ j > 0 → i % j < j ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-less-01          :  ⊦ 0 < j → i % j < j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-lezero           :  ⊦ 0 < j → ¬ j + i % j ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-ls-same          :  ⊦ 0 < j ∧ 0 ≤ i → i % j < j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-ls-same-01       : j ≠ 0 ⊦ i % j < i ↔ 0 < i ∧ (abs(j) = 1 ∨ abs(j) ≤ i) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-ls-same-02       : j ≠ 0 ⊦ i < i % j ↔ i < 0 ∧ (abs(j) = 1 ∨ abs(j) ≤ abs(i)) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-ls-zero          : 0 < j ⊦ i % (* j) < 0 ↔ i < 0 ∧ i % j ≠ 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-lsz              :  ⊦ 0 < j → ¬ j + i % j < 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-lsz-01           :  ⊦ j ≠ 0 → (i % j < 0 ↔ i < 0 ∧ i % j ≠ 0) ;
+             remarks : proved ;
+mod-mod-less         :  ⊦ j % i = 0 ∧ 0 < i ∧ 0 < j ∧ 0 ≤ i1 ∧ i < j → (i1 % j) % i = i1 % i ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-mult             : 0 ≤ i, 0 < j, 0 < i0 ⊦ (i0 * i) % (i0 * j) = i % j * i0 ;
+             remarks : proved, used by proved unit ;
+mod-mult-01          : 0 ≠ j, 0 < i0 ⊦ (i0 * i) % (i0 * j) = i % j * i0 ;
+             remarks : proved ;
+mod-mult-02          : 0 ≠ j, i0 ≠ 0 ⊦ (i0 * i) % (i0 * j) = i % j * i0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-mult-03          : 0 ≠ j ⊦ (2 * i) % (2 * j) = i % j * 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-mult-04          : j ≠ 0 ⊦ (i * j) % j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-mult-neg         :  ⊦ 0 < j ∧ i ≤ 0 ∧ i0 ≤ 0 ∧ abs(i0) < j → (j * i + i0) % j = i0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-mult-neg-01      :  ⊦ 0 < j ∧ i ≤ 0 ∧ 0 ≤ i0 ∧ i0 < j → (j * i - i0) % j = ~ i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-mult-neg-02      :  ⊦ 0 < j ∧ i ≤ 0 ∧ i0 ≤ 0 → (j * i + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-mult-neg-03      :  ⊦ 0 < j ∧ i ≤ 0 ∧ i0 ≤ 0 → (i * j + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-mult-pos         :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ i0 < j → (j * i + i0) % j = i0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-mult-pos-01      :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 → (j * i + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-mult-pos-02      :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 → (i * j + i0) % j = i0 % j ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-neg              : j ≠ 0 ⊦ i % ~ j = i % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-neg-01           : j ≠ 0 ⊦ ~ i % j = ~(i % j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-neq              : j ≠ 0 ⊦ i % j ≠ j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-neq-01           : j ≠ 0 ⊦ i % j + j ≠ 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-neq-02           :  ⊦ j ≤ j0 ∧ 0 < j → i % j ≠ j0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-next-square      :  ⊦ ((i * i) * (i + 1) * (i + 1)) % 4 = 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-ngez             :  ⊦ 0 < j ∧ i < 0 → (0 ≤ i % j ↔ i % j = 0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-ngez-01          :  ⊦ i < 0 ∧ j < 0 → (0 ≤ i % j ↔ i % j = 0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-ngr              :  ⊦ i < 0 ∧ 0 < j → (0 ≤ i % j ↔ i % j = 0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-nle              :  ⊦ 0 < i ∧ 0 ≤ j → (j ≤ j % i ↔ j < i) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-nle-01           :  ⊦ 0 < j ∧ 0 ≤ i ∧ j ≤ i0 → ¬ i0 ≤ i % j ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-nle-02           :  ⊦ j0 ≤ ~ j ∧ 0 < j → ¬ i % j ≤ j0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-nls              : j ≠ 0 ⊦ j0 = 1 + ~ j ∧ j0 < 0 → ¬ i % j < j0 ;
+             remarks : proved ;
+mod-nls-01           :  ⊦ j ≤ i0 ∧ 0 < j → ¬ i0 < i % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-nls-02           :  ⊦ i0 ≤ i ∧ i0 < 0 ∧ j ≠ 0 → ¬ i % j < i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-nls-03           :  ⊦ i ≤ i0 ∧ 0 ≤ i0 ∧ j ≠ 0 → ¬ i0 < i % j ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-nls-04           :  ⊦ i0 - 1 ≤ ~ abs(j) ∧ j ≠ 0 → ¬ i % j < i0 ;
+             remarks : proved ;
+mod-nls-05           :  ⊦ j ≤ i0 + 1 ∧ 0 < j → ¬ i0 < i % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-nls-06           : j ≠ 0 ⊦ abs(j) ≤ i0 + 1 → ¬ i0 < i % j ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-not-less         :  ⊦ j < 0 ∧ i < 0 → ¬ i % j ≤ j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-one              :  ⊦ i % 1 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-one-01           :  ⊦ 1 % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-pos-not-neg      :  ⊦ 0 < i1 ∧ 0 < i % i1 → ¬ i < 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-pred             :  ⊦ (i - 1) % j + 1 ≠ j ∧ 0 < i ∧ 0 < j → i % j = (i - 1) % j + 1 ;
+             remarks : proved ;
+mod-pred-01          :  ⊦ (i - 1) % j + 1 = j ∧ 0 < i ∧ 0 < j → i % j = 0 ;
+             remarks : proved ;
+mod-pred-02          :  ⊦ i % j ≠ 0 ∧ 0 < i ∧ 0 < j → (i - 1) % j = i % j - 1 ;
+             remarks : proved ;
+mod-pred-03          :  ⊦ (i + 1) % j ≠ 0 ∧ 0 ≤ i ∧ 0 < j → i % j = (i + 1) % j - 1 ;
+             remarks : proved ;
+mod-pred-04          :  ⊦ (i + 1) % j = 0 ∧ 0 ≤ i ∧ 0 < j → i % j = j - 1 ;
+             remarks : proved ;
+mod-pred-neg         :  ⊦ i % j - 1 ≠ ~ j ∧ i < 0 ∧ 0 < j → i % j = (i - 1) % j + 1 ;
+             remarks : proved ;
+mod-pred-neg-01      :  ⊦ (i - 1) % j ≠ 0 ∧ i < 0 ∧ 0 < j → i % j = (i - 1) % j + 1 ;
+             remarks : proved ;
+mod-rec              : 0 < j, j ≤ i ⊦ i % j = (i - j) % j ;
+             remarks : proved, used, used by proved unit ;
+mod-rec-01           : i ≤ j, j < 0 ⊦ i % j = (i - j) % j ;
+             remarks : proved ;
+mod-rew              : j ≠ 0 ⊦ i % j = i - i / j * j ;
+             remarks : proved, used, used by proved unit ;
+mod-same             : i ≠ 0 ⊦ i % i = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-shift            :  ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j → (i * i0 % j) % j = (i * i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-sub              :  ⊦ 0 < i ∧ j < 0 → (i - j) % i = ~(j % i) ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-sub-01           :  ⊦ 0 < i ∧ 0 ≤ j ∧ i ≤ j → (i - j) % i = ~(j % i) ;
+             remarks : proved ;
+mod-sub-02           : 
+⊦   0 ≤ i ∧ j < i ∧ 0 < j ∧ 0 ≤ i0 ∧ i0 * j ≤ i ∧ i < (i0 + 1) * j
+  → i % j = i - i0 * j ;
+             remarks : proved ;
+mod-succ             :  ⊦ 1 < i → (i + 1) % i = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-succ-01          :  ⊦ i % j + 1 ≠ j ∧ 0 ≤ i ∧ 0 < j → (i + 1) % j = i % j + 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-succ-02          :  ⊦ i % j + 1 = j ∧ 0 ≤ i ∧ 0 < j → (i + 1) % j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-three            :  ⊦ (1 + 1 + 1) % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-two              :  ⊦ i % 2 ≠ 1 ∧ 0 < i → i % 2 = 0 ;
+            used for : f, lf ;
+             remarks : proved, used, used by proved unit ;
+mod-two-01           :  ⊦ i % 2 + 1 ≠ 0 ∧ i < 0 → i % 2 = 0 ;
+            used for : f, lf ;
+             remarks : proved, used ;
+mod-two-02           :  ⊦ (i * 2) % 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-two-03           :  ⊦ 0 < i → (i * 2 - 1) % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-two-04           :  ⊦ 0 ≤ i → (i * 2 + 1) % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-two-05           :  ⊦ i % 2 ≠ 1 ∧ 1 < i → i % 2 = 0 ;
+            used for : f, lf ;
+             remarks : proved ;
+mod-two-06           :  ⊦ 0 < i → (i % 2 ≠ 1 ↔ i % 2 = 0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-two-pred         :  ⊦ 0 < i → (2 * i - 1) % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-two-pred-01      :  ⊦ i < 0 → (2 * i - 1) % 2 = ~1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-two-pred-02      :  ⊦ i < 0 → (1 - 2 * i) % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod-twoeven          : i % 2 = 0, j ≠ 0 ⊦ i % (2 * j) = (i / 2) % j * 2 ;
+             remarks : proved ;
+mod-twoodd           : 0 ≤ i, 0 < j ⊦ (2 * i + 1) % (2 * j) = i % j * 2 + 1 ;
+             remarks : proved, used ;
+mod-twoodd-01        : i % 2 = 1, 0 ≤ i, 0 < j ⊦ i % (2 * j) = (i / 2) % j * 2 + 1 ;
+             remarks : proved ;
+mod-twoodd-02        :  ⊦ j % (2 * i) = 1 ∧ 0 < i ∧ 0 ≤ j → j % 2 = 1 ;
+            used for : f, lf ;
+             remarks : proved ;
+mod-twoodd-03        : i < 0, 0 < j ⊦ (2 * i + 1) % (2 * j) = (i + 1) % j * 2 - 1 ;
+             remarks : proved ;
+mod-zero             :  ⊦ 0 < j ∧ 0 ≤ i → 0 ≤ i % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-01          :  ⊦ 0 < j ∧ 0 ≤ i → ¬ i % j < 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-02          :  ⊦ 0 ≤ i ∧ 0 < j → (i % j ≤ 0 ↔ i % j = 0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-03          : 0 < j, 0 ≤ i, i < j ⊦ i % j = i ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-04          : j ≠ 0 ⊦ 0 % j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-05          :  ⊦ abs(i) < j → i % j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-06          :  ⊦ 0 ≤ i ∧ j ≠ 0 → ¬ i % j < 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-07          : 0 < j ⊦ 0 ≤ i ∧ i < j → i % (* j) = i ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-zero-08          : 0 < j ⊦ 0 < i ∧ i < j → i % (* j) = i ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-zero-09          :  ⊦ 0 < i ∧ i < j → i % j = i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod-zero-ls          :  ⊦ 0 < i ∧ 0 < j → ¬ i % j < 0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod-zero-num         : i0 % j = 0, j ≠ 0 ⊦ (i * (* i0)) % (* j) = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mod-zero-one         : 0 ≤ i, 0 ≤ i0, 0 < j
+⊦ (i % j + i0 % j) / j = 1 ∨ (i % j + i0 % j) / j = 0 ;
+             remarks : proved, used ;
+mod2-add-neg         :  ⊦ j % 2 = 0 ∧ i ≤ 0 ∧ abs(i) ≤ j → (i + j) % 2 = ~ i % 2 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod2-neg-odd         :  ⊦ j < 0 → (j % 2 ≠ ~1 ↔ j % 2 = 0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mod256               :  ⊦ ¬ 255 < i % 256 ;
+            used for : s, ls ;
+             remarks : proved ;
+mod53                :  ⊦ (1 + 1 + 1 + 1 + 1) % (1 + 1 + 1) = 1 + 1 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+mod62                :  ⊦ (1 + 1 + 1 + 1 + 1 + 1) % 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+modby6-help          : 
+⊦   (i + 1) * (2 + i) * (2 * (i + 1) + 1)
+  = 6 * (i + 1) * (i + 1) + i * (i + 1) * (2 * i + 1) ;
+             remarks : proved, used ;
+modeq-neg            : i0 * j + j0 < 0, 0 < j, j0 < 0 ⊦ (i0 * j + j0) % j = j0 % j ;
+             remarks : proved, used ;
+modeq-neg-02         : i0 * j + j0 < 0, 0 < j, 0 ≤ j0, j0 % j ≠ 0
+⊦ (i0 * j + j0) % j = j0 % j - j ;
+             remarks : proved ;
+modeq-pos            : 0 ≤ i0 * j + j0, 0 ≤ j0, j0 < j ⊦ (i0 * j + j0) % j = j0 ;
+             remarks : proved, used ;
+modeq-pos-01         : 0 ≤ i0 * j + j0, j0 < 0, abs(j0) < j ⊦ (i0 * j + j0) % j = j + j0 ;
+             remarks : proved, used ;
+modeq-pos-02         : 0 ≤ i0 * j + j0, 0 < j, 0 ≤ j0 ⊦ (i0 * j + j0) % j = j0 % j ;
+             remarks : proved, used, used by proved unit ;
+modeq-pos-03         : 0 ≤ i0 * j + j0, 0 < j, j0 < 0, j0 % j ≠ 0
+⊦ (i0 * j + j0) % j = j0 % j + j ;
+             remarks : proved, used ;
+modeq-pos-04         : 0 ≤ i0 * j - j0, 0 < j, 0 < j0, j0 % j ≠ 0
+⊦ (i0 * j - j0) % j = j - j0 % j ;
+             remarks : proved, used ;
+modeven-neg          :  ⊦ i < 0 ∧ i % 2 = 0 → (i + 1) % 2 = ~1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modeven-neg-01       :  ⊦ i < 0 → ((i + 1) % 2 ≠ 0 ↔ (i + 1) % 2 = ~1 ∧ i % 2 = 0) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modeven-pos          :  ⊦ 0 < i ∧ i % 2 = 0 → (i + 1) % 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+modex                : j ≠ 0 ⊦ i % j = 0 ↔ (∃ j0. i = j0 * j) ;
+             remarks : proved, used, used by proved unit ;
+modex-odd            :  ⊦ i % 2 = 1 ↔ (∃ j. i = 2 * j + 1 ∧ 0 ≤ j) ;
+             remarks : proved, used, used by proved unit ;
+modex-odd-neg        :  ⊦ i % 2 = ~1 ↔ (∃ j. i = 2 * j - 1 ∧ j ≤ 0) ;
+             remarks : proved, used ;
+modex-odd-neg-01     :  ⊦ i % 2 = ~1 ↔ (∃ j. i = 2 * j + 1 ∧ j < 0) ;
+             remarks : proved, used ;
+modmod               : j ≠ 0 ⊦ (i % j) % j = i % j ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+modmod-add           : 0 < j ⊦ 0 ≤ i ∧ 0 ≤ i0 → (i % j + i0) % j = (i + i0) % j ;
+             remarks : proved, used ;
+modmod-add-01        : 0 ≠ j ⊦ 0 ≤ i ∧ 0 ≤ i0 → (i % j + i0) % j = (i + i0) % j ;
+             remarks : proved, used ;
+modmod-add-02        : 0 ≠ j ⊦ i ≤ 0 ∧ i0 ≤ 0 → (i % j + i0) % j = (i + i0) % j ;
+             remarks : proved, used ;
+modmod-add-03        : j ≠ 0 ⊦ i < 0 ∧ i0 < 0 → (i % j + i0 % j) % j = (i + i0) % j ;
+             remarks : proved ;
+modmod-add-04        :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 ≤ i0 → (i % j + i0 % j) % j = (i + i0) % j ;
+             remarks : proved, used by proved unit ;
+modmod-add-case      : 0 < j
+⊦   (i + i0 % j) % j = (i + i0) % j
+  ∨ (i + i0 % j) % j = (i + i0) % j + j
+  ∨ (i + i0 % j) % j = (i + i0) % j - j ;
+             remarks : proved, used ;
+modmod-add-if        : 0 < j
+⊦   (i + i0 % j) % j
+  = (0 ≤ i
+    ⊃ (0 ≤ i0
+      ⊃ (i + i0) % j
+      ;(0 ≤ i + i0
+       ⊃ (i + i0) % j
+       ;(i + i0 % j < 0
+        ⊃ (i + i0) % j
+        ;((i + i0 % j) % j ≠ 0 ⊃ (i + i0) % j + j;0)
+        )
+       )
+      )
+    ;(i0 < 0
+     ⊃ (i + i0) % j
+     ;(i + i0 < 0
+      ⊃ (i + i0) % j
+      ;(0 ≤ i + i0 % j
+       ⊃ (i + i0) % j
+       ;((i + i0 % j) % j ≠ 0 ⊃ (i + i0) % j - j;0)
+       )
+      )
+     )
+    ) ;
+             remarks : proved, used ;
+modmod-add-if3       : 0 < j
+⊦   (i + i0 % j) % j
+  = (  0 ≤ i + i0 % j ∧ i + i0 < 0 ∧ 0 ≤ i ∧ i0 < 0
+     ∧ (i + i0 % j) % j ≠ 0
+    ⊃ (i + i0) % j + j
+    ;(  i + i0 % j < 0 ∧ 0 ≤ i + i0 ∧ i < 0 ∧ 0 ≤ i0
+      ∧ (i + i0 % j) % j ≠ 0
+     ⊃ (i + i0) % j - j
+     ;(i + i0) % j
+     )
+    ) ;
+             remarks : proved ;
+modmod-add-law       : 0 ≠ j
+⊦   (i % j + i0 % j) % j = (i + i0) % j
+  ∨ (i % j + i0 % j) % j = (i + i0) % j + j
+  ∨ (i % j + i0 % j) % j = (i + i0) % j - j ;
+             remarks : proved ;
+modmod-add-law-pos   : 0 < j
+⊦   (i % j + i0 % j) % j = (i + i0) % j
+  ∨ (i % j + i0 % j) % j = (i + i0) % j + j
+  ∨ (i % j + i0 % j) % j = (i + i0) % j - j ;
+             remarks : proved, used ;
+modmod-add-zero      : 0 < j ⊦ (i + i0 % j) % j = 0 → (i + i0) % j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-negpos-neg :  ⊦   i + i0 < 0 ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+   → (i + i0 % j) % j = (i + i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-negpos-pos : 
+⊦   0 ≤ i + i0 % j ∧ i < 0 ∧ 0 ≤ i0 ∧ 0 < j
+  → (i + i0 % j) % j = (i + i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-negpos-pos-01 : 
+⊦     i + i0 % j < 0 ∧ 0 ≤ i + i0 ∧ i < 0 ∧ 0 ≤ i0
+    ∧ (i + i0 % j) % j ≠ 0 ∧ 0 < j
+  → (i + i0 % j) % j = (i + i0) % j - j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-negpos-pos-02 : 
+⊦     i + i0 % j < 0 ∧ 0 ≤ i + i0 ∧ i < 0 ∧ 0 ≤ i0
+    ∧ (i + i0 % j) % j = 0 ∧ 0 < j
+  → (i + i0 % j) % j = (i + i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-posneg-neg : 
+⊦   i + i0 % j < 0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+  → (i + i0 % j) % j = (i + i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-posneg-neg-01 : 
+⊦     0 ≤ i + i0 % j ∧ i + i0 < 0 ∧ 0 ≤ i ∧ i0 < 0
+    ∧ (i + i0 % j) % j ≠ 0 ∧ 0 < j
+  → (i + i0 % j) % j = (i + i0) % j + j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-posneg-neg-02 : 
+⊦     0 ≤ i + i0 % j ∧ i + i0 < 0 ∧ 0 ≤ i ∧ i0 < 0
+    ∧ (i + i0 % j) % j = 0 ∧ 0 < j
+  → (i + i0 % j) % j = (i + i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-add2-posneg-pos :  ⊦   0 ≤ i + i0 ∧ 0 ≤ i ∧ i0 < 0 ∧ 0 < j
+   → (i + i0 % j) % j = (i + i0) % j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+modmod-law-mult      : 0 ≠ j ⊦ (i * i0) % j = (i % j * i0 % j) % j ;
+             remarks : proved ;
+modmod-ma            : 0 < j
+⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 ≤ j0
+  → (i % j * i0 % j + j0) % j = (i * i0 + j0) % j ;
+             remarks : proved ;
+modmod-ma-01         : 0 < j
+⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 ≤ j0 → (i % j * i0 + j0) % j = (i * i0 + j0) % j ;
+             remarks : proved ;
+modmod-ma-negpos-neg : 
+⊦   j0 + i0 * i < 0 ∧ j0 < 0 ∧ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j
+  → (j0 + i0 * i % j) % j = (j0 + i0 * i) % j ;
+             remarks : proved ;
+modmod-mult          : 0 < j ⊦ 0 ≤ i ∧ 0 ≤ i0 → (i % j * i0 % j) % j = (i * i0) % j ;
+             remarks : proved, used ;
+modmod-mult-01       : 0 ≠ j ⊦ (i % j * i0 % j) % j = (i * i0) % j ;
+             remarks : proved, used ;
+modmod-mult-02       : 0 < j ⊦ (i % j * i0 % j) % j = (i * i0) % j ;
+             remarks : proved, used ;
+modmod-mult-03       : j ≠ 0 ⊦ 0 < j0 → (i % (j * j0)) % j = i % j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+modmod-mult-04       :  ⊦ 0 < j ∧ 0 ≤ i ∧ 0 < j0 → (i % (j * j0)) % j = i % j ;
+            used for : ls ;
+             remarks : proved, used ;
+modmod-mult-05       :  ⊦ j ≠ 0 ∧ j0 ≠ 0 → (i % (j * j0)) % j = i % j ;
+             remarks : proved, used ;
+modmod-mult-06       : 0 < j ⊦ 0 ≤ i ∧ 0 ≤ i0 ∧ 0 ≤ j0 → (i % j * i0) % j = (i * i0) % j ;
+             remarks : proved ;
+modmod-mult-07       : 0 < j ⊦ (i % j * i0) % j = (i * i0) % j ;
+             remarks : proved, used ;
+modmod-mult-08       : 0 < j ⊦ 0 ≤ i ∧ 0 ≤ i0 → (i % j * i0) % j = (i * i0) % j ;
+             remarks : proved, used ;
+modmod-mult-09       : j ≠ 0 ⊦ (i % j * i0) % j = (i * i0) % j ;
+             remarks : proved ;
+modmod-pos           :  ⊦ 0 ≤ i ∧ 0 < j ∧ 0 < j0 → i % (j * j0) = i % j + (i / j) % j0 * j ;
+             remarks : proved ;
+modnum-neg           : j ≠ 0 ⊦ i < 0 → (* i) % j = ~(~ i % j) ;
+            used for : ls ;
+             remarks : proved, used, used by proved unit ;
+modnum-neg-01        :  ⊦ j < 0 → i % (* j) = i % ~ j ;
+            used for : ls ;
+             remarks : proved, used ;
+mult                 :  ⊦ 0 ≤ i0 ∧ i0 < j ∧ 0 ≤ i → (i * j + i0) / j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mult-01              :  ⊦ 0 ≤ i0 ∧ i0 < abs(j) ∧ j < 0 ∧ 0 ≤ i → (i * abs(j) + i0) / j = ~ i ;
+            used for : s, ls ;
+             remarks : proved ;
+mult-02              :  ⊦ 0 ≤ i0 ∧ i0 < j ∧ 0 ≤ i ∧ 0 < j0 → (i * j + i0) / (j0 * j) = i / j0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mult-03              : 
+⊦   0 < i0 ∧ i0 < j ∧ 0 < i ∧ 0 < j0
+  → (i * j - i0) / (j0 * j) = (i - 1) / j0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mult-04              : 
+⊦   0 < i0 ∧ i0 < j ∧ 0 < i ∧ 0 < j0
+  → (j * i - i0) / (j * j0) = (i - 1) / j0 ;
+             remarks : proved, used ;
+mult-05              :  ⊦ 0 < i0 ∧ i0 < j ∧ 0 < i → (j * i - i0) / j = i - 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mult-div-switch      :  ⊦ j ≠ 0 ∧ i % j = 0 → i / j * j = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mult-ls              :  ⊦ 0 < j ∧ i / j < i0 → i < i0 * j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mult-ls-01           :  ⊦ 0 < j ∧ i0 < i / j → i0 * j < i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+mult-split-mod       :  ⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 < j
+   → i / j * i0 + (i0 * i % j) / j = (i0 * i) / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+mult-split-mod-02    : 
+⊦   0 ≤ i ∧ 0 ≤ i0 ∧ 0 ≤ i1 ∧ 0 < j
+  → (i + i0 * i1 / j) + (i0 * i1 % j) / j = i + (i0 * i1) / j ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+neg                  : j ≠ 0 ⊦ i / ~ j = ~(i / j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+neg-01               : j ≠ 0 ⊦ ~ i / j = ~(i / j) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+neqf                 :  ⊦ i / j ≠ i / i0 → j ≠ i0 ;
+            used for : f, lf ;
+             remarks : proved, used by proved unit ;
+nls-mult-div         :  ⊦ 0 ≤ i ∧ 0 < j ∧ i1 < j → ¬ i < (i * i1) / j ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+num-ls               :  ⊦ 0 < j ∧ 0 ≤ i → (i / (* j) < j0 ↔ i < j * j0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+num-neg              : j ≠ 0 ⊦ i < 0 → (* i) / j = ~(~ i / j) ;
+            used for : ls ;
+             remarks : proved, used ;
+num-neg-01           :  ⊦ j < 0 → i / (* j) = ~(i / ~ j) ;
+            used for : ls ;
+             remarks : proved, used ;
+nummult-eq           :  ⊦ j ≠ 0 → ((* i) * i0 = (* j) ↔ j % i = 0 ∧ i0 = j / i ∧ i ≠ 0) ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+nummult-eq-01        : j ≠ 0, j0 % j = 0 ⊦ i * (* j) = i0 * (* j0) ↔ i = i0 * j0 / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+nummult-le           :  ⊦ 0 < i ∧ 0 ≤ j → ((* i) * i0 ≤ (* j) ↔ i0 ≤ j / i) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-le-01        :  ⊦ 0 < i ∧ j < 0 → ((* i) * i0 ≤ (* j) ↔ i0 ≤ (j + 1 - i) / i) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-le-01-01     : 0 < i, j < 0 ⊦ (* i) * i0 ≤ (* j) ↔ i0 ≤ (j + 1 - i) / i ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-le-02        :  ⊦ 0 < i ∧ 0 ≤ j → ((* j) ≤ (* i) * i0 ↔ (i + j - 1) / i ≤ i0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-le-02-01     : 0 < i, 0 ≤ j ⊦ (* j) ≤ (* i) * i0 ↔ (i + j - 1) / i ≤ i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-le-03        :  ⊦ 0 < i ∧ j < 0 → ((* j) ≤ (* i) * i0 ↔ j / i ≤ i0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-le-03-01     : 0 < i, j < 0 ⊦ (* j) ≤ (* i) * i0 ↔ j / i ≤ i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-le-04        : 0 < i, 0 ≤ j ⊦ (* i) * i0 ≤ (* j) ↔ i0 ≤ j / i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+nummult-ls           :  ⊦ 0 < i ∧ 0 ≤ j → ((* i) * i0 < (* j) ↔ i0 < (i + j - 1) / i) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-ls-01        :  ⊦ 0 < i ∧ j < 0 → ((* i) * i0 < (* j) ↔ i0 < j / i) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-ls-01-01     : 0 < i, j < 0 ⊦ (* i) * i0 < (* j) ↔ i0 < j / i ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-ls-02        :  ⊦ 0 < i ∧ 0 ≤ j → ((* j) < (* i) * i0 ↔ j / i < i0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-ls-02-01     : 0 < i, 0 ≤ j ⊦ (* j) < (* i) * i0 ↔ j / i < i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-ls-03        :  ⊦ 0 < i ∧ j < 0 → ((* j) < (* i) * i0 ↔ (j + 1 - i) / i < i0) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+nummult-ls-03-01     : 0 < i, j < 0 ⊦ (* j) < (* i) * i0 ↔ (j + 1 - i) / i < i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-ls-04        : 0 < i, 0 ≤ j ⊦ (* i) * i0 < (* j) ↔ i0 < (i + j - 1) / i ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-modle        : 0 < i, i < j, j % i = 0 ⊦ (* i) * i0 ≤ (* j) * j0 ↔ i0 ≤ j / i * j0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-modle-01     : 0 < j, j < i, i % j = 0 ⊦ (* i) * i0 ≤ (* j) * j0 ↔ i / j * i0 ≤ j0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-modls        : 0 < i, i < j, j % i = 0 ⊦ (* i) * i0 < (* j) * j0 ↔ i0 < j / i * j0 ;
+            used for : s, ls ;
+             remarks : proved ;
+nummult-modls-01     : 0 < j, j < i, i % j = 0 ⊦ (* i) * i0 < (* j) * j0 ↔ i / j * i0 < j0 ;
+            used for : s, ls ;
+             remarks : proved, used by proved unit ;
+one                  :  ⊦ i / 1 = i ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+one-01               :  ⊦ i = 1 → j % i = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+one-02               : j ≠ 0 ⊦ 1 / j = 1 ↔ j = 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+one-03               :  ⊦ 1 < j → 1 % j = 1 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+one-04               :  ⊦ 1 < j → 1 / j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+one-05               :  ⊦ 1 < j → ~1 % j = ~1 ;
+            used for : s, ls ;
+             remarks : proved ;
+one-06               :  ⊦ 1 < j → ~1 % 1 = 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+one-lez              :  ⊦ 1 / i ≤ 0 ∧ 0 < i → 1 / i = 0 ∧ 1 < i ;
+            used for : f, lf ;
+             remarks : proved ;
+one-neg              : j ≠ 0 ⊦ 1 / j < 0 ↔ j = ~1 ;
+            used for : s, ls ;
+             remarks : proved ;
+one-pos              : j ≠ 0 ⊦ 0 < 1 / j ↔ j = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+pdiv-ls              : i / j < j0, i0 ≤ i, 0 < j ⊦ i0 / j < j0 ;
+             remarks : proved ;
+pos                  :  ⊦ 0 < j ∧ 0 ≤ i → 0 ≤ i / j ;
+            used for : s ;
+             remarks : proved, used, used by proved unit ;
+prod-div-less        :  ⊦ 0 < i ∧ i < j ∧ 0 < i1 ∧ i1 < j → (i * i1) / j < i ;
+            used for : s, ls ;
+             remarks : proved, used ;
+prod-div-less-01     :  ⊦ 0 < i ∧ i < j ∧ 0 < i1 ∧ i1 < j → (i * i1) / j < i1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+quad-div-less        :  ⊦ 0 < i ∧ i < j → (i * i) / j < i ;
+            used for : s, ls ;
+             remarks : proved ;
+square-even          :  ⊦ 0 ≤ i → (i * (i + 1)) % 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-even-01       :  ⊦ (i * (i + 1)) % 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-even-02       :  ⊦ ((i + 1) * (i + 2)) % 2 = 0 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-inject        : 
+⊦   0 ≤ i ∧ 0 ≤ j ∧ 0 ≤ i0 ∧ 0 ≤ j0
+  → (    ((i + j) * (i + j + 1)) / 2 + j
+       = ((i0 + j0) * (i0 + j0 + 1)) / 2 + j0
+     ↔ i = i0 ∧ j = j0) ;
+             remarks : proved ;
+square-interval      : (i * (i + 1)) / 2 ≤ (j * (j + 1)) / 2 + j0, 
+(j * (j + 1)) / 2 + j0 < ((i + 1) * (i + 2)) / 2, j0 ≤ j, 0 ≤ i, 
+0 ≤ j0
+⊦ i = j ;
+             remarks : proved ;
+square-ls            :  ⊦ 0 ≤ i ∧ 0 ≤ j → ((i * (i + 1)) / 2 < (j * (j + 1)) / 2 ↔ i < j) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-ls-01         : 
+⊦   0 ≤ i ∧ 0 ≤ j
+  → ((i * (i + 1)) / 2 < ((j + 1) * (j + 2)) / 2 ↔ i < j + 1) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-ls-02         : 
+⊦   0 ≤ i ∧ 0 ≤ j
+  → (((i + 1) * (i + 2)) / 2 < ((j + 1) * (j + 2)) / 2 ↔ i < j) ;
+            used for : s, ls ;
+             remarks : proved ;
+square-nle           :  ⊦ 0 ≤ j → ((j * (j + 1)) / 2 ≤ j ↔ j < 2) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-nle-01        :  ⊦ 0 ≤ j → ¬ ((j + 1) * (j + 2)) / 2 ≤ j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-nle-02        :  ⊦ 0 ≤ j ∧ i ≤ 0 → ¬ ((j + 1) * (j + 2)) / 2 ≤ i + j ;
+            used for : s, ls ;
+             remarks : proved ;
+square-nls           :  ⊦ 0 ≤ j → ¬ (j * (j + 1)) / 2 < j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-nls-01        :  ⊦ 0 ≤ j ∧ i < 0 → ¬ (j * (j + 1)) / 2 < i + j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+square-nls-02        :  ⊦ 0 ≤ j ∧ i ≤ 0 → ¬ (j * (j + 1)) / 2 < i + j ;
+            used for : s, ls ;
+             remarks : proved ;
+sub-ls               :  ⊦ 0 < i0 ∧ i < j → (i - j) / i0 ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+sub-ls-01            :  ⊦ 0 < i0 ∧ j ≤ i → 0 ≤ (i - j) / i0 ;
+            used for : s, ls ;
+             remarks : proved ;
+three                :  ⊦ (1 + 1 + 1) / 2 = 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+two-add-square       :  ⊦ 0 ≤ i → ((i * (i - 1)) / 2 + i ≠ (i * (i + 1)) / 2 ↔ false) ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+two-add-square-01    :  ⊦ 0 < i → ((i * (i - 1)) / 2 + i ≠ (i * (i + 1)) / 2 ↔ false) ;
+            used for : s, ls ;
+             remarks : proved ;
+two-even             :  ⊦ i % 2 = 0 → (i / 2 = j ↔ i = 2 * j) ;
+            used for : s, ls ;
+             remarks : proved, used ;
+two-mult             :  ⊦ 0 < i ∧ 0 < j0 → (2 * i - 1) / (2 * j0) = (i - 1) / j0 ;
+            used for : s, ls ;
+             remarks : proved ;
+two-mult-01          :  ⊦ 0 < i → (2 * i - 1) / 2 = i - 1 ;
+            used for : s, ls ;
+             remarks : proved, used ;
+two-odd              :  ⊦ i % 2 = 0 ∧ 0 < i → (i - 1) / 2 = i / 2 - 1 ;
+            used for : s, ls ;
+             remarks : proved ;
+zero                 : j ≠ 0 ⊦ 0 / j = 0 ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+zero-01              :  ⊦ 0 < j ∧ i < 0 → i / j ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+zero-02              :  ⊦ 0 < i ∧ j < 0 → i / j ≤ 0 ;
+            used for : s, ls ;
+             remarks : proved ;
+zero-03              :  ⊦ 0 < i ∧ 0 < j → 0 ≤ i / j ;
+            used for : s, ls ;
+             remarks : proved, used, used by proved unit ;
+zero-04              : 0 < i0, i / i0 + j / i0 < 0 ⊦ i + j < 0 ;
+             remarks : proved, used ;
+zero-05              : j ≠ 0 ⊦ i < 0 → i ≤ i / j ;
+            used for : s, ls ;
+             remarks : proved, used ;
+zero-06              : j ≠ 0 ⊦ i < 0 ∧ j < 0 → 0 ≤ i / j ;
+            used for : s ;
+             remarks : proved, used ;
+zero-07              : j ≠ 0 ⊦ 0 < i → i / j ≤ i ;
+            used for : s, ls ;
+             remarks : proved ;
+
+
+;;; END
+

@@ -1,0 +1,6 @@
+(: This file is used to add additional formulas (e.g. invariants, cut formulas, etc. :)
+
+;; i→n(0i +1i) = 0 +1 
+
+
+

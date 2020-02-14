@@ -1,0 +1,19 @@
+enrich maplet with
+
+functions
+. ⊗_(.) : (nat → heap → bool) × nat × nat → heap → bool;
+
+variables
+nP: nat → heap → bool;
+
+axioms
+
+Sep-base:
+nP ⊗_(n,0) = emp;
+used for:s,ls;
+
+Sep-rec:
+nP ⊗_(n,m + 1)
+  = nP(n) * nP ⊗_(n + 1, m);
+
+end enrich

@@ -1,0 +1,71 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+wand-shift
+wand-same-emp-p
+wand-same-emp
+wand-dual
+trueH
+true-true
+true-rev
+true-emp
+true-elim
+true-and
+this-emp
+stability
+split-union
+septract-given
+sep-split-interactive
+sep-mp
+sep-com
+sep-ass
+sep-Mp
+prop-shift
+prop-sep
+prop-emp
+precise-this
+precise-split-r
+precise-split-l
+precise-sep
+precise-same
+precise-emp
+precise-disj
+precise-and
+or-com
+or-ass
+imp-proptrue
+imp-propfalse
+imp-mono
+imp-cases
+falseH
+false-sep
+false-rev
+false-and
+emp-sep
+and-weaken-this
+and-weaken
+and-split
+and-imp
+and-combine
+and-com
+and-ass
+adjunction
+Imp2
+Imp1
+Imp-trans
+Imp-refl
+Imp-from-eq
+
+
+*** Failures: ***
+
+eq-frame
+Imp-frame
+Eq-P
+

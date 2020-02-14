@@ -1,0 +1,84 @@
+: successful
+### No save necessary ###
+### Next replay: appins ###
+appins: successful
+### No save necessary ###
+### Next replay: combine-ordered-sublists ###
+combine-ordered-sublists: successful
+### No save necessary ###
+### Next replay: del1 ###
+del1: successful
+### No save necessary ###
+### Next replay: empty ###
+empty: successful
+### No save necessary ###
+### Next replay: emptyp ###
+emptyp: successful
+### No save necessary ###
+### Next replay: eq ###
+eq: successful
+### No save necessary ###
+### Next replay: in ###
+in: successful
+### No save necessary ###
+### Next replay: ins ###
+ins: successful
+### No save necessary ###
+### Next replay: ins-01 ###
+ins-01: successful
+### No save necessary ###
+### Next replay: ins-02 ###
+ins-02: successful
+### No save necessary ###
+### Next replay: insdel ###
+insdel: successful
+### No save necessary ###
+### Next replay: ole ###
+ole: successful
+### No save necessary ###
+### Next replay: one ###
+one: successful
+### No save necessary ###
+### Next replay: ordered-perm-sort ###
+ordered-perm-sort: successful
+### No save necessary ###
+### Next replay: perm ###
+perm: successful
+### No save necessary ###
+### Next replay: perm-01 ###
+perm-01: successful
+### No save necessary ###
+### Next replay: rec ###
+rec: successful
+### No save necessary ###
+### Next replay: size ###
+size: successful
+### No save necessary ###
+### Next replay: size-01 ###
+size-01: successful
+### No save necessary ###
+### Next replay: sort ###
+sort: successful
+### No save necessary ###
+### Next replay: sort-01 ###
+sort-01: successful
+### No save necessary ###
+### Next replay: sort-02 ###
+sort-02: successful
+### No save necessary ###
+### Next replay: sort-append ###
+sort-append: successful
+### No save necessary ###
+### Next replay: sort-append-three ###
+sort-append-three: successful
+### No save necessary ###
+### Next replay: sperm ###
+sperm: successful
+### No save necessary ###
+### Next replay: two ###
+two: successful
+### No save necessary ###
+### Next replay: two-01 ###
+two-01: successful
+### Done ###
+### Saving lemmas next ###

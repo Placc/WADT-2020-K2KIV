@@ -1,0 +1,106 @@
+
+(: variables    ; :)
+
+lemmas
+
+;; KODKOD BEGIN
+
+
+empty:  ⊦ ∅ .keys = ∅ ;  used for : s, ls, kodkodax;
+k-keys-rec: ¬ a ∈ st → st[a,d].keys = st.keys ++ a; used for : kodkodax;
+
+
+;; KODKOD END
+
+
+
+min-put-ls : st .min < a ∧ st ≠ ∅ → st[a,d].min = st.min; used for : s,ls;
+
+butmin-put-rew : st.min < a ∧ st ≠ ∅ → st.butmin[a, d] = st[a,d].butmin;
+;;; END
+min-put : st[a,d].min = a → st[a,d0].min = a; used for : s,ls;
+
+exit
+butmin-put : a = st[a, d].min ∧ ¬ a ∈ st → st[a, d].butmin = st; used for : s,ls;
+min-put : a ≠ st[a,d].min → st[a,d].min = st.min;
+
+butmin-rewput : a ≠ st[a,d].min → st[a,d].butmin = st.butmin[a,d];
+
+butmin-put : a = st[a, d0].min ∧ ¬ a ∈ st → st[a, d].butmin = st; used for : s,ls;
+butmin-one : ∅[a, d].butmin = ∅; used for : s,ls;
+butmin-id : st ≠ ∅ → (st .butmin)[st .min, st[st .min]] = st; used for : s,ls;
+butmin-at : a ≠ st.min → st.butmin[a] = st[a]; used for : s,ls;
+min-in : st.min = a ∧ st ≠ ∅ → a ∈ st; used for : s,ls;
+
+butmin-empty : ∅ :: store .butmin = ∅; used for : s,ls;
+butmin-notin : ¬ a ∈ st → ¬ a ∈ st.butmin;used for : s,ls;
+butmin-in : a ∈ st .butmin ↔ st ≠ ∅ ∧ a ∈ st ∧ a ≠ st.min; used for : s,ls;
+
+butmin-size : st ≠ ∅ → ¬ # st ≤ # st .butmin; used for : s,ls;
+butmin-size : st ≠ ∅ → # st .butmin = (# st) -1;
+
+exit
+empty-02	 : ⊦ a ∈ st → (¬ ¬ st .keys = ∅ ↔ false); 
+   used for	 : s,ls;
+empty-01	 : ⊦ st ≠ ∅ → (¬ ¬ st .keys = ∅ ↔ false); 
+   used for	 : s,ls;
+mk-in		 : ⊦ st ≠ ∅ → (¬ st .keys .min ∈ st ↔ false);
+   used for	 : s,ls;
+min-def	 : ⊦ st ≠ ∅ → st.min = st.keys.min; 
+   used for	 : ls;
+
+
+del         :  ⊦ a ∈ (st -- b) .keys ↔ a ∈ st .keys ∧ a ≠ b ;
+   used for : s, ls ;
+del-01      :  ⊦ a ∈ st .keys → (st -- a) .keys = st .keys -- a ;
+   used for : s, ls ;
+
+inf         :  ⊦ a ∈ st → a ∈ st .keys ;
+   used for : lf ;
+inf-01      :  ⊦ a ∈ st .keys → a ∈ st ;
+   used for : lf ;
+inkeys      :  ⊦ a ∈ st ↔ a ∈ st .keys ;
+inkeys-01   :  ⊦ a ∈ st → (¬ a ∈ st .keys ↔ false) ;
+   used for : s, ls ;
+insert      :  ⊦ a ∈ st → (st[a, d]) .keys = st .keys ;
+   used for : s, ls ;
+insert-01   :  ⊦ a ∈ s ∧ ¬ b ∈ s → ((st[b, d])[a]) = (st[a]) ;
+   used for : s, ls ;
+insert-02   :  ⊦ a ∈ s ∧ ¬ b ∈ s → ((st[a, d])[b]) = (st[b]) ;
+   used for : s, ls ;
+insert-03   :  ⊦ (st[a, d]) .keys = st .keys ++ a ;
+   used for : s, ls ;
+min         :  ⊦ (∅[a, d]) .min = a ;
+   used for : s, ls ;
+neq         :  ⊦ (st[a, d]) .keys ≠ st .keys ↔ ¬ a ∈ st ;
+   used for : s, ls ;
+notempty    :  ⊦ a ∈ st .keys → st .keys ≠ ∅ ;
+   used for : s, ls ;
+size-del    :  ⊦ a ∈ st .keys → ¬ # st .keys ≤ # (st -- a) .keys ;
+   used for : s, ls ;
+size-del-01 :  ⊦ a ∈ st .keys → # (st -- a) .keys = (# st .keys) - 1 ;
+   used for : s, ls ;
+size-del-02 :  ⊦ a ∈ st → ¬ # st .keys ≤ # (st -- a) .keys ;
+   used for : s, ls ;
+sub         :  ⊦ a ∈ s ∧ s ⊆ st .keys → a ∈ st ;
+   used for : f, lf ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Min-in      :  ⊦ st ≠ ∅ → st .min ∈ st ;
+   used for : lf ;
+Min-min     :  ⊦ a ∈ st → ¬ a < st .min ;
+   used for : lf ;
+Keys        :  ⊦ a ∈ st .keys ↔ a ∈ st ;
+   used for : ls ;
+
+
+
+

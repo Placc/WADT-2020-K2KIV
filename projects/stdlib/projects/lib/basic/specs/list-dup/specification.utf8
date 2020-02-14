@@ -1,0 +1,27 @@
+enrich list with
+
+functions 
+
+      . ++ . : list × elem → list prio 9 left;
+       rmdup : list → list; comment: removes from the beginning, i.e. the last occurrence of an
+                                     element remains in the list.;
+
+predicates 
+
+     dups : list;
+     disj : list × list;
+
+axioms
+
+rmdup-e :       rmdup([]) = []; used for : s,ls;
+rmdup-y :        a ∈ x → rmdup(a ' + x) =     rmdup(x); used for : s,ls;
+rmdup-n :      ¬ a ∈ x → rmdup(a ' + x) = a + rmdup(x); used for : s,ls;
+
+adjoin-in    :   a ∈ x → x ++ a = x    ; used for : s,ls,lc;
+adjoin-notin : ¬ a ∈ x → x ++ a = a + x; used for : s,ls;
+
+dups     : dups(x)   ↔ ∃ a, x0, y, z. x = x0 + a + y + a + z; used for : nokodkodax;
+
+disjoint : disj(x,y) ↔ ∀ a. ¬ (a ∈ x ∧ a ∈ y);
+
+end enrich

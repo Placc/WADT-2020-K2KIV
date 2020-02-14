@@ -1,0 +1,75 @@
+enrich heap with
+
+functions
+. * .  : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 10 right;
+. ý .  : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 10 right;
+. -* . : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 9 right;
+. -ý . : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 9 right;
+  µ .  : (heap ­ bool) ­ (heap ­ bool);
+. ¸ .  : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 4;
+. ¹ .  : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 3;
+. ­ .  : (heap ­ bool) Ô (heap ­ bool) ­ (heap ­ bool) prio 2;
+ö . ÷  :  bool ­ (heap ­ bool);
+{.}    :  heap ­ heap ­ bool;
+
+predicates
+emp     : heap;
+true    : heap;
+false   : heap;
+precise : (heap ­ bool);
+. Â .   : (heap ­ bool) Ô (heap ­ bool);
+
+variables
+P,P0,P1,P2 : heap ­ bool;
+bv : bool;
+
+axioms
+
+emp:
+emp(H) ° H = à;
+used for: ls;
+
+true:  true  = ötrue÷;  used for: ls;
+false: false = öfalse÷; used for: ls;
+
+sep:
+(P0 * P1)(H)
+  ° ´ H0, H1.   H0 » H1
+              ¸ H = H0 ¶ H1
+              ¸ P0(H0) ¸ P1(H1);
+
+sharing:
+(P0 ý P1)(H)
+  ° ´ H0, H1, H2.   H0 » H2 ¸ H0 » H1 ¸ H1 » H2
+                  ¸ H = H0 ¶ H1 ¶ H2
+                  ¸ P0(H0 ¶ H2)
+                  ¸ P1(H1 ¶ H2);
+
+wand:
+(P0 -* P1)(H)
+  ° ³ H1. H1 » H ¸ P0(H1) ­ P1(H1 ¶ H);
+
+septract:
+(P0 -ý P1)(H)
+  ° ´ H0, H1.   H0 » H
+              ¸ H1 = H0 ¶ H
+              ¸ P0(H0) ¸ P1(H1);
+
+not:  (µ P0)(H)    ° µ P0(H);       used for: s,ls;
+and:  (P0 ¸ P1)(H) ° µ µ (P0(H) ¸ P1(H)); used for: s,ls;
+or:   (P0 ¹ P1)(H) ° µ µ (P0(H) ¹ P1(H)); used for: s,ls;
+imp:  (P0 ­ P1)(H) ° µ µ (P0(H) ­ P1(H)); used for: s,ls;
+prop: öbv÷(H) ° bv;                   used for: s,ls;
+this: {H}(H0) ° H = H0; used for: s,ls;
+
+precise:
+precise(P)
+    ° ³ H,H0,H1,H2.
+        P(H) ¸ P(H0) ¸ H » H1 ¸ H0 » H2
+      ¸ H ¶ H1 = H0 ¶ H2
+        ­ H = H0;
+
+Imp:
+P0 Â P1 ° ³ H. P0(H) ­ P1(H);
+
+end enrich

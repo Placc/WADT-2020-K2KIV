@@ -1,0 +1,15 @@
+data specification
+
+using int-basic1
+
+
+data types
+intinf = ⌜. ⌝ (. .i : int)
+       | -∞
+       | ∞ 
+       ;
+
+variables i∞ : intinf;
+
+
+end data specification

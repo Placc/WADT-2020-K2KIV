@@ -1,0 +1,21 @@
+@$KivLemma("correctness"): @$initialConfig(@$this(@$KivInt("I")))
+  => @$exists(@$KivMap("M") . @$exists(@$KivInt("Y") .
+    ´<k> .K </k><state> @$KivMap("M") y |-> @$KivInt("Y") </state>´
+    @$and @$KivInt("Y") ==Int @$KivFunc("factorial" <- @$KivInt("I"))))
+  @$requires @$KivInt("I") >=Int 0
+
+int x, y, z;
+
+x = @$KivInt("I");
+y = 1;
+z = 0;
+
+@$KivInvariant: @$exists(@$KivInt("Z") . @$exists(@$KivInt("Y") .
+  ´<state>... z |-> @$KivInt("Z") y |-> @$KivInt("Y") ...</state>´
+  @$and 0 <=Int @$KivInt("Z") @$and @$KivInt("Z") <=Int @$KivInt("I") 
+  @$and @$KivInt("Y") ==K @$KivFunc("factorial" <- @$KivInt("Z"))))
+
+(while (!(x <= z)) {
+  z = z + 1;
+  y = y * z;
+})

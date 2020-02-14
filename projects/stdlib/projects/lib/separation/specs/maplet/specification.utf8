@@ -1,0 +1,33 @@
+enrich heap-sep with
+
+functions
+. => . :  ref × obj → heap → bool prio 11;
+. =>_  :  ref → heap → bool;
+. =>?  :  ref → heap → bool;
+_∃ .   : (ref → (heap → bool)) → (heap → bool);
+_∃ .   : (ref × ref → (heap → bool)) → (heap → bool);
+_∃ .   : (obj → (heap → bool)) → (heap → bool);
+
+variables
+rP         : ref → (heap → bool);
+rrP        : ref × ref → (heap → bool);
+oP         : obj → (heap → bool);
+
+axioms
+ex1:  (_∃ rP)(H)  ↔ ∃ r. rP(r)(H);   used for: s,ls;
+ex2:  (_∃ rrP)(H) ↔ ∃ r0, r1. rrP(r0, r1)(H);  used for: s,ls;
+ex3:  (_∃ oP)(H)  ↔ ∃ o. oP(o)(H);   used for: s,ls;
+
+maplet:
+(r => o)(H) ↔ (H = (∅ ++ r)[r,o] ∧ r ≠ null);
+used for: ls;
+
+mapex:
+r =>_ = (_∃ λ o. r => o);
+used for: ls;
+
+mapornull:
+r =>? = (r = null ⊃ emp ; r =>_);
+used for: ls;
+
+end enrich

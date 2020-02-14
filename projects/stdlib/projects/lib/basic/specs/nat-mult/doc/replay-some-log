@@ -1,0 +1,270 @@
+: successful
+### No save necessary ###
+### Next replay: addle ###
+addle: successful
+### No save necessary ###
+### Next replay: addle-01 ###
+addle-01: successful
+### No save necessary ###
+### Next replay: coef-02 ###
+coef-02: successful
+### No save necessary ###
+### Next replay: coef-03 ###
+coef-03: successful
+### No save necessary ###
+### Next replay: coef-05 ###
+coef-05: successful
+### No save necessary ###
+### Next replay: coef-22 ###
+coef-22: successful
+### No save necessary ###
+### Next replay: dist-sub-03 ###
+dist-sub-03: successful
+### No save necessary ###
+### Next replay: four-01 ###
+four-01: successful
+### No save necessary ###
+### Next replay: le ###
+le: successful
+### No save necessary ###
+### Next replay: le-01 ###
+le-01: successful
+### No save necessary ###
+### Next replay: le-02 ###
+le-02: successful
+### No save necessary ###
+### Next replay: le-rew ###
+le-rew: successful
+### No save necessary ###
+### Next replay: le-same ###
+le-same: successful
+### No save necessary ###
+### Next replay: le-succ ###
+le-succ: successful
+### No save necessary ###
+### Next replay: le2-03 ###
+le2-03: successful
+### No save necessary ###
+### Next replay: le2-04 ###
+le2-04: successful
+### No save necessary ###
+### Next replay: leone ###
+leone: successful
+### No save necessary ###
+### Next replay: ls ###
+ls: successful
+### No save necessary ###
+### Next replay: ls-01 ###
+ls-01: successful
+### No save necessary ###
+### Next replay: ls-02 ###
+ls-02: successful
+### No save necessary ###
+### Next replay: ls-04 ###
+ls-04: successful
+### No save necessary ###
+### Next replay: ls-05 ###
+ls-05: successful
+### No save necessary ###
+### Next replay: ls-06 ###
+ls-06: successful
+### No save necessary ###
+### Next replay: ls-08 ###
+ls-08: successful
+### No save necessary ###
+### Next replay: ls-09 ###
+ls-09: successful
+### No save necessary ###
+### Next replay: mod-neq ###
+mod-neq: successful
+### No save necessary ###
+### Next replay: mod-neq-02 ###
+mod-neq-02: successful
+### No save necessary ###
+### Next replay: mod-neq-03 ###
+mod-neq-03: successful
+### No save necessary ###
+### Next replay: mod-nle ###
+mod-nle: successful
+### No save necessary ###
+### Next replay: mod-nle-01 ###
+mod-nle-01: successful
+### No save necessary ###
+### Next replay: mod-nls ###
+mod-nls: successful
+### No save necessary ###
+### Next replay: modeq ###
+modeq: successful
+### No save necessary ###
+### Next replay: modls ###
+modls: successful
+### No save necessary ###
+### Next replay: modls-01 ###
+modls-01: successful
+### No save necessary ###
+### Next replay: modls-02 ###
+modls-02: successful
+### No save necessary ###
+### Next replay: modls-03 ###
+modls-03: successful
+### No save necessary ###
+### Next replay: modp ###
+modp: successful
+### No save necessary ###
+### Next replay: mult-eq-succ-01 ###
+mult-eq-succ-01: successful
+### No save necessary ###
+### Next replay: mult-le ###
+mult-le: successful
+### No save necessary ###
+### Next replay: mult-le-01 ###
+mult-le-01: successful
+### No save necessary ###
+### Next replay: numeral-01 ###
+numeral-01: successful
+### No save necessary ###
+### Next replay: numeral-03 ###
+numeral-03: successful
+### No save necessary ###
+### Next replay: numeral-04 ###
+numeral-04: successful
+### No save necessary ###
+### Next replay: numeral-05 ###
+numeral-05: successful
+### No save necessary ###
+### Next replay: numeral-06 ###
+numeral-06: successful
+### No save necessary ###
+### Next replay: numeral-07 ###
+numeral-07: successful
+### No save necessary ###
+### Next replay: numeral-08 ###
+numeral-08: successful
+### No save necessary ###
+### Next replay: numeral-09 ###
+numeral-09: successful
+### No save necessary ###
+### Next replay: numeral-10 ###
+numeral-10: successful
+### No save necessary ###
+### Next replay: numeral-11 ###
+numeral-11: successful
+### No save necessary ###
+### Next replay: numeral-12 ###
+numeral-12: successful
+### No save necessary ###
+### Next replay: numeral-15 ###
+numeral-15: successful
+### No save necessary ###
+### Next replay: numeral-16 ###
+numeral-16: successful
+### No save necessary ###
+### Next replay: numeral-17 ###
+numeral-17: successful
+### No save necessary ###
+### Next replay: numeral-18 ###
+numeral-18: successful
+### No save necessary ###
+### Next replay: numeral-29 ###
+numeral-29: successful
+### No save necessary ###
+### Next replay: sqle ###
+sqle: successful
+### No save necessary ###
+### Next replay: sqle-01 ###
+sqle-01: successful
+### No save necessary ###
+### Next replay: sqle-02 ###
+sqle-02: successful
+### No save necessary ###
+### Next replay: sqls ###
+sqls: successful
+### No save necessary ###
+### Next replay: sqp ###
+sqp: successful
+### No save necessary ###
+### Next replay: sqr ###
+sqr: successful
+### No save necessary ###
+### Next replay: sqr-01 ###
+sqr-01: successful
+### No save necessary ###
+### Next replay: sqr-03 ###
+sqr-03: successful
+### No save necessary ###
+### Next replay: sqr-06 ###
+sqr-06: successful
+### No save necessary ###
+### Next replay: sqr-08 ###
+sqr-08: successful
+### No save necessary ###
+### Next replay: square-eq ###
+square-eq: successful
+### No save necessary ###
+### Next replay: square-eq-03 ###
+square-eq-03: successful
+### No save necessary ###
+### Next replay: square-inject ###
+square-inject: successful
+### No save necessary ###
+### Next replay: square-interval ###
+square-interval: successful
+### No save necessary ###
+### Next replay: square-le ###
+square-le: successful
+### No save necessary ###
+### Next replay: square-le-01 ###
+square-le-01: successful
+### No save necessary ###
+### Next replay: square-le-02 ###
+square-le-02: successful
+### No save necessary ###
+### Next replay: square-le-03 ###
+square-le-03: successful
+### No save necessary ###
+### Next replay: square-less ###
+square-less: successful
+### No save necessary ###
+### Next replay: square-ls ###
+square-ls: successful
+### No save necessary ###
+### Next replay: square-ls-04 ###
+square-ls-04: successful
+### No save necessary ###
+### Next replay: square-ls-05 ###
+square-ls-05: successful
+### No save necessary ###
+### Next replay: square-two ###
+square-two: successful
+### No save necessary ###
+### Next replay: three ###
+three: successful
+### No save necessary ###
+### Next replay: two-03 ###
+two-03: successful
+### No save necessary ###
+### Next replay: two-les-01 ###
+two-les-01: successful
+### No save necessary ###
+### Next replay: two-succ-06 ###
+two-succ-06: successful
+### No save necessary ###
+### Next replay: twoeqf ###
+twoeqf: successful
+### No save necessary ###
+### Next replay: twoeqf-01 ###
+twoeqf-01: successful
+### No save necessary ###
+### Next replay: twoeqf-02 ###
+twoeqf-02: successful
+### No save necessary ###
+### Next replay: twoeqf-03 ###
+twoeqf-03: successful
+### No save necessary ###
+### Next replay: twole-01 ###
+twole-01: successful
+### No save necessary ###
+### Next replay: twole-02 ###
+twole-02: successful
+### Done ###
+### Saving lemmas next ###

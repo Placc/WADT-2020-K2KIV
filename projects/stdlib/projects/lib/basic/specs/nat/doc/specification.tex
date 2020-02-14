@@ -1,0 +1,30 @@
+\begin{tabbing}\label{nat-spec}%
+nat = \\
+{\bf enr}\={\bf ich} nat-basic2 {\bf with}\+\\
+{\bf functions} . - .  : nat $\times$ nat \Imp  nat  {\bf prio} 8 {\bf left};\\
+{\bf pred}\={\bf icates}\+\\
+\begin{tabular}{lcll}
+. $\le$ . & : & nat $\times$ nat;\\
+. $>$ . & : & nat $\times$ nat;\\
+. $\ge$ . & : & nat $\times$ nat;
+\end{tabular}\-
+\end{tabbing}
+{\bf axioms}
+
+
+
+\begin{quote}
+m - 0 = m;
+
+m - n +1 = (m - n)-1;
+
+m $\le$ n \Equiv \Not n $<$ m;
+
+m $>$ n \Equiv n $<$ m;
+
+m $\ge$ n \Equiv \Not m $<$ n;
+
+
+\end{quote}
+{\bf end enrich}
+

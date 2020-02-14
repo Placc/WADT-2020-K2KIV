@@ -1,0 +1,12 @@
+: successful
+### No save necessary ###
+### Next replay: lim-exists ###
+lim-exists: successful
+### No save necessary ###
+### Next replay: lim-unique ###
+lim-unique: successful
+### No save necessary ###
+### Next replay: mon-lem ###
+mon-lem: successful
+### Done ###
+### Saving lemmas next ###

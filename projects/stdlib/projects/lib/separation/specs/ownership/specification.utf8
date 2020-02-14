@@ -1,0 +1,9 @@
+enrich ref with
+
+sorts id;
+
+variables
+id : id;
+O : ref → id;
+
+end enrich

@@ -1,0 +1,18 @@
+specification
+
+sorts elem;
+
+predicates  . ≪ . : elem × elem;
+
+
+variables IHP : elem → bool;
+          a, a0, a1 : elem;
+
+axioms
+
+trans: a ≪ a0 ∧ a0 ≪ a1 → a ≪ a1;
+used for: lf, f;
+
+wellfounded: ∀ a. (∀ a0. a0 ≪ a → IHP(a0)) → IHP(a) ⊦ IHP(a);
+
+end specification

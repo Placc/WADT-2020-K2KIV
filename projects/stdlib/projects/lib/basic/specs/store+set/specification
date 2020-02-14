@@ -1,0 +1,35 @@
+enrich store, set-union with
+
+
+functions . \ . : store Ô set ­ store;
+          . | . : store Ô set ­ store;
+          dom .   : store ­ set;
+          . ¬¶ . : store Ô store ­ store;
+	  . map(.) : store Ô set Ô (data ­ data) ­ store;
+
+predicates
+         . ² . : data  Ô store;
+
+variables
+	dataf : data ­ data;
+
+axioms
+
+Dom : a ² dom st ° a ² st; used for: s,ls;
+
+
+Diff-base: st \ à = st;
+used for:s,ls;
+Diff-rec: st \ (s ++ a) = (st \ s) -- a ;
+used for:ls;
+Data-in : d ² st ° ´ a. a ² st ¸ st[a] = d;
+used for:ls;
+restrict: st | s = st \ (dom st \ s);
+used for:ls;
+union-l-in: a ² st0 ¬¶ st1 ° a ² st0 ¹ a ² st1; used for : s,ls;
+union-l-at-left: a ² st0 ­ (st0 ¬¶ st1)[a] = st0[a]; used for : s,ls;
+union-l-at-right: µ a ² st0 ¸ a ² st1 ­ (st0 ¬¶ st1)[a] = st1[a]; used for : s,ls;
+map-base: st.map(à, dataf) = st; used for: s,ls;
+map-rec:  st.map(st ++ a, dataf) = st.map(st -- a, dataf)[a, dataf(st[a])]; used for: s,ls;
+
+end enrich

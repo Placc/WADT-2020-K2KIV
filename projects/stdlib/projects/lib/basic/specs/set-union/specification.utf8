@@ -1,0 +1,29 @@
+;;;****************************************************************************************
+;;;
+;;; This file contains an enriched specification
+;;;
+;;;****************************************************************************************
+
+enrich set-basic with
+
+functions
+
+        { . }  : elem → set;
+        . ∪ .  : set × set → set;
+        . ∩ .  : set × set → set;
+        . \ .  : set × set → set;
+        . -- . : set × elem → set prio 9 left;
+
+axioms
+
+One        : { a } = ∅ ++ a;                  used for : ls;
+
+Union      : a ∈ s1 ∪ s2 ↔ a ∈ s1 ∨ a ∈ s2;   used for : s,ls,nokodkodax;
+
+Intersect  : a ∈ s1 ∩ s2 ↔ a ∈ s1 ∧ a ∈ s2;   used for : s,ls,nokodkodax;
+
+Difference : a ∈ s1 \ s2 ↔ a ∈ s1 ∧ ¬ a ∈ s2; used for : s,ls,nokodkodax;
+
+Delete     : a ∈ s -- b ↔ a ≠ b ∧ a ∈ s;      used for : s,ls,nokodkodax;
+
+end enrich

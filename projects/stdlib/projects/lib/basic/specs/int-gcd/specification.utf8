@@ -1,0 +1,40 @@
+enrich intnat, int-min with
+
+;; sorts ;
+
+;; constants ;
+
+functions 
+
+     gcd : int × int → int;
+     max_prime_divisor : int → int;
+
+predicates
+
+    . | . : int × int;
+
+      prime : int;
+;; variables ;
+
+;; induction ;
+
+axioms
+
+divides : i | j ↔ ∃ i0. i * i0 = j; used for : nokodkodax;
+
+gcd-div1 : gcd(i, j) | i; used for : s, nokodkodax;
+gcd-div2 : gcd(i, j) | j; used for : s, nokodkodax;
+
+gcd-max  : i0 | i ∧ i0 | j ∧ (i ≠ 0 ∨ j ≠ 0) → i0 ≤ gcd(i, j); used for : nokodkodax;
+           comment: if i = 0 ∧ j = 0, every i0 divides i and j, hence gcd must be greater
+                    than any number and the axiom would produce an inconsistent spec.;
+
+gcd-zero : gcd(0, 0) = 0; used for : s,ls,nokodkodax; 
+           comment: additional axiom to specify gcd for all values.;
+
+prime-def : prime(j) ↔ 2 ≤ j ∧ ∀ i. 1 < i ∧ i < j → ¬ i | j; used for : nokodkodax;
+
+max_prime_divisor-def : j | i ∧ prime(j) ∧ j < i ∧ (∀ j0. j < j0 ∧ j0 < i ∧ prime(j0) → ¬ j0 | i)
+                      → max_prime_divisor(i) = j;
+
+end enrich

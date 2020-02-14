@@ -1,0 +1,22 @@
+\begin{tabbing}\label{nat-div-spec}%
+nat-div = \\
+{\bf enr}\={\bf ich} nat-mult {\bf with}\+\\
+{\bf func}\={\bf tions}\+\\
+\begin{tabular}{lclcll}
+. / . & : & nat $\times$ nat & \Imp & nat & {\bf prio} 11; \\
+. \% . & : & nat $\times$ nat & \Imp & nat & {\bf prio} 11; \\
+\end{tabular}\-
+\end{tabbing}
+{\bf axioms}
+
+
+
+\begin{quote}
+Divdef : n $\neq$ 0 \Imp m / n $*$ n $\le$ m \And m $<$ (m / n)+1 $*$ n;
+
+Moddef : n $\neq$ 0 \Imp m = m / n $*$ n + m \% n;
+
+
+\end{quote}
+{\bf end enrich}
+

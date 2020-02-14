@@ -1,0 +1,18 @@
+
+;; variables m : nat;
+
+lemmas
+
+
+choice:   ok(a),∀ b. ok(b) → ∃ c. rel(b,c) ∧ ok(c)
+        ⊦ ∃ nf. nf(0) = a ∧ ∀ n. ok(nf(n)) ∧ rel(nf(n),nf(n + 1));
+
+
+choice-aux:   ok(a), ∀ b. ok(b) → rel(b,elemf(b)) ∧ ok(elemf(b))
+             ⊦ ∀ n. ∃ nf.   nf(0) = a 
+                          ∧ ok(nf(n)) 
+                          ∧ ∀ m. m < n → ok(nf(m)) ∧ nf(m + 1) = elemf(nf(m));
+
+;;;END
+
+

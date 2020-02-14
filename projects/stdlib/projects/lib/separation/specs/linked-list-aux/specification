@@ -1,0 +1,32 @@
+enrich cell-heap-aux, list with
+
+functions
+
+ls : ref Ô list ­ heap ­ bool;
+lst: ref ­ heap ­ bool;
+_´ . : (list ­ heap ­ bool) ­ heap ­ bool;
+
+variables
+
+cf0, cf1 : ref ­ cell;
+af0, af1 : ref ­ aux;
+xv: list ­ heap ­ bool;
+
+axioms
+
+ex-lst:
+(_´ xv)(mk(rs, cf)) ° (´ x. xv(x)(mk(rs, cf)));
+
+ls-base:
+ls(r, []) = (emp ¸ ör = null÷);
+used for: s,ls;
+
+ls-rec:
+ls(r, a ' + x) = _´ ì r0. r => a Ô r0 * ls(r0, x);
+used for: s, ls;
+
+lst-def:
+lst(r) = (r = null « ls(r, []); _´ ì x. ls(r, x));
+used for: ls;
+
+end enrich

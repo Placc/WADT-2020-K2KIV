@@ -1,0 +1,1045 @@
+;; variables    ; 
+
+lemmas
+
+get-append-grt-02 : (x + y)[n + # x] = y[n];used for: s, ls;
+del-n-simp: a Ü b ¥ ((* a) ' + x) -l (* b) = a ' + (x -l b); used for: s, ls;
+del-one-simp: a Ü b ¥ (* a) ' -l (* b) = a '; used for: s, ls;
+
+get-last-04 : (a ' + x + y)[# x] = (a ' + x) .last; used for: s, ls;
+get-add-num:  n Ü 0 ¥ (a ' + x)[m + (* n)] = x[m + (n - 1)]; used for: s,ls; 
+
+get-last-03           :  ¥  (x + a ')[# x] = a ; used for : s, ls ;
+restn-nonempty :  n < # x ­ restn(n, a ' + x) Ü []; used for : s;
+restn-nonempty-2 :  n < # x ­ restn(n, x) Ü []; used for : s;
+restn-size-last :  restn(# x, a ' + x) = (a ' + x).last '; used for : s;
+restn-less : n < # x ­ restn(n, x) = x[n] + restn(n +1, x);
+
+
+
+dups-def : dups(x) ° ´ m, n. m < # x ¸ n < # x ¸ m Ü n ¸ x[m] = x[n];
+
+lastn-app : # y ¨ n ­ lastn(n, x + y) = lastn(n - # y, x) + y;
+
+lastn-lastn : lastn(n, lastn(n, x)) = lastn(n, x); used for : s,ls;
+lastn-lastn : m ¨ n ­ lastn(m, lastn(n, x)) = lastn(m, x); used for : s,ls;
+
+firstn-last-eq : n ¨ # x ­ firstn(n, x) + lastn(# x - n, x) = x; used for : s,ls;
+dups-first-last-split : n ¨ # x ­ (dups(x) ° dups(firstn(n, x) + lastn(# x - n, x)));
+
+lastN-dups-01 : µ dups(x) ¸ n ¨ # x ­ µ dups(lastn(n, x)); used for : s,ls;
+lastn-firstn-in :
+lastn(n, x) = y ¸ µ a ² y ¸ a ² x ¸ n ¨ # x ­ a ² firstn(# x - n, x);
+
+lastn-firstn-in :
+lastn(n, x) = y ¸ µ a ² y ¸ a ² x ¸ n ¨ # x ¸ m = # x - n ­ a ² firstn(m, x);
+
+lastn-one : lastn(1, x) = x.last '; used for : s,ls;
+
+lastn-length : # lastn(n, x) = n; used for : s,ls;
+
+lastn-neq :
+# y Ü n ­ lastn(n + 1, x) Ü a ' + y; used for : s,ls;
+
+lastn-neq :
+n ¨ # x ¸ µ a ² x ­ lastn(n, x) Ü a ' + y; used for : s,ls;
+lastn-neq :
+n ¨ # x ¸ b ² y ¸ µ b ² x ­ lastn(n, x) Ü a ' + y; used for : s,ls;
+
+restn-first-get : n < # x ­ restn(n, x) .first = x[n]; used for : s,ls;
+
+rest-rest1 : x.rest = restn(1, x);
+restn-rest : restn(n, x) .rest = restn(n + 1, x);
+
+get-firstn : n < m ¸ m ¨ # x ­ firstn(m, x)[n] = x[n]; used for : s,ls;
+restn-at : m + n < # x ­ restn(m, x)[n] = x[m + n]; used for : s,ls;
+sublist-at : n0 < n ¸ m + n ¨ # x ­ sublist(m, n, x)[n0] = x[m + n0]; used for : s,ls;
+extension : x = y ° # x = # y ¸ ³ n. n < # x ­ x[n] = y[n];
+
+size-rmdup-del: a ² x ­ # rmdup(x -l a) = # rmdup(x) - 1 ;
+
+put-sw-in : m < # x ¸ n < # x ­ (a ² (x[m, x[n]][n, x[m]]) ° a ² x); used for : s,ls;
+put-same : x[m] = a ¸ m < # x ­ x[m, a] = x; used for : s,ls;
+put-in : a Ü x[m] ¸ m < # x ­ (a ² x[m, b] ° a = b ¹ a ² x); used for : s,ls;
+put-in : m < # x ­ (a ² x[m, b] ° a = b ¹ a ² x -1l x[m]);
+put-in : m < # x ­ a ² x[m, a]; used for : s,ls;
+put-del1-in : x[m] Ü a ¸ m < # x ­ (a ² x[m, a] -1l a ° a ² x); used for : s,ls;
+put-at : m Ü n ¸ m < # x ­ x[m, a][n] = x[n]; used for : s,ls;
+
+del1-in : a Ü b ­ (a ² x -1l b ° a ² x); used for : s,ls;
+put-length : n < # x ­ # (x[n, a]) = # x; used for : s,ls;
+put-last : n = # x ­ (x + a ')[n, b] = x + b '; used for : s, ls;
+put-rec : n Ü 0 ­ (a ' + x)[n, b] = a ' + x[n -1, b]; 
+put-butlast : n < # x ­ (x + a ')[n, b] = x[n, b] + a '; used for : s, ls;
+
+put-one : (a ')[0, b] = b '; used for : s,ls;
+delnr-one: a ' -1l 0 = []; used for : s, ls;
+
+
+firstn-first : n Ü 0 ¸ x Ü [] ­ firstn(n, x).first = x.first; used for : s,ls;
+firstn-app : m ¨ # x + # y ¸ # x ¨ m ­ firstn(m, x + y) = x + firstn(m - # x, y);
+rest-app : m ¨ # x + # y ¸ # x ¨ m ­ restn(m, x + y) = restn(m - # x, y);
+
+restn-firstn : m ¨ n ¸ m + n ¨ # x ­ restn(m, firstn(n, x)) = firstn(n - m, restn(m, x));
+
+lastn-restn : m + n ¨ # x ­ lastn(m, restn(n, x)) = lastn(m, x); used for : s,ls;
+
+firstn-firstn : m ¨ n ¸ n ¨ # x ­ firstn(m, firstn(n, x)) = firstn(m, x); used for : s,ls;
+
+lastn-mklist : m ¨ n ­ lastn(m, mklist(a, n)) = mklist(a, m); used for : s,ls;
+
+restn-empty : n ¨ # x ­ (restn(n, x) = [] ° n = # x); used for : s,ls;
+firstn-restn-eq : n ¨ # x ­ firstn(n, x) + restn(n, x) = x; used for : s,ls;
+firstn-app : firstn(# x + n, x + y) = x + firstn(n, y); used for : s,ls;
+
+sublist-length : m + n ¨ # x ­ # sublist(m, n, x) = n; used for : s,ls;
+
+restn-apprec : restn(m, restn(n, x)) = restn(m + n, x); used for : s,ls;
+sublist-restn : m + n + m0 < # x ­ sublist(m, n, restn(m0, x)) = sublist(m + m0, n, x); used for : s,ls;
+sublist-restn : m + n + m0 ¨ # x ­ sublist(m, n, restn(m0, x)) = sublist(m + m0, n, x); used for : s,ls;
+sublist-one : sublist(0, 1, a ') = a '; used for : s,ls;
+
+get-nodups : m < # x ¸ n < # x ¸ µ dups(x) ­ (x[m] = x[n] ° m = n); used for : s,ls;
+
+pos-one : pos(a, a ') = 0; used for : s,ls;
+lastn-rec : n Ü 0 ­ lastn(n, x) = lastn(n -1, x.butlast) + x.last;
+
+sublist-lenrec : m + n < # x ­ sublist(m, n + 1, x) = sublist(m, n, x) + x[m + n];
+sublist-lenrec : n < # x ­ sublist(0, n + 1, x) = sublist(0, n, x) + x[n];
+
+sublist-one : m < # x ­ sublist(m, 1, x) = x[m] '; used for : s,ls;
+
+get-mklist : m < n ­ mklist(a, n)[m] = a; used for : s,ls;
+get-mklist : (a ' + mklist(a, m))[m] = a; used for : s,ls;
+
+get-numrec : n Ü 0 ¥ (a ' + x)[* n] = x[n -1]; used for : s,ls;
+get-app : (x + a ' + y)[# x] = a; used for : s,ls;
+in-get : a ² x ° ´ n. n < # x ¸ x[n] = a;
+
+get-in : m < # x ­ (µ x[m] ² x ° false); used for : s,ls;
+
+sublist-mklist     :  ¥ m ¨ m0 ­ sublist(0, m, mklist(a, m0)) = mklist(a, m) ;
+          used for : s, ls ;
+
+first-length : # firstn(n, x) = n; used for : s,ls;
+sublist-firsteq : sublist(0, n, x) = a ' + y ° n = # y + 1 ¸ x.first = a ¸ sublist(0, n -1, x.rest) = y;
+
+sublist-empty : sublist(0, n, x) = [] ° n = 0; used for : s,ls;
+
+sublist-num : n Ü 0 ¥ sublist(0, * n, a ' + x) = a ' + sublist(0, n -1, x); used for : s,ls;
+sublist-all : # x = n ­ sublist(0, n, x) = x; used for : s,ls;
+first-num : n Ü 0 ¥ firstn(* n, x) = x.first ' + firstn(n -1, x.rest); used for : s,ls;
+
+first-all : # x = n ­ firstn(n, x) = x; used for : s,ls;
+first-mklist : firstn(m, mklist(a, m)) = mklist(a, m); used for : s,ls;
+
+first-mklist : m ¨ n ­ firstn(m, mklist(a, n)) = mklist(a, m); used for : s,ls;
+first-mklist : m + m0 ¨ n ­ firstn(m, mklist(a, n)) = mklist(a, m); used for : s,ls;
+first-mklist : firstn(m, mklist(a, m) + mklist(a, n)) = mklist(a, m); used for : s,ls;
+first-mklist : firstn(m, mklist(a, n) + mklist(a, m)) = mklist(a, m); used for : s,ls;
+rest-empty : # x = n ­ restn(n, x) = []; used for : s,ls;
+rest-mklist : restn(m, mklist(a, m)) = []; used for : s,ls;
+rest-mklist : restn(m, mklist(a, m) + mklist(a, n)) = mklist(a, n); used for : s,ls;
+rest-mklist : restn(m, mklist(a, n) + mklist(a, m)) = mklist(a, n); used for : s,ls;
+
+rest-mklist : m ¨ n ­ restn(m, mklist(a, n)) = mklist(a, n - m); used for : s,ls;
+rest-mklist : m + m0 ¨ n ­ restn(m, mklist(a, n)) = mklist(a, n - m); used for : s,ls;
+first-append : m ¨ # x ­ firstn(m, x + y) = firstn(m, x); used for : s,ls;
+first-append : n + m ¨ # x ­ firstn(m, restn(n, x) + y) = firstn(m, restn(n, x)); used for : s,ls;
+rest-append : n + m ¨ # x ­ restn(n, x + y) = restn(n, x) + y; used for : s,ls;
+first-all : ¥ firstn(# x, x) = x; used for : s,ls;
+
+first-sub          :  ¥ firstn(n, x) = sublist(0, n, x) ;
+           remarks : proved ;
+rest-sub           :  ¥ n ¨ # x ­ restn(n, x) = sublist(n, # x - n, x) ;
+           remarks : proved ;
+sub-len            :  ¥ n ¨ # x ­ # sublist(0, n, x) = n ; used for : s, ls ;
+sub-rec            : sublist(m + 1, n, x) = sublist(m, n, x .rest) ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+
+sub-zero           :  ¥ sublist(0, # x, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen        :  ¥ sublist(n, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen-01     :  ¥ sublist(# x, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+sub-zerorec        : x Ü [] ­ sublist(0, n + 1, x) = x .first + sublist(0, n, x .rest) ;
+          used for : ls ;
+           remarks : proved, used, invalid ;
+sub-zerozero       :  ¥ sublist(0, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sublist-append     :  ¥ n + m ¨ # x ­ sublist(n, m, x + y) = sublist(n, m, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-append-01-01  : ¥ 
+                       # x ¨ n
+                     ­ sublist(n, m, x + y) = sublist(n - # x, m, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-02-01  : ¥ 
+                       # x ¨ m
+                     ­ sublist(0, m, x + y) = x + sublist(0, m - # x, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-03  :  ¥ sublist(0, # x, x + y) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist     :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0)) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist-01  :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0) + x) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-rec        : x Ü [] ¸ n Ü 0 ­ 
+                     sublist(0, n, x) = x .first ' + sublist(0, n -1, x .rest) ;
+           remarks : proved ;
+
+sublist-num : sublist(* m, * n, x) = firstn(n, restn(m, x));used for : s,ls;
+sublist-good : sublist(#(x), #(y), x + y + z) = y; comment: this can be used as an axiom.
+However, it makes the operation defined only if the indices are good which is bad.;
+sub-len            :  ¥ n ¨ # x ­ # sublist(0, n, x + y) = n ; used for : s, ls ;
+
+
+
+sub-rec            : m + n < # x ¥ sublist(m + 1, n, x) = sublist(m, n, x .rest) ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zero           :  ¥ sublist(0, # x, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen        :  ¥ n ¨ # x ­ sublist(n, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen-01     :  ¥ sublist(# x, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+sub-zerorec        : n < # x ¥ sublist(0, n + 1, x) = x .first + sublist(0, n, x .rest) ;
+          used for : ls ;
+           remarks : proved, used, invalid ;
+sub-zerozero       :  ¥ sublist(0, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sublist-append     :  ¥ n + m ¨ # x ­ sublist(n, m, x + y) = sublist(n, m, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-append-01-01  : ¥ 
+                       # x ¨ n ¸ n + m ¨ # x + # y
+                     ­ sublist(n, m, x + y) = sublist(n - # x, m, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-02-01  : ¥ 
+                       # x ¨ m ¸ m ¨ # x + # y
+                     ­ sublist(0, m, x + y) = x + sublist(0, m - # x, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-03  :  ¥ sublist(0, # x, x + y) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist     :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0)) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist-01  :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0) + x) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-rec        : n ¨ # x, n Ü 0
+                     ¥ 
+                     sublist(0, n, x) = x .first ' + sublist(0, n -1, x .rest) ;
+           remarks : proved ;
+app                :  ¥ a ² x ­ (x + y) -1l a = (x -1l a) + y ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+app-01             :  ¥ µ a ² x ­ (x + y) -1l a = x + (y -1l a) ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+app-05             :  ¥ a ² x ­ pos(a, x + y) = pos(a, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+blastN-firstN      :  ¥ n ¨ # x ­ butlastn(n, x) = firstn(# x - n, x) ;
+           remarks : proved ;
+dups               :  ¥ dups(x -1l a) ­ dups(x) ;
+          used for : f, lf ;
+           remarks : proved ;
+dups-01            :  ¥ µ dups(y) ­ µ b ² y -1l b ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-dups        :  ¥ n < # x ¸ µ dups(x + y) ­ µ dups(firstn(n, x) + y) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-dups-01     :  ¥ n < # y ¸ µ dups(x + y) ­ µ dups(x + firstn(n, y)) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-dups-02     :  ¥ n ¨ # x ¸ µ dups(x + y) ­ µ dups(firstn(n, x) + y) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-dups-03     :  ¥ n ¨ # y ¸ µ dups(x + y) ­ µ dups(x + firstn(n, y)) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-dups-04     :  ¥ n ¨ # x ¸ µ dups(x) ­ µ dups(firstn(n, x)) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-dups-05     :  ¥ n < # x ¸ µ dups(x) ­ µ dups(firstn(n, x)) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-empty       :  ¥ firstn(n, x) = [] ° n = 0 ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-in          :  ¥ µ a ² x ¸ n ¨ # x ­ µ a ² firstn(n, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-in-01       :  ¥ µ a ² x ¸ n < # x ­ µ a ² firstn(n, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-in-02       :  ¥ µ a ² x ¸ n ¨ # x ­ µ a ² firstn(# x - n, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-in-03       :  ¥ µ a ² x ¸ n < # x ­ µ a ² firstn(# x - n, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-in-04       :  ¥ a ² firstn(n, x) ¸ n ¨ # x ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved, used ;
+firstN-in-05       :  ¥ a ² firstn(n, x) ¸ n < # x ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved ;
+firstN-lastN       :  ¥ n ¨ # x ­ firstn(# x - n, x) + lastn(n, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-lastN-in    : ¥ 
+                       n ¨ # x ¸ a ² x ¸ µ a ² lastn(n, x)
+                     ­ (µ a ² firstn(# x - n, x) ° false) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-lastN-in-01 : ¥ 
+                       n < # x ¸ a ² x ¸ µ a ² lastn(n, x)
+                     ­ (µ a ² firstn(# x - n, x) ° false) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-len         :  ¥ firstn(# x, x + y) = x ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-length      :  ¥ n ¨ # x ­ # firstn(n, x) = n ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-length-01   :  ¥ n < # x ­ # firstn(n, x) = n ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-one         :  ¥ x Ü [] ­ firstn(1, x) = x .first ' ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-rec-01      :  ¥ n Ü 0 ­ firstn(n, a ' + x) = a ' + firstn(n -1, x) ;
+           remarks : proved, used ;
+firstrestex        :  ¥ n < # x ° x = firstn(n, x) + restn(n, x) ¸ n < # x ;
+           remarks : proved, used ;
+from-notin         :  ¥ µ a ² x ­ frome(x, a) = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+from-rest          :  ¥ a ² x ­ frome(x, a) = restn(pos(a, x), x) ;
+           remarks : proved ;
+get                :  ¥ a ² x ­ x[pos(a, x)] = a ;
+          used for : s, ls ;
+           remarks : proved ;
+get-butlast        :  ¥ n < # x ­ (x + a ')[n] = x[n] ;
+          used for : s, ls ;
+           remarks : proved ;
+get-last           :  ¥ n = # x ­ (x + a ')[n] = a ;
+          used for : s, ls ;
+           remarks : proved ;
+get-rec            :  ¥ x Ü [] ¸ n Ü 0 ­ x[n] = (x .rest)[n - 1] ;
+           remarks : proved, used ;
+get-rec-01         :  ¥ x Ü [] ­ x[n + 1] = (x .rest)[n] ;
+          used for : ls ; (: keine gute Idee, das als Simplifierregel zu haben, Gerhard :)
+           remarks : proved, used ;
+get-zero           :  ¥ x Ü [] ­ x[0] = x .first ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in                 :  ¥ a ² x ¸ a Ü b ­ a ² x -l b ;
+          used for : s, ls ;
+           remarks : proved ;
+in-01              :  ¥ a ² x -l b ­ a ² x ¸ a Ü b ;
+          used for : f, lf ;
+           remarks : proved, used by proved unit ;
+in-01-01           :  ¥ a ² x -1l b ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved, used ;
+in-02              :  ¥ µ a ² x -l a ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in-02-01           :  ¥ µ a ² x ­ x -1l a = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in-03              :  ¥ µ a ² x ­ x -l a = x ;
+          used for : s, ls ;
+           remarks : proved ;
+in-04              :  ¥ a ² x ¸ a Ü b ­ a ² x -1l b ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in-05              :  ¥ µ a ² y -1l b ¸ a ² y ­ a = b ;
+          used for : f, lf ;
+           remarks : proved ;
+inl                :  ¥ a ² x ­ pos(a, x) < # x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+inl-01             :  ¥ a ² x ­ µ # x ¨ pos(a, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+l                  :  ¥ a ² x ­ # (x -1l a) = (# x) -1 ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+l-01               :  ¥ # x = # (x -1l a) ° µ a ² x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+l-02               :  ¥ # x + # y = # (y -1l a) ° x = [] ¸ µ a ² y ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+lastN-all          :  ¥ n = # x ­ lastn(n, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+lastN-append       :  ¥ n = # y ­ lastn(n, x + y) = y ;
+          used for : s, ls ;
+           remarks : proved, used ;
+lastN-append-01    :  ¥ n ¨ # y ­ lastn(n, x + y) = lastn(n, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-blastN       :  ¥ n ¨ # x ­ butlastn(n, x) + lastn(n, x) = x ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-empty        :  ¥ lastn(n, x) = [] ° n = 0 ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-ex           : n ¨ # x ¥ ´ y. x = y + lastn(n, x) ¸ # y = # x - n ;
+           remarks : proved ;
+lastN-in           :  ¥ µ a ² x ¸ n < # x ­ µ a ² lastn(n, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-in-01        :  ¥ µ a ² x ¸ n ¨ # x ­ µ a ² lastn(n, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+lastN-length       :  ¥ n ¨ # x ­ # lastn(n, x) = n ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-mklist       :  ¥ lastn(n, x + mklist(a, n)) = mklist(a, n) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-mklist-01    :  ¥ lastn(n + 1, x + b ' + mklist(a, n)) = b ' + mklist(a, n) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-mklist-02    :  ¥ lastn(n, mklist(a, n)) = mklist(a, n) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-one          :  ¥ lastn(1, a ') = a ' ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-rec-01       :  ¥ lastn(n + 1, x + a ') = lastn(n, x) + a ' ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-rec-02       :  ¥ n < # x ­ lastn(n, x) = lastn(n, x .rest) ;
+           remarks : proved, used ;
+lastN-rest         :  ¥ n < # x ­ lastn(n, x .rest) = lastn(n, x) ;
+          used for : s ;
+           remarks : proved, used ;
+lastN-rest-01      :  ¥ # x = n + 1 ­ lastn(n, x) = x .rest ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-restN        : n ¨ # x ¥ lastn(n, x) = restn(# x - n, x) ;
+           remarks : proved, used ;
+len                :  ¥ pos(a, x) ¨ # x ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+len-01             :  ¥ µ # x < pos(a, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+notin-03           :  ¥ µ a ² x ­ pos(a, x) = # x ;
+          used for : s, ls ;
+           remarks : proved ;
+num-lastN          : 0 < n ¥ lastn((* n), x + a ') = lastn(n -1, x) + a ' ;
+          used for : s, ls ;
+           remarks : proved, used ;
+one                :  ¥ a ' -l a = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+one-01             :  ¥ a ' -1l a = [] ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+one-01-01          :  ¥ a Ü b ­ a ' -1l b = a ' ;
+          used for : s, ls ;
+           remarks : proved ;
+one-03             :  ¥ (a ')[0] = a ;
+          used for : s, ls ;
+           remarks : proved, used ;
+putset-same        :  ¥ n < # x ­ x[n, x[n]] = x ;
+          used for : s, ls ;
+           remarks : proved ;
+rest-in            :  ¥ a ² restn(n, x) ¸ n ¨ # x ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved, used ;
+rest-in-01         :  ¥ a ² restn(n, x) ¸ µ a ² x ­ µ n ¨ # x ;
+          used for : f, lf ;
+           remarks : proved ;
+rest-len           : n ¨ # x ¥ # restn(n, x) = # x - n ;
+          used for : s, ls ;
+           remarks : proved, used ;
+rest-one           :  ¥ restn(1, a ' + x) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+rest-one-01        :  ¥ restn(1, a ') = [] ;
+          used for : s, ls ;
+           remarks : proved, used ;
+rest-rec           :  ¥ 0 < n ­ restn(n, x) = restn(n -1, x .rest) ;
+           remarks : proved, used ;
+rest-two           :  ¥ restn(2, a ' + b ' + x) = x ;
+          used for : s, ls ;
+           remarks : proved ;
+rest-two-01        :  ¥ restn(2, a ' + b ') = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+restN-all          :  ¥ restn(# x, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used ;
+restN-append       :  ¥ n ¨ # x ­ restn(n, x + y) = restn(n, x) + y ;
+          used for : s, ls ;
+           remarks : proved, used ;
+restN-len          :  ¥ restn(# x, x + y) = y ;
+          used for : s, ls ;
+           remarks : proved, used ;
+st                 :  ¥ (x -1l a) -1l b = (x -1l b) -1l a ° true ;
+          used for : s, ls ;
+           remarks : proved ;
+sw                 :  ¥ (x -l a) -l b = (x -l b) -l a ;
+           remarks : proved, used ;
+sw-01              :  ¥ (x -l a) -l b = (x -l b) -l a ° true ;
+          used for : s, ls ;
+           remarks : proved ;
+sw-02              :  ¥ (x -1l a) -1l b = (x -1l b) -1l a ;
+           remarks : proved, used ;
+
+
+;;; END
+
+;;; END
+firstn-restn : firstn(m, restn(n, x)) = sublist(n, m, x);
+
+restn-restn : m + n ¨ # x ­ restn(m, restn(n, x)) = restn(m + n, x); used for : s,ls;
+
+extension : x = y ° # x = # y ¸ ³ n. n < # x ­ x[n] = y[n];
+;;; END
+firstn-one : firstn(1, a ' + x) = a '; used for : s,ls;
+rest-app :
+  ¥ 
+  m ¨ # x + # y ¸ # x ¨ m
+­ restn(m, x + y) = restn(m - # x, y);
+
+firstn-app :
+  ¥ 
+  m ¨ # x + # y ¸ # x ¨ m
+­ firstn(m, x + y) = x + firstn(m - # x, y);
+
+lastn-mklist :
+   ¥ m ¨ n ­ lastn(m, mklist(a, n)) = mklist(a, m); used for : s,ls;
+
+restn-empty :
+   ¥ n ¨ # x ­ (restn(n, x) = [] ° n = # x); used for : s,ls;
+firstn-firstn :
+   ¥ m ¨ n ¸ n ¨ # x ­ firstn(m, firstn(n, x)) = firstn(m, x); used for : s,ls;
+lastn-restn :
+   ¥ m + n ¨ # x ­ lastn(m, restn(n, x)) = lastn(m, x); used for : s,ls;
+restn-firstn :
+  ¥ 
+  m ¨ n ¸ m + n ¨ # x
+­ restn(m, firstn(n, x)) = firstn(n - m, restn(m, x));
+restn-empty :
+   ¥ n ¨ # x ­ (restn(n, x) = [] ° n = # x); used for : s,ls;
+firstn-first :
+   ¥ n Ü 0 ¸ x Ü [] ­ (firstn(n, x) .first = x .first); used for : s,ls;
+rest-app :
+  ¥ 
+  m ¨ # x + # y ¸ # x ¨ m
+­ restn(m, x + y) = restn(m - # x, y);
+firstn-app :
+  ¥ 
+  m ¨ # x + # y ¸ # x ¨ m
+­ firstn(m, x + y) = x + firstn(m - # x, y);
+firstn-first :
+   ¥ n Ü 0 ¸ x Ü [] ­ (firstn(n, x) .first = x .first); used for : s,ls;
+firstn-first :
+   ¥ n Ü 0 ¸ x Ü [] ­ (firstn(n, x) .first = x .first); used for : s,ls;
+;;; END
+
+firstn-app : # x ¨ n ­ firstn(n, x + y) = x + firstn(n - # x, y);
+
+lastn-one : lastn(1, x) = x.last '; used for : s,ls;
+firstn-app : firstn(# x + n, x + y) = x + firstn(n, y); used for : s,ls;
+
+;;; END
+
+put-length : ¥ n < # x ­ # (x[n, a]) = # x; used for : s,ls;
+
+lastn-firstn-in-01 :
+
+    lastn(n, x) = y ¸ µ a ² y ¸ a ² x ¸ n ¨ # x
+  ¸ m = # x - n
+­ a ² firstn(m, x);
+
+
+dups-first-last-split : 
+¥ 
+  n ¨ # x
+­ (dups(x) ° dups(firstn(n, x) + lastn(# x - n, x)));
+
+firstn-restn-eq : n ¨ # x ­ firstn(n, x) + restn(n, x) = x; used for : s,ls;
+lastn-neq : n ¨ # x ¸ µ a ² x ­ lastn(n, x) Ü a ' + y; used for : s,ls;
+firstn-last-eq : n ¨ # x ­ firstn(n, x) + lastn(# x - n, x) = x; used for : s,ls;
+lastn-neq : n ¨ # x ¸ a ² y ¸ µ a ² x ­ lastn(n, x)  Ü b ' + y; used for : s,ls;
+;;; END
+put-zero : x Ü [] ­ x[0, a] = a ' + x.rest;
+put-app-left  : n < # x ­ (x + y)[n, a] = x[n, a] + y; used for : s,ls;
+put-app-right : # x ¨ n ­ (x + y)[n, a] = x + y[n - # x, a];
+put-one : (a ')[0, b] = b '; used for : s,ls;
+put-last : n = # x ­ (x + a ')[n, b] = x + b '; used for : s,ls;
+put-butlast : n < # x ­ (x + a ')[n, b] = x[n, b] + a '; used for : s,ls;
+
+lastN-dups : µ dups(x) ¸ n < # x ­ µ dups(lastn(n, x)); used for : s,ls;
+lastN-dups : µ dups(x) ¸ n ¨ # x ­ µ dups(lastn(n, x)); used for : s,ls;
+put-rec : n Ü 0 ¸ x Ü [] ­ x[n, a] = x.first ' + x.rest[n -1, a];
+
+restn-last: n < # x ­ restn(n, x) .last = x.last; used for : ls, s;
+get-restn : m + n < # x ­ restn(n, x)[m] = x[m + n];
+weak-firstN-rec  : firstn(n + 1, a ' + x) = a + firstn(n, x) ; used for : s;
+weak-restN-rec   : restn(n + 1, a ' + x) = restn(n, x); used for : s;
+firstn-last: m Ü 0 ¸ m ¨ # x ­ firstn(m, x) .last = x[m -1];
+get-firstn : n < m ¸ m ¨ # x ­ firstn(m, x)[n] = x[n];
+get-last-01 : (a + x)[# x] = (a + x) .last;
+get-last2 : (a ' + x)[# x] = (a ' + x) .last;
+get-append-less : n < # x ­ (x + y)[n] = x[n];
+get-append-grt : µ n < # x ­ (x + y)[n] = y[n - # x];
+
+;;; END
+
+sublist-one-01 : sublist(0, 1, a ') = a '; used for : s,ls;
+;;; END
+get-nodups : m < # x ¸ n < # x ¸ µ dups(x) ­ (x[m] = x[n] ° m = n); used for : s,ls;
+
+pos-one : pos(a, a ') = 0; used for : s,ls;
+lastn-rec : n Ü 0 ­ lastn(n, x) = lastn(n -1, x.butlast) + x.last;
+;;; END
+sublist-lenrec : m + n < # x ­ sublist(m, n + 1, x) = sublist(m, n, x) + x[m + n];
+sublist-lenrec : n < # x ­ sublist(0, n + 1, x) = sublist(0, n, x) + x[n];
+
+sublist-one : m < # x ­ sublist(m, 1, x) = x[m] '; used for : s,ls;
+;;; END
+get-mklist : m < n ­ mklist(a, n)[m] = a; used for : s,ls;
+get-mklist : (a ' + mklist(a, m))[m] = a; used for : s,ls;
+
+get-numrec : n Ü 0 ¥ (a ' + x)[* n] = x[n -1]; used for : s,ls;
+get-app : (x + a ' + y)[# x] = a; used for : s,ls;
+in-get : a ² x ° ´ n. n < # x ¸ x[n] = a;
+
+get-in : m < # x ­ (µ x[m] ² x ° false); used for : s,ls;
+;;; END
+sublist-mklist     :  ¥ m ¨ m0 ­ sublist(0, m, mklist(a, m0)) = mklist(a, m) ;
+          used for : s, ls ;
+
+first-length : # firstn(n, x) = n; used for : s,ls;
+sublist-firsteq : sublist(0, n, x) = a ' + y ° n = # y + 1 ¸ x.first = a ¸ sublist(0, n -1, x.rest) = y;
+
+sublist-empty : sublist(0, n, x) = [] ° n = 0; used for : s,ls;
+;;; END
+sublist-num : n Ü 0 ¥ sublist(0, * n, a ' + x) = a ' + sublist(0, n -1, x); used for : s,ls;
+sublist-all : # x = n ­ sublist(0, n, x) = x; used for : s,ls;
+first-num : n Ü 0 ¥ firstn(* n, x) = x.first ' + firstn(n -1, x.rest); used for : s,ls;
+;;; END
+first-all : # x = n ­ firstn(n, x) = x; used for : s,ls;
+first-mklist : firstn(m, mklist(a, m)) = mklist(a, m); used for : s,ls;
+
+first-mklist : m ¨ n ­ firstn(m, mklist(a, n)) = mklist(a, m); used for : s,ls;
+first-mklist : m + m0 ¨ n ­ firstn(m, mklist(a, n)) = mklist(a, m); used for : s,ls;
+first-mklist : firstn(m, mklist(a, m) + mklist(a, n)) = mklist(a, m); used for : s,ls;
+first-mklist : firstn(m, mklist(a, n) + mklist(a, m)) = mklist(a, m); used for : s,ls;
+rest-empty : # x = n ­ restn(n, x) = []; used for : s,ls;
+rest-mklist : restn(m, mklist(a, m)) = []; used for : s,ls;
+rest-mklist : restn(m, mklist(a, m) + mklist(a, n)) = mklist(a, n); used for : s,ls;
+rest-mklist : restn(m, mklist(a, n) + mklist(a, m)) = mklist(a, n); used for : s,ls;
+
+rest-mklist : m ¨ n ­ restn(m, mklist(a, n)) = mklist(a, n - m); used for : s,ls;
+rest-mklist : m + m0 ¨ n ­ restn(m, mklist(a, n)) = mklist(a, n - m); used for : s,ls;
+first-append : m ¨ # x ­ firstn(m, x + y) = firstn(m, x); used for : s,ls;
+first-append : n + m ¨ # x ­ firstn(m, restn(n, x) + y) = firstn(m, restn(n, x)); used for : s,ls;
+rest-append : n + m ¨ # x ­ restn(n, x + y) = restn(n, x) + y; used for : s,ls;
+first-all : ¥ firstn(# x, x) = x; used for : s,ls;
+;;; END
+first-sub          :  ¥ firstn(n, x) = sublist(0, n, x) ;
+           remarks : proved ;
+rest-sub           :  ¥ n ¨ # x ­ restn(n, x) = sublist(n, # x - n, x) ;
+           remarks : proved ;
+sub-len            :  ¥ n ¨ # x ­ # sublist(0, n, x) = n ; used for : s, ls ;
+sub-rec            : sublist(m + 1, n, x) = sublist(m, n, x .rest) ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+
+sub-zero           :  ¥ sublist(0, # x, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen        :  ¥ sublist(n, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen-01     :  ¥ sublist(# x, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+sub-zerorec        : x Ü [] ­ sublist(0, n + 1, x) = x .first + sublist(0, n, x .rest) ;
+          used for : ls ;
+           remarks : proved, used, invalid ;
+sub-zerozero       :  ¥ sublist(0, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sublist-append     :  ¥ n + m ¨ # x ­ sublist(n, m, x + y) = sublist(n, m, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-append-01  : ¥ 
+                       # x ¨ n
+                     ­ sublist(n, m, x + y) = sublist(n - # x, m, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-02  : ¥ 
+                       # x ¨ m
+                     ­ sublist(0, m, x + y) = x + sublist(0, m - # x, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-03  :  ¥ sublist(0, # x, x + y) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist     :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0)) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist-01  :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0) + x) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-rec        : x Ü [] ¸ n Ü 0 ­ 
+                     sublist(0, n, x) = x .first ' + sublist(0, n -1, x .rest) ;
+           remarks : proved ;
+;;; END
+sublist-num : sublist(* m, * n, x) = firstn(n, restn(m, x));used for : s,ls;
+sublist-good : sublist(#(x), #(y), x + y + z) = y; comment: this can be used as an axiom.
+However, it makes the operation defined only if the indices are good which is bad.;
+sub-len            :  ¥ n ¨ # x ­ # sublist(0, n, x + y) = n ; used for : s, ls ;
+
+
+
+sub-rec            : m + n < # x ¥ sublist(m + 1, n, x) = sublist(m, n, x .rest) ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zero           :  ¥ sublist(0, # x, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen        :  ¥ n ¨ # x ­ sublist(n, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sub-zerolen-01     :  ¥ sublist(# x, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+sub-zerorec        : n < # x ¥ sublist(0, n + 1, x) = x .first + sublist(0, n, x .rest) ;
+          used for : ls ;
+           remarks : proved, used, invalid ;
+sub-zerozero       :  ¥ sublist(0, 0, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used, invalid ;
+sublist-append     :  ¥ n + m ¨ # x ­ sublist(n, m, x + y) = sublist(n, m, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-append-01  : ¥ 
+                       # x ¨ n ¸ n + m ¨ # x + # y
+                     ­ sublist(n, m, x + y) = sublist(n - # x, m, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-02  : ¥ 
+                       # x ¨ m ¸ m ¨ # x + # y
+                     ­ sublist(0, m, x + y) = x + sublist(0, m - # x, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-append-03  :  ¥ sublist(0, # x, x + y) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist     :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0)) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+sublist-mklist-01  :  ¥ n + m ¨ m0 ­ sublist(n, m, mklist(a, m0) + x) = mklist(a, m) ;
+          used for : s, ls ;
+           remarks : proved ;
+sublist-rec        : n ¨ # x, n Ü 0
+                     ¥ 
+                     sublist(0, n, x) = x .first ' + sublist(0, n -1, x .rest) ;
+           remarks : proved ;
+;;; END
+app                :  ¥ a ² x ­ (x + y) -1l a = (x -1l a) + y ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+app-01             :  ¥ µ a ² x ­ (x + y) -1l a = x + (y -1l a) ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+app-05             :  ¥ a ² x ­ pos(a, x + y) = pos(a, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+blastN-firstN      :  ¥ n ¨ # x ­ butlastn(n, x) = firstn(# x - n, x) ;
+           remarks : proved ;
+dups               :  ¥ dups(x -1l a) ­ dups(x) ;
+          used for : f, lf ;
+           remarks : proved ;
+dups-01            :  ¥ µ dups(y) ­ µ b ² y -1l b ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-dups        :  ¥ n < # x ¸ µ dups(x + y) ­ µ dups(firstn(n, x) + y) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-dups-01     :  ¥ n < # y ¸ µ dups(x + y) ­ µ dups(x + firstn(n, y)) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-dups-02     :  ¥ n ¨ # x ¸ µ dups(x + y) ­ µ dups(firstn(n, x) + y) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-dups-03     :  ¥ n ¨ # y ¸ µ dups(x + y) ­ µ dups(x + firstn(n, y)) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-dups-04     :  ¥ n ¨ # x ¸ µ dups(x) ­ µ dups(firstn(n, x)) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-dups-05     :  ¥ n < # x ¸ µ dups(x) ­ µ dups(firstn(n, x)) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-empty       :  ¥ firstn(n, x) = [] ° n = 0 ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-in          :  ¥ µ a ² x ¸ n ¨ # x ­ µ a ² firstn(n, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-in-01       :  ¥ µ a ² x ¸ n < # x ­ µ a ² firstn(n, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-in-02       :  ¥ µ a ² x ¸ n ¨ # x ­ µ a ² firstn(# x - n, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-in-03       :  ¥ µ a ² x ¸ n < # x ­ µ a ² firstn(# x - n, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-in-04       :  ¥ a ² firstn(n, x) ¸ n ¨ # x ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved, used ;
+firstN-in-05       :  ¥ a ² firstn(n, x) ¸ n < # x ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved ;
+firstN-lastN       :  ¥ n ¨ # x ­ firstn(# x - n, x) + lastn(n, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-lastN-in    : ¥ 
+                       n ¨ # x ¸ a ² x ¸ µ a ² lastn(n, x)
+                     ­ (µ a ² firstn(# x - n, x) ° false) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-lastN-in-01 : ¥ 
+                       n < # x ¸ a ² x ¸ µ a ² lastn(n, x)
+                     ­ (µ a ² firstn(# x - n, x) ° false) ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-len         :  ¥ firstn(# x, x + y) = x ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-length      :  ¥ n ¨ # x ­ # firstn(n, x) = n ;
+          used for : s, ls ;
+           remarks : proved, used ;
+firstN-length-01   :  ¥ n < # x ­ # firstn(n, x) = n ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-one         :  ¥ x Ü [] ­ firstn(1, x) = x .first ' ;
+          used for : s, ls ;
+           remarks : proved ;
+firstN-rec-01      :  ¥ n Ü 0 ­ firstn(n, a ' + x) = a ' + firstn(n -1, x) ;
+           remarks : proved, used ;
+firstrestex        :  ¥ n < # x ° x = firstn(n, x) + restn(n, x) ¸ n < # x ;
+           remarks : proved, used ;
+from-notin         :  ¥ µ a ² x ­ frome(x, a) = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+from-rest          :  ¥ a ² x ­ frome(x, a) = restn(pos(a, x), x) ;
+           remarks : proved ;
+get                :  ¥ a ² x ­ x[pos(a, x)] = a ;
+          used for : s, ls ;
+           remarks : proved ;
+get-butlast        :  ¥ n < # x ­ (x + a ')[n] = x[n] ;
+          used for : s, ls ;
+           remarks : proved ;
+get-last           :  ¥ n = # x ­ (x + a ')[n] = a ;
+          used for : s, ls ;
+           remarks : proved ;
+get-rec            :  ¥ x Ü [] ¸ n Ü 0 ­ x[n] = (x .rest)[n - 1] ;
+           remarks : proved, used ;
+get-rec-01         :  ¥ x Ü [] ­ x[n + 1] = (x .rest)[n] ;
+          used for : s, ls ;
+           remarks : proved, used ;
+get-zero           :  ¥ x Ü [] ­ x[0] = x .first ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in                 :  ¥ a ² x ¸ a Ü b ­ a ² x -l b ;
+          used for : s, ls ;
+           remarks : proved ;
+in-01              :  ¥ a ² x -l b ­ a ² x ¸ a Ü b ;
+          used for : f, lf ;
+           remarks : proved, used by proved unit ;
+in-01-01           :  ¥ a ² x -1l b ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved, used ;
+in-02              :  ¥ µ a ² x -l a ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in-02-01           :  ¥ µ a ² x ­ x -1l a = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in-03              :  ¥ µ a ² x ­ x -l a = x ;
+          used for : s, ls ;
+           remarks : proved ;
+in-04              :  ¥ a ² x ¸ a Ü b ­ a ² x -1l b ;
+          used for : s, ls ;
+           remarks : proved, used ;
+in-05              :  ¥ µ a ² y -1l b ¸ a ² y ­ a = b ;
+          used for : f, lf ;
+           remarks : proved ;
+inl                :  ¥ a ² x ­ pos(a, x) < # x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+inl-01             :  ¥ a ² x ­ µ # x ¨ pos(a, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+l                  :  ¥ a ² x ­ # (x -1l a) = (# x) -1 ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+l-01               :  ¥ # x = # (x -1l a) ° µ a ² x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+l-02               :  ¥ # x + # y = # (y -1l a) ° x = [] ¸ µ a ² y ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+lastN-all          :  ¥ n = # x ­ lastn(n, x) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+lastN-append       :  ¥ n = # y ­ lastn(n, x + y) = y ;
+          used for : s, ls ;
+           remarks : proved, used ;
+lastN-append-01    :  ¥ n ¨ # y ­ lastn(n, x + y) = lastn(n, y) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-blastN       :  ¥ n ¨ # x ­ butlastn(n, x) + lastn(n, x) = x ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-empty        :  ¥ lastn(n, x) = [] ° n = 0 ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-ex           : n ¨ # x ¥ ´ y. x = y + lastn(n, x) ¸ # y = # x - n ;
+           remarks : proved ;
+lastN-in           :  ¥ µ a ² x ¸ n < # x ­ µ a ² lastn(n, x) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-in-01        :  ¥ µ a ² x ¸ n ¨ # x ­ µ a ² lastn(n, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+lastN-length       :  ¥ n ¨ # x ­ # lastn(n, x) = n ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-mklist       :  ¥ lastn(n, x + mklist(a, n)) = mklist(a, n) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-mklist-01    :  ¥ lastn(n + 1, x + b ' + mklist(a, n)) = b ' + mklist(a, n) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-mklist-02    :  ¥ lastn(n, mklist(a, n)) = mklist(a, n) ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-one          :  ¥ lastn(1, a ') = a ' ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-rec-01       :  ¥ lastn(n + 1, x + a ') = lastn(n, x) + a ' ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-rec-02       :  ¥ n < # x ­ lastn(n, x) = lastn(n, x .rest) ;
+           remarks : proved, used ;
+lastN-rest         :  ¥ n < # x ­ lastn(n, x .rest) = lastn(n, x) ;
+          used for : s ;
+           remarks : proved, used ;
+lastN-rest-01      :  ¥ # x = n + 1 ­ lastn(n, x) = x .rest ;
+          used for : s, ls ;
+           remarks : proved ;
+lastN-restN        : n ¨ # x ¥ lastn(n, x) = restn(# x - n, x) ;
+           remarks : proved, used ;
+len                :  ¥ pos(a, x) ¨ # x ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+len-01             :  ¥ µ # x < pos(a, x) ;
+          used for : s, ls ;
+           remarks : proved, used ;
+notin-03           :  ¥ µ a ² x ­ pos(a, x) = # x ;
+          used for : s, ls ;
+           remarks : proved ;
+num-lastN          : 0 < n ¥ lastn((* n), x + a ') = lastn(n -1, x) + a ' ;
+          used for : s, ls ;
+           remarks : proved, used ;
+one                :  ¥ a ' -l a = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+one-01             :  ¥ a ' -1l a = [] ;
+          used for : s, ls ;
+           remarks : proved, used by proved unit ;
+one-01-01          :  ¥ a Ü b ­ a ' -1l b = a ' ;
+          used for : s, ls ;
+           remarks : proved ;
+one-03             :  ¥ (a ')[0] = a ;
+          used for : s, ls ;
+           remarks : proved, used ;
+putset-same        :  ¥ n < # x ­ x[n, x[n]] = x ;
+          used for : s, ls ;
+           remarks : proved ;
+rest-in            :  ¥ a ² restn(n, x) ¸ n ¨ # x ­ a ² x ;
+          used for : f, lf ;
+           remarks : proved, used ;
+rest-in-01         :  ¥ a ² restn(n, x) ¸ µ a ² x ­ µ n ¨ # x ;
+          used for : f, lf ;
+           remarks : proved ;
+rest-len           : n ¨ # x ¥ # restn(n, x) = # x - n ;
+          used for : s, ls ;
+           remarks : proved, used ;
+rest-one           :  ¥ restn(1, a ' + x) = x ;
+          used for : s, ls ;
+           remarks : proved, used ;
+rest-one-01        :  ¥ restn(1, a ') = [] ;
+          used for : s, ls ;
+           remarks : proved, used ;
+rest-rec           :  ¥ 0 < n ­ restn(n, x) = restn(n -1, x .rest) ;
+           remarks : proved, used ;
+rest-two           :  ¥ restn(2, a ' + b ' + x) = x ;
+          used for : s, ls ;
+           remarks : proved ;
+rest-two-01        :  ¥ restn(2, a ' + b ') = [] ;
+          used for : s, ls ;
+           remarks : proved ;
+restN-all          :  ¥ restn(# x, x) = [] ;
+          used for : s, ls ;
+           remarks : proved, used ;
+restN-append       :  ¥ n ¨ # x ­ restn(n, x + y) = restn(n, x) + y ;
+          used for : s, ls ;
+           remarks : proved, used ;
+restN-len          :  ¥ restn(# x, x + y) = y ;
+          used for : s, ls ;
+           remarks : proved, used ;
+st                 :  ¥ (x -1l a) -1l b = (x -1l b) -1l a ° true ;
+          used for : s, ls ;
+           remarks : proved ;
+sw                 :  ¥ (x -l a) -l b = (x -l b) -l a ;
+           remarks : proved, used ;
+sw-01              :  ¥ (x -l a) -l b = (x -l b) -l a ° true ;
+          used for : s, ls ;
+           remarks : proved ;
+sw-02              :  ¥ (x -1l a) -1l b = (x -1l b) -1l a ;
+           remarks : proved, used ;
+
+
+;;; END
+

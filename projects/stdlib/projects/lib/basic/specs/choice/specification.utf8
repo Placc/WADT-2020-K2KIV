@@ -1,0 +1,24 @@
+enrich nat-basic, elem with
+
+;; sorts ;
+
+constants aa : elem;
+
+;; functions ;
+
+predicates ok : elem;
+           rel : elem × elem;
+
+variables nf : nat → elem;
+          nfgen: nat → nat → elem;
+          elemf : elem → elem;
+
+;; induction ;
+
+;; axioms
+
+;;; theorem : ok(a), 
+;;;              ∀ b. ok(b) → ∃ c. rel(b,c) ∧ ok(c)
+;;;              ⊦ ∃ nf. nf(0) = a ∧ ∀ n. ok(nf(n)) ∧ rel(nf(n),nf(n + 1));
+
+end enrich

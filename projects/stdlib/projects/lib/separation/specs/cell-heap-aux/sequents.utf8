@@ -1,0 +1,13 @@
+lemmas
+
+cf-map-unknown:
+cf(r) = a × r0 → ((o[r =>_] * R)[rs, cf, af] ↔ (o[r => a × r0] * R)[rs, cf, af]);
+used for : s;
+
+cf-write-val:
+cf(r; cf(r).val:= a) = cf(r; a × cf(r).nxt);
+used for : s, ls;
+
+cf-write-nxt:
+cf(r; cf(r).nxt:= r0) = cf(r; cf(r).val × r0);
+used for : s, ls;

@@ -1,0 +1,160 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+Prime:\\\tab{xxx} \Fol prime(n) \Equiv 1 $<$ n \And (\All m. m \_$|$\_ n \Imp m = 1 \Or m = n)
+
+gcd-rec1:\\\tab{xxx} \Fol n $\le$ m \Imp gcd(m, n) = gcd(m - n, n)
+
+gcd-c:\\\tab{xxx} \Fol gcd(m, n) = gcd(n, m)
+
+gcd-zero:\\\tab{xxx} \Fol gcd(0, n) = n
+
+Divides:\\\tab{xxx} \Fol m \_$|$\_ n \Equiv (\Ex \Var{n}{0}. m $*$ \Var{n}{0} = n)
+
+div:\\\tab{xxx} \Fol prime(m) \And n $\neq$ 1 \Imp n \_$|$\_ m \Equiv n = m
+
+divi-add:\\\tab{xxx} \Fol m \_$|$\_ n \Imp m \_$|$\_ n + \Var{n}{0} \Equiv m \_$|$\_ \Var{n}{0}
+
+divi-eq:\\\tab{xxx}m \_$|$\_ n, n \_$|$\_ m \Fol m = n
+
+divi-ls:\\\tab{xxx} \Fol m $<$ \Var{n}{0} \Imp \Var{n}{0} \_$|$\_ m \Equiv m = 0
+
+divi-mod:\\\tab{xxx}m $\neq$ 0 \Fol m \_$|$\_ n \Equiv n \% m = 0
+
+divi-mult:\\\tab{xxx} \Fol m \_$|$\_ m $*$ \Var{n}{0}
+
+divi-mult-01:\\\tab{xxx} \Fol m \_$|$\_ n \Imp m \_$|$\_ n $*$ \Var{n}{0}
+
+divi-one:\\\tab{xxx} \Fol m \_$|$\_ 1 \Equiv m = 1
+
+divi-one-01:\\\tab{xxx} \Fol 1 \_$|$\_ m
+
+divi-ref:\\\tab{xxx} \Fol m \_$|$\_ m
+
+divi-succ:\\\tab{xxx} \Fol m \_$|$\_ n \Imp m \_$|$\_ n + 1 \Equiv m = 1
+
+divi-sym:\\\tab{xxx} \Fol m \_$|$\_ n \Imp n \_$|$\_ m \Equiv m = n
+
+divi-three:\\\tab{xxx} \Fol m $\neq$ 1 \Imp m \_$|$\_ 3 \Equiv m = 3
+
+divi-trans:\\\tab{xxx} \Fol \Var{n}{0} \_$|$\_ m \And m \_$|$\_ n \Imp \Var{n}{0} \_$|$\_ n
+
+divi-two:\\\tab{xxx} \Fol \Not 2 \_$|$\_ 1
+
+divi-two-01:\\\tab{xxx} \Fol 2 \_$|$\_ m + 2 \Equiv 2 \_$|$\_ m
+
+divi-two-02:\\\tab{xxx} \Fol m $\neq$ 1 \Imp m \_$|$\_ 2 \Equiv m = 2
+
+divi-two-03:\\\tab{xxx} \Fol \Not 2 \_$|$\_ n \Imp 2 \_$|$\_ n + 1
+
+divi-zero:\\\tab{xxx} \Fol m \_$|$\_ 0
+
+divi-zero-01:\\\tab{xxx} \Fol 0 \_$|$\_ m \Equiv m = 0
+
+gcd-a:\\\tab{xxx} \Fol gcd(m, gcd(n, \Var{n}{0})) = gcd(gcd(m, n), \Var{n}{0})
+
+gcd-add:\\\tab{xxx} \Fol gcd(n, m + n) = gcd(m, n)
+
+gcd-alldiv:\\\tab{xxx} \Fol k \_$|$\_ m \And k \_$|$\_ n \Imp k \_$|$\_ gcd(m, n)
+
+gcd-alldiv-h:\\\tab{xxx}m $<$ n, k \_$|$\_ n, k \_$|$\_ m \Fol k \_$|$\_ gcd(m, n)
+
+gcd-div:\\\tab{xxx} \Fol \Var{n}{0} \_$|$\_ gcd(m, n) \Imp \Var{n}{0} \_$|$\_ m
+
+gcd-div-01:\\\tab{xxx} \Fol \Var{n}{0} \_$|$\_ gcd(m, n) \Imp \Var{n}{0} \_$|$\_ n
+
+gcd-div-02:\\\tab{xxx} \Fol gcd(m, gcd(n, \Var{n}{0})) \_$|$\_ gcd(m, n)
+
+gcd-div-03:\\\tab{xxx} \Fol gcd(m, gcd(n, \Var{n}{0})) \_$|$\_ n
+
+gcd-div-04:\\\tab{xxx} \Fol gcd(m, gcd(n, \Var{n}{0})) \_$|$\_ m
+
+gcd-div-both:\\\tab{xxx} \Fol \Var{n}{0} \_$|$\_ gcd(m, n) \Imp \Var{n}{0} \_$|$\_ n \And \Var{n}{0} \_$|$\_ m
+
+gcd-div-both-h:\\\tab{xxx}m $<$ n, \Var{n}{0} \_$|$\_ gcd(m, n) \Fol \Var{n}{0} \_$|$\_ n \And \Var{n}{0} \_$|$\_ m
+
+gcd-divs:\\\tab{xxx} \Fol gcd(m, n) \_$|$\_ m
+
+gcd-eq:\\\tab{xxx} \Fol n $\neq$ 0 \And gcd(m, n) = m \Imp m $\le$ n
+
+gcd-id:\\\tab{xxx} \Fol gcd(m, m) = m
+
+gcd-id-01:\\\tab{xxx} \Fol gcd(m, gcd(m, n)) = gcd(m, n)
+
+gcd-le:\\\tab{xxx} \Fol m $\neq$ 0 \Imp gcd(m, n) $\le$ m
+
+gcd-le-both:\\\tab{xxx} \Fol m $\neq$ 0 \And n $\neq$ 0 \Imp gcd(m, n) $\le$ m \And gcd(m, n) $\le$ n
+
+gcd-le-both-h:\\\tab{xxx}m $<$ n \Fol n = 0, m = 0, \Not m $<$ gcd(m, n) \And \Not n $<$ gcd(m, n)
+
+gcd-max:\\\tab{xxx} \Fol m $\neq$ 0 \And k \_$|$\_ m \And k \_$|$\_ n \Imp k $\le$ gcd(m, n)
+
+gcd-mod:\\\tab{xxx}n $\neq$ 0 \Fol gcd(m, n) = gcd(n, m \% n)
+
+gcd-mult:\\\tab{xxx} \Fol gcd(k $*$ m, k $*$ n) = k $*$ gcd(m, n)
+
+gcd-multdiv:\\\tab{xxx} \Fol gcd(m, n) \_$|$\_ m $*$ k
+
+gcd-one:\\\tab{xxx} \Fol gcd(m, 1) = 1
+
+gcd-rec2:\\\tab{xxx} \Fol m $\le$ n \Imp gcd(m, n) = gcd(m, n - m)
+
+gcd-trans:\\\tab{xxx} \Fol \Var{n}{0} \_$|$\_ n \Imp gcd(m, \Var{n}{0}) \_$|$\_ gcd(m, n)
+
+gcd-two:\\\tab{xxx} \Fol gcd(2, m) $\neq$ 1 \Imp gcd(2, m) = 2
+
+gcd-zero-01:\\\tab{xxx} \Fol gcd(m, n) = 0 \Equiv m = 0 \And n = 0
+
+gcd-zero-01-h:\\\tab{xxx}m $<$ n, gcd(m, n) = 0 \Fol m = 0 \And n = 0
+
+gcd-zero-02:\\\tab{xxx} \Fol gcd(n, 0) = n
+
+leone:\\\tab{xxx} \Fol m $\le$ 1 \Imp \Not prime(m)
+
+lstwo:\\\tab{xxx} \Fol m $<$ 2 \Imp \Not prime(m)
+
+modprime:\\\tab{xxx} \Fol prime(n) \Equiv 1 $<$ n \And (\All m. 2 $\le$ m \And m $<$ n \Imp n \% m $\neq$ 0)
+
+mult:\\\tab{xxx} \Fol m $\neq$ 1 \And n $\neq$ 1 \Imp \Not prime(m $*$ n)
+
+mult-01:\\\tab{xxx} \Fol m $\neq$ 1 \And k + 1 $<$ n \Imp \Not prime(m $*$ n)
+
+mult-02:\\\tab{xxx} \Fol prime(m) \Imp prime(m $*$ n) \Equiv n = 1
+
+mult-03:\\\tab{xxx} \Fol 2 $\le$ m \And 2 $\le$ n \Imp \Not prime(m $*$ n)
+
+not-prime:\\\tab{xxx}\Not prime(n), 2 $\le$ n \Fol \Ex m. m \_$|$\_ n \And prime(m) \And m $*$ m $\le$ n
+
+one:\\\tab{xxx} \Fol \Not prime(1)
+
+prime-smallest:\\\tab{xxx} \Fol prime(n) \Equiv 1 $<$ n \And (\All m. 2 $\le$ m \And m $*$ m $\le$ n \Imp n \% m $\neq$ 0)
+
+rax:\\\tab{xxx} \Fol prime(n) \Equiv \Not \Not (1 $<$ n \And (\All m. m \_$|$\_ n \Imp m = 1 \Or m = n))
+
+succ:\\\tab{xxx} \Fol prime(m) \Imp prime(m + 1) \Equiv m = 2
+
+three:\\\tab{xxx} \Fol prime(3)
+
+two:\\\tab{xxx} \Fol prime(2)
+
+two-01:\\\tab{xxx} \Fol m $\le$ 2 \Imp prime(m) \Equiv m = 2
+
+twodiv:\\\tab{xxx} \Fol 2 \_$|$\_ m \Imp prime(m) \Equiv m = 2
+
+twodiv-01:\\\tab{xxx} \Fol prime(m + 1) \Imp 2 \_$|$\_ m \Equiv m $\neq$ 1
+
+twodiv-02:\\\tab{xxx} \Fol prime(m) \Imp 2 \_$|$\_ m + 1 \Equiv m $\neq$ 2
+
+zero:\\\tab{xxx} \Fol \Not prime(0)
+
+
+
+\end{document}
+

@@ -1,0 +1,21 @@
+: successful
+### No save necessary ###
+### Next replay: size-subset ###
+size-subset: successful
+### No save necessary ###
+### Next replay: subset-new ###
+subset-new: successful
+### No save necessary ###
+### Next replay: subset-put ###
+subset-put: successful
+### No save necessary ###
+### Next replay: subset-put-01 ###
+subset-put-01: successful
+### No save necessary ###
+### Next replay: subset-put-02 ###
+subset-put-02: successful
+### No save necessary ###
+### Next replay: subset-size ###
+subset-size: successful
+### Done ###
+### Saving lemmas next ###

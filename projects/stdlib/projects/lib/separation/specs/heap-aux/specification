@@ -1,0 +1,34 @@
+instantiate parameter obj < heap-fun with gobj,gaux by mapping
+
+: obj ­ obj, aux;
+
+o  ­ o, a;
+o0 ­ o0,a0;
+o1 ­ o1,a1;
+
+rename
+
+: heap ­ heap-aux;
+H  ­ Ha;
+H0 ­ Ha0;
+H1 ­ Ha1;
+H2 ­ Ha2;
+
+P  ­ R;
+P0 ­ R0;
+P1 ­ R1;
+P2 ­ R2;
+
+rP  ­ rR;
+rrP ­ rrR;
+oP  ­ oR;
+
+[ ] :: (heap Ô ref ­ obj) ­ .[.]o, .[.]a;
+f ­ f,g;
+
+
+=> ­ . ==>(.);
+=>_ ­ . ==>_;
+=>? ­ . ==>?;
+
+end instantiate

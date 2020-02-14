@@ -1,0 +1,70 @@
+enrich natstream with
+
+;; sorts ;
+
+;; constants ;
+
+functions max∞ : (nat → bool) → natinf;
+          leninv : natstream → natinf;
+          comment: length of the inverse of a stuttering stream.;
+
+
+predicates stutf : natstream;
+          mon≤ : natstream;
+          mon< : natstream;
+  
+variables np : nat → bool;
+          nσ0 : natstream;
+
+partial functions 
+	min: natstream × nat → nat with λ nσ, n. mon<(nσ);
+          comment: defined for nonempty streams only.;
+          inv : natstream → natstream with λ nσ. stutf(nσ);
+          comment: inverse of a stuttering stream (strict monotonic).;
+
+
+axioms
+
+
+
+
+maxinf-def:
+max∞(np) = ∞ ⊃ ((∀ n. ∃ n0. n < n0 ∧ np(n0)) ∨ ∀ n. ¬ np(n)); (∃ n. np(max∞(np).n)) ∧ ∀ m. np(m) → ¬ max∞(np) < ⌜m⌝;
+comment: definition justified by theorem maxinf-skolemf;
+
+stutf-def:
+stutf(nσ) ↔ nσ ≠ [] ∧ nσ[0] = 0 ∧ ∀ n. ⌜n⌝ + ⌜1⌝ < # nσ → nσ[n + 1] = nσ[n] ∨ nσ[n + 1] = nσ[n] + 1;
+
+
+monle-def:
+mon≤(nσ) ↔ ∀  n. ⌜n⌝ + ⌜1⌝ < # nσ → nσ[n] ≤ nσ[n + 1];
+
+monls-def:
+mon<(nσ) ↔ ∀  n. ⌜n⌝ + ⌜1⌝ < # nσ → nσ[n] < nσ[n + 1];
+
+(:
+inv-skolemf:   stutf(nσ)  
+             → ∃ nσ0.   # nσ0 = max∞(λ n. ∃ m. ⌜m⌝ < # nσ ∧ nσ[m] = n ∧ ¬ (# nσ = ∞ ∧ ∀ m0. m < m0 → nσ[m0] = n))
+                       ∧ ∀ m. ⌜m⌝ < # nσ0 → ⌜nσ0[m]⌝ = max∞(λ n. ⌜n⌝ < # nσ ∧ nσ[n] = m);
+:)
+
+leninv-def: leninv(nσ) = max∞(λ n.   n ≠ 0 
+                                   → ∃ m.     ⌜m⌝ < # nσ ∧ nσ[m] = n - 1 
+                                           ∧ ¬ (# nσ = ∞ ∧ ∀ m0. m < m0 → nσ[m0] = n - 1));
+inv-def:
+stutf(nσ) → inv(nσ) = (leninv(nσ) = ∞  
+                      ⊃ ⌜λ m. max∞(λ n. ⌜n⌝  < # nσ ∧ nσ[n] = m).n⌝;
+                        ⌜λ m. max∞(λ n. ⌜n⌝  < # nσ ∧ nσ[n] = m).n⌝ to leninv(nσ).n);
+
+min-def:
+   mon<(nσ) 
+ → (  nσ = [] 
+    ⊃ min(nσ,n) = 0; 
+      (  # nσ ≠ ∞ ∧ nσ[(# nσ).n - 1] < n 
+       ⊃ min(nσ,n) = (# nσ).n;
+         ⌜min(nσ,n)⌝ < # nσ ∧ n ≤ nσ[min(nσ,n)] ∧ ∀ m. ⌜m⌝ < # nσ ∧ n ≤ nσ[m] → min(nσ,n) ≤ m));
+comment: Skolem function justified by theorems min-skolemf;
+
+
+
+end enrich

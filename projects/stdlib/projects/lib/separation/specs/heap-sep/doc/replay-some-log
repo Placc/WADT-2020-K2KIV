@@ -1,0 +1,174 @@
+: successful
+### No save necessary ###
+### Next replay: Eq-P ###
+Eq-P: failed
+### No save necessary ###
+### Next replay: Imp-frame ###
+Imp-frame: failed
+### No save necessary ###
+### Next replay: Imp-from-eq ###
+Imp-from-eq: successful
+### No save necessary ###
+### Next replay: Imp-refl ###
+Imp-refl: successful
+### No save necessary ###
+### Next replay: Imp-trans ###
+Imp-trans: successful
+### No save necessary ###
+### Next replay: Imp1 ###
+Imp1: successful
+### No save necessary ###
+### Next replay: Imp2 ###
+Imp2: successful
+### No save necessary ###
+### Next replay: adjunction ###
+adjunction: successful
+### No save necessary ###
+### Next replay: and-ass ###
+and-ass: successful
+### No save necessary ###
+### Next replay: and-com ###
+and-com: successful
+### No save necessary ###
+### Next replay: and-combine ###
+and-combine: successful
+### No save necessary ###
+### Next replay: and-imp ###
+and-imp: successful
+### No save necessary ###
+### Next replay: and-split ###
+and-split: successful
+### No save necessary ###
+### Next replay: and-weaken ###
+and-weaken: successful
+### No save necessary ###
+### Next replay: and-weaken-this ###
+and-weaken-this: successful
+### No save necessary ###
+### Next replay: emp-sep ###
+emp-sep: successful
+### No save necessary ###
+### Next replay: eq-frame ###
+eq-frame: failed
+### No save necessary ###
+### Next replay: false-and ###
+false-and: successful
+### No save necessary ###
+### Next replay: false-rev ###
+false-rev: successful
+### No save necessary ###
+### Next replay: false-sep ###
+false-sep: successful
+### No save necessary ###
+### Next replay: falseH ###
+falseH: successful
+### No save necessary ###
+### Next replay: imp-cases ###
+imp-cases: successful
+### No save necessary ###
+### Next replay: imp-mono ###
+imp-mono: successful
+### No save necessary ###
+### Next replay: imp-propfalse ###
+imp-propfalse: successful
+### No save necessary ###
+### Next replay: imp-proptrue ###
+imp-proptrue: successful
+### No save necessary ###
+### Next replay: or-ass ###
+or-ass: successful
+### No save necessary ###
+### Next replay: or-com ###
+or-com: successful
+### No save necessary ###
+### Next replay: precise-and ###
+precise-and: successful
+### No save necessary ###
+### Next replay: precise-disj ###
+precise-disj: successful
+### No save necessary ###
+### Next replay: precise-emp ###
+precise-emp: successful
+### No save necessary ###
+### Next replay: precise-same ###
+precise-same: successful
+### No save necessary ###
+### Next replay: precise-sep ###
+precise-sep: successful
+### No save necessary ###
+### Next replay: precise-split-l ###
+precise-split-l: successful
+### No save necessary ###
+### Next replay: precise-split-r ###
+precise-split-r: successful
+### No save necessary ###
+### Next replay: precise-this ###
+precise-this: successful
+### No save necessary ###
+### Next replay: prop-emp ###
+prop-emp: successful
+### No save necessary ###
+### Next replay: prop-sep ###
+prop-sep: successful
+### No save necessary ###
+### Next replay: prop-shift ###
+prop-shift: successful
+### No save necessary ###
+### Next replay: sep-Mp ###
+sep-Mp: successful
+### No save necessary ###
+### Next replay: sep-ass ###
+sep-ass: successful
+### No save necessary ###
+### Next replay: sep-com ###
+sep-com: successful
+### No save necessary ###
+### Next replay: sep-mp ###
+sep-mp: successful
+### No save necessary ###
+### Next replay: sep-split-interactive ###
+sep-split-interactive: successful
+### No save necessary ###
+### Next replay: septract-given ###
+septract-given: successful
+### No save necessary ###
+### Next replay: split-union ###
+split-union: successful
+### No save necessary ###
+### Next replay: stability ###
+stability: successful
+### No save necessary ###
+### Next replay: this-emp ###
+this-emp: successful
+### No save necessary ###
+### Next replay: true-and ###
+true-and: successful
+### No save necessary ###
+### Next replay: true-elim ###
+true-elim: successful
+### No save necessary ###
+### Next replay: true-emp ###
+true-emp: successful
+### No save necessary ###
+### Next replay: true-rev ###
+true-rev: successful
+### No save necessary ###
+### Next replay: true-true ###
+true-true: successful
+### No save necessary ###
+### Next replay: trueH ###
+trueH: successful
+### No save necessary ###
+### Next replay: wand-dual ###
+wand-dual: successful
+### No save necessary ###
+### Next replay: wand-same-emp ###
+wand-same-emp: successful
+### No save necessary ###
+### Next replay: wand-same-emp-p ###
+wand-same-emp-p: successful
+### No save necessary ###
+### Next replay: wand-shift ###
+wand-shift: successful
+### Done ###
+### No save necessary ###

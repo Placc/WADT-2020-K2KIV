@@ -1,0 +1,193 @@
+
+;; variables m : nat;
+
+lemmas
+
+
+write-other-true:
+g(r) ≠ a → ((a[P] * true)[rs, f(r; o), g] ↔ (a[P] * true)[rs, f, g]); 
+
+;;; aux-other-true:
+;;; g(r) ≠ a ∧ (a[P] * true)[rs, f, g] → (¬ (a[P] * true)[rs, f, g(r; a)] ↔ false); 
+;;; used for : s, ls;
+
+and-split:
+(R ∧ R0)[rs, f, g] ↔ R[rs, f, g] ∧ R0[rs, f, g];
+used for : s;
+
+map-unique:
+f(r) = o ∧ (a[r => o0] * R)[rs, f, g]  → o = o0;
+
+;;; mod-f-unknown:
+;;; (a[r =>_] * R)[rs, f, g] → (¬ g(r) = a ↔ false);
+;;; used for : s;
+
+mod-f-known:
+a ≠ a0 ⊦ (a[r => o] * R)[rs, f, g] → ¬ g(r) = a0;
+used for : ss;
+
+;;; mod-f-known:
+;;; (a[r => o] * R)[rs, f, g] → (g(r) = a0 ↔ a = a0);
+;;; used for : s;
+
+mod-other-both:
+  g(r) ≠ a ∧ (a[P] * R)[rs, f, g] 
+→ (a[P] * true)[rs, f(r; o), g(r; a0)];
+used for : ss, lss;
+
+
+mod-other-hp2:
+  g(r) ≠ a ∧ g(r) ≠ a0 ∧ (a[P] * a0[P0] * R)[rs, f, g] 
+→ (a[P] * a0[P0] * true)[rs, f(r; o), g];
+used for : ss, lss;
+
+
+mod-other-hp:
+  g(r) ≠ a ∧ (a[P] * R)[rs, f, g] 
+→ (a[P] * true)[rs, f(r; o), g];
+used for : ss, lss;
+
+mod-other-aux:
+  g(r) ≠ a ∧ (a[P] * R)[rs, f, g] 
+→ (a[P] * true)[rs, f, g(r; a0)];
+used for : ss, lss;
+
+mod-other-aux1:
+  g(r) ≠ a ∧ (a[P] * R)[rs, f, g] 
+→ ((a[P] * true)[rs, f, g(r; a0)] ↔ (a[P] * R)[rs, f, g]);
+used for : s, ls;
+
+;;; mod-other-aux2:
+;;;   g(r) ≠ a ∧ (a[P] * R)[rs, f, g] 
+;;; → (a[P] * true)[rs, f, g(r; a0)];
+
+;;; mod-other1-strng:
+;;;   r ∈ rs ∧ oh(r) ≠ o ∧ (o[ls(r0, x)] * true)[rs, cellf, oh] 
+;;; → ((o[ls(r0, x)] * true)[rs, cellf, oh(r; o0)] ↔ (o[ls(r0, x)] * true)[rs, cellf, oh]);
+;;; used for : s, ls;
+
+;;; merge-owned2:
+;;;   (a[P] * a0[P0] * R)[rs, f, g] ∧ (a1[P1] * R0)[rs, f, g] ∧ a ≠ a0 ∧ a ≠ a1 ∧ a0 ≠ a1 
+;;; → (a[P] * a0[P0] * a1[P1] * true)[rs, f, g];
+;;; used for : lf;
+
+split-owned2:
+  (a[P] * a0[P0] * a1[P1] * R)[rs, f, g] ∧ a ≠ a0 ∧ a ≠ a1 ∧ a0 ≠ a1 
+→ (a[P] * true)[rs, f, g] ∧ (a0[P0] * a1[P1] * true)[rs, f, g];
+used for : lf;
+
+
+merge-owned:
+  (a[P] * R)[rs, f, g] ∧ (a0[P0] * R0)[rs, f, g] ∧ a0 ≠ a 
+→ (a[P] * a0[P0] * true)[rs, f, g];
+used for : lf;
+
+merge-owned-rewrite:
+  (a[P] * true)[rs, f, g] ∧ a0 ≠ a 
+→ ((a0[P0] * true)[rs, f, g] ↔ (a[P] * a0[P0] * true)[rs, f, g]);
+used for : ls, s;
+
+map-owner-known:
+(a[r => o] * R)[rs, f, g] ∧ a ≠ a0 → ¬ g(r) = a0;
+used for : ss;
+
+map-owner-unknown:
+(a[r =>_] * R)[rs, f, g] ∧ a ≠ a0 → ¬ g(r) = a0;
+used for : ss;
+
+map2:
+(a[r => o] * R)[rs, f, g] ∧ (a[r => o0] * R0)[rs, f, g] → o = o0;
+used for: f, lf;
+
+map-in:
+(a[r => o] * R) [rs, f, g] → r ∈ rs;
+used for : ls, s;
+
+
+map-in0:
+a[r => o][rs, f, g] → r ∈ rs;
+used for : ls, s;
+
+map-same:
+¬ (a[r => o] * a0[r => o0] * R)[rs, f, g];
+used for : s;
+
+lift-prop:
+(a[⌜bv⌝] ∧ emp) = (⌜bv⌝ ∧ emp); 
+used for : s;
+
+embed-and:
+a[P0 ∧ P1] = (a[P0] ∧ a[P1]);
+used for: s;
+
+
+
+lift-ex-o:
+a[_∃ oP] = _∃ λ o,a0. a[oP(o)];
+used for: s,ls;
+
+lift-ex-r:
+a[_∃ rP] = _∃ λ r. a[rP(r)];
+used for: s,ls;
+
+switch-aux:
+¬ r ∈ rs
+  → (R[rs,f,g(r;a)] ↔ R[rs,f,g]);
+used for: s,ls; ;; ?
+
+switch-obj:
+¬ r ∈ rs
+  → (R[rs,f(r;o),g] ↔ R[rs,f,g]);
+used for: s,ls; ;; ?
+
+embed-split:
+a[P0 * P1] = a[P0] * a[P1];
+used for: s;
+
+alloc:
+r ≠ null ∧ ¬ r ∈ rs
+  → (R[rs,f,g]
+      ↔ (a[r =>_] * R)[rs ++ r,f,g(r;a)]);
+
+
+write-known:
+  (a[r => o0] * R)[rs,f,g]
+↔ (a[r => o1] * R)[rs,f(r;o1),g] ∧ f(r) = o0;
+
+write-unknown:
+  (a[r =>_] * R)[rs,f,g]
+↔ (a[r => o1] * R)[rs,f(r;o1),g];
+
+aux-known:
+  (a0[r => o] * R)[rs,f,g]
+↔ (a1[r => o] * R)[rs,f,g(r;a1)] ∧ g(r) = a0;
+
+aux-unknown:
+  (a0[r =>_] * R)[rs,f,g]
+↔ (a1[r =>_] * R)[rs,f,g(r;a1)] ∧ g(r) = a0;
+
+lift-unknown:
+  (r ==>_ * R)[rs,f,g]
+↔ ∃ a. (a[r =>_] * R)[rs,f,g];
+
+get-unknown:
+(a[r =>_] * R)[rs,f,g]
+  → (g(r) = a ↔ true);
+used for: s,ls;
+
+get-known:
+(a[r => o] * R)[rs,f,g]
+  → (g(r) = a ↔ true);
+used for: s,ls;
+
+lift-true:
+a[true][rs,f,g] ↔ ∀ r. r ∈ rs → g(r) = a;
+used for: s,ls;
+
+lift-false:
+a[false] = false;
+used for: s,ls;
+
+lift-emp:
+a[emp] = emp;
+used for: s,ls;

@@ -1,0 +1,20 @@
+enrich Ref with
+
+comment: definition of generic memory values, that have a next pointer.
+         Used to define a generic theory of linear structures on the heap.;
+
+sorts cell;
+
+;; constants ;
+
+functions . .nxt : cell → Ref;
+
+;; predicates ;
+
+variables ce : cell;
+
+;; induction ;
+
+;; axioms
+
+end enrich

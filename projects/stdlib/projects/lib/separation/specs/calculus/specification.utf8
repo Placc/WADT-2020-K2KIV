@@ -1,0 +1,6 @@
+enrich heap-sep with
+
+variables
+Q: heap → bool;
+
+end enrich

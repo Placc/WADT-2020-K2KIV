@@ -1,0 +1,15 @@
+(: must be identical to int-basic2 in system/basicrules! :)
+
+enrich int-basic1 with
+
+functions
+
+	. + . : int × int → int;
+
+axioms
+
+	add-zero: i + 0 = i;
+	add-succ: i + j +1 = (i + j) +1;
+	add-pred: i + j -1 = (i + j) -1;
+
+end enrich

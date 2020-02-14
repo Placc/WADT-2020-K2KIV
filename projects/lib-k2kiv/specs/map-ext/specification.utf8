@@ -1,0 +1,33 @@
+enrich int-pot, map, set-ext with
+
+functions
+  . \ . : map × set → map;
+  . | . : map × set → map;
+  valueDiff: map × map → map;
+  difference: map × map → map;
+  updateAll:  map × map → map;
+  size:   map → int;
+
+axioms
+  delete-empty: map \ ∅ = map;                                     used for: s, ls;
+  delete-rec:   map \ (s ++ a) = (map -- a) \ s;                   used for: s, ls;
+
+  restrict-empty:   ∅ | s = ∅;                                     used for: s, ls;
+  restrict-single1: a ∈ s   ⊦ (a |-> b) | s = (a |-> b);           used for: s, ls;
+  restrict-single2: ¬ a ∈ s ⊦ (a |-> b) | s = ∅;                   used for: s, ls;
+  restrict-plus:    (map1 ⊕ map2) | s = (map1 | s) ⊕ (map2 | s);   used for: s, ls;
+
+  valueDiff-empty: valueDiff(∅, map) = ∅;                                                        used for: s, ls;
+  valueDiff-single1: ¬ haskey(a, map) ⊦ valueDiff(a |-> b, map) = ∅;                used for: s, ls;
+  valueDiff-single2: map[a] = b ⊦ valueDiff(a |-> b, map) = ∅;                used for: s, ls;
+  valueDiff-single3: haskey(a, map), map[a] ≠ b ⊦ valueDiff(a |-> b, map) = a |-> b;             used for: s, ls;
+  valueDiff-plus:    valueDiff(map1 ⊕ map2, map) = valueDiff(map1, map) ⊕ valueDiff(map2, map);  used for: s, ls;
+
+  difference-def:   difference(map1, map2) = (map1 \ keys(map2)) ⊕ valueDiff(map1, map2); used for: s, ls; 
+  updateAll-def:    updateAll(map1, map2) = (map1 \ keys(map2)) ⊕ (map2 | keys(map1));  used for: s, ls;
+
+  size-empty:  size(∅::map) = 0;                                   used for: s, ls;
+  size-single: size(a |-> b) = 1;                                  used for: s, ls;
+  size-plus:   size(map1 ⊕ map2) = size(map1) + size(map2);        used for: s, ls;
+
+end enrich

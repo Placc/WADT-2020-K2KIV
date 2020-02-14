@@ -1,0 +1,221 @@
+
+;; variables m : nat;
+
+lemmas
+
+union-left-singleton:
+r ≠ null
+⊦ r ∈ H → (∅ ++ r)[r, H[r]] ∪ (H -- r) = H;
+used for: s,ls;
+
+union-left-singleton-at:
+r ≠ null, ¬ r ∈ H
+⊦ ((∅ ++ r)[r, o] ∪ H)[r] = o;
+used for: s,ls;
+
+disj-singleton-write:
+r ≠ null ⊦ (∅ ++ r)[r, o] ⊥ H ↔ ¬ r ∈ H;
+used for: s,ls;
+
+subset-uni:
+H0 ⊆ H1 ↔ ∃ H. H0 ∪ H = H1 ∧ H ⊥ H0;
+
+exin-uni:
+r ≠ null → (r ∈ H ↔ ∃ H0, o. H = H0 ∪ (∅ ++ r)[r,o] ∧ ¬ r ∈ H0);
+
+emp-subset:
+∅ ⊆ H;
+used for: s,ls;
+
+subset-emp:
+H ⊆ ∅ ↔ H = ∅;
+used for: s,ls;
+
+subset-in:
+H0 ⊆ H1 ∧ r ∈ H0 → r ∈ H1;
+used for: ss,lss;
+
+subset-at:
+H0 ⊆ H1 ∧ r ∈ H0 → H1[r] = H0[r];
+
+;; sw-del-add:
+;; r ≠ null ∧ ¬ r ∈ H ⊦
+;; (r0 ∈ H1 ∧ ¬ r ∈ H1) → ((H -- r0) ++ r)[r,o] = ((H ++ r)[r,o]) -- r0;
+
+;; r ≠ null ∧ ¬ r ∈ H ⊦
+;; r0 ≠ r → ((H -- r0) ++ r)[r,o] = ((H ++ r)[r,o]) -- r0;
+
+sw-del-add-new:
+¬ r ∈ H, r ≠ null ⊦ 
+¬ r ∈ rs → (H ++ r)[r,o] \ rs = ((H \ rs) ++ r)[r,o];
+
+alloc-write:
+r ≠ null, ¬ r ∈ H, r0 ∈ H
+⊦ (H ++ r)[r0,o0][r,o] = (H[r0,o0] ++ r)[r,o];
+
+at-diffs:
+r ∈ H ∧ ¬ r ∈ rs
+  → (H \ rs)[r] = H[r];
+used for: s,ls;
+
+in-diffs:
+r ∈ (H \ rs) ↔ r ∈ H ∧ ¬ r ∈ rs;
+used for: ss,lss;
+
+diffs-sw:
+(H -- r) \ rs = (H \ rs) -- r;
+
+del-sw:
+(H -- r) -- r0 = (H -- r0) -- r;
+
+write-del:
+r ∈ H ⊦ H[r,o] -- r = H -- r;
+used for: s,ls;
+
+diffs-twice:
+(H \ rs) \ rs = H \ rs;
+used for: s,ls;
+
+sw-alloc-put:
+¬ r0 ∈ H, r0 ≠ null, r1 ∈ H ⊦ r0 ≠ r1 → (H ++ r0)[r0,o0][r1,o1] = (H[r1,o1] ++ r0)[r0,o0];
+
+sw-put:
+r0 ∈ H, r1 ∈ H ⊦ r0 ≠ r1 → H[r0,o0][r1,o1] = H[r1,o1][r0,o0];
+
+sw-delwr:
+r ∈ H ⊦ r ≠ r0 → H[r,o] -- r0 = (H -- r0)[r,o];
+
+sw-delswr:
+r ∈ H ⊦ ¬ r ∈ rs → H[r,o] \ rs = (H \ rs)[r,o];
+
+delswr:
+r ∈ H ⊦ r ∈ rs → H[r,o] \ rs = (H \ rs);
+used for: s,ls;
+
+overwrite:
+(: r ≠ null ⊦ :) H[r,o0][r,o1] = H[r,o1];
+used for: s,ls;
+
+overwrite-1:
+r0 ≠ r ⊦ H[r,o0][r0,o1][r,o2] = H[r0,o1][r,o2];
+used for: s,ls;
+
+overwrite-split:
+⊦ H[r,o0][r0,o1][r,o2] = H[r0,o1][r,o2];
+used for: s,ls;
+
+overwrite-split2:
+⊦ H[r,o0][r0,o1][r1,o2][r,o3] = H[r0,o1][r1,o2][r,o3];
+used for: s,ls;
+
+size-uni:
+H0 ⊥ H1 → # (H0 ∪ H1) = # H0 + # H1;
+used for: s,ls;
+
+write-left:
+r ∈ H0 ∧ H0 ⊥ H1 → (H0 ∪ H1)[r,o] = H0[r,o] ∪ H1;
+used for: s,ls;
+
+write-right:
+r ∈ H1 ∧ H0 ⊥ H1 → (H0 ∪ H1)[r,o] = H0 ∪ H1[r,o];
+used for: s,ls;
+
+del-twice:
+H -- r -- r = H -- r;
+used for: s,ls;
+
+del-notin:
+¬ r ∈ H → H -- r = H;
+used for: s,ls;
+
+del-new:
+¬ r ∈ H, r ≠ null ⊦ H ++ r -- r = H;
+used for : ls, s;
+
+del-uni:
+H0 ⊥ H1 → (H0 ∪ H1) -- r = (H0 -- r) ∪ (H1 -- r);
+used for : ls, s;
+
+diff-in:
+r ∈ H0 \ H1 ↔ r ∈ H0 ∧ ¬ r ∈ H1;
+used for: ss,lss;
+
+diff-at:
+r ∈ H0, ¬ r ∈ H1 ⊦ (H0 \ H1)[r] = H0[r];
+used for: s,ls;
+
+nonnull:
+r ∈ H → r ≠ null;
+used for: s,ls;
+
+exin:
+r ≠ null → (r ∈ H ↔ ∃ H0,o. H = (H0 ++ r)[r,o] ∧ ¬ r ∈ H0);
+
+disj-com:
+H0 ⊥ H1 ↔ H1 ⊥ H0;
+
+disj-com-rw:
+H0 ⊥ H1 → H1 ⊥ H0;
+used for: ss,lss;
+
+disj-l: r ∈ H0 ∧ H0 ⊥ H1 → (r ∈ H1 ↔ false); used for: s,ls;
+disj-r: r ∈ H1 ∧ H0 ⊥ H1 → (r ∈ H0 ↔ false); used for: s,ls;
+
+disj-write:
+r ≠ null, ¬ r ∈ H1 ⊦ H0 ⊥ (H1 ++ r)[r,o] ↔ H0 ⊥ H1 ∧ ¬ r ∈ H0;
+used for: s,ls;
+
+in-uni:
+H0 ⊥ H1 → (r ∈ (H0 ∪ H1) ↔ r ∈ H0 ∨ r ∈ H1);
+used for: s,ls;
+
+at-uni:
+r ∈ H0 ∪ H1 ⊦ H0 ⊥ H1 → (H0 ∪ H1)[r] = (r ∈ H0 ⊃ H0[r] ; H1[r]);
+used for: s,ls;
+
+disj-alloc:
+r0 ≠ null, ¬ r0 ∈ H0, ¬ r0 ∈ H1 ⊦ H0 ⊥ H1 → H0 ⊥ H1 ++ r0;
+used for: s, ls;
+
+;; disj-swap:
+;; H0 ⊥ H1 → H1 ⊥ H0;
+;; used for: s,ls;
+
+in-write-strong:
+r0 ∈ H ⊦ (r ∈ H[r0,o] ↔ r ∈ H);
+used for: s,ls;
+
+disj-emp-l: ∅ ⊥ H; used for: s,ls;
+disj-emp-r: H ⊥ ∅; used for: s,ls;
+
+disj-distr-uni:
+H1 ⊥ H → (H0 ⊥ H1 ∪ H ↔ H0 ⊥ H1 ∧ H0 ⊥ H);
+used for: ws,lws,ss,las;
+
+uni-inj:
+H ⊥ H0 ∧ H ⊥ H1 → (H ∪ H0 = H ∪ H1 ↔ H0 = H1);
+used for: s,ls;
+
+uni-ass:
+H0 ⊥ H1 ∧ H1 ⊥ H ∧ H ⊥ H0 → (H0 ∪ H1) ∪ H = H0 ∪ H1 ∪ H;
+
+uni-com:
+H0 ⊥ H1 → H1 ∪ H0 = H0 ∪ H1;
+used for: s,ls;
+
+uni-emp-l: ∅ ∪ H = H; used for: s,ls;
+uni-emp-r: H ∪ ∅ = H; used for: s,ls;
+
+disj-distr-uni-com:
+H1 ⊥ H2 → (H1 ∪ H2 ⊥ H0 ↔ H0 ⊥ H1 ∧ H0 ⊥ H2);
+used for: s,ls;
+
+write-again:
+r ∈ H ⊦ H[r] = o → H[r,o] = H;
+used for: s,ls;
+
+disj-diff:
+H ⊥ H0 \ H;
+used for : ss, lss;
+
+;;; END

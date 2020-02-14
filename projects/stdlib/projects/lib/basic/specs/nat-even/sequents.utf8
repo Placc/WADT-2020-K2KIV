@@ -1,0 +1,178 @@
+(:
+;;;****************************************************************************************
+;;;
+;;; This file is used to add additional lemmas
+;;; 
+;;; You can add new variables after the 'variables' keyword (initially in comments)
+;;; and new lemmas after the 'lemmas' keyword in the form:
+;;; <name> : <sequent> ; used for : <some_flags> ; comment : <some_comment> ;
+;;; 'used for' and 'comment' are optional.
+;;; <some_comment> may be any text not containing a ;
+;;; <some_flags> is a comma separated list with information that the lemma should
+;;; be used as a simplifier rule or something like that. Since you can add or delete
+;;; simplifier rules etc. by menu commands, you can always omit 'used for' if you want.
+;;; Possible flags are:
+;;;
+;;;     simplifier rule:       simp, s, S, simplifier_rule, simplifier, simplification
+;;;     local simplifier rule: localsimp, ls, LS, local_simplifier_rule,
+;;;                            locsimp, local_simplifier, local_simplification
+;;;     elimination:           elim, e, E, elimination
+;;;     forward:               forward, f, F
+;;;     local forward:         localforward, lf, LF, local_forward
+;;;     cut:                   cut, c, C
+;;;     local cut:             localcut, lc, LC, local_cut
+;;;
+;;;****************************************************************************************
+:)
+
+(: variables    ; :)
+
+lemmas
+
+even-mult: even(m * n) ↔ even(m) ∨ even(n);
+;; no simprule
+even-add: even(m + n) ↔ even(m) ∧ even(n) ∨ odd(m) ∧ odd(n);
+;; no simprule
+odd-mult: odd(m * n) ↔ odd(m) ∧ odd(n);
+;; no simprule
+odd-add: odd(m + n) ↔ odd(m) ∧ even(n) ∨ even(m) ∧ odd(n);
+
+div2-elim    :  ⊦ odd(n) → (m = n / 2 ↔ n = m + (m + 1)) ;
+    used for : e ;
+div2-elim-01 :  ⊦ even(n) → (m = n / 2 ↔ n = m + m) ;
+    used for : e ;
+div2-even    :  ⊦ n / 2 + n / 2 = n ↔ even(n) ;
+    used for : s, ls ;
+div2-odd     :  ⊦ n / 2 + (n / 2 + 1) = n ↔ odd(n) ;
+    used for : s, ls ;
+div2-odd-01  :  ⊦ n / 2 + n / 2 = n ↔ ¬ odd(n) ;
+    used for : s, ls ;
+eo           :  ⊦ even(n) → ¬ odd(n) ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+eo-01        :  ⊦ even(n) ↔ ¬ odd(n) ;
+    used for : ss, lss ;
+     remarks : proved, used by proved unit ;
+eo-02        :  ⊦ even(n + 1) ↔ odd(n) ;
+    used for : s, ls ;
+     remarks : proved ;
+even-div2    :  ⊦ even(n) → (n + 1) / 2 = n / 2 ;
+    used for : s, ls ;
+max-a        :  ⊦ max(m, max(n, n0)) = max(max(m, n), n0) ;
+    used for : s, ls ;
+max-c        :  ⊦ max(m, n) = max(n, m) ;
+    used for : s, ls ;
+max-distr    :  ⊦ max(m + 1, n + 1) = max(m, n) + 1 ;
+max-i        :  ⊦ max(m, m) = m ;
+    used for : s, ls ;
+
+meven-02     :  ⊦ even(2 * m) ;
+    used for : s, ls ;
+meven-03     :  ⊦ ¬ even(2 * m + 1) ;
+    used for : s, ls ;
+min-a        :  ⊦ min(m, min(n, n0)) = min(min(m, n), n0) ;
+    used for : s, ls ;
+min-c        :  ⊦ min(m, n) = min(n, m) ;
+    used for : s, ls ;
+min-distr    :  ⊦ min(m + 1, n + 1) = min(m, n) + 1 ;
+min-i        :  ⊦ min(m, m) = m ;
+    used for : s, ls ;
+min-ls-self1  : ¬ m < min(m,n);
+used for : s, ls;
+min-ls-self2  : ¬ n < min(m,n);
+used for : s, ls;
+min-ls-both  : min(m,n) < m → (min(m,n) < n ↔ false);
+used for : s;
+min-zero1 : min(0,m) = 0;
+used for : s, ls;
+min-zero2 : min(m,0) = 0;
+used for : s, ls;
+
+min-neq1 : m ≠ m0 → ( min(m,n) = m0 ↔ n = m0 ∧ n < m);
+used for : s, ls;
+min-neq2 : n ≠ m0 → ( min(m,n) = m0 ↔ m = m0 ∧ m < n);
+used for : s, ls;
+
+modd-02      :  ⊦ odd(2 * m + 1) ;
+    used for : s, ls ;
+modd-03      :  ⊦ ¬ odd(2 * m) ;
+    used for : s, ls ;
+odd          :  ⊦ n ≤ 1 → (odd(n) ↔ n = 1) ;
+    used for : s, ls ;
+     remarks : proved ;
+odd-div2     :  ⊦ odd(n) → (n + 1) / 2 = n / 2 + 1 ;
+    used for : s, ls ;
+(:    
+oe           :  ⊦ ¬ odd(n) ↔ even(n) ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+:)
+oe-01        :  ⊦ odd(n) → ¬ even(n) ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+oe-02        :  ⊦ odd(n + 1) ↔ even(n) ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+oex          :  ⊦ odd(n) ↔ (∃ m. n = m + (m + 1)) ;
+    used for : ls ;
+     remarks : proved, used ;
+one          :  ⊦ ¬ even(1) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+oone         :  ⊦ odd(1) ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+
+otwo-02      :  ⊦ odd(m + 2) ↔ odd(m) ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+otwo-03      :  ⊦ ¬ odd(2) ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+ozero        :  ⊦ ¬ odd(0) ;
+    used for : s, ls ;
+     remarks : proved ;
+plus         :  ⊦ even(m) → (even(m + n) ↔ even(n)) ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+pot2-even-02 :  ⊦ n / 2 * 2 = n ↔ even(n) ;
+    used for : s, ls ;
+pot2-odd-02  :  ⊦ n / 2 * 2 + 1 = n ↔ odd(n) ;
+    used for : s, ls ;
+two-02       :  ⊦ even(m + 2) ↔ even(m) ;
+    used for : s, ls ;
+     remarks : proved ;
+two-03       :  ⊦ n ≤ 2 ∧ n ≠ 0 → (even(n) ↔ n = 2) ;
+    used for : s, ls ;
+     remarks : proved ;
+zero         :  ⊦ even(0) ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+zero-01      :  ⊦ n < 2 → (even(n) ↔ n = 0) ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-02      :  ⊦ n ≤ 1 → (even(n) ↔ n = 0) ;
+    used for : s, ls ;
+     remarks : proved ;
+
+
+;;;END
+
+;;; AXIOMS
+
+%"lemmas
+
+Even         :  ⊦ even(n) ↔ (∃ m. m + m = n) ;
+    used for : ls ;
+     remarks : used ;
+Odd          :  ⊦ odd(n) ↔ ¬ even(n) ;
+    used for : ls ;
+     remarks : used ;
+Min-right    :  ⊦ ¬ m < n → min(m, n) = n ;
+    used for : s, ls ;
+Min-left     :  ⊦ m < n → min(m, n) = m ;
+    used for : s, ls, lc ;
+Max-right    :  ⊦ ¬ m < n → max(m, n) = m ;
+    used for : s, ls ;
+Max-left     :  ⊦ m < n → max(m, n) = n ;
+    used for : s, ls, lc ;

@@ -1,0 +1,27 @@
+enrich int-div with
+
+functions
+
+       sgn : int → int;
+	max : int × int → int;
+	min : int × int → int;
+
+predicates 
+
+       odd : int;
+      even : int;
+
+axioms
+Max-right :   j < i → max(j,i) = i; used for : s,ls,lc;
+Max-left  : ¬ j < i → max(j,i) = j; used for : s,ls;
+Min-left  :   j < i → min(j,i) = j; used for : s,ls,lc;
+Min-right : ¬ j < i → min(j,i) = i; used for : s,ls;
+
+Sign-neg  :   j < 0 → sgn(j) = 0 -1; used for : ls,lc;
+Sign-pos  : ¬ j < 0 → sgn(j) = 0 +1; used for : ls;
+
+even-def : even(i) ↔ ∃ j. i = j + j;
+
+odd-def : odd(i) ↔ ∃ j. i = j + j + 1;
+
+end enrich

@@ -1,0 +1,37 @@
+enrich cell-heap, list-last with
+
+functions
+lls     : ref × ref × list → heap → bool;
+ll-trav : ref × ref × list → heap → bool;
+ll-trav : ref × ref × ref × list → heap → bool;
+
+variables
+r2 : ref;
+
+axioms
+lls-base:
+lls(r0, r1, []) = (emp ∧ ⌜r0 = r1⌝);
+used for: s,ls;
+
+lls-rec:
+lls(r, r1, a ' + x) = _∃ λ r0. r => a × r0 * lls(r0, r1, x);
+used for: s,ls;
+
+ll-trav1-def:
+(ll-trav(r0, r1, x) * P)(H)
+↔ (∃ x0, x1.   x = x0 + x1
+             ∧ (lls(r0, r1, x0) * lls(r1, null, x1) * P)(H));
+used for: ls;
+
+ll-trav2-null-def:
+(ll-trav(r0, null, r2, x) * P)(H) ↔ r2 = r0 ∧ (lls(r0, null, x) * P)(H);
+used for: ls;
+
+ll-trav2-nonnull-def:
+r1 ≠ null → ((ll-trav(r0, r1, r2, x) * P)(H)
+              ↔ ∃ x0, x1, a.
+                    x = x0 + a + x1
+                  ∧ (lls(r0, r1, x0) * r1 => a × r2 * lls(r2, null, x1) * P)(H));
+used for: ls;
+
+end enrich

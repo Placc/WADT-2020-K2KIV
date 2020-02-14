@@ -1,0 +1,433 @@
+
+variables m0, m1, n2 : nat; ii: nat → nat;
+
+lemmas
+
+
+;;;test: n = 3 |- \< while true do n := n, n0 := 5 \> true;
+
+eq-add2n-1-eq-le:
+  n = n0 + n1 + 1
+∧ n0 + n1 = m0 + m1
+→ (n < m0 ↔ false);
+used for : s;
+
+neq-add1:
+  n0 = n1 + n2
+→ (n2 = n0 + 1 ↔ false);
+used for : s;
+
+;;; testmodel: n ≠ n;
+
+;;;END
+le-addex: m ≤ n ↔ ∃ n0. m + n0 = n;
+
+le-add-01:
+n < m  ∧  n0 < m0 → (¬ ¬ m + m0 ≤ n  + n0 ↔ false);
+used for: ls,s;
+
+le-add-02:
+n < m  ∧  n0 < m0 → (¬ ¬ m + m0 ≤ n  + n0 + 1 ↔ false);
+used for: ls,s;
+
+
+sub-same : n ≤ m → (m - (m - n)) = n; used for : s,ls;
+
+ls-add-not : m ≤ m0 ∧ n ≤ n0 ∧ m1 ≤ n1 → ¬ m0 + n0 + n1 + n2 < m + n + m1; used for : s,ls;
+ls-add-not : m ≤ m0 ∧ n ≤ n0 ∧ m1 ≤ n1 → ¬ m0 + n0 + n1 < m + n + m1; used for : s,ls;
+
+
+ls-add-not : m ≤ m0 ∧ n ≤ n0 → ¬ m0 + n0 + n1 < m + n; used for : s,ls;
+ls-add-not : m ≤ m0 ∧ n ≤ n0 → ¬ m0 + n0 < m + n; used for : s,ls;
+le-add : m + m0 ≤ m ↔ m0 = 0; used for : s,ls;
+;;; END
+add-ls-right2-le : m < m0 + n0, n0 ≤ n1 ⊦ m < m0 + n1;
+add-le-right2-ls : m ≤ m0 + n0, n0 < n1 ⊦ m < m0 + n1;
+
+add-sub-less:
+m ≤ n ∧ n0 ≤ m → (n - m) + n0 = n - (m - n0); 
+
+
+le-sum:
+n ≤ n0 ∧ n1 ≤ m → n + n1 ≤ n0 + m; used for :s,ls;
+;;; END
+expand-nat:  ⊦ n < n1 → n + m < n1 + m;
+;;;END
+trans-ls-le :  m < n, n ≤ n0 ⊦ m < n0 ;
+trans-le-ls :  m ≤ n, n < n0 ⊦ m < n0 ;
+trans-le-le :  m ≤ n, n ≤ n0 ⊦ m ≤ n0 ;
+;;; END
+le-ls-simp : m ≤ n → (n < m ↔ false);
+used for : s, ls;
+ls-le-simp : m < n → (n ≤ m ↔ false);
+used for : s, ls;
+
+sub-ls-rew: m0 < m, n0 < n ⊦ m - m0 < n - n0 ↔ m + n0 < n + m0; 
+sub-le-rew: m0 ≤ m, n0 ≤ n ⊦ m - m0 ≤ n - n0 ↔ m + n0 ≤ n + m0; 
+sub-add : n0 ≤ n ∧ n ≤ m + n0 → m - (n - n0) = m + n0 - n;
+;;sub-add : n0 ≤ m0 + m, m0 + m - n0 ≤ m ⊦ m - (m0 + m - n0) = n0 - m0;
+sub-add : ⊦ n ≤ n0 → (m + (n0 - n)) + n = m + n0; used for : s,ls;
+
+add     :  ⊦ n ≤ n0 → m + n0 - n = m + (n0 - n) ;
+;;; END
+sub-succ : m0 ≤ n ∧ n ≤ m → (m - (n - m0)) = (m - n) + m0;
+le-rec : n ≠ 0 → (m ≤ n ↔ m = n ∨ m < n);
+not-zero : 0 < n ⊦ (* n) ≤ m → m ≠ 0; used for : f,lf;
+;;; END
+sub-zero : m - 0 = m; used for : s,ls;
+sub-ls : ¬ n + (m - n) < m; used for : s,ls;
+
+prop-07    : ⊦ n < m → (m - n) + n = m ;
+lels : n + m ≤ m0 → ¬ n0 + m0 < m; used for : s,ls;
+pls : m ≤ m0, n < n0 ⊦ m + n < m0 + n0;
+
+num-01 : n + 1 - 1 = n;
+used for : ls;
+num-02 : n ≠ 0 |- (n - 1) + 1 = n;
+used for : ls;
+
+l-num-01 : n < n0 |- (m + (* n) < m0 + (* n0) ↔  m < m0 + (n0 - n));
+used for : s, ls;
+l-num-02 : n0 < n |- (m + (* n) < m0 + (* n0) ↔  m + (n - n0) < m0) ;
+used for : s, ls;
+l-num-03 : n < n0 |- (* n) < m0 + (* n0);
+used for : s, ls;
+l-num-04 : n0 < n |- ((* n) < m0 + (* n0) ↔  (n - n0) < m0) ;
+used for : s, ls;
+l-num-05 : n < n0 |- (m + (* n) < (* n0) ↔  m < (n0 - n));
+used for : s, ls;
+l-num-06 : n0 < n |- ¬ (m + (* n) < (* n0)) ;
+used for : s, ls;
+
+le-num-01 : n < n0 |- (m + (* n) ≤ m0 + (* n0) ↔  m ≤ m0 + (n0 - n));
+used for : s, ls;
+le-num-02 : n0 < n |- (m + (* n) ≤ m0 + (* n0) ↔  m + (n - n0) ≤ m0) ;
+used for : s, ls;
+le-num-03 : n < n0 |- (* n) ≤ m0 + (* n0) ;
+used for : s, ls;
+le-num-04 : n0 < n |- ((* n) ≤ m0 + (* n0) ↔  (n - n0) ≤ m0) ;
+used for : s, ls;
+le-num-05 : n < n0 |- (m + (* n) ≤ (* n0) ↔  m ≤ (n0 - n));
+used for : s, ls;
+le-num-06 : n0 < n |- ¬ (m + (* n) ≤ (* n0)) ;
+used for : s, ls;
+
+add-num-01 : n < n0 |- (m + (* n) = m0 + (* n0) ↔  m = m0 + (n0 - n));
+used for : s, ls;
+add-num-02 : n0 < n |- (m + (* n) = m0 + (* n0) ↔  m + (n - n0) = m0);
+used for : s, ls;
+add-num-03 : n < n0 |- ¬ ((* n) = m0 + (* n0));
+used for : s, ls;
+add-num-04 : n0 < n |- ((* n) = m0 + (* n0) ↔  (n - n0) = m0);
+used for : s, ls;
+
+
+
+(: ========================================== :)
+(: Beginn nat-lec :)
+(: ========================================== :)
+
+(: nat-basic2?
+add         :  ⊦ 1 + (m + m) < n + n ↔ m < n ;
+   used for : s, ls ;
+    remarks : proved, used ;
+:)
+add-02      :  ⊦ 1 + (m + m) ≤ n + n ↔ m < n ;
+   used for : s, ls ;
+    remarks : proved ;
+anti        :  ⊦ m ≤ n → (n ≤ m ↔ m = n) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+eq          :  ⊦ m = n + 1 → ¬ m ≤ n ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+eqle-one    :  ⊦ m = n + 1 ∧ n < n0 → m ≤ n0 ;
+   used for : f, lf ;
+    remarks : proved, used by proved unit ;
+fle         :  ⊦ m < n ∧ n ≤ n0 → m < n0 ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+fle-01      :  ⊦ m ≤ n ∧ n < n0 → m < n0 ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+ge          :  ⊦ n ≥ m ↔ m ≤ n ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+le-one      :  ⊦ m ≤ n + 1 ∧ n < n0 → m ≤ n0 ;
+   used for : f, lf ;
+    remarks : proved, used by proved unit ;
+lels        :  ⊦ ¬ m < n ↔ n ≤ m ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+lels-01     :  ⊦ ¬ m ≤ n ↔ n < m ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+lels-02     :  ⊦ m ≠ n → (m ≤ n ↔ m < n) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+lels-03 : ⊦ m < n → m ≤ n;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+lep         :  ⊦ m ≤ m + n ;
+   used for : ls, s ;
+    remarks : proved, used by proved unit ;
+lep-01      :  ⊦ m + n ≤ m ↔ n = 0 ;
+   used for : ls, s ;
+    remarks : proved, used by proved unit ;
+lep-02      :  ⊦ m + n ≤ m + n0 ↔ n ≤ n0 ;
+   used for : ls, s ;
+    remarks : proved, used by proved unit ;
+lepr        :  ⊦ m ≠ 0 → ¬ m ≤ m - 1 ;
+   (: used for : s, ls ; :)
+    remarks : proved ;
+leprf       :  ⊦ m ≤ m - 1 → m = 0 ;
+   used for : f, lf ;
+    remarks : proved ;
+ler         :  ⊦ m ≤ m ;
+   used for : s ;
+    remarks : proved, used by proved unit ;
+les         :  ⊦ m < n → (n ≤ m + 1 ↔ n = m + 1) ;
+   used for : s ;
+    remarks : proved, used by proved unit ;
+let         :  ⊦ n ≤ n0 ∧ n0 ≤ n1 → n ≤ n1 ;
+   used for : f ;
+    remarks : proved, used by proved unit ;
+lez         :  ⊦ 0 ≤ m ;
+   used for : s ;
+    remarks : proved, used by proved unit ;
+lez-01      :  ⊦ m ≤ 0 ↔ m = 0 ;
+   used for : s ;
+    remarks : proved, used by proved unit ;
+neq-01      :  ⊦ m0 ≤ m ∧ n + m ≤ n0 → n0 + 1 ≠ n + m0 ;
+   used for : s, ls ;
+    remarks : proved ;
+one-01      :  ⊦ m ≠ 0 → (m + n ≤ 1 ↔ m = 1 ∧ n = 0) ;
+   used for : s, ls ;
+    remarks : proved ;
+one-02      :  ⊦ m ≠ 0 → (m ≤ 1 ↔ m = 1) ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+succ-01     :  ⊦ m + 1 ≤ n ↔ m < n ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+succ-02     :  ⊦ m < n + 1 ↔ m ≤ n ;
+   used for : s, ls ;
+    remarks : proved, used, used by proved unit ;
+
+(: alle lemmas fuer 2 weg 
+lethree     :  ⊦ m ≠ 2 ∧ m ≠ 1 ∧ m ≠ 0 → (m ≤ 2 + 1 ↔ m = 2 + 1) ;
+   used for : s, ls ;
+    remarks : proved ;
+letwo       :  ⊦ m ≠ 1 ∧ m ≠ 0 → (m ≤ 2 ↔ m = 2) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+letwo-01    :  ⊦ 1 < m → (m ≤ 2 ↔ m = 2) ;
+   used for : s, ls ;
+    remarks : proved ;
+lsttwo      :  ⊦ m < n + 2 ∧ n < m → m = n + 1 ;
+   used for : f, lf ;
+    remarks : proved, used by proved unit ;
+lstwo       :  ⊦ 1 < m + 2 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+notle       :  ⊦ ¬ 2 + n ≤ 1 ;
+   used for : s, ls ;
+    remarks : proved ;
+onetwo      :  ⊦ ¬ 2 ≤ 1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+onetwo-01   :  ⊦ ¬ 2 < 1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+onetwo-02   :  ⊦ 1 < 2 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+onetwo-03   :  ⊦ 1 ≤ 2 ;
+   used for : s, ls ;
+    remarks : proved ;
+onetwo-04   :  ⊦ 2 = m + 1 ↔ m = 1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+onetwo-05   :  ⊦ 2 ≤ n + 1 ↔ n ≠ 0 ;
+   used for : s, ls ;
+    remarks : proved ;
+predtwo     :  ⊦ 2 -1 = 1 ;
+   used for : s ;
+    remarks : proved ;
+
+teq         :  ⊦ m + 2 = n + 1 ↔ m + 1 = n ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+threeadd    :  ⊦ m + m ≠ 2 + 1 ;
+   used for : s, ls ;
+    remarks : proved ;
+threeadd-01 :  ⊦ m + m ≤ 2 + 1 ↔ m ≤ 1 ;
+   used for : s, ls ;
+    remarks : proved ;
+threeadd-02 :  ⊦ m + m < 2 + 1 ↔ m ≤ 1 ;
+   used for : s, ls ;
+    remarks : proved ;
+tle         :  ⊦ m + 1 ≤ n + 2 ↔ m ≤ n + 1 ;
+   used for : s, ls ;
+    remarks : proved ;
+tls         :  ⊦ m + 2 < n + 1 ↔ m + 1 < n ;
+   used for : s, ls ;
+    remarks : proved ;
+tls-01      :  ⊦ m + 2 ≤ n + 1 ↔ m + 1 ≤ n ;
+   used for : s, ls ;
+    remarks : proved ;
+tls-02      :  ⊦ m + 1 < n + 2 ↔ m < n + 1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+two-03      :  ⊦ 1 + 1 = 2 ;
+   used for : s ;
+    remarks : proved, used by proved unit ;
+twoadd      :  ⊦ 2 = n + n ↔ n = 1 ;
+   used for : s, ls ;
+    remarks : proved ;
+twoadd-01   :  ⊦ n + n ≤ 2 ↔ n ≤ 1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+twoadd-02   :  ⊦ n + n < 2 ↔ n = 0 ;
+   used for : s, ls ;
+    remarks : proved ;
+twols       :  ⊦ m ≠ 1 → (m < 2 ↔ m = 0) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+twoone      :  ⊦ m ≠ 0 → (m < 2 ↔ m = 1) ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+twoone-01   :  ⊦ 2 + n ≠ 1 ;
+   used for : s, ls ;
+    remarks : proved, used by proved unit ;
+twoone-02   :  ⊦ 2 < n → 1 < n ;
+   used for : s, ls ;
+    remarks : proved ;
+:)
+
+
+
+(: ========================================== :)
+(: Ende nat-lec :)
+(: ========================================== :)
+(: ========================================== :)
+(: Beginn nat :)
+(: ========================================== :)
+
+add        :  ⊦ n ≤ m → ((m - n) + n0 = m ↔ n = n0) ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+add-01     :  ⊦ n ≤ m → m + n0 - n = (m - n) + n0 ;
+  used for : s, ls ;
+   remarks : proved, used ;
+cancel-01  :  ⊦ m + n - n + n1 = m - n1 ;
+  used for : s, ls ;
+   remarks : proved ;
+elim-sub   : n ≤ m ⊦ n0 = m - n ↔ m = n0 + n ;
+  used for : e ;
+   remarks : proved, used, used by proved unit ;
+eq-01      :  ⊦ m + n - m = n ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+eq-02      : n ≤ m ⊦ (m - n) + n0 = n1 ↔ m + n0 = n + n1 ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+eq-03      :  ⊦ m + 1 = n → n - m = 1 ;
+  used for : s, ls ;
+   remarks : proved ;
+eq-pred    :  ⊦ m = m0 ∧ m0 = n + 1 → m - n - 1 = 0 ;
+  (:used for : s, ls ;:)
+   remarks : proved ;
+eq-pred-01 :  ⊦ m = n + 1 → m - n - 1 = 0 ;
+  (:used for : s, ls ;:)
+   remarks : proved ;
+le         : n ≤ m ⊦ (m - n) + m0 ≤ n0 ↔ m + m0 ≤ n0 + n ;
+  used for : s, ls ;
+   remarks : proved, used by proved unit ;
+less       : n ≤ m, n1 < n ⊦ (m - n) + (n0 + n1) < m + n0 ;
+   remarks : proved ;
+less-01    : n ≤ m, n1 ≤ n ⊦ (m - n) + (n0 + n1) ≤ m + n0 ;
+   remarks : proved ;
+less-02    : n ≤ m, n0 < n ⊦ (m - n) + n0 < m ;
+   remarks : proved ;
+less-03    :  ⊦ m - n0 < m - n1 ∧ n0 ≤ m ∧ n1 ≤ m → n1 < n0 ;
+   remarks : proved ;
+ls         : n0 ≤ n ⊦ m < n - n0 ↔ m + n0 < n ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+ls-01      : n0 ≤ n ⊦ n - n0 < m ↔ n < m + n0 ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+ls-02      : n0 ≤ n ⊦ m ≤ n - n0 ↔ m + n0 ≤ n ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+ls-03      : n0 ≤ n ⊦ n - n0 ≤ m ↔ n ≤ m + n0 ;
+  used for : s, ls ;
+   remarks : proved, used, used by proved unit ;
+ls-04      :  ⊦ n ≤ m ∧ n0 ≤ m → (m - n < m - n0 ↔ n0 < n) ;
+  used for : s, ls ;
+   remarks : proved ;
+ls-05      :  ⊦ n < m → 0 < m - n ;
+  used for : s, lf ;
+   remarks : proved, used ;
+ls-06      :  ⊦ n ≤ m → (m - n < m ↔ n ≠ 0) ;
+  used for : s, ls ;
+   remarks : proved ;
+ls-07      : n ≤ m, n0 ≤ m ⊦ m - n < m - n0 ↔ n0 < n ;
+  used for : s, ls ;
+   remarks : proved ;
+ls-pred    :  ⊦ n + 1 < m → m - n - 1 < m ;
+  (:used for : s, ls ;:)
+   remarks : proved ;
+pred       :  ⊦ n < m → m - 1 - n = m - n - 1 ;
+  (:used for : s, ls ;:)
+   remarks : proved, used ;
+pred-01    :  ⊦ n < m → (m - n - 1) + 1 = m - n ;
+  (:used for : s, ls ;:)
+   remarks : proved ;
+pred-02    : m ≠ 0, n ≠ 0, n ≤ m ⊦ m - 1 - (n - 1) = m - n ;
+  (:used for : s, ls ;:)
+   remarks : proved ;
+pred-03    : n -1 = n - 1;
+  used for : s, ls ;
+prop       : n < m ⊦ m - 1 - n = m - (n + 1) ;
+   remarks : proved ;
+prop-01    : n ≤ m ⊦ (m - n) + n = m ;
+   remarks : proved ;
+prop-02    : n ≤ m ⊦ (m - n) + 1 = m + 1 - n ;
+   remarks : proved ;
+prop-04    :  ⊦ m < m - n → m < n ;
+   remarks : proved ;
+prop-05    : m ≤ n ⊦ (n - m) + n0 = n + n0 - m ;
+   remarks : proved ;
+prop-06    : m ≠ 0, m ≤ n + 1 ⊦ n + 1 - m = n - (m - 1) ;
+   remarks : proved ;
+prop-07    : n < m ⊦ (m - n) + n = m ;
+rax        :  ⊦ m - (n + 1) = m - n - 1 ;
+  (:used for : ls ;:)
+   remarks : proved, used, used by proved unit ;
+rec        : n ≤ m ⊦ m + 1 - n = (m - n) + 1 ;
+  used for : ls ;
+   remarks : proved ;
+shift      :  ⊦ (m - n) - n0 = (m - n0) - n ;
+   remarks : proved ;
+shift-01   :  ⊦ (m - n) - n0 = m - (n + n0) ;
+   remarks : proved, used ;
+succ      :  ⊦ n + 1 - n = 1 ;
+  (: used for : s, ls; :)
+   remarks : proved ;
+succ-04    : n ≤ m ⊦ m + 1 - n - 1 = m - n ;
+  (:used for : s, ls ;:)
+   remarks : proved ;
+succ-05    :  ⊦ n + 1 < m → m - n - 1 ≠ 0 ;
+  (:used for : s, ls ;:)
+   remarks : proved, used ;
+zero       :  ⊦ m - m = 0 ;
+  used for : s, ls ;
+   remarks : proved, used by proved unit ;
+zero-01    :  ⊦ n < m → m - n ≠ 0 ;
+  used for : s, ls ;
+   remarks : proved, used by proved unit ;
+zero-02    :  ⊦ m ≤ n → (n - m = 0 ↔ n = m) ;
+  used for : s, ls ;
+   remarks : proved ;

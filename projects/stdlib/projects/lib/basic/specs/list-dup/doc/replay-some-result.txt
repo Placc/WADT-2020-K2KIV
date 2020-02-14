@@ -1,0 +1,75 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+two-03
+sym
+rmdup-last
+rm-size-le
+rm-size-in-01
+rm-size-05
+rm-size-04
+rm-size-02
+rm-size-01
+rm-size
+rm-rm-02
+rm-rm-01
+rm-notin
+rm-in-05
+rm-in-04
+rm-in-03
+rm-in-02
+rm-in-01
+rm-in
+rm-empty
+rm-allsize
+rec
+n
+lastoc
+l-01
+l
+inapp-01
+inapp
+in-09
+in-08
+in-07
+in-06-01
+in-06
+in-05-01
+in-03-01
+in-02-01
+firstoc
+first-01
+first
+f-01
+f
+eq-01
+eq
+e-01
+dups-sw
+dups-lesize
+dups-firstoc-rew
+dups-eqsize-02
+dups-eqsize-01
+dups-appex
+d
+cons-03
+cons-02
+cons-01
+cons
+c
+app-05
+app-02
+app-01-02
+a-01
+a
+
+
+*** Failures: ***
+
+

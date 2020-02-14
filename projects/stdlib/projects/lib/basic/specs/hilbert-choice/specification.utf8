@@ -1,0 +1,17 @@
+specification
+
+sorts elem;
+
+functions
+ε . : (elem → bool) → elem;
+
+variables
+a : elem;
+P : elem → bool;
+
+axioms
+
+epsilon:
+P(a) ⊦ P(ε P);
+
+end specification

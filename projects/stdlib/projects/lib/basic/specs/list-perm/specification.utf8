@@ -1,0 +1,22 @@
+enrich list-set with
+
+functions 
+
+       #oc : elem × list → nat;
+
+predicates 
+
+	perm    : list × list;
+	. ⊆m .  : list × list;
+	
+axioms
+
+oc-e : #oc(a,[]) = 0; used for : s,ls;
+oc-y : #oc(a, a ' + x) = #oc(a,x) + 1; used for : s,ls;
+oc-n : a ≠ b → #oc(a, b ' + x) = #oc(a,x); used for : s,ls,lc;
+
+msubset : x ⊆m y ↔ ∀ a. #oc(a,x) ≤ #oc(a,y); used for : ls;
+
+perm : perm(x,y) ↔ x ⊆m y ∧ y ⊆m x; used for : s,ls;
+
+end enrich

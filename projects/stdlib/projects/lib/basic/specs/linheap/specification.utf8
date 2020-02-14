@@ -1,0 +1,25 @@
+actualize store with genlincell 
+
+comment: specification of a generic memory that stores linear pointer structures.
+         The values in the memory are generic with a next pointer .nxt.;
+
+by morphism
+
+store → heap;
+elem → Ref;
+data → cell;
+
+a → r;
+b → r0;
+c → r1;
+;;a0 → r2;
+d → ce;
+d0 → ce0;
+d1 → ce1;
+d2 → ce2;
+st → H;
+st0 → H0;
+st1 → H1;
+st2 → H2;
+
+end actualize

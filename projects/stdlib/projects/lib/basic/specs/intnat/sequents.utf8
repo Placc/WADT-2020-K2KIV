@@ -1,0 +1,363 @@
+
+lemmas
+
+;; KODKOD BEGIN
+
+
+k-one: 1 -1 = n→i(0); used for : kodkodaxstrong;
+
+;; KODKOD END
+
+
+sub-same : 0 ≤ i ∧ i ≤ j → (i→n(j) + m - i→n(i)) + i→n(i) = i→n(j) + m; used for : s,ls;
+;;; END
+
+nat-to-int-ge-0:
+⊦ ¬ (~1) = n→i(n) + n→i(n0);  used for: s, ls;
+i2n-mod : 0 ≤ i ∧ 0 < j → i→n(i % j) = i→n(i) % i→n(j);
+
+i2n-mult : 0 ≤ i ∧ 0 ≤ j → i→n(i * j) = i→n(i) * i→n(j);
+
+add-n2i-num: 0 ≤ i → n→i(m) + (* i) = n→i(m + i→n(i));
+
+le-fin-add: ⊦ n→i(m) ≤ n→i(n) + (* i) ∧ 0 ≤ i → m ≤ n + i→n(i); used for: s, ls;
+ls-fin-add: ⊦ n→i(m) < n→i(n) + (* i) ∧ 0 ≤ i → m < n + i→n(i); used for: s, ls;
+
+;;; END
+
+
+
+i2n-divtwo : i→n(2 * i) / 2 = i→n(i); used for : s,ls;
+
+n2i-sub : n ≤ m → n→i(m - n) = n→i(m) - n→i(n); used for : s,ls;
+minus-one : i < 0 → (n→i(m) = i + 1 ↔ m = 0 ∧ i = ~1); used for : s,ls;
+add : 0 ≤ i, 0 ≤ j ⊦ i→n(i + j) = i→n(i) + i→n(j) ;
+
+add-nonneg-int-to-nat: 0 ≤ i → i→n(i + n→i(n)) = i→n(i) + n; used for: s, ls;
+
+ls-int->ls-nat: i ≥ 0 → ((* i) + n→i(n) < n→i(m) ↔ i→n(i) + n < m); used for: s, ls;
+le-int->le-nat: i ≥ 0 → ((* i) + n→i(n) ≤ n→i(m) ↔ i→n(i) + n ≤ m); used for: s, ls;
+
+
+num-n2i-eq : 0 ≤ i ⊦ n→i(n) = (* i) ↔ n = i→n(i); used for : s,ls;
+num-n2i-eq : i < 0 ⊦ n→i(n) ≠ (* i); used for : s,ls;
+
+num-n2i-ls : 0 ≤ i ⊦ n→i(n) < (* i) ↔ n < i→n(i); used for : s,ls;
+num-n2i-ls : i < 0 ⊦ ¬ n→i(n) < (* i); used for : s,ls;
+num-n2i-ls : 0 ≤ i ⊦ (* i) < n→i(n) ↔ i→n(i) < n; used for : s,ls;
+num-n2i-ls : i < 0 ⊦ (* i) < n→i(n); used for : s,ls;
+
+num-n2i-ls : 0 ≤ i ⊦ n→i(n) ≤ (* i) ↔ n ≤ i→n(i); used for : s,ls;
+num-n2i-ls : i < 0 ⊦ ¬ n→i(n) ≤ (* i); used for : s,ls;
+num-n2i-ls : 0 ≤ i ⊦ (* i) ≤ n→i(n) ↔ i→n(i) ≤ n; used for : s,ls;
+num-n2i-ls : i < 0 ⊦ (* i) ≤ n→i(n); used for : s,ls;
+
+exit
+
+
+num-i2n-ls : 0 ≤ i ⊦ ((* m) < i→n(i) ↔ n→i(m) < i); used for : s,ls;
+num-i2n-ls : i < 0 ⊦ ((* m) < i→n(i) ↔ n→i(m) < ~ i); used for : s,ls;
+num-i2n-le : 0 ≤ i ⊦ ((* m) ≤ i→n(i) ↔ n→i(m) ≤ i); used for : s,ls;
+num-i2n-le : i < 0 ⊦ ((* m) ≤ i→n(i) ↔ n→i(m) ≤ ~ i); used for : s,ls;
+num-i2n-ls : 0 ≤ i ⊦ (i→n(i) < (* m) ↔ i < n→i(m)); used for : s,ls;
+num-i2n-ls-01 : i < 0 ⊦ (i→n(i) < (* m) ↔ ~ i < n→i(m)); used for : s,ls;
+num-i2n-le : 0 ≤ i ⊦ (i→n(i) ≤ (* m) ↔ i ≤ n→i(m)); used for : s,ls;
+num-i2n-le-01 : i < 0 ⊦ (i→n(i) ≤ (* m) ↔ ~ i ≤ n→i(m)); used for : s,ls;
+num-i2n-eq : 0 ≤ i ⊦ (i→n(i) = (* m) ↔ i = n→i(m)); used for : s,ls;
+num-i2n-eq-01 : i < 0 ⊦ (i→n(i) = (* m) ↔ ~ i = n→i(m)); used for : s,ls;
+
+
+inni-ls : ⊦ n→i(m) + n→i(n) < j → ¬ i→n(j) ≤ m + n; used for : s,ls;
+inni-le : ⊦ n→i(m) + n→i(n) ≤ j → ¬ i→n(j) < m + n; used for : s,ls;
+pos-int : ⊦ n→i(m) < j → 0 < j; used for : f,lf;
+pos-add : ⊦ n→i(m) + n→i(n) < j → 0 < j; used for : f,lf;
+ini2-abs : ⊦ n→i(i→n(i)) = abs(i); used for : s,ls;
+switch-ls : ⊦ i→n(i) < n ↔ abs(i) < n→i(n);
+switch-le : ⊦ i→n(i) ≤ n ↔ abs(i) ≤ n→i(n);
+
+inni-ls : i→n(i) < n → ¬ n→i(n) ≤ i; used for : s,ls;
+inni-le : i→n(i) ≤ n → ¬ n→i(n) < i; used for : s,ls;
+
+abs : ⊦ abs(n→i(n)) = n→i(n); used for : s,ls;
+
+i2i-pos : ⊦ 0 < i → n→i(i→n(i)) = i; used for : s,ls;
+i2i-pos : ⊦ 0 ≤ i → n→i(i→n(i)) = i; used for : s,ls;
+i2i-neg : ⊦ i < 0 → n→i(i→n(i)) = ~ i; used for : s,ls;
+i2i-neg : ⊦ i ≤ 0 → n→i(i→n(i)) = ~ i; used for : s,ls;
+abs          :  ⊦ i→n(abs(i)) = i→n(i) ;
+    used for : s, ls ;
+     remarks : proved ;
+abs-01       :  ⊦ i→n(1) = 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+abs-eq       :  ⊦ i→n(i) = i→n(j) ↔ abs(i) = abs(j) ;
+    used for : s ;
+     remarks : proved ;
+abs-neg      :  ⊦ i→n(~ i) = i→n(i) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+abs-negp     : 0 ≤ i ⊦ i→n(~ i) = i→n(i) ;
+     remarks : proved, used ;
+abs-one      :  ⊦ i < 0 → (i→n(i) = 1 ↔ i = ~1) ;
+    used for : s, ls ;
+     remarks : proved ;
+abs-pred     :  ⊦ i→n(i - 1) < i→n(i) ↔ 0 < i ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+abs-pred-01  :  ⊦ i < 0 ∧ i ≠ ~1 → i→n(i + 1) = i→n(i) -1 ;
+    used for : s, ls ;
+     remarks : proved ;
+abs-pred-02  :  ⊦ 0 < i → i→n(i - 1) +1 = i→n(i) ;
+    used for : s, ls ;
+     remarks : proved ;
+abs-succ     :  ⊦ i→n(i) < i→n(i + 1) ↔ 0 ≤ i ;
+    used for : s, ls ;
+     remarks : proved ;
+abs-succ-01  :  ⊦ i→n(i + 1) < i→n(i) ↔ i < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+abs-succ-02  :  ⊦ 0 < i ∧ i ≠ 1 → i→n(i - 1) = i→n(i) -1 ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+abs-succ-03  :  ⊦ 0 < i → i→n(i + 1) = i→n(i) + 1 ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+abs-zero     :  ⊦ i→n(i) = 0 ↔ i = 0 ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+add          : 0 ≤ i, 0 ≤ j ⊦ i→n(i) + i→n(j) = i→n(i + j) ;
+     remarks : proved, used ;
+eight        :  ⊦ i→n(1 + (1 + (1 + (1 + (1 + (1 + (1 + 1))))))) = 2 + (2 + (2 + 2)) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+five         :  ⊦ i→n(1 + (1 + (1 + (1 + 1)))) = 2 + (2 + 1) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+four         :  ⊦ i→n(1 + (1 + (1 + 1))) = 2 + 2 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+i2n          :  ⊦ i→n(i) * i→n(j) = i→n(i * j) ;
+     remarks : proved, used ;
+i2np         : 0 ≤ i, 0 ≤ j ⊦ i→n(i) * i→n(j) = i→n(i * j) ;
+     remarks : proved, used ;
+inj          :  ⊦ n→i(m) = n→i(n) ↔ m = n ;
+    used for : s, ls ;
+     remarks : proved, used ;
+labs         :  ⊦ i→n(i) < i→n(j) ↔ abs(i) < abs(j) ;
+    used for : s ;
+     remarks : proved, used, used by proved unit ;
+labs-01      :  ⊦ i→n(i) ≤ i→n(j) ↔ abs(i) ≤ abs(j) ;
+    used for : s ;
+     remarks : proved, used ;
+labsp        : 0 ≤ i, 0 ≤ j ⊦ i→n(i) < i→n(j) ↔ abs(i) < abs(j) ;
+     remarks : proved, used ;
+le           :  ⊦ n→i(m) ≤ n→i(n) ↔ m ≤ n ;
+    used for : s, ls ;
+     remarks : proved ;
+ls-03        : n ≠ 0 ⊦ 0 ≤ i → i / n→i(n) ≤ i ;
+    used for : s, ls ;
+     remarks : proved ;
+mod-zero-02  : n ≠ 0 ⊦ 0 ≤ i → ¬ i % n→i(n) < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+mone         :  ⊦ i→n(~1) = 1 ;
+    used for : s, ls ;
+     remarks : proved ;
+mone-01      :  ⊦ i + 1 = 0 → i→n(i) = 1 ;
+    used for : s, ls ;
+     remarks : proved ;
+mult-ls-02   : n ≠ 0 ⊦ i / n→i(n) < i0 → i < i0 * n→i(n) ;
+    used for : s, ls ;
+     remarks : proved ;
+mult-ls-03   : n ≠ 0 ⊦ i0 < i / n→i(n) → i0 * n→i(n) < i ;
+    used for : s, ls ;
+     remarks : proved ;
+mult-ls-04   :  ⊦ i / (n→i(n) + 1) < i0 → i < i0 * n→i(n) + i0 ;
+    used for : s, ls ;
+     remarks : proved ;
+mult-ls-05   :  ⊦ i0 < i / (n→i(n) + 1) → i0 * n→i(n) + i0 < i ;
+    used for : s, ls ;
+     remarks : proved ;
+n2i          :  ⊦ n→i(2) = 1 + 1 ;
+    used for : s, ls ;
+     remarks : proved, used by proved unit ;
+n2i-01       :  ⊦ n→i(1) = 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+n2i-add      :  ⊦ n→i(m + n) = n→i(m) + n→i(n) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+n2i-mult     :  ⊦ n→i(m * n) = n→i(m) * n→i(n) ;
+    used for : s, ls ;
+     remarks : proved ;
+n2i2         :  ⊦ n→i(m) = 1 + 1 ↔ m = 2 ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+n2n          :  ⊦ i→n(n→i(n)) = n ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat          : j ≠ 0 ⊦ i→n(i) / i→n(j) = i→n(i / j) ;
+    used for : s, ls ;
+     remarks : proved ;
+nat2int      :  ⊦ 0 ≤ n→i(n) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-01   :  ⊦ i = j + n→i(n) → j ≤ i ;
+    used for : s, ls ;
+     remarks : proved ;
+nat2int-02   :  ⊦ n→i(n) = 0 ↔ n = 0 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-03   :  ⊦ n→i(n + 1) = n→i(n) + 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-04   :  ⊦ n→i(m) < n→i(n) ↔ m < n ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-05   :  ⊦ n→i(m) = n→i(n) + 1 ↔ m = n + 1 ;
+    used for : s, ls ;
+     remarks : proved ;
+nat2int-06   :  ⊦ ¬ n→i(n) + 1 < 0 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-07   :  ⊦ 0 ≠ n→i(m) + 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-08   :  ⊦ ¬ n→i(n) < 0 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-09   :  ⊦ i→n(n→i(n) + 1) = n + 1 ;
+    used for : s, ls ;
+     remarks : proved ;
+nat2int-10   :  ⊦ n→i(n) ≤ 0 ↔ n = 0 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-11   :  ⊦ n→i(m) + 1 < n→i(n) ↔ m + 1 < n ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nat2int-12   :  ⊦ i = (j + n→i(n)) + (1 + 1) → j ≤ i ;
+    used for : s, ls ;
+     remarks : proved ;
+nat2int-13   :  ⊦ i = (j + n→i(n)) + 1 → j ≤ i ;
+    used for : s, ls ;
+     remarks : proved ;
+nat2int-14   :  ⊦ n→i(n) < 1 ↔ n = 0 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+natpos       : 0 < j, 0 ≤ i ⊦ i→n(i) / i→n(j) = i→n(i / j) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+nine         : ⊦ 
+               i→n(1 + (1 + (1 + (1 + (1 + (1 + (1 + (1 + 1))))))))
+               =
+               2 + (2 + (2 + 2 +1)) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+qzero        :  ⊦ i < 0 ∧ j < 0 → i + j * n→i(n) < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+qzero-01     :  ⊦ i < j → n→i(n) * (i - j) ≤ 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+qzero-02     :  ⊦ i < 0 → n→i(n) * i + i ≤ 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+rax          :  ⊦ 0 < i + 1 → i→n(i + 1) = i→n(i) + 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+rax-01       :  ⊦ 1 < i → i→n(i - 1) = i→n(i) -1 ;
+    used for : s, ls ;
+     remarks : proved ;
+rax-02       :  ⊦ i + 1 < 0 → i→n(i + 1) = i→n(i) -1 ;
+    used for : s, ls ;
+     remarks : proved ;
+rax-03       :  ⊦ i < 1 → i→n(i - 1) = i→n(i) + 1 ;
+    used for : s, ls ;
+     remarks : proved ;
+rax-04       :  ⊦ 0 ≤ i → i→n(i + 1) = i→n(i) + 1 ;
+    used for : s, ls ;
+     remarks : proved, used, used by proved unit ;
+rlabs        :  ⊦ abs(i) < abs(j) ↔ i→n(i) < i→n(j) ;
+     remarks : proved, used ;
+seven        :  ⊦ i→n(1 + (1 + (1 + (1 + (1 + (1 + 1)))))) = 2 + (2 + (2 + 1)) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+six          :  ⊦ i→n(1 + (1 + (1 + (1 + (1 + 1))))) = 2 + (2 + 2) ;
+    used for : s, ls ;
+     remarks : proved, used ;
+sub          : j ≤ i, 0 ≤ j ⊦ i→n(i - j) = i→n(i) - i→n(j) ;
+    used for : ls ;
+     remarks : proved, used ;
+sub-01       : i ≤ j, j ≤ 0 ⊦ i→n(i - j) = i→n(i) - i→n(j) ;
+     remarks : proved ;
+succ         :  ⊦ 0 < i → i→n(i) + 1 = i→n(i + 1) ;
+     remarks : proved ;
+succ-01      :  ⊦ n→i(m + 1) = n→i(m) + 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+ten          : ⊦ 
+               i→n(1 + (1 + (1 + (1 + (1 + (1 + (1 + (1 + (1 + 1)))))))))
+               =
+               2 + (2 + (2 + (2 + 2))) ;
+    used for : s, ls ;
+     remarks : proved ;
+three        :  ⊦ i→n(1 + (1 + 1)) = 2 + 1 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+two          :  ⊦ i→n(0 -1 -1) = 2 ;
+    used for : s, ls ;
+     remarks : proved ;
+two-01       :  ⊦ i→n(1 + 1) = 2 ;
+    used for : s, ls ;
+     remarks : proved, used ;
+zero-01      :  ⊦ i < 0 ∧ j < 0 → i + j * (n→i(n) + 1) < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-02      :  ⊦ i * n→i(n) < 0 ↔ n ≠ 0 ∧ i < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-08      :  ⊦ i < 0 → i / (n→i(n) + 1) ≤ 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-09      : n ≠ 0 ⊦ i < 0 → i / n→i(n) ≤ 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-10      :  ⊦ 0 ≤ i → 0 ≤ i / (n→i(n) + 1) ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-11      : n ≠ 0 ⊦ 0 ≤ i → 0 ≤ i / n→i(n) ;
+    used for : s ;
+     remarks : proved ;
+zero-12      : n ≠ 0 ⊦ 0 ≤ i → ¬ i / n→i(n) < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+zero-13      :  ⊦ i + j * n→i(n) < 0 ∧ m ≤ n ∧ 0 ≤ j → i + j * n→i(m) < 0 ;
+    used for : s, ls ;
+     remarks : proved ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Int2nat-zero :  ⊦ i→n(0) = 0 ;
+    used for : s, ls ;
+     remarks : used ;
+Nat2int-zero :  ⊦ n→i(0) = 0 ;
+    used for : s, ls ;
+     remarks : used ;
+Nat2int-succ :  ⊦ n→i(n +1) = n→i(n) +1 ;
+    used for : s, ls ;
+     remarks : used ;
+Int2nat-neg  :  ⊦ i < 0 → i→n(i) = i→n(~ i) ;
+     remarks : used ;
+Int2nat-pos  :  ⊦ 0 < i → i→n(i) = i→n(i - 1) + 1 ;
+     remarks : used ;
+
+
+
+

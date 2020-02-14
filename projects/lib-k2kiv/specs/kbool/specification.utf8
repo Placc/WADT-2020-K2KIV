@@ -1,0 +1,9 @@
+enrich bool with
+
+functions
+	. xor . : bool × bool → bool;
+
+axioms
+	xor-def: (boolvar xor boolvar0) ↔ ¬(boolvar ↔ boolvar0); used for : s, ls;
+
+end enrich

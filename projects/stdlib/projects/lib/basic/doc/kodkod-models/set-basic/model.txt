@@ -1,0 +1,18 @@
+atoms%%elem0;elem1;elem2;nat0;nat1;nat2;nat3;set0;set1;set2;set3;set4;set5;set6;set7;
+op%%Op(∈:elem,set->bool)%%[elem0, set0];[elem0, set1];[elem0, set5];[elem0, set7];[elem1, set1];[elem1, set3];[elem1, set4];[elem1, set7];[elem2, set0];[elem2, set2];[elem2, set3];[elem2, set7];
+sort%%nat%%[nat0];[nat1];[nat2];[nat3];
+op%%Op(>:nat,nat->bool)%%[nat1, nat0];[nat1, nat2];[nat1, nat3];[nat2, nat0];[nat2, nat3];[nat3, nat0];
+op%%Op(⊆:set,set->bool)%%[set0, set0];[set0, set7];[set1, set1];[set1, set7];[set2, set0];[set2, set2];[set2, set3];[set2, set7];[set3, set3];[set3, set7];[set4, set1];[set4, set3];[set4, set4];[set4, set7];[set5, set0];[set5, set1];[set5, set5];[set5, set7];[set6, set0];[set6, set1];[set6, set2];[set6, set3];[set6, set4];[set6, set5];[set6, set6];[set6, set7];[set7, set7];
+op%%Op(+:nat,nat->nat)%%[nat0, nat0, nat0];[nat0, nat1, nat1];[nat0, nat2, nat2];[nat0, nat3, nat3];[nat1, nat0, nat1];[nat2, nat0, nat2];[nat2, nat3, nat1];[nat3, nat0, nat3];[nat3, nat2, nat1];[nat3, nat3, nat2];
+op%%Op(-:nat,nat->nat)%%[nat0, nat0, nat0];[nat1, nat0, nat1];[nat1, nat1, nat0];[nat1, nat2, nat3];[nat1, nat3, nat2];[nat2, nat0, nat2];[nat2, nat2, nat0];[nat2, nat3, nat3];[nat3, nat0, nat3];[nat3, nat3, nat0];
+op%%Op(+1:nat->nat)%%[nat0, nat3];[nat2, nat1];[nat3, nat2];
+num%%Numint(0,Type(nat))%%[nat0];
+op%%Op(≤:nat,nat->bool)%%[nat0, nat0];[nat0, nat1];[nat0, nat2];[nat0, nat3];[nat1, nat1];[nat2, nat1];[nat2, nat2];[nat3, nat1];[nat3, nat2];[nat3, nat3];
+op%%Op(≥:nat,nat->bool)%%[nat0, nat0];[nat1, nat0];[nat1, nat1];[nat1, nat2];[nat1, nat3];[nat2, nat0];[nat2, nat2];[nat2, nat3];[nat3, nat0];[nat3, nat3];
+op%%Op(<:nat,nat->bool)%%[nat0, nat1];[nat0, nat2];[nat0, nat3];[nat2, nat1];[nat3, nat1];[nat3, nat2];
+realC%%Op(++:set,elem->set)%%[set0, elem0, set0];[set0, elem1, set7];[set0, elem2, set0];[set1, elem0, set1];[set1, elem1, set1];[set1, elem2, set7];[set2, elem0, set0];[set2, elem1, set3];[set2, elem2, set2];[set3, elem0, set7];[set3, elem1, set3];[set3, elem2, set3];[set4, elem0, set1];[set4, elem1, set4];[set4, elem2, set3];[set5, elem0, set5];[set5, elem1, set1];[set5, elem2, set0];[set6, elem0, set5];[set6, elem1, set4];[set6, elem2, set2];[set7, elem0, set7];[set7, elem1, set7];[set7, elem2, set7];
+op%%Op(∅:set)%%[set6];
+sort%%set%%[set0];[set1];[set2];[set3];[set4];[set5];[set6];[set7];
+op%%Op(-1:nat->nat)%%[nat1, nat2];[nat2, nat3];[nat3, nat0];
+sort%%elem%%[elem0];[elem1];[elem2];
+op%%Op(#:set->nat)%%[set0, nat2];[set1, nat2];[set2, nat3];[set3, nat2];[set4, nat3];[set5, nat3];[set6, nat0];[set7, nat1];

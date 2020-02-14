@@ -1,0 +1,27 @@
+lemmas
+
+  ;; interesting properties
+
+  insert-legal:   legal(map) ⊦ legal(map[a, b]);
+  insert-lookup1: legal(map) ⊦ map[a, b][a] = b;
+  insert-lookup2: a ≠ c ⊦ map[a, b][c] = map[c];
+  insert-haskey1: haskey(a, map[a, b]);
+  insert-haskey2: a ≠ c ⊦ haskey(c, map[a, b]) ↔ haskey(c, map);
+
+  remove-legal:   legal(map) ⊦ legal(map -- a);
+  remove-lookup:  a ≠ c ⊦ (map -- a)[c] = map[c];
+  remove-haskey1: ¬ haskey(a, map -- a);
+  remove-haskey2: haskey(a, map -- b) ↔ haskey(a, map) ∧ a ≠ b;
+  remove-switch:  (map -- a) -- b = (map -- b) -- a;
+
+  notmem-lookup:  ¬ haskey(a, map) ⊦ map[a] = ∅[a];
+  invalid-lookup: keyCount(map, a) > 1 ⊦ map[a] = ∅[a];
+  subset-lookup:  haskey(a, map1), map1 ⊆ map2, legal(map2) ⊦ map2[a] = map1[a];
+
+  ;; helper lemmas
+
+  keyCount-insert: keyCount(map[a, b], c) = ((haskey(a, map) ∨ a ≠ c) ⊃ keyCount(map, c); 1);
+  keys-insert:     keys(map[a, b]) = keys(map) ++ a;
+
+  keyCount-remove: keyCount(map -- a, c) = (a = c ⊃ 0 ; keyCount(map, c));
+  keys-remove:     keys(map -- a) = keys(map) -- a;

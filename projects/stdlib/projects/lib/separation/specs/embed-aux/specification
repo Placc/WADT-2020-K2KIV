@@ -1,0 +1,15 @@
+enrich heap-fun, heap-aux with
+
+functions
+.[.] : aux Ô (heap ­ bool) ­ heap-aux ­ bool;
+
+;; variables
+;; G : (ref ­ aux) ­ bool;
+
+axioms
+
+lift-aux:
+a[P](mk(rs,f,g))
+  ° P(mk(rs,f)) ¸ ³ r. r ² rs ­ g(r) = a;
+
+end enrich

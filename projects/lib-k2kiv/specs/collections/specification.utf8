@@ -1,0 +1,17 @@
+specification
+
+sorts 
+	klist;
+	kmap;
+	kbag;
+	kset;
+	ksequence;
+
+variables
+	x:   klist;
+	map: kmap;
+	bag: kbag;
+	s:   kset;
+	ks:  ksequence;
+
+end specification

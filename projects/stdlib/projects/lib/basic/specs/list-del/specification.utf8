@@ -1,0 +1,63 @@
+enrich list-last with
+
+functions
+
+        . -l  .     : list × elem → list;
+        . -1l .     : list × elem → list;
+        . -p .      : list × nat  → list; comment : delete element at position;
+
+          
+          pos       : elem × list → nat;  comment : pos is zero based;
+          frome     : list × elem → list; comment : return list starting with elem;
+          
+partial functions
+		  . [ . ]   : list × nat  → elem with λ x, n. n < # x; comment : get is zero based;
+		  . [ . ]   : list × nat × elem → list with λ x, n, a. n < # x; comment : put is zero based;
+          firstn    :  nat × list → list with λ n, x. n ≤ # x; comment : return first n elements of list;
+          restn     :  nat × list → list with λ n, x. n ≤ # x; comment : apply .tail n times;
+          lastn     :  nat × list → list with λ n, x. n ≤ # x; comment : return last n elements of list;
+          sublist   :  nat × nat × list → list with λ n, m, x. ( n + m ) ≤ # x;
+          comment : sublist(offset, length, l) returns sublist from offset with length;          
+          
+
+
+axioms
+(: ************************************************************************************* :)
+del-e : [] -l a = []; used for : s,ls;
+del-y : (a ' + x) -l a = x -l a; used for : s,ls;
+del-n : a ≠ b → (b ' + x) -l a = b ' + (x -l a) ; used for : s,ls;
+(: ************************************************************************************* :)
+del1-e : [] -1l a = []; used for : s,ls;
+del1-y : (a ' + x) -1l a = x; used for : s,ls;
+del1-n : a ≠ b → (b ' + x) -1l a = b ' + (x -1l a); used for : s,ls;
+(: ************************************************************************************* :)
+delpos-empty : [] -p n = []; used for : s,ls;
+delpos-base : (a ' + x) -p 0 = x; used for : s,ls;
+delpos-rec : (a ' + x) -p (n + 1) = a + (x -p n); used for : s,ls;
+(: ************************************************************************************* :)
+get-zero : (a ' + x)[0] = a; used for : s,ls;
+get-succ : (a ' + x)[n + 1] = x[n]; used for : s,ls;
+(: ************************************************************************************* :)
+pos-e  : pos(a,[]) = 0; used for : s,ls;
+pos-y  : pos(a, a ' + x) = 0; used for : s,ls;
+pos-n  : a ≠ b → pos(a, b ' + x) = pos(a,x) + 1; used for : s,ls,lc;
+(: ************************************************************************************* :)
+put-zero : (b ' + x)[0, a] = a + x; used for : s,ls;
+put-succ : (b ' + x)[n + 1, a] = b + x[n, a]; used for : s,ls;
+(: ************************************************************************************* :)
+sublist-def : sublist(m, n, x) = firstn(n, restn(m, x));
+(: ************************************************************************************* :)
+firstN-zero : firstn(0, x) = [] ; used for : s,ls;
+firstN-rec  : firstn(n + 1, x) = x.head + firstn(n, x .tail) ; used for : ls;
+(: ************************************************************************************* :)
+restN-zero  : restn(0, x) = x ; used for : s,ls;
+restN-rec   : restn(n + 1, x) = restn(n, x.tail); used for : ls;
+(: ************************************************************************************* :)
+lastN-zero  : lastn(0, x) = [] ; used for : s,ls;
+lastN-rec   : lastn(n + 1, x) = lastn(n, x.butlast) + x.last; used for : ls;
+(: ************************************************************************************* :)
+fromE-empty : frome([], a) = []; used for : s,ls;
+fromE-yes   : frome(a ' + x, a) = a ' + x; used for : s,ls;
+fromE-no    : a ≠ b → frome(a ' + x, b) = frome(x, b); used for : s,ls,lc;
+(: ************************************************************************************* :)
+end enrich

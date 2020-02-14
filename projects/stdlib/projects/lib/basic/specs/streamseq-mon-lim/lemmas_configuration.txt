@@ -1,0 +1,504 @@
+nat-basic <uninstantiated> l-03 -
+nat-basic <uninstantiated> succ -
+nat-inf <uninstantiated> inf-less -
+nat-basic <uninstantiated> neq -
+nat-inf <uninstantiated> eq-natinf-to-nat-2-1 -
+nat-basic <uninstantiated> psu-04 -
+nat-inf <uninstantiated> ls-succ-01 -
+nat-basic <uninstantiated> pse -
+nat <uninstantiated> ls-04 -
+nat <uninstantiated> lep -
+nat-basic <uninstantiated> three -
+nat-basic <uninstantiated> l-08 -
+nat <uninstantiated> ls-add-not-02 -
+nat-basic <uninstantiated> psh-05 -
+nat <uninstantiated> le-add-02 -
+nat <uninstantiated> sub-add -
+nat-inf <uninstantiated> onels-neqzero -
+nat-basic <uninstantiated> pred -
+nat-basic <uninstantiated> psu-01 -
+nat-inf <uninstantiated> add-cancel-01 -
+nat-inf <uninstantiated> ls-natinf-to-nat-2-3 -
+nat <uninstantiated> ls-01 -
+nat <uninstantiated> le -
+nat-basic <uninstantiated> even-02 -
+nat <uninstantiated> le-def -
+nat <uninstantiated> pred-03 -
+nat <uninstantiated> add-num-04 -
+nat-basic <uninstantiated> l-06 -
+nat-inf <uninstantiated> add-cancel-num-01 -
+nat <uninstantiated> ls-02 -
+nat <uninstantiated> sub-base -
+nat-basic <uninstantiated> two -
+nat <uninstantiated> lez-01 -
+nat-basic <uninstantiated> pls -
+nat-basic <uninstantiated> l-01 -
+nat-inf <uninstantiated> eq-natinf-to-nat-2-2 -
+nat-basic <uninstantiated> lstwo -
+nat-inf <uninstantiated> eqsucc-notls -
+nat-inf <uninstantiated> min-inf1 -
+nat-basic <uninstantiated> ls-05 -
+nat-basic <uninstantiated> pe-01 -
+nat-basic <uninstantiated> psh-07 -
+nat-inf <uninstantiated> add-ls-cancel-num-04 -
+nat-inf <uninstantiated> leq-notgradd -
+nat-inf <uninstantiated> sum-notinf -
+nat-basic <uninstantiated> s -
+nat-basic <uninstantiated> psh-04 -
+nat <uninstantiated> prop-07 -
+nat-inf <uninstantiated> num-add -
+nat-basic <uninstantiated> a -
+nat-inf <uninstantiated> add-ls-cancel-num-01 -
+nat-basic <uninstantiated> twols -
+nat-basic <uninstantiated> l-05 -
+nat <uninstantiated> zero-01 -
+nat <uninstantiated> ls-add-not-01 -
+nat-inf <uninstantiated> ls-natinf-to-nat-2-2 -
+nat-basic <uninstantiated> add-base -
+nat <uninstantiated> l-num-01 -
+nat-basic <uninstantiated> nls-fst -
+nat-inf <uninstantiated> less-succ-leq -
+nat-inf <uninstantiated> add-assoc -
+nat-inf <uninstantiated> less-inf2 -
+nat-inf <uninstantiated> add-ls-cancel-01 -
+nat <uninstantiated> eq-02 -
+nat <uninstantiated> l-num-05 -
+nat-basic <uninstantiated> s-02 -
+nat-basic <uninstantiated> psh-09 -
+nat-inf <uninstantiated> add-inf-01 -
+nat <uninstantiated> ls-07 -
+nat <uninstantiated> eq -
+nat-inf <uninstantiated> add-cancel-num-04 -
+nat-basic <uninstantiated> l-02 -
+nat <uninstantiated> le-num-05 -
+nat-inf <uninstantiated> prime-add-fin -
+nat-inf <uninstantiated> less-inf1 -
+nat-basic <uninstantiated> psu -
+nat-inf <uninstantiated> ls-natinf-to-nat-3-2 -
+nat-inf <uninstantiated> eq-natinf-to-nat-3-1 -
+nat <uninstantiated> l-num-02 -
+nat <uninstantiated> ls -
+nat <uninstantiated> les -
+nat-inf <uninstantiated> eqsucc-ls -
+nat-inf <uninstantiated> eqls-ls-notls -
+nat <uninstantiated> le-ls-simp -
+nat <uninstantiated> le-num-06 -
+nat-basic <uninstantiated> l-07 -
+nat <uninstantiated> lels-02 -
+nat-inf <uninstantiated> disj -
+nat-basic <uninstantiated> ls-03 -
+nat <uninstantiated> gr-def -
+nat <uninstantiated> lels-04 -
+nat-inf <uninstantiated> inj -
+nat <uninstantiated> lels-03 -
+nat <uninstantiated> ls-le-simp -
+nat-inf <uninstantiated> add-inf2 -
+nat-inf <uninstantiated> addeqinf-cancel -
+nat-inf <uninstantiated> less-notgeqinf -
+nat <uninstantiated> lep-02 -
+nat-basic <uninstantiated> lrec -
+nat <uninstantiated> le-num-03 -
+nat <uninstantiated> lez -
+nat-basic <uninstantiated> psu-03 -
+nat <uninstantiated> le-num-04 -
+nat <uninstantiated> zero-02 -
+nat-basic <uninstantiated> ls-02 -
+nat <uninstantiated> le-add -
+nat-inf <uninstantiated> add-less -
+nat-basic <uninstantiated> psh-08 -
+nat-basic <uninstantiated> even-05 -
+nat-basic <uninstantiated> one-03 -
+nat-basic <uninstantiated> even -
+nat-inf <uninstantiated> eqsum-notless -
+nat <uninstantiated> le-sum -
+nat-inf <uninstantiated> add-all-zero -
+nat-inf <uninstantiated> add-inf-02 -
+nat <uninstantiated> cancel-01 -
+nat-inf <uninstantiated> sum-zero -
+nat <uninstantiated> ls-03 -
+nat-basic <uninstantiated> one-01 -
+nat-basic <uninstantiated> c -
+nat-inf <uninstantiated> not-less-zero -
+nat-inf <uninstantiated> add-fin -
+nat-inf <uninstantiated> eqls-succ -
+nat-basic <uninstantiated> lp -
+nat-inf <uninstantiated> add-less-fin-01 -
+nat-basic <uninstantiated> one-06 -
+nat <uninstantiated> l-num-04 -
+nat-inf <uninstantiated> add-cancel-num-02 -
+nat-inf <uninstantiated> ls-natinf-to-nat-3-3 -
+nat-basic <uninstantiated> f -
+nat-basic <uninstantiated> twols-01 -
+nat <uninstantiated> neq-01 -
+nat-basic <uninstantiated> between -
+nat-inf <uninstantiated> add-comm -
+nat-inf <uninstantiated> add-cancel-num-03 -
+nat-basic <uninstantiated> even-06 -
+nat-basic <uninstantiated> z -
+nat-basic <uninstantiated> one-05 -
+nat-basic <uninstantiated> one -
+nat-inf <uninstantiated> ls-natinf-to-nat-1-3 -
+nat <uninstantiated> ls-add-not -
+nat-basic <uninstantiated> even-04 -
+nat <uninstantiated> add -
+nat-inf <uninstantiated> ls-one -
+nat-inf <uninstantiated> ls-notlssucc -
+nat-inf <uninstantiated> add-cancel-03 -
+nat-basic <uninstantiated> eq -
+nat-inf <uninstantiated> add-all-inf -
+nat <uninstantiated> le-num-02 -
+nat-basic <uninstantiated> sel -
+nat-basic <uninstantiated> ls-01 -
+nat-basic <uninstantiated> psh-06 -
+nat <uninstantiated> l-num-03 -
+nat-basic <uninstantiated> psh -
+nat-basic <uninstantiated> ref -
+nat-basic <uninstantiated> ps -
+nat <uninstantiated> zero -
+nat-basic <uninstantiated> two-02 -
+nat-inf <uninstantiated> sum-zero-fin -
+nat-basic <uninstantiated> z-01 -
+nat-inf <uninstantiated> add-ls-cancel-num-02 -
+nat <uninstantiated> add-num-03 -
+nat <uninstantiated> l-num-06 -
+nat <uninstantiated> one-02 -
+nat-inf <uninstantiated> add-not-less -
+nat-inf <uninstantiated> zerols-neqzero -
+nat-inf <uninstantiated> eq-natinf-to-nat-3-2 -
+nat-basic <uninstantiated> l-addone -
+nat <uninstantiated> ls-add-not-03 -
+nat-basic <uninstantiated> twols-02 -
+nat <uninstantiated> succ-01 -
+nat-basic <uninstantiated> pe -
+nat <uninstantiated> add-num-02 -
+nat-basic <uninstantiated> psu-02 -
+nat <uninstantiated> add-02 -
+nat <uninstantiated> ls-05 -
+nat <uninstantiated> succ-02 -
+nat <uninstantiated> add-01 -
+nat <uninstantiated> anti -
+nat <uninstantiated> eq-01 -
+nat-basic <uninstantiated> eq-02 -
+nat-basic <uninstantiated> zero -
+nat <uninstantiated> sub-ls -
+nat-inf <uninstantiated> less-fin -
+nat-inf <uninstantiated> add-inf1 -
+nat-inf <uninstantiated> ls-natinf-to-nat-3-1 -
+nat-inf <uninstantiated> add-inf -
+nat-basic <uninstantiated> zero-01 -
+nat-basic <uninstantiated> even-01 -
+nat <uninstantiated> one-01 -
+nat <uninstantiated> le-add-01 -
+nat-basic <uninstantiated> two-01 -
+nat-basic <uninstantiated> one-04 -
+nat-basic <uninstantiated> psh-01 -
+nat-basic <uninstantiated> less-1 -
+nat-inf <uninstantiated> lele-refl -
+nat-basic <uninstantiated> s-03 -
+nat <uninstantiated> eq-add2n-1-eq-le -
+nat <uninstantiated> ler -
+nat-inf <uninstantiated> ls-irref -
+nat-inf <uninstantiated> less-less-leftsucc -
+nat-basic <uninstantiated> neq-04 -
+nat-basic <uninstantiated> nls-snd -
+nat-inf <uninstantiated> ls-natinf-to-nat-1-2 -
+nat-basic <uninstantiated> s-01 -
+nat <uninstantiated> sub-same -
+nat-basic <uninstantiated> psh-03 -
+nat-basic <uninstantiated> l -
+nat <uninstantiated> lep-01 -
+nat-inf <uninstantiated> sel -
+nat <uninstantiated> ls-06 -
+nat-basic <uninstantiated> s-04 -
+nat-basic <uninstantiated> less-2 -
+nat-basic <uninstantiated> ls -
+nat-basic <uninstantiated> add-rec -
+nat <uninstantiated> eq-03 -
+nat-basic <uninstantiated> neq-02 -
+nat-inf <uninstantiated> min-inf2 -
+nat <uninstantiated> lels -
+nat-basic <uninstantiated> l-04 -
+nat-inf <uninstantiated> ls-lsadd -
+nat-inf <uninstantiated> ls-succ -
+nat-basic <uninstantiated> oz -
+nat-inf <uninstantiated> eq-natinf-to-nat-3-3 -
+nat-basic <uninstantiated> one-02 -
+nat <uninstantiated> add-num-01 -
+nat <uninstantiated> neq-add1 -
+nat-inf <uninstantiated> add-ls-cancel-num-03 -
+nat-inf <uninstantiated> ls-natinf-to-nat-2-1 -
+nat-inf <uninstantiated> add-cancel-02 -
+nat-basic <uninstantiated> eq-01 -
+nat-basic <uninstantiated> psh-02 -
+nat-basic <uninstantiated> neq-01 -
+nat-basic <uninstantiated> lsls -
+nat-inf <uninstantiated> fin-inject-embed -
+nat-inf <uninstantiated> inf-inseq-reduce -
+nat-basic <uninstantiated> disj -
+nat-inf <uninstantiated> ls-le -
+nat-basic <uninstantiated> inj -
+nat-basic <uninstantiated> neq-03 -
+nat-basic <uninstantiated> eq-inc-neq -
+nat <uninstantiated> le-num-01 -
+nat <uninstantiated> ge -
+list-dup <uninstantiated> -
+list-del <uninstantiated> -
+list-dup -
+list-data -
+list -
+<uninstantiated> list-del expanded
+streamseq-mon-lim RootNode expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-del expanded
+list-dup expanded
+list-del expanded
+list-del expanded

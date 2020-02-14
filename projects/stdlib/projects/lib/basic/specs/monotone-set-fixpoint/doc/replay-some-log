@@ -1,0 +1,18 @@
+: successful
+### No save necessary ###
+### Next replay: least-fixpoint ###
+least-fixpoint: successful
+### No save necessary ###
+### Next replay: mu-is-IS ###
+mu-is-IS: failed
+### No save necessary ###
+### Next replay: nu-is-UN ###
+nu-is-UN: failed
+### No save necessary ###
+### Next replay: prefixpoint-aux ###
+prefixpoint-aux: successful
+### No save necessary ###
+### Next replay: prefixpoint-aux2 ###
+prefixpoint-aux2: failed
+### Done ###
+### Saving lemmas next ###

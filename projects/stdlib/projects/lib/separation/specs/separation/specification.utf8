@@ -1,0 +1,14 @@
+enrich maplet with
+
+predicates
+True : bool;
+. ≡ . : heap × heap;
+
+axioms
+True: True(bv) ↔ bv; used for: ls;
+
+eq:
+H0 ≡ H1 ↔ H0 = H1;
+used for: ls;
+
+end enrich

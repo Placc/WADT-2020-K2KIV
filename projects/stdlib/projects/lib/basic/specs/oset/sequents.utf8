@@ -1,0 +1,226 @@
+
+(: variables    ; :)
+
+lemmas
+size-lsleq: a < b ∧ ¬ b ∈ s → # (s ++ a ++ b) = # (s ++ a) + 1;used for : s,ls;
+size-gtleq: b < a ∧ ¬ b ∈ s → # (s ++ a ++ b) = # (s ++ a) + 1;used for : s,ls;
+
+ls-emptyset: ∅ < a; used for: s,ls;
+ls-add: s < b → (s ++ a < b ↔ a < b);used for: ss,lss;
+ls-rm: s < b → s -- a < b; used for: s,ls;
+
+;;min-union:
+;;s ≠ ∅ ∧ s0 ≠ ∅
+;;  → (s ∪ s0).min = (s.min < s0.min ⊃ s.min ; s0.min);
+
+butminempty-sizeone: s.butmin = ∅ ∧ s ≠ ∅ → # s = 1; used for: s,ls;
+
+ins-inbutmins: a ∈ s → (a ∈ s.butmin ↔ a ≠ s.min); used for: s,ls;
+
+butmin-in : ⊦ a ∈ s .butmin ∧ s ≠ ∅ → a ∈ s; used for : f,lf;
+;;; END
+
+min-ins : s ≠ ∅ → s ++ s.min = s; used for : s,ls;
+butmin-ins : a < s.min ∧ s ≠ ∅ → (s ++ a).butmin = s; used for : s,ls;
+
+min-ins : ¬ s.min < a ∧ s ≠ ∅ → (s ++ a).min = a; used for : s,ls;
+min-ins : s.min < a ∧ s ≠ ∅ → (s ++ a).min = s.min; used for : s,ls;
+butmin-ins : s.min < a ∧ s ≠ ∅ → (s ++ a).butmin = s.butmin ++ a; used for : s,ls;
+
+exit
+min-insert : a < s.min ∧ s ≠ ∅ → (s ++ a).min = a; used for : s,ls;
+bminmin : s ≠ ∅ → s.butmin ++ s.min = s; used for : s,ls;
+min-intempty : s ∩ s0 = ∅ ∧ s ≠ ∅ → (¬ ¬ s.min ∈ s0 ↔ false); used for : s,ls;
+bmin-intempty : s ∩ s0 = ∅ ∧ s ≠ ∅ → s.butmin ∩ s0 = ∅; used for : s,ls;
+min-sub : ⊦ s ⊆ s0 ∧ s ≠ ∅ ∧ s0.min ∈ s → (s.min ≠ s0.min ↔ false); used for : s,ls;
+bmin-sub-05 : ⊦ s ⊆ s0 ∧ s ≠ ∅ → s.butmin ⊆ s0.butmin; used for : s,ls;
+bmin-sub : ⊦ s ⊆ s0 ∧ s0 ≠ ∅ → (s ⊆ s0.butmin ↔ ¬ s0.min ∈ s); used for : s,ls;
+diff-min : ⊦ s1 \ s0 ≠ ∅ ∧ s ⊆ s0 → ¬ (s1 \ s0).min ∈ s; used for : s,ls;
+bmax-in : ⊦ a ∈ s .butmax ∧ s ≠ ∅ → a ∈ s; used for : f,lf;
+bmax-in : ⊦ s ≠ ∅ → ¬ s .max ∈ s .butmax; used for : s,ls;
+max-in : ⊦ s ≠ ∅ → (¬ s .max ∈ s ↔ false); used for : s,ls;
+bmin-one : ⊦ # s = 1 → s.butmin = ∅ ; used for : s,ls;
+bmax-one : ⊦ # s = 1 → s.butmax = ∅ ; used for : s,ls;
+max-one : ⊦ # s = 1 → (s = ∅ ++ s .max ↔ true); used for : s,ls;
+bmax-max : ⊦ 1 < # s → ¬ s .max < s .butmax .max; used for : s,ls;
+minmax : ⊦ s ≠ ∅ → ¬ s.max < s.min; used for : s,ls;
+bmax-min : ⊦ 1 < # s → s .butmax .min = s.min; used for : s,ls;
+
+
+exit
+bmax-shift : s -- a ≠ ∅, a ≠ s.max ⊦ (s -- a) .butmax = s.butmax -- a;
+minmax : ⊦ 1 < # s → s.min < s.max; used for : s,ls;
+bmax-empty : ⊦ s.butmax = ∅ ∧ s ≠ ∅ → # s = 1; used for : f,lf;
+minmax : ⊦ s.min = s.max ∧ s ≠ ∅ → # s = 1; used for : f,lf;
+bm-shift : 1 < # s ⊦ s.butmin.butmax = s.butmax.butmin;
+bmax-in : ⊦ b ∈ s → (b ∈ s.butmax ↔ b ≠ s.max); used for : s,ls;
+bmax-def : ⊦ s ≠ ∅ → s -- s.max = s.butmax; used for : s,ls;
+max-bmin :  ⊦ 1 < # s → s.butmin.max = s.max; used for : s,ls;
+max-del : ⊦ a ≠ s.max ∧ s ≠ ∅ → (s -- a).max = s.max; used for : s,ls;
+
+minmax : ⊦ s.butmin = ∅ ∧ s ≠ ∅ → s.butmax = ∅; used for : s,ls;
+minmax : ⊦ s.butmin = ∅ ∧ s ≠ ∅ → s.max = s.min; used for : s,ls;
+bmax-one : ⊦ (∅ ++ a).butmax = ∅; used for : s,ls;
+bmin-min : ⊦ s .butmin .min < s .min ∧ s ≠ ∅ → s.butmin = ∅; used for : f,lf;
+
+exit
+
+size-two      : ⊦ # s = 2 ↔ ∃ a, b. a ≠ b ∧ s = ∅ ++ a ++ b;
+
+max-subset-01 :  ⊦ s ≠ ∅ ∧ s ⊆ s0 → s .max ∈ s0 ;
+max-q         : a ∈ s, ∀ b. b ∈ s → ¬ a < b ⊦ s.max = a ;
+min-less      : ⊦ a ≠ s.min ∧ a ∈ s → s.min < a; 
+     used for : s,ls;
+
+
+bmin-bin      :  ⊦ s ≠ ∅ ∧ # s ≠ 1 → s .butmin .min ∈ s ;
+     used for : s, ls ;
+bmin-bls      :  ⊦ s ≠ ∅ ∧ s .butmin ≠ ∅ → s .min < s .butmin .min ;
+     used for : s, ls ;
+bmin-bneq     :  ⊦ s ≠ ∅ ∧ # s ≠ 1 → s .min ≠ s .butmin .min ;
+     used for : s, ls ;
+bmin-del      :  ⊦ s ≠ ∅ → s .butmin -- s .min = s .butmin ;
+     used for : s, ls ;
+bmin-del-01   :  ⊦ s ≠ ∅ → (s .butmin -- a) -- s .min = s .butmin -- a ;
+     used for : s, ls ;
+bmin-del-02   :  ⊦ s ≠ ∅ → (s -- a) -- s .min = s .butmin -- a ;
+     used for : s, ls ;
+bmin-del-03   :  ⊦ s -- a ≠ ∅ ∧ a ≠ s .min → (s -- a) .butmin = s .butmin -- a ;
+     used for : s, ls ;
+bmin-del-04   :  ⊦ s ≠ ∅ ∧ a ≠ s .min → (s -- a) .butmin = s .butmin -- a ;
+     used for : s, ls ;
+bmin-del-05   :  ⊦ s ≠ ∅ → s -- s .min = s .butmin ;
+     used for : s ;
+bmin-eq       :  ⊦ s = s .butmin ++ s .min ↔ s ≠ ∅ ;
+     used for : s, ls ;
+bmin-eq-01    :  ⊦ s .butmin = s0 .butmin ∧ s ≠ s0 ∧ s ≠ ∅ ∧ s0 ≠ ∅ → s .min ≠ s0 .min ;
+     used for : f, lf ;
+bmin-f        :  ⊦ s .min ∈ s .butmin → s = ∅ ;
+     used for : f, lf ;
+bmin-in       :  ⊦ ¬ a ∈ s .butmin → (a ∈ s ↔ ¬ ¬ (a = s .min ∧ s ≠ ∅)) ;
+     used for : s, ls ;
+bmin-in-01    :  ⊦ a ∈ s ∧ a ≠ s .min → a ∈ s .butmin ;
+     used for : s, ls ;
+bmin-in-02    :  ⊦ ¬ a ∈ s .butmin → (a ∈ s ↔ a = s .min ∧ s ≠ ∅) ;
+     used for : s, ls ;
+bmin-in-03    :  ⊦ a ∈ s .butmin ∧ s ≠ ∅ ↔ a ∈ s ∧ a ≠ s .min ;
+bmin-in-04    : s .butmin ≠ ∅ ⊦ s ⊆ s0 ∧ s ≠ ∅ → s .butmin .min ∈ s0 ;
+     used for : s, ls ;
+bmin-nin      :  ⊦ ¬ a ∈ s ∧ s ≠ ∅ → ¬ a ∈ s .butmin ;
+     used for : s, ls ;
+bmin-nin-01   :  ⊦ s ≠ ∅ → ¬ s .min ∈ s .butmin ;
+     used for : s, ls ;
+bmin-nin-02   :  ⊦ ¬ a ∈ s .butmin ∧ a ≠ s .min → ¬ a ∈ s ;
+     used for : f, lf ;
+bmin-one      :  ⊦ (∅ ++ a) .butmin = ∅ ;
+     used for : s, ls ;
+bmin-one-01   :  ⊦ s ≠ ∅ ∧ s .butmin = ∅ → # s = 1 ;
+     used for : s, ls ;
+bmin-one-02   :  ⊦ s .butmin = ∅ → (a ∈ s ↔ a = s .min ∧ s ≠ ∅) ;
+     used for : s, ls ;
+bmin-size     :  ⊦ # s .butmin < # s ↔ s ≠ ∅ ;
+     used for : s, ls ;
+bmin-size-01  :  ⊦ s ≠ ∅ → # s .butmin = (# s) - 1 ;
+     used for : s, ls ;
+bmin-size-02  :  ⊦ s ≠ ∅ → (# s .butmin) + 1 = # s ;
+     used for : s, ls ;
+bmin-sub      :  ⊦ s ⊆ s0 ∧ s ≠ ∅ → s .butmin ⊆ s0 ;
+     used for : s, ls ;
+bmin-sub-01   :  ⊦ # s = 2 ∧ s ⊆ s0 → s .butmin .min ∈ s0 ;
+     used for : s, ls ;
+bmin-sub-02   :  ⊦ # s = 2 ∧ s .butmin .min ∈ s0 ∧ s .min ∈ s0 → s ⊆ s0 ;
+     used for : s, ls ;
+bmin-sub-03   :  ⊦ s ≠ ∅ → s .butmin ⊆ s ;
+     used for : s, ls ;
+bmin-two      :  ⊦ # s = 2 → s .butmin .min ∈ s ;
+     used for : s, ls ;
+bmin-two-01   :  ⊦ a < b → ((∅ ++ a) ++ b) .butmin = ∅ ++ b ;
+     used for : s, ls, lc ;
+bmin-two-02   :  ⊦ a < b → ((∅ ++ b) ++ a) .butmin = ∅ ++ b ;
+     used for : s, ls, lc ;
+bmin-two-03   :  ⊦ a < b → ((∅ ++ a) ++ b) .butmin = ∅ ++ b ∧ ((∅ ++ a) ++ b) .min = a ;
+bmin-two-04   :  ⊦ # s = 2 → (∅ ++ s .min) ++ s .butmin .min = s ;
+     used for : s, ls ;
+bmin-two-05   :  ⊦ # s = 2 → s .min ≠ s .butmin .min ;
+     used for : s, ls ;
+bmin-two-06   :  ⊦ # s = 2 → s .butmin .min ∈ s .butmin ;
+     used for : s, ls ;
+bmin-two-07   :  ⊦ # s = 2 → s .butmin ≠ ∅ ;
+     used for : s, ls ;
+bmin-two-08   :  ⊦ # s = 2 → (∅ ++ s .butmin .min) ++ s .min = s ;
+     used for : s, ls ;
+max-del       :  ⊦ s .max < (s -- a) .max → s = ∅ ++ a ;
+     used for : f, lf ;
+max-gr        :  ⊦ s .max < a ∧ s ≠ ∅ → ¬ a ∈ s ;
+     used for : s, ls ;
+max-ifins     :  ⊦ (s ++ a) .max = ((s = ∅ ⊃ a; (a < s .max ⊃ s .max; a))) ;
+     used for : ls ;
+max-ins       :  ⊦ a < s .max ∧ s ≠ ∅ → (s ++ a) .max = s .max ;
+     used for : s, ls ;
+max-ins-01    :  ⊦ ¬ a < s .max ∧ s ≠ ∅ → (s ++ a) .max = a ;
+     used for : s, ls ;
+max-one       :  ⊦ (∅ ++ a) .max = a ;
+     used for : s, ls ;
+max-subset    :  ⊦ s ≠ ∅ ∧ s ⊆ s0 → ¬ s0 .max < s .max ;
+maxunion      :  ⊦ s ≠ ∅ → ¬ (s ∪ s0) .max < s .max ;
+     used for : s, ls ;
+min-del       :  ⊦ s ≠ ∅ ∧ a ≠ s .min → (s -- a) .min = s .min ;
+     used for : s, ls ;
+min-del-01    :  ⊦ s -- a ≠ ∅ ∧ a ≠ s .min → (s -- a) .min = s .min ;
+     used for : s, ls ;
+min-delmin    :  ⊦ 1 < # s → s .min < (s -- s .min) .min ;
+min-delmin-01 :  ⊦ s ≠ ∅ ∧ s ≠ ∅ ++ s .min → (s -- s .min) .min ∈ s ;
+     used for : s, ls ;
+min-inc       : s ≠ ∅ ⊦ s .min ∈ s ;
+min-inn       :  ⊦ ¬ s .min ∈ s ↔ s = ∅ ;
+     used for : s, ls ;
+min-ins       :  ⊦ s .min ∈ s ↔ s ≠ ∅ ;
+min-ins-01    :  ⊦ a ∈ s ∧ ¬ b < a → (s ++ b) .min = s .min ;
+min-ins-02    :  ⊦ s ≠ ∅ → ¬ s .min < (s ++ a) .min ;
+     used for : s, ls ;
+min-ls        :  ⊦ # (s -- s .min) < # s ↔ s ≠ ∅ ;
+     used for : s, ls ;
+min-one       :  ⊦ (∅ ++ a) .min = a ;
+     used for : s, ls ;
+min-one-01    :  ⊦ # s = 1 → ∅ ++ s .min = s ;
+     used for : s, ls ;
+min-q         : a ∈ s, ∀ b. b ∈ s → ¬ b < a ⊦ a = s .min ;
+min-sub       :  ⊦ ¬ s .min ∈ s0 → (s ⊆ s0 ↔ s = ∅) ;
+     used for : s, ls ;
+min-subset    :  ⊦ s ≠ ∅ ∧ s ⊆ s0 → s .min ∈ s0 ;
+min-two       :  ⊦ a < b → ((∅ ++ a) ++ b) .min = a ;
+     used for : s, ls, lc ;
+min-two-01    :  ⊦ a < b → ((∅ ++ b) ++ a) .min = a ;
+     used for : s, ls, lc ;
+min-two-02    :  ⊦ # s = 2 ∧ a ∈ s ∧ a ≠ s .min → (∅ ++ a) ++ s .min = s ;
+     used for : s, ls ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Min-in        :  ⊦ s ≠ ∅ → s .min ∈ s ;
+     used for : lf ;
+Min-min       :  ⊦ a ∈ s → ¬ a < s .min ;
+     used for : lf ;
+Butmin        :  ⊦ s ≠ ∅ → s .butmin = s -- s .min ;
+     used for : ls ;
+Max-in        :  ⊦ s ≠ ∅ → s .max ∈ s ;
+     used for : lf ;
+Max-max       :  ⊦ a ∈ s → ¬ s .max < a ;
+     used for : lf ;
+Butmax        :  ⊦ s ≠ ∅ → s .butmax = s -- s .max ;
+     used for : ls ;
+Less          :  ⊦ a < s ↔ (∀ b. b ∈ s → a < b) ;
+     used for : ls ;
+Greater       :  ⊦ s < a ↔ (∀ b. b ∈ s → b < a) ;
+     used for : ls ;
+
+
+
+

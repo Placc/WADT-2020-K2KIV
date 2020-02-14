@@ -1,0 +1,47 @@
+lemmas
+
+  associativity:      map1 ⊕ (map2 ⊕ map3) = (map1 ⊕ map2) ⊕ map3;            used for: s, ls;
+  commutativity:      map1 ⊕ map2 = map2 ⊕ map1;                              used for: s, ls;
+  identity:           ∅ ⊕ map = map;                                          used for: s, ls;
+
+  plus-legal:         legal(map1 ⊕ map2) → legal(map1) ∧ legal(map2);         used for: f;
+  subset-legal:       map1 ⊆ map2, legal(map2) ⊦ legal(map1);
+
+  subset-plus:        map1 ⊆ map1 ⊕ map2;                                     used for: s, ls;
+  subset-empty:       ∅ ⊆ map;                                                used for: s, ls;
+  empty-subset:       map ⊆ ∅ ↔ map = ∅;                                      used for: s, ls;
+  single-subset:      map ⊆ (a |-> b) ↔ map = ∅ ∨ map = (a |-> b);            used for: s, ls;
+
+  antisymmetry:       map1 ⊆ map2, map2 ⊆ map1 ⊦ map1 = map2;
+  reflexivity:        map ⊆ map;
+  transitivity:       map1 ⊆ map2, map2 ⊆ map3 ⊦ map1 ⊆ map3;
+
+  ;; simplifier rules
+
+  legal-empty:        legal(∅);                                               used for: s, ls;
+  legal-single:       legal(a |-> b);                                         used for: s, ls;
+  legal-plus:         legal(map ⊕ a |-> b) ↔ legal(map) ∧ ¬ haskey(a, map);   used for: s, ls;
+
+  legal-plus-haskey:  legal(map1 ⊕ map2) ∧ a ∈ keys(map1) → ¬ a ∈ keys(map2); used for: s;
+
+  ;; helper lemmas
+
+  haskey-keyCount:    a ∈ keys(map) ↔ keyCount(map, a) ≥ 1;
+  haskey-count:       a ∈ keys(map) ↔ ∃ b . count(map, a, b) ≥ 1;
+  hasvalue-count:     b ∈ values(map) ↔ ∃ a . count(map, a, b) ≥ 1;
+
+  count-keyCount:     count(map, a, b) ≤ keyCount(map, a);
+  keyCount-count:     keyCount(map, a) ≥ 1 ↔ ∃ b . count(map, a, b) ≥ 1;
+
+  keyCount-values:    keyCount(map, a) = kvCount(map, a, values(map));
+  kvCount-empty-map:  kvCount(∅, a, s) = 0;
+  kvCount-plus:       kvCount(map1 ⊕ map2, a, s) = kvCount(map1, a, s) + kvCount(map2, a, s);
+  kvCount-restrict:   kvCount(map, a, s) = kvCount(map, a, s ∩ values(map));
+  kvCount-monotonic:  s1 ⊆ s2 ⊦ kvCount(map, a, s1) ≤ kvCount(map, a, s2);
+  kvCount-monotonic2: map1 ⊆ map2 ⊦ kvCount(map1, a, s) ≤ kvCount(map2, a, s);
+
+  subset-keyCount:    map1 ⊆ map2 ⊦ keyCount(map1, a) ≤ keyCount(map2, a);
+  values-monotonic:   map1 ⊆ map2 ⊦ values(map1) ⊆ values(map2);
+  keys-monotonic:     map1 ⊆ map2 ⊦ keys(map1) ⊆ keys(map2);
+
+  count-not-value:    ¬ b ∈ values(map) ⊦ count(map, a, b) = 0;

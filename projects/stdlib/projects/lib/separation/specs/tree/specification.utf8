@@ -1,0 +1,12 @@
+generic data specification
+    parameter elem
+    using nat
+       
+tree := leaf | branch(. .left : tree; . .val : elem; . .right : tree);
+
+variables
+t, t0, t1 : tree;
+
+size functions # . : tree → nat;
+
+end generic data specification

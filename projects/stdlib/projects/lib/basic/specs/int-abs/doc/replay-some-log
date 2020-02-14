@@ -1,0 +1,102 @@
+: successful
+### No save necessary ###
+### Next replay: abs-06 ###
+abs-06: successful
+### No save necessary ###
+### Next replay: abs-10 ###
+abs-10: successful
+### No save necessary ###
+### Next replay: abs-ls-02 ###
+abs-ls-02: successful
+### No save necessary ###
+### Next replay: abs-neg ###
+abs-neg: successful
+### No save necessary ###
+### Next replay: abs-one-01 ###
+abs-one-01: successful
+### No save necessary ###
+### Next replay: abs-sub-01 ###
+abs-sub-01: successful
+### No save necessary ###
+### Next replay: abs-succ ###
+abs-succ: successful
+### No save necessary ###
+### Next replay: absa ###
+absa: successful
+### No save necessary ###
+### Next replay: abseq ###
+abseq: successful
+### No save necessary ###
+### Next replay: absle-01 ###
+absle-01: successful
+### No save necessary ###
+### Next replay: absls-02 ###
+absls-02: successful
+### No save necessary ###
+### Next replay: absls-04 ###
+absls-04: successful
+### No save necessary ###
+### Next replay: absone ###
+absone: successful
+### No save necessary ###
+### Next replay: absone-01 ###
+absone-01: successful
+### No save necessary ###
+### Next replay: anti ###
+anti: successful
+### No save necessary ###
+### Next replay: bet ###
+bet: successful
+### No save necessary ###
+### Next replay: bet-01 ###
+bet-01: successful
+### No save necessary ###
+### Next replay: discard-add2-lels-left ###
+discard-add2-lels-left: successful
+### No save necessary ###
+### Next replay: int-simp-04 ###
+int-simp-04: successful
+### No save necessary ###
+### Next replay: int-simp-10 ###
+int-simp-10: successful
+### No save necessary ###
+### Next replay: le-rec ###
+le-rec: successful
+### No save necessary ###
+### Next replay: le-three ###
+le-three: successful
+### No save necessary ###
+### Next replay: lels-02 ###
+lels-02: successful
+### No save necessary ###
+### Next replay: les ###
+les: successful
+### No save necessary ###
+### Next replay: lstwo-01 ###
+lstwo-01: successful
+### No save necessary ###
+### Next replay: mone-04 ###
+mone-04: successful
+### No save necessary ###
+### Next replay: mone-06 ###
+mone-06: successful
+### No save necessary ###
+### Next replay: mone-07 ###
+mone-07: successful
+### No save necessary ###
+### Next replay: mone-08 ###
+mone-08: successful
+### No save necessary ###
+### Next replay: num-between ###
+num-between: successful
+### No save necessary ###
+### Next replay: one-03 ###
+one-03: successful
+### No save necessary ###
+### Next replay: ple-01 ###
+ple-01: successful
+### No save necessary ###
+### Next replay: zeroone ###
+zeroone: successful
+### Done ###
+### Saving lemmas next ###

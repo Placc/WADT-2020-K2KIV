@@ -1,0 +1,28 @@
+enrich nat-div with
+
+functions
+
+	 . ^ . : nat × nat → nat prio 12 right;
+	  2^ . : nat → nat;
+
+variables m0: nat;
+
+partial functions
+        log   : nat × nat → nat with λ m, m0. m0 ≠ 0 ; comment: first arg basis, i.e. log(m, m ^ n) = n;
+	log2 . : nat → nat with λ m0. m0 ≠ 0 ;
+
+
+
+axioms
+
+Pot-zero  : n ^ 0 = 1; used for : s,ls;
+Pot-succ  : n ^ m +1 = n ^ m * n; used for : ls;
+
+Logdef    : m ^ n0 ≤ n ∧ n < m ^ (n0 +1) → log(m, n) = n0; used for : nokodkodax;
+
+Pot2-zero : 2^ 0 = 1; used for : s,ls;
+Pot2-succ : 2^ (n +1) = 2 * 2^ n; used for : ls;
+
+Log2def   : 2^ m ≤ n ∧ n < 2^ (m +1) → log2 n = m; used for : nokodkodax;
+
+end enrich

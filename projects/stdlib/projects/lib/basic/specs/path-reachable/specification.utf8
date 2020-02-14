@@ -1,0 +1,36 @@
+enrich linheap, reflist with
+
+comment: definition of paths and reachability from a root node for linear pointer structures.;
+
+predicates path : reflist × heap;
+           reachable : Ref × Ref × heap;
+
+;; KODKOD: specifying transitive closure
+           reachable* : heap × Ref × Ref;
+           reachable-n : heap × nat × Ref × Ref;
+           reachable-1: heap × Ref × Ref;
+
+variables H : heap ;
+
+;; induction ;
+
+axioms
+
+
+reachable-1-def: reachable-1(H, r, r0) ↔ r ≠ null ∧ r0 ≠ null ∧ r ∈ H ∧ r0 ∈ H ∧ H[r].nxt = r0;
+
+;; transitive closure
+reachable-star-def: reachable*(H,r,r0) ↔ ∃ n. reachable-n(H,n,r,r0); used for: nokodkodax;
+reachable-n-base: reachable-n(H, 0, r, r0) ↔ r = r0; used for: nokodkodax;
+reachable-n-rec:  reachable-n(H, n + 1, r, r0) ↔ ∃ r1. reachable-1(H, r, r1) ∧ reachable-n(H, n, r1, r0); used for: nokodkodax;
+
+path-empty: ¬ path([], H);used for: s,ls,nokodkodax;
+path-one: path(r ',H) ↔ (r ∈ H ∧ r ≠ null); used for: s,ls,nokodkodax;
+path-two: path(r ' + r0 ',H) ↔ (r ∈ H ∧ r0 ∈ H ∧ r ≠ null  ∧ r0 ≠ null ∧ H[r].nxt = r0); 
+used for: s,ls,nokodkodax;
+path-cons: path(r ' + r0 ' + x,H) ↔ (r ∈ H ∧ r ≠ null ∧ H[r].nxt = r0 ∧ path(r0 ' + x,H)); 
+used for: s,ls,nokodkodax;
+
+reachable-def: reachable(r,r0,H) ↔ ∃ x. path(r ' + x,H) ∧ (r ' + x).last = r0; used for : nokodkodax;
+
+end enrich

@@ -1,0 +1,55 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+subarray-zero
+subarray-up-same
+subarray-subarray-elim
+subarray-elim-simp
+subarray-elim
+subarray-copy-lower
+subarray-copy-higher
+subarray-copy-elim-exact
+subarray-copy-elim
+subarray-copy
+size-subarray
+size-fill-h
+size-fill
+size-copy
+in-at
+idexcept-write-at0-right
+idexcept-write-at0
+idexcept-write-at-right
+idexcept-write-at
+idexcept-trans
+idexcept-size
+idexcept-same
+idexcept-refl
+idexcept-extract-right
+idexcept-extract-left
+idexcept-comm-simp
+idexcept-comm
+copy-subarray2
+copy-subarray1-elim
+copy-other-weak
+copy-other
+copy-is-subarray
+copy-exact
+copy-coalesce
+copy-append
+at-subarray
+at-fill-other
+at-fill-h0
+at-fill-h
+at-fill
+at-copy
+
+
+*** Failures: ***
+
+

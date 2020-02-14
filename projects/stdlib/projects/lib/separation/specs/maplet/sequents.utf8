@@ -1,0 +1,158 @@
+lemmas
+
+maplet-singleton-heap:
+(r => o)(H)
+  ↔ (r ≠ null ∧ H = (∅ ++ r)[r,o]);
+used for: ss;
+
+ex1-shift:
+(_∃(rP) * P)(H) ↔ ∃ r. (rP(r) * P)(H);
+used for: s;
+
+ex2-shift:
+(_∃(rrP) * P)(H) ↔ ∃ r0, r1. (rrP(r0, r1) * P)(H);
+used for: s;
+
+ex3-shift:
+(_∃(oP) * P)(H) ↔ ∃ o. (oP(o) * P)(H);
+used for: s;
+
+ex1-shiftw:
+(_∃(rP) -* P)(H) ↔ ∀ r. (rP(r) -* P)(H);
+used for: s;
+
+ex2-shiftw:
+(_∃(rrP) -* P)(H) ↔ ∀ r0,r1. (rrP(r0,r1) -* P)(H);
+used for: s;
+
+ex3-shiftw:
+(_∃(oP) -* P)(H) ↔ ∀ o. (oP(o) -* P)(H);
+used for: s;
+
+ex1-shiftw-inst:
+((_∃(rP) -* P) * P0)(H)
+  ↔ ((_∃(rP) -* P) * P0)(H) ∧ ((rP(r) -* P) * P0)(H);
+
+ex2-shiftw-inst:
+((_∃(rrP) -* P) * P0)(H)
+  ↔ ((_∃(rrP) -* P) * P0)(H) ∧ ((rrP(r0,r1) -* P) * P0)(H);
+
+ex3-shiftw-inst:
+((_∃(oP) -* P) * P0)(H)
+  ↔ ((_∃(oP) -* P) * P0)(H) ∧ ((oP(o) -* P) * P0)(H);
+
+at-eq:
+(r => o0 * P)(H) → (H[r] = o1 ↔ o0 = o1);
+used for: s,ls;
+
+at-rw:
+(r => o0 * P)(H) → H[r] = o0;
+used for: s;
+
+map-null:
+(null => o) = ⌜false⌝;
+used for: s,ls;
+
+map-same:
+(r => o0 * r => o1) = false;
+used for: s,ls;
+
+map-put:
+(r =>_ * P)(H) ↔ (r => o1 * P)(H[r,o1]) ∧ r ∈ H ;
+
+map-putex:
+r ∈ H ⊦ ((r => o0 * P)(H[r,o1]) ↔ (o0 = o1 ∧ (r =>_ * P)(H)));
+used for: ss;
+
+;;map-putex-simp:
+;;r ∈ H ⊦ (r => o0 * P)(H[r,o1]) ↔ o0 = o1 ∧ (r =>_ * P)(H);
+;;used for : ss;
+
+mapex-put:
+r ∈ H ⊦ (r =>_ * P)(H[r,o]) ↔ (r => o * P)(H[r,o]);
+
+mapex-new:
+¬ r ∈ H, r ≠ null ⊦ P(H) ↔ (r =>_ * P)(H ++ r);
+
+map-del:
+(r => o * P)(H) ↔ P(H -- r) ∧ r ∈ H ∧ H[r] = o;
+
+map-put-rw:
+r ∈ H ⊦ (r => o * P)(H) → ((r => o0 * P)(H[r,o1]) ↔ o0 = o1);
+used for: ss,lss;
+
+mapex-put-rw:
+r ∈ H ⊦ (r =>_ * P)(H) → ((r => o0 * P)(H[r,o1]) ↔ o0 = o1);
+used for: ss,lss;
+
+mapex-new-rw:
+¬ r ∈ H, r ≠ null ⊦ (r =>_ * P)(H ++ r) ↔ P(H);
+used for: ss;
+
+mapex-del:
+(r =>_ * P)(H) → P(H -- r);
+
+map-in0:
+(r => o)(H) → r ∈ H;
+used for: s,ls;
+
+map-in:
+(r => o * P)(H) → r ∈ H;
+used for: s,ls;
+
+map-write:
+r ∈ H ⊦ (r => o0 * P)(H[r,o1]) → o0 = o1;
+used for: f,lf;
+
+mapex-null:
+(null =>_) = ⌜false⌝;
+used for: s,ls;
+
+mapex-in:
+(r =>_ * P)(H) → r ∈ H;
+used for: s,ls;
+
+mapornull-ex:
+r ≠ null → r =>? = r =>_;
+used for: s,ls;
+
+mapornull-emp:
+null =>? = emp;
+used for: s,ls;
+
+eq-objs:
+(r => o0 * P0)(H) ∧ (r => o1 * P1)(H)
+    → o0 = o1;
+used for: f,lf;
+
+mapex-elim:
+(r => o * P)(H) → (r =>_ * P)(H);
+used for: s,ls;
+
+mapex-and:
+(r =>_ ∧ r => o) = (r => o);
+used for: s,ls;
+
+(:
+map-combine:
+r0 ≠ r1 ⊦ (r0 => o0 * P0)(H) ∧ (r1 => o1 * P1)(H)
+    → (¬ (r0 => o0 * r1 => o1 * ⌜true⌝)(H) ↔ false);
+used for: s,ls;
+
+mapex-combine:
+r0 ≠ r1 ⊦ (r0 =>_ * P0)(H) ∧ (r1 =>_ * P1)(H)
+    → (¬ (r0 =>_ * r1 =>_ * ⌜true⌝)(H) ↔ false);
+used for: s,ls;
+:)
+
+precise-map:
+precise(r => o);
+used for: s,ls;
+
+precise-mapex:
+precise(r =>_);
+used for: s,ls;
+
+precise-mapornull:
+precise(r =>?);
+used for: s,ls;

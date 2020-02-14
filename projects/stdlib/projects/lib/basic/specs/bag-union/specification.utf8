@@ -1,0 +1,81 @@
+enrich bag-basic with
+
+functions
+{.}     : elem → bag;
+ . -- . : bag × elem → bag prio 9 left;
+;; . [ . ] : elem × nat → bag;
+. ∪ . : bag × bag → bag;
+;;. ∩ . : bag × bag → bag;
+. \ . : bag × bag → bag;
+# .   : bag → nat;
+
+predicates
+. ∈ . : elem × bag;
+. ⊆ . : bag × bag;
+
+axioms
+
+(:
+many-base:
+a[0] = ∅;
+used for: s,ls;
+
+many-rec:
+a[n + 1] = a[n] ++ a;
+:)
+
+size-empty:
+# ∅ = 0;
+used for: s,ls;
+
+size-rec:
+# (bag ++ a) = # bag + 1;
+used for: s,ls;
+
+del-empty:
+∅ -- a = ∅;
+used for: s,ls;
+
+del-rec:
+(bag ++ a) -- b = (a = b ⊃ bag ; (bag -- b) ++ a);
+used for: s,ls;
+
+union-empty:
+∅ ∪ bag = bag;
+used for: s,ls;
+
+union-rec:
+(bag0 ++ a) ∪ bag1 = (bag0 ∪ bag1) ++ a;
+used for: s,ls;
+
+(:
+inter-empty:
+∅ ∩ bag = ∅;
+used for: s,ls;
+
+inter-rec:
+(bag0 ++ a) ∩ bag1 = (a ∈ bag1 ⊃ (bag0 ∩ bag1 -- a) ++ a; bag0 ∩ bag1);
+used for: ls;
+:)
+
+diff-empty:
+bag0 \ ∅ = bag0;
+used for: s,ls;
+
+diff-rec:
+bag0 \ (bag1 ++ a) = (bag0 -- a) \ bag1;
+used for: ls;
+
+one:
+{a} = ∅ ++ a;
+used for: s,ls;
+
+in:
+a ∈ bag ↔ count(a, bag) ≠ 0;
+used for: s,ls;
+
+count-subset:
+bag0 ⊆ bag1 ↔ ∀ a. count(a, bag0) ≤ count(a, bag1);
+used for: ls;
+
+end enrich

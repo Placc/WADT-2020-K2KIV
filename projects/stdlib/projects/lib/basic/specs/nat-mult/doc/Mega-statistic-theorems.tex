@@ -1,0 +1,2334 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,multicol,supertabular}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+\bigskip
+
+{\large\bf addeq}
+
+\medskip
+
+ \Fol m $*$ (n + $\mbox{m}_{0}$) = m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \Equiv m $*$ n = $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addle}
+
+\medskip
+
+ \Fol m $*$ $\mbox{n}_{1}$ = m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \And m $\neq$ 0 \Imp $\mbox{m}_{0}$ $\le$ $\mbox{n}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, addle-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addle-01}
+
+\medskip
+
+ \Fol m $*$ $\mbox{n}_{1}$ = m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \And m $\neq$ 0 \Imp \Not $\mbox{n}_{1}$ $<$ $\mbox{m}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, zero, mult-c
+\item       used by      : addle
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addle-02}
+
+\medskip
+
+ \Fol m $*$ (n + $\mbox{m}_{0}$) $\le$ m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \Equiv m $*$ n $\le$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rdist, mult-c, mult-a, ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addle-03}
+
+\medskip
+
+ \Fol m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ $\le$ m $*$ (n + $\mbox{m}_{0}$) \Equiv $\mbox{n}_{0}$ $\le$ m $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addls}
+
+\medskip
+
+ \Fol m $*$ (n + $\mbox{m}_{0}$) $<$ m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ \Equiv m $*$ n $<$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, mult-c, mult-a, ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addls-01}
+
+\medskip
+
+ \Fol m $*$ $\mbox{m}_{0}$ + $\mbox{n}_{0}$ $<$ m $*$ (n + $\mbox{m}_{0}$) \Equiv $\mbox{n}_{0}$ $<$ m $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rdist, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addtwo}
+
+\medskip
+
+ \Fol n $<$ (m + 1 + 1) $*$ n \Equiv n $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, mult-c, mult-a, ltwo, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addtwo-01}
+
+\medskip
+
+ \Fol n $<$ (m + 2) $*$ n \Equiv n $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, mult-c, mult-a, ltwo, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf addtwo-02}
+
+\medskip
+
+ \Fol 2 $*$ n + 2 = 2 $*$ (n + 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf dist}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m + $\mbox{m}_{0}$ $*$ n = $\mbox{m}_{0}$ $*$ (m + n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp (m $*$ $\mbox{m}_{0}$ = n $*$ $\mbox{m}_{0}$ \Equiv m = n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-02, mult-c, mult-a
+\item       used by      : eq-01, le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq-01}
+
+\medskip
+
+ \Fol m $*$ n + n = m $*$ $\mbox{n}_{0}$ + $\mbox{n}_{0}$ \Equiv n = $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, mult-a, eq, mult-c
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eq2}
+
+\medskip
+
+ \Fol 2 $*$ (m + 1) = n + 2 \Equiv 2 $*$ m = n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf eqsucc}
+
+\medskip
+
+ \Fol m + n = $\mbox{m}_{0}$ + ($\mbox{n}_{0}$ + 1) $*$ n \Equiv m = $\mbox{m}_{0}$ + $\mbox{n}_{0}$ $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf four}
+
+\medskip
+
+ \Fol m $\neq$ 2 + 1 \And m $\neq$ 2 \And m $\neq$ 1 \And m $\neq$ 0 \Imp (m $\le$ 2 $*$ 2 \Equiv m = 2 $*$ 2)
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf four-01}
+
+\medskip
+
+ \Fol m $\neq$ 2 \And m $\neq$ 1 \And m $\neq$ 0 \Imp (m $<$ 2 $*$ 2 \Equiv m = 2 + 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp ($\mbox{m}_{0}$ $*$ m $\le$ $\mbox{m}_{0}$ $*$ n \Equiv m $\le$ n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls, eq, mult-c, mult-a, ls-02
+\item       used by      : le-03, leone, square-less
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-01}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp m $\le$ m $*$ $\mbox{m}_{0}$ + n
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, ls-08
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-02}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp m $\le$ m $*$ $\mbox{m}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, ls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le-03}
+
+\medskip
+
+ \Fol (m + 1) $*$ n $\le$ (m + 1) $*$ $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : le
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le2}
+
+\medskip
+
+ \Fol 2 $*$ (m + 1) $\le$ n + 2 \Equiv 2 $*$ m $\le$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le2-01}
+
+\medskip
+
+ \Fol n + 2 $\le$ 2 $*$ (m + 1) \Equiv n $\le$ 2 $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le2-02}
+
+\medskip
+
+ \Fol 2 $*$ n $\le$ 1 \Equiv n = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le2-03}
+
+\medskip
+
+ \Fol 1 $\le$ 2 $*$ n \Equiv n $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf le2-04}
+
+\medskip
+
+ \Fol 2 $*$ n $\le$ 2 $*$ m + 1 \Equiv n $\le$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf leone}
+
+\medskip
+
+ \Fol n $\neq$ 0 \Imp (m $*$ n $\le$ n \Equiv m $\le$ 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, one, mult-c, mult-a, le
+\item       used by      : ls-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lesucc}
+
+\medskip
+
+ \Fol (m + 1) $*$ n $\le$ m $*$ n + $\mbox{n}_{0}$ \Equiv n $\le$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lesucc-01}
+
+\medskip
+
+ \Fol m + n $\le$ ($\mbox{m}_{0}$ + 1) $*$ n \Equiv m $\le$ $\mbox{m}_{0}$ $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf letwo}
+
+\medskip
+
+ \Fol $\mbox{n}_{0}$ + n $\le$ (m + 2) $*$ n \Equiv $\mbox{n}_{0}$ $\le$ (m + 1) $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, ltwo
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf letwo-01}
+
+\medskip
+
+ \Fol (m + 2) $*$ n $\le$ $\mbox{n}_{0}$ + n \Equiv (m + 1) $*$ n $\le$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, ltwo
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m $<$ $\mbox{m}_{0}$ $*$ n \Equiv $\mbox{m}_{0}$ $\neq$ 0 \And m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, ls-02, ax-01
+\item       used by      : addle-02, addls, le, ls-06, mod-nle, modls, square-less, three-01, two-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-01}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m $<$ m \Equiv $\mbox{m}_{0}$ = 0 \And m $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, mult-c, zero
+\item       used by      : le-02, ls-05, modp, sqr-05, threels
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-02}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp ($\mbox{m}_{0}$ $*$ m $<$ $\mbox{m}_{0}$ $*$ n \Equiv m $<$ n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, zero-01, zero, mult-c, mult-a
+\item       used by      : le, ls, ls-06, ls-07
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-03}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp ($\mbox{m}_{0}$ $*$ m $<$ m + n \Equiv $\mbox{m}_{0}$ -1 $*$ m $<$ n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-04}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \Imp ($\mbox{m}_{0}$ $<$ $\mbox{m}_{0}$ $*$ m \Equiv 1 $<$ m)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rdist, one, leone, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-05}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \And m $<$ n \Imp m $<$ n $*$ $\mbox{m}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, ls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-06}
+
+\medskip
+
+ \Fol m $<$ $\mbox{m}_{0}$ \And n $<$ $\mbox{n}_{0}$ \Imp m $*$ n $<$ $\mbox{m}_{0}$ $*$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, mult-c, mult-a, ls-02, ls, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-07}
+
+\medskip
+
+ \Fol $\mbox{n}_{0}$ $<$ n \Imp (n $<$ m $*$ n \Equiv 1 $<$ m)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, one, mult-c, mult-a, ls-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls-08}
+
+\medskip
+
+ \Fol m $*$ n + $\mbox{n}_{0}$ $<$ n \Equiv m = 0 \And $\mbox{n}_{0}$ $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : ax-01, rdist, one, mult-c, mult-a
+\item       used by      : le-01, modeq, modls-03, sqle
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls2}
+
+\medskip
+
+ \Fol 2 $*$ (m + 1) $<$ n + 2 \Equiv 2 $*$ m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls2-01}
+
+\medskip
+
+ \Fol n + 2 $<$ 2 $*$ (m + 1) \Equiv n $<$ 2 $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls2-02}
+
+\medskip
+
+ \Fol 2 $*$ n $<$ 1 \Equiv n = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ls2-03}
+
+\medskip
+
+ \Fol 1 $<$ 2 $*$ n \Equiv n $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lssucc}
+
+\medskip
+
+ \Fol (m + 1) $*$ n $<$ m $*$ n + $\mbox{n}_{0}$ \Equiv n $<$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lssucc-01}
+
+\medskip
+
+ \Fol m + n $<$ ($\mbox{m}_{0}$ + 1) $*$ n \Equiv m $<$ $\mbox{m}_{0}$ $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lstwo}
+
+\medskip
+
+ \Fol $\mbox{n}_{0}$ + n $<$ (m + 2) $*$ n \Equiv $\mbox{n}_{0}$ $<$ (m + 1) $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, ltwo
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf lstwo-01}
+
+\medskip
+
+ \Fol (m + 2) $*$ n $<$ $\mbox{n}_{0}$ + n \Equiv (m + 1) $*$ n $<$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, ltwo
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf ltwo}
+
+\medskip
+
+ \Fol (m + 2) $*$ n = m $*$ n + n + n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rdist, mult-c, mult-a
+\item       used by      : addtwo, addtwo-01, letwo, letwo-01, lstwo, lstwo-01, three-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-ls}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $<$ m \And n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{2}$ $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{1}$ $<$ n \Imp $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{1}$ $<$ m $*$ $\mbox{n}_{0}$ + $\mbox{n}_{2}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, modls-01
+\item       used by      : mod-neq, mod-neq-01, two-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neq}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $<$ m \And $\mbox{n}_{0}$ $<$ n \And $\mbox{n}_{1}$ $\le$ n \Imp $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{0}$ $\neq$ m $*$ (n + 1) + $\mbox{n}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, mod-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neq-01}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $<$ m \And n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{2}$ $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{1}$ $<$ n \Imp $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{1}$ $\neq$ m $*$ $\mbox{n}_{0}$ + $\mbox{n}_{2}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-ls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neq-02}
+
+\medskip
+
+ \Fol $\mbox{n}_{0}$ $<$ n \And $\mbox{n}_{0}$ $\neq$ 0 \Imp m $*$ n $\neq$ $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, modeq
+\item       used by      : mod-neq-03
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neq-03}
+
+\medskip
+
+ \Fol $\mbox{n}_{1}$ $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{0}$ $<$ n \And $\mbox{n}_{1}$ $\neq$ 0 \Imp $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{0}$ + 1 $\neq$ m $*$ n + $\mbox{n}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mod-neq-02, rdist, one, modeq, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neq-04}
+
+\medskip
+
+ \Fol $\mbox{n}_{1}$ $<$ n \And $\mbox{n}_{0}$ $<$ n \And $\mbox{n}_{0}$ $\neq$ $\mbox{n}_{1}$ \Imp $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{0}$ $\neq$ m $*$ n + $\mbox{n}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, modeq
+\item       used by      : mod-neq-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-neq-05}
+
+\medskip
+
+ \Fol n $\neq$ 0 \Imp m $*$ (n + 1) $\neq$ $\mbox{m}_{0}$ $*$ (n + 1) + n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, mod-neq-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mod-nle}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $<$ m \And n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{2}$ $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{1}$ $<$ n \Imp \Not m $*$ $\mbox{n}_{0}$ + $\mbox{n}_{2}$ $\le$ $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{1}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls, modls-03, mult-c, mult-a, modeq
+\item       used by      : modls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modeq}
+
+\medskip
+
+ \Fol $\mbox{n}_{0}$ $<$ n \And $\mbox{n}_{1}$ $<$ n \Imp (m $*$ n + $\mbox{n}_{0}$ = $\mbox{m}_{0}$ $*$ n + $\mbox{n}_{1}$ \Equiv m = $\mbox{m}_{0}$ \And $\mbox{n}_{0}$ = $\mbox{n}_{1}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, zero, ls-08, mult-c, mult-a
+\item       used by      : mod-neq-02, mod-neq-03, mod-neq-04, mod-nle, modls, sqr-03, sqr-07, succ-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modls}
+
+\medskip
+
+ \Fol $\mbox{n}_{0}$ $<$ $\mbox{m}_{0}$ \Imp ($\mbox{m}_{0}$ $*$ m + $\mbox{n}_{0}$ $<$ $\mbox{m}_{0}$ $*$ n \Equiv m $<$ n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : modp, modeq, ls, zero-01, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modls-01}
+
+\medskip
+
+ \Fol n $\le$ $\mbox{n}_{0}$ \And $\mbox{n}_{2}$ $<$ $\mbox{n}_{0}$ \And $\mbox{m}_{1}$ $<$ m \And $\mbox{n}_{1}$ $<$ n \Imp $\mbox{m}_{1}$ $*$ n + $\mbox{n}_{1}$ $<$ m $*$ $\mbox{n}_{0}$ + $\mbox{n}_{2}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, mod-nle
+\item       used by      : mod-ls, modls-02, three-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modls-02}
+
+\medskip
+
+ \Fol n $<$ $\mbox{n}_{0}$ \And $\mbox{n}_{2}$ $<$ $\mbox{n}_{0}$ \And $\mbox{m}_{1}$ $<$ m \And $\mbox{n}_{1}$ $<$ n \Imp $\mbox{m}_{1}$ $*$ n + $\mbox{n}_{1}$ $<$ m $*$ $\mbox{n}_{0}$ + $\mbox{n}_{2}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : modls-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modls-03}
+
+\medskip
+
+ \Fol $\mbox{n}_{2}$ $<$ n \And $\mbox{m}_{1}$ $<$ m \And $\mbox{n}_{1}$ $<$ n \Imp $\mbox{m}_{1}$ $*$ n + $\mbox{n}_{1}$ $<$ m $*$ n + $\mbox{n}_{2}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, zero, mult-c, mult-a, ls-08
+\item       used by      : mod-nle
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf modp}
+
+\medskip
+
+$\mbox{n}_{0}$ $<$ $\mbox{m}_{0}$, \\
+$\mbox{m}_{0}$ $*$ n $\le$ $\mbox{m}_{0}$ $*$ m + $\mbox{n}_{0}$ \Fol n $\le$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rsucc-01, zero, mult-c, mult-a, ls-01
+\item       used by      : modls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mult-a}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m $*$ n = ($\mbox{m}_{0}$ $*$ m) $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, zero, mult-c
+\item       used by      : addeq, addle, addle-02, addle-03, addls, addls-01, addtwo, addtwo-01, addtwo-02, dist, eq, eq-01, eq2, eqsucc, four, four-01, le, le-01, le-02, le2, le2-01, le2-02, le2-03, le2-04, leone, lesucc, lesucc-01, letwo, letwo-01, ls, ls-02, ls-04, ls-05, ls-06, ls-07, ls-08, ls2, ls2-01, ls2-02, ls2-03, lssucc, lssucc-01, lstwo, lstwo-01, ltwo, mod-ls, mod-neq, mod-neq-02, mod-neq-03, mod-neq-04, mod-neq-05, mod-nle, modeq, modls, modls-01, modls-03, modp, neqone, nine, one-01, one-02, predofeven, sqle, sqle-01, sqle-02, sqls, sqp, sqr, sqr-01, sqr-02, sqr-03, sqr-04, sqr-05, sqr-07, sqr-08, sqr-09, square-less, sqzero, succ, succ-01, three, three-01, threeeq, two, two-01, two-02, two-03, two-eq, two-eq-01, two-le, two-le-01, two-les, two-les-01, two-ls, two-ls-01, two-one, two-one-01, two-succ, two-succ-01, two-succ-02, two-succ-03, two-succ-04, two-succ-05, two-zero, two-zero-01, twoeq, twole, twole-01, twole-02, twols, twols-02, zero-01, zero-02, zero-03, zero-04, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf mult-c}
+
+\medskip
+
+ \Fol m $*$ n = n $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, rsucc-01, zero, ax-01
+\item       used by      : addeq, addle, addle-01, addle-02, addle-03, addls, addls-01, addtwo, addtwo-01, addtwo-02, dist, eq, eq-01, eq2, eqsucc, four, four-01, le, le-01, le-02, le2, le2-01, le2-02, le2-03, le2-04, leone, lesucc, lesucc-01, letwo, letwo-01, ls, ls-01, ls-02, ls-04, ls-05, ls-06, ls-07, ls-08, ls2, ls2-01, ls2-02, ls2-03, lssucc, lssucc-01, lstwo, lstwo-01, ltwo, mod-ls, mod-neq, mod-neq-02, mod-neq-03, mod-neq-04, mod-neq-05, mod-nle, modeq, modls, modls-01, modls-03, modp, mult-a, neqone, nine, one-01, one-02, predofeven, rdist, sqle, sqle-01, sqle-02, sqls, sqp, sqr, sqr-01, sqr-02, sqr-03, sqr-04, sqr-05, sqr-07, sqr-08, sqr-09, square-less, sqzero, succ, succ-01, three, three-01, threeeq, threels, two, two-01, two-02, two-03, two-eq, two-eq-01, two-le, two-le-01, two-les, two-les-01, two-ls, two-ls-01, two-one, two-one-01, two-succ, two-succ-01, two-succ-02, two-succ-03, two-succ-04, two-succ-05, two-zero, two-zero-01, twoeq, twole, twole-01, twole-02, twols, twols-01, twols-02, zero-01, zero-02, zero-03, zero-04, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf neqone}
+
+\medskip
+
+ \Fol 1 $<$ n \Imp (m = m $*$ n \Equiv m = 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-03, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf nine}
+
+\medskip
+
+ \Fol (1 + 2) $*$ (1 + 2) = 2 $*$ 2 $*$ 2 + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, rsucc-01, rdist, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ 1 = $\mbox{m}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, zero
+\item       used by      : addtwo-02, eq2, eqsucc, le2, le2-01, leone, lesucc, lesucc-01, letwo, letwo-01, ls-04, ls-07, ls-08, ls2, ls2-01, lssucc, lssucc-01, lstwo, lstwo-01, mod-neq, mod-neq-03, mod-neq-05, mult-a, one-01, sqls, sqp, sqr-01, sqr-03, sqr-06, sqr-07, sqr-08, succ, three, three-01, threels, two-01, two-02, two-03, twols-01, zero-01, zero-03, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one-01}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m = 1 \Equiv $\mbox{m}_{0}$ = 1 \And m = 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, zero, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf one-02}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 1 \Imp ($\mbox{m}_{0}$ $*$ m = m \Equiv m = 0)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-03, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf predofeven}
+
+\medskip
+
+n $\neq$ 0 \Fol (2 $*$ n)-1 = 2 $*$ n -1 + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf rdist}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ (m + n) = $\mbox{m}_{0}$ $*$ m + $\mbox{m}_{0}$ $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, zero, mult-c
+\item       used by      : addeq, addle-02, addle-03, addls, addls-01, addtwo-02, dist, eq2, eqsucc, le2, le2-01, lesucc, lesucc-01, letwo, letwo-01, ls-04, ls-08, ls2, ls2-01, lssucc, lssucc-01, lstwo, lstwo-01, ltwo, mod-neq, mod-neq-03, mod-neq-05, mult-a, nine, sqp, sqr-01, sqr-08, succ, three, two-02, zero-01, zero-03, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf rsucc}
+
+\medskip
+
+ \Fol m +1 $*$ n = m $*$ n + n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf rsucc-01}
+
+\medskip
+
+ \Fol (m + 1) $*$ n = m $*$ n + n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, ax-01
+\item       used by      : eq-01, ls-02, ls-03, modeq, modls-03, modp, mult-c, nine, one, one-01, rsucc, sqr-06, sqr-09, zero-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf rsucc-02}
+
+\medskip
+
+ \Fol m $*$ (n + 1) = m $*$ n + m
+
+\begin{itemize}
+
+
+\item       used lemmas  : ax-02
+\item       used by      : addle-01, ls-01, mult-c, rdist, rsucc-01, sqr-06, threels, twols-01, zero
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqle}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $\neq$ 0 \And m $*$ m $\le$ $\mbox{m}_{0}$ +1 \Imp m $\le$ $\mbox{m}_{0}$ $*$ $\mbox{m}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : ls-08, sqzero, mult-c, mult-a, sqp
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqle-01}
+
+\medskip
+
+ \Fol m $*$ m $\le$ n \Imp m $\le$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-05, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqle-02}
+
+\medskip
+
+ \Fol m $*$ m $\le$ n \And n $\le$ $\mbox{n}_{0}$ \Imp m $\le$ $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-05, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqls}
+
+\medskip
+
+ \Fol m $\le$ n \Imp (m + 1 $<$ n $*$ n \Equiv 1 $<$ n)
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-07, sqr-06, sqzero, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqp}
+
+\medskip
+
+$\mbox{m}_{0}$ $\neq$ 0, \\
+$\mbox{m}_{0}$ $\neq$ 1, \\
+$\mbox{m}_{0}$ $*$ $\mbox{m}_{0}$ $\le$ m + 1 \Fol $\mbox{m}_{0}$ $<$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqzero, rdist, one, mult-c, mult-a
+\item       used by      : sqle
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr}
+
+\medskip
+
+ \Fol m $\le$ m $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-05, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-01}
+
+\medskip
+
+ \Fol m $<$ m $*$ m \Equiv 1 $<$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqzero, sqr-06, rdist, one, mult-c, mult-a, ax-01
+\item       used by      : sqr-02, sqr-09
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-02}
+
+\medskip
+
+ \Fol m + 1 $\le$ m $*$ m \Equiv 1 $<$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-06, sqr-01, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-03}
+
+\medskip
+
+ \Fol m + 1 $<$ m $*$ m \Equiv 1 $<$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-06, modeq, sqzero, one, mult-c, mult-a
+\item       used by      : sqr-07
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-04}
+
+\medskip
+
+ \Fol m $*$ m $\le$ 1 + 1 \Equiv m $\le$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-08, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-05}
+
+\medskip
+
+ \Fol \Not m $*$ m $<$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : mult-c, mult-a, ls-01
+\item       used by      : sqle-01, sqle-02, sqr
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-06}
+
+\medskip
+
+ \Fol m $*$ m $\le$ m \Equiv m $\le$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, rsucc-01, one, zero
+\item       used by      : sqls, sqr-01, sqr-02, sqr-03, sqr-07
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-07}
+
+\medskip
+
+ \Fol m $*$ m $\le$ m + 1 \Equiv m $\le$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqr-03, sqr-06, one, mult-a, modeq, mult-c
+\item       used by      : sqls
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-08}
+
+\medskip
+
+ \Fol m $*$ m $\le$ 2 \Equiv m $\le$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : sqzero, rdist, one, mult-c, mult-a, ax-01
+\item       used by      : sqr-04, sqr-09
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqr-09}
+
+\medskip
+
+ \Fol 2 $<$ m \And m $\le$ n \Imp \Not n $*$ n $\le$ m + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, sqr-08, sqr-01, rsucc-01, zero, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf square-less}
+
+\medskip
+
+ \Fol m $*$ m $<$ n $*$ n \Equiv m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : ax-01, ls, le, sqzero, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf sqzero}
+
+\medskip
+
+ \Fol m $*$ m = 0 \Equiv m = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, mult-c, mult-a, ax-01
+\item       used by      : sqle, sqls, sqp, sqr-01, sqr-03, sqr-08, square-less
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf succ}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m + m = ($\mbox{m}_{0}$ + 1) $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf succ-01}
+
+\medskip
+
+ \Fol m $\neq$ 1 \Imp m $*$ $\mbox{n}_{0}$ $\neq$ m $*$ $\mbox{m}_{0}$ + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero, mult-c, mult-a, modeq
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf three}
+
+\medskip
+
+ \Fol m $\neq$ 1 \Imp (m $*$ $\mbox{m}_{0}$ = 1 + 1 + 1 \Equiv m = 1 + 1 + 1 \And $\mbox{m}_{0}$ = 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : three-01, rdist, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf three-01}
+
+\medskip
+
+ \Fol m $\neq$ 1 \Imp (m $*$ $\mbox{m}_{0}$ = 1 + 2 \Equiv m = 1 + 2 \And $\mbox{m}_{0}$ = 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, zero, ls, modls-01, one, mult-c, mult-a, ltwo
+\item       used by      : three
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf threeeq}
+
+\medskip
+
+ \Fol 2 + 1 $\neq$ 2 $*$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf threels}
+
+\medskip
+
+ \Fol 2 + 1 $<$ 2 $*$ n \Equiv 1 $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, one, ls-01, zero, mult-c
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two}
+
+\medskip
+
+ \Fol m + m = (1 + 1) $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-01}
+
+\medskip
+
+ \Fol m $\neq$ 1 \Imp (m $*$ $\mbox{m}_{0}$ = 1 + 1 \Equiv m = 1 + 1 \And $\mbox{m}_{0}$ = 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-03, one, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-02}
+
+\medskip
+
+ \Fol m + m = 2 $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, ax-01
+\item       used by      : two-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-03}
+
+\medskip
+
+ \Fol m $\neq$ 1 \Imp (m $*$ $\mbox{m}_{0}$ = 2 \Equiv m = 2 \And $\mbox{m}_{0}$ = 1)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, ls, mod-ls, zero, two-04, one, mult-c, mult-a
+\item       used by      : two-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-04}
+
+\medskip
+
+ \Fol 2 $*$ m = m + m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-02
+\item       used by      : addtwo-02, eq2, four, four-01, le2, le2-01, le2-02, le2-03, le2-04, ls2, ls2-01, ls2-02, ls2-03, ltwo, nine, predofeven, sqr-09, threeeq, two, two-03, two-eq, two-eq-01, two-le, two-le-01, two-les, two-les-01, two-ls, two-ls-01, two-one, two-one-01, two-succ, two-succ-01, two-succ-02, two-succ-03, two-succ-04, two-succ-05, two-zero, two-zero-01, twoeq, twole, twole-01, twole-02, twols, twols-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-eq}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m = (1 + 1) $*$ n \Equiv m = n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-eq-01}
+
+\medskip
+
+ \Fol 2 $*$ m = 2 $*$ n \Equiv m = n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-le}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m $\le$ (1 + 1) $*$ n \Equiv m $\le$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-le-01}
+
+\medskip
+
+ \Fol 2 $*$ m $\le$ 2 $*$ n \Equiv m $\le$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-les}
+
+\medskip
+
+ \Fol n $\le$ n $*$ (1 + 1) + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-les-01}
+
+\medskip
+
+ \Fol n $\le$ 2 $*$ n + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-ls}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m $<$ (1 + 1) $*$ n \Equiv m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-ls-01}
+
+\medskip
+
+ \Fol 2 $*$ m $<$ 2 $*$ n \Equiv m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-one}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m $\neq$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-one-01}
+
+\medskip
+
+ \Fol 2 $*$ m $\neq$ 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-succ}
+
+\medskip
+
+ \Fol (1 + 1) $*$ (m + 1) = n + 1 \Equiv (1 + 1) $*$ m + 1 = n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-succ-01}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m + 1 $<$ (1 + 1) $*$ n \Equiv m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-succ-02}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m $\neq$ (1 + 1) $*$ n + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-succ-03}
+
+\medskip
+
+ \Fol 2 $*$ (m + 1) = n + 1 \Equiv 2 $*$ m + 1 = n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-succ-04}
+
+\medskip
+
+ \Fol 2 $*$ m + 1 $<$ 2 $*$ n \Equiv m $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-succ-05}
+
+\medskip
+
+ \Fol 2 $*$ m $\neq$ 2 $*$ n + 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-zero}
+
+\medskip
+
+ \Fol (1 + 1) $*$ m = 0 \Equiv m = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf two-zero-01}
+
+\medskip
+
+ \Fol 2 $*$ m = 0 \Equiv m = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twoeq}
+
+\medskip
+
+ \Fol 2 = 2 $*$ n \Equiv n = 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twole}
+
+\medskip
+
+ \Fol 2 $*$ n $\le$ n \Equiv n = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twole-01}
+
+\medskip
+
+ \Fol 2 $\le$ 2 $*$ n \Equiv n $\neq$ 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twole-02}
+
+\medskip
+
+ \Fol m $\le$ 2 $*$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twols}
+
+\medskip
+
+ \Fol \Not 2 $*$ n $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twols-01}
+
+\medskip
+
+ \Fol 2 $<$ 2 $*$ n \Equiv 1 $<$ n
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, one, zero, mult-c
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf twols-02}
+
+\medskip
+
+ \Fol 2 $*$ 2 $<$ m + 2 \Equiv 2 $<$ m
+
+\begin{itemize}
+
+
+\item       used lemmas  : two-04, mult-c, mult-a
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero}
+
+\medskip
+
+ \Fol 0 $*$ n = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-02, ax-01
+\item       used by      : addle-01, ls-01, ls-02, modeq, modls-03, modp, mult-a, mult-c, one, one-01, rdist, sqr-06, sqr-09, succ-01, three-01, threels, two-03, twols-01, zero-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-01}
+
+\medskip
+
+ \Fol $\mbox{m}_{0}$ $*$ m = 0 \Equiv $\mbox{m}_{0}$ = 0 \Or m = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : rdist, one, mult-c, mult-a, ax-01
+\item       used by      : addle-02, addls-01, addtwo, addtwo-01, leone, ls-02, ls-04, ls-06, ls-07, lssucc-01, modls, modp, sqzero, three-01, two-03, zero-02, zero-03, zero-05
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-02}
+
+\medskip
+
+ \Fol m $*$ n = m $*$ $\mbox{n}_{0}$ \Equiv m = 0 \Or n = $\mbox{n}_{0}$
+
+\begin{itemize}
+
+
+\item       used lemmas  : rsucc-01, zero-01, zero, mult-c, mult-a
+\item       used by      : eq, zero-04
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-03}
+
+\medskip
+
+ \Fol m $*$ n = m \Equiv m = 0 \Or n = 1
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rdist, one, mult-c, mult-a, ax-01
+\item       used by      : neqone, one-02
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-04}
+
+\medskip
+
+ \Fol m $*$ n = $\mbox{m}_{0}$ \Imp ($\mbox{m}_{0}$ = m $*$ $\mbox{n}_{0}$ \Equiv m = 0 \Or n = $\mbox{n}_{0}$)
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-02, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+\bigskip
+
+{\large\bf zero-05}
+
+\medskip
+
+ \Fol (m + 1) $*$ n = 0 \Equiv n = 0
+
+\begin{itemize}
+
+
+\item       used lemmas  : zero-01, rdist, one, mult-c, mult-a, ax-01
+
+\end{itemize}
+
+\medskip
+
+
+
+\end{document}
+

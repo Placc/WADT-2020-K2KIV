@@ -1,0 +1,84 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+subsub-01
+subsub
+subset-rec
+subset-perm
+subset-diff-union
+subset-append-02
+subset-append-01
+subset-append
+subset-app-04
+subset-app-03
+subset-app-02
+suband
+sub-size
+sub-07
+sub-06
+sub-05
+sub-04
+sub-03
+sub-01
+sub
+size-nls-01
+size-nls
+size-nle
+size-le
+rotsize
+rmdup-01
+rmdup
+onenotin-diff
+notin-02
+notin-01
+le
+k-union-rec-n
+insub-01
+insub
+in-03
+in-01-01
+firstsub
+filter-notin
+filter-notempty
+filter-empty-in
+filter-empty-def
+filter-empty-cons
+filter-empty-app-04
+filter-empty-app-03
+filter-empty-app-02
+filter-empty-app-01
+filter-empty-app
+filter-empty
+filter-dups
+filter-all
+filt-dups
+emptyunion
+dups-app
+diffone-nodupssize
+diffone-nodupsget
+diffgetn-nodupssize
+diff-wfrec
+diff-union
+diff-unchanged
+diff-twice-append-rev
+diff-twice-append
+diff-onenonmember
+diff-in
+diff-empty-all
+diff-dups
+diff-consnotin2
+diff-app-01
+del1-01
+del1
+commsize
+
+
+*** Failures: ***
+
+

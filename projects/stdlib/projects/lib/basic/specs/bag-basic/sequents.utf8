@@ -1,0 +1,35 @@
+
+;; variables m : nat;
+
+lemmas
+
+ext-rec:
+bag1 = bag0 ++ a
+  ↔ ∀ b. count(b, bag1) = (a = b ⊃ 1 ; 0) + count(b, bag0);
+
+bag-add2-eq-elim:
+¬ bag0 ++ a ++ b = bag1 ++ a ↔ ¬ bag0 ++ b = bag1;
+used for : s;
+
+count-1:
+count(a, ∅ ++ a) = 1;
+used for: s,ls;
+
+count-same:
+count(a, bag ++ a) = count(a, bag) + 1;
+used for: s,ls;
+
+count-other:
+a ≠ b → count(a, bag ++ b) = count(a, bag);
+used for: s,ls;
+
+insert-inj:
+bag0 ++ a = bag1 ++ a
+  ↔ bag0 = bag1;
+used for: s,ls;
+
+insert-nonempty:
+bag ++ a ≠ ∅;
+used for: s,ls;
+
+;;; END

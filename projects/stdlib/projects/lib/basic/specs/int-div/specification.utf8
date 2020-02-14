@@ -1,0 +1,25 @@
+
+enrich int-mult with
+
+comment: Integer division and remainder. The remainder can be negative, hence it is not
+         the mathematical modulus operation, but behaves as Java's or C's integer division.
+         Both operations have the same priority that is higher than * (unfortunately,
+         this does not conform to school mathematics).
+         For German speakers: Bruch = fraction, Zaehler = numerator, Nenner = denominator;
+
+partial functions
+
+	. / . : int × int → int prio 11 with λ i, j. j ≠ 0;
+	. % . : int × int → int prio 11 with λ i, j. j ≠ 0;
+
+axioms
+
+Div-def :    0 ≤ i ∧ 0 < j 
+          → (i / j) * j ≤ i ∧ i < (i / j) +1 * j; used for : nokodkodax;
+
+Div-left  : j ≠ 0 → ~ i / j = ~ (i / j); used for : s,ls,nokodkodax;
+Div-right : j ≠ 0 → i / ~ j = ~ (i / j); used for : s,ls,nokodkodax;
+
+Mod-def : j ≠ 0 → i = (i / j) * j + (i % j); used for : nokodkodax;
+
+end enrich

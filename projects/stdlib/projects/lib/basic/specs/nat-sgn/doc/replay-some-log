@@ -1,0 +1,18 @@
+: successful
+### No save necessary ###
+### Next replay: sgn ###
+sgn: successful
+### No save necessary ###
+### Next replay: sgn-add ###
+sgn-add: successful
+### No save necessary ###
+### Next replay: sgn-eq0 ###
+sgn-eq0: successful
+### No save necessary ###
+### Next replay: sgn-lt ###
+sgn-lt: successful
+### No save necessary ###
+### Next replay: sgn-num ###
+sgn-num: successful
+### Done ###
+### Saving lemmas next ###

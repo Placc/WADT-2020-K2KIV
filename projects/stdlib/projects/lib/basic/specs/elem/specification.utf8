@@ -1,0 +1,7 @@
+specification
+
+sorts elem;
+
+variables a,b,c : elem;
+
+end specification

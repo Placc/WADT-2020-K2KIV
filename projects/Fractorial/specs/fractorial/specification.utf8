@@ -1,0 +1,28 @@
+enrich kint with
+
+;; sorts ;
+
+;; constants ;
+
+functions factorial: int → int;
+
+;; predicates ;
+
+;; procedures ;
+
+;; variables ;
+
+;; partial functions ;
+
+;; partial predicates ;
+
+;; induction ;
+
+axioms
+  factorial-base: factorial(0) = 1; used for: s;
+  factorial-rec: i > 0 ⊦ factorial(i) = factorial(i - 1) * i; used for: s;
+  factorial-neg: i < 0 ⊦ factorial(i) = 0;
+
+;; declaration
+
+end enrich

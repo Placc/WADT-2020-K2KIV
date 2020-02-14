@@ -1,0 +1,33 @@
+enrich intnat with
+
+;; sorts ;
+
+;; constants ;
+
+functions
+
+        encode : nat × nat → nat;
+        . .1   : nat → nat; comment: (i ×pos j).1pos = i, i = maxI - j;
+        . .2   : nat → nat; comment: (i ×pos j).2pos = j, j = (i ×pos j) - maxI;
+
+        maxenc : nat → nat; comment: maxI(i) = s ↔ s is biggest nat with s(s+1)/2 ≤ i;
+        maxenc : nat × nat → nat; comment: computes maxI with counter as first arg.;
+
+;; predicates ;
+
+;; variables ;
+
+;; induction ;
+
+axioms
+
+encode-def : encode(m, n) = ((m + n) * (m + n + 1)) / 2 + n; used for : ls;
+
+dec-fst    : m.1 = maxenc(m) - m.2;
+dec-snd    : m.2 = m - (maxenc(m) * (maxenc(m) + 1)) / 2 ;
+
+maxi-start : maxenc(n) = maxenc(0, n);
+maxi-rec   :   ((m + 1) * (m + 2)) / 2 ≤ n → maxenc(m, n) = maxenc(m + 1, n);
+maxi-found : ¬ ((m + 1) * (m + 2)) / 2 ≤ n → maxenc(m, n) = m;
+
+end enrich

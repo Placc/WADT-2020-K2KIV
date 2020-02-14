@@ -1,0 +1,21 @@
+enrich list-set with
+
+;; sorts ;
+
+;; constants ;
+
+;; functions ;
+
+predicates . ≡ . : list × list;
+
+;; variables ;
+
+;; induction ;
+
+axioms
+
+setequal-def:
+x ≡ y ↔ (x ⊆ y ∧ y ⊆ x);
+used for: ls;
+
+end enrich

@@ -1,0 +1,29 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+sr
+sgn-08
+sgn-06
+sgn-04
+sgn-03
+sgn-02-01
+sgn-01
+sgn+1
+sgn
+min-right
+min-c
+min-a
+max-c
+max-a
+
+
+*** Failures: ***
+
+odd-even-rew
+

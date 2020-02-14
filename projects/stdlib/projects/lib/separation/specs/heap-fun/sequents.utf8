@@ -1,0 +1,135 @@
+
+;; variables m : nat;
+
+lemmas
+
+
+prop-true:
+true[rs, f];
+used for : s;
+
+
+prop-false:
+¬ false[rs, f];
+used for : s;
+
+prop:
+⌜bv⌝[rs, f] ↔ bv;
+used for : s;
+
+
+emp:
+mk(∅, f) = ∅;
+used for: s,ls;
+
+mk-exists:
+∃ rs,f. H = mk(rs,f);
+
+mk-ext:
+P0 = P1 ↔ ∀ rs,f. P0[rs,f] = P1[rs,f];
+
+sep:
+(P0 * P1)[rs,f]
+  ↔ ∃ rs0,rs1. rs0 ∪ rs1 = rs ∧ rs0 ∩ rs1 = ∅ ∧ P0[rs0,f] ∧ P1[rs1,f];
+
+uni:
+rs0 ∩ rs1 = ∅
+  → mk(rs0 ∪ rs1, f) = mk(rs0, f) ∪ mk(rs1, f);
+used for: ls;
+
+del:
+mk(rs -- r, f) = mk(rs, f) -- r;
+used for: ls;
+
+write:
+r ∈ rs → mk(rs, f(r;o)) = mk(rs, f)[r,o];
+used for: ls;
+
+in-uni:
+rs0 ∩ rs1 = ∅
+  → (r ∈ mk(rs0, f0) ∪ mk(rs1, f1) ↔ (r ∈ rs0 ∨ r ∈ rs1));
+used for: s,ls;
+
+at-unil:
+rs0 ∩ rs1 = ∅ ∧ r ∈ rs0
+  → (mk(rs0, f0) ∪ mk(rs1, f1))[r] = f0(r);
+used for: s,ls;
+
+at-unir:
+rs0 ∩ rs1 = ∅ ∧ r ∈ rs1
+  → (mk(rs0, f0) ∪ mk(rs1, f1))[r] = f1(r);
+used for: s,ls;
+
+disj:
+mk(rs0, f0) ⊥ mk(rs1, f1) ↔ rs0 ∩ rs1 = ∅;
+used for: s,ls;
+
+split-uni:
+P0[rs0,f] ∧ P1[rs1,f] ∧ rs0 ∩ rs1 = ∅
+  → (P0 * P1)[rs0 ∪ rs1, f];
+used for: ss,lss;
+
+true-elim: (P0 * P)[rs,f] → (true * P)[rs,f]; used for: s,ls;
+true-emp:  P[rs,f] → (true * P)[rs,f]; used for: s,ls;
+
+prop-emp:  ((⌜bv⌝ ∧ emp) * P)[rs,f] ↔ (bv ∧ P[rs,f]); used for: s,ls;
+prop-sep:  ((⌜bv⌝ ∧ P0) * P1)[rs,f] ↔ bv ∧ (P0 * P1)[rs,f]; used for: s,ls;
+
+ex1-shift:
+(_∃(rP) * P)[rs,f] ↔ ∃ r. (rP(r) * P)[rs,f];
+used for: s;
+
+ex2-shift:
+(_∃(rrP) * P)[rs,f] ↔ ∃ r0, r1. (rrP(r0, r1) * P)[rs,f];
+used for: s;
+
+ex3-shift:
+(_∃(oP) * P)[rs,f] ↔ ∃ o. (oP(o) * P)[rs,f];
+used for: s;
+
+at-rw0:
+(r => o)[rs,f] → (f(r) = o ↔ true);
+used for: ss;
+
+at-rw:
+(r => o * P)[rs,f] → (f(r) = o ↔ true);
+used for: ss;
+
+map-put:
+(r =>_ * P)[rs,f] ↔ (r => o1 * P)[rs, f(r;o1)] ∧ r ∈ rs;
+
+map-putrev:
+r ∈ rs ⊦ ((r => o0 * P)[rs, f(r;o1)] ↔ (o0 = o1 ∧ (r =>_ * P)[rs,f]));
+
+mapex-put:
+r ∈ rs ⊦ (r =>_ * P)[rs, f(r;o)] ↔ (r => o * P)[rs, f(r;o)];
+used for: s;
+
+mapex-new:
+¬ r ∈ rs, r ≠ null ⊦ P[rs,f] ↔ (r =>_ * P)[rs ++ r,f];
+
+map-del:
+(r => o * P)[rs,f] ↔ P[rs -- r, f] ∧ r ∈ rs ∧ f(r) = o;
+
+mapex-del:
+(r =>_ * P)[rs,f] → P[rs -- r,f];
+
+map-in0:
+(r => o)[rs,f] → r ∈ rs;
+used for: s,ls;
+
+map-in:
+(r => o * P)[rs,f] → r ∈ rs;
+used for: s,ls;
+
+mapex-in0:
+(r =>_)[rs,f] → r ∈ rs;
+used for: s,ls;
+
+mapex-in:
+(r =>_ * P)[rs,f] → r ∈ rs;
+used for: s,ls;
+
+mapex-elim:
+(r => o * P)[rs,f] → (r =>_ * P)[rs,f];
+used for: s,ls;

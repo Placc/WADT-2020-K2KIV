@@ -1,0 +1,19 @@
+specification
+
+sorts
+	K;
+
+functions isK: K → bool;
+
+predicates unequal: K × K;
+
+variables
+	k: K;
+	k0: K;
+	k1: K;
+
+axioms
+  K-neq: unequal(k0, k1) ↔ k0 ≠ k1; used for: s, ls;
+  isK-def: isK(k);                  used for: s, ls;
+
+end specification

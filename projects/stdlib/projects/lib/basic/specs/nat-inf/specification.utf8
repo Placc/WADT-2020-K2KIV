@@ -1,0 +1,31 @@
+specification 
+
+using nat
+
+data types
+
+natinf = ⌜ . ⌝ ( . .n  : nat) | ∞;
+
+variables n∞ : natinf;
+
+functions . + . : natinf × natinf → natinf;
+          min : natinf × natinf → natinf;
+
+predicates . < . : natinf × natinf;
+
+variables n∞0 : natinf;
+
+axioms
+
+add-fin: ⌜m + n⌝  = ⌜m⌝ + ⌜n⌝; used for : ls, s;
+add-inf1: ∞ + ⌜m⌝ = ∞ ; used for : ls, s;
+add-inf2: ⌜m⌝ + ∞ = ∞ ; used for : ls, s;
+add-inf: ∞ + ∞ = ∞ ; used for : ls, s;
+
+less-fin : ⌜m⌝ < ⌜n⌝ ↔ m < n;
+less-inf2 : ⌜m⌝ < ∞;
+less-inf1 : ¬ ∞ < n∞;
+
+min-def: min(n∞,n∞0) = (n∞ < n∞0 ⊃ n∞;n∞0);
+
+end specification

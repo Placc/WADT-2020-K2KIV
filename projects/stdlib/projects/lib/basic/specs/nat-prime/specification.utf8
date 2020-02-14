@@ -1,0 +1,28 @@
+enrich nat-div with
+
+functions
+
+	gcd : nat × nat → nat;
+      dist : nat × nat → nat;
+
+predicates
+
+	  prime : nat;
+	. | . : nat × nat;
+
+axioms
+
+Prime : prime(n) ↔ 1 < n ∧ ∀ m. m | n → m = 1 ∨ m = n; used for : nokodkodax;
+
+Divides : m | n ↔ ∃ n0. m * n0 = n; used for : nokodkodax;
+
+
+
+gcd-zero :	gcd(0,n) = n; 
+gcd-c    :	gcd(m,n) = gcd(n,m); 
+gcd-rec1 :	n ≤ m → gcd(m,n) = gcd(m - n,n); 
+
+dist-fst : m ≤ n → dist(m, n) = n - m;
+dist-snd : n < m → dist(m, n) = m - n;
+
+end enrich

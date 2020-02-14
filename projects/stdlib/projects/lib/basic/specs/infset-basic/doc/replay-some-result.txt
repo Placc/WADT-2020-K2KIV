@@ -1,0 +1,35 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+two
+sw-01
+subset-ins
+subset
+sub-insert
+sub-add-04
+sub-add-03
+sub-add-02
+sub-add-01
+sub-add
+ne
+in-05
+eqtwo-01
+eqtwo
+eq-04
+eq-03
+eq-02
+eq-01
+addtwo
+addthree
+add-01
+
+
+*** Failures: ***
+
+

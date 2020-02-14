@@ -1,0 +1,54 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+remnone-cntequal
+reminf-infsize-strong
+reminf-infsize
+reminf-finsize
+rem-shortens
+rem-reminv-cnt-add
+rem-rec-rev-fin
+rem-rec-rev
+rem-member2-fin
+rem-member1
+rem-equal-inf
+rem-equal-fin
+rem-cntleq
+rem-cntequal-fin
+prefixself-equal
+prefix-refl
+prefix-antisymm
+mon-bd-or-unbound
+lim-unique
+lim-infsize-strong
+lim-infsize
+lim-finsize
+lim-exists
+lim-evconst
+lastocfin-cnteqcntto
+lastoc-less-size
+lastoc-inf-ant
+lastoc-finrec-end
+getfilter-sat-p
+filter-rec-gen
+filter-lb
+filter-infsize
+filter-inf-finsize
+cntrem-is-inf
+cntinf-tocntsurj
+cntinf-fin-weak
+cntinf-fin-succ
+cntfin-eqlen
+cnt-is-zero
+cnt-is-succ
+
+
+*** Failures: ***
+
+

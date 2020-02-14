@@ -1,0 +1,23 @@
+actualize stream with stream by morphism
+
+
+elem → stream;
+stream → streamstream;
+list → streamlist;
+a → σ;
+b → σ0;
+c → σ1;
+a0 → σ2;
+x → σx;
+y → σy;
+z → σz;
+x0 → σx0;
+x1 → σx1;
+nf → σf;
+nf0 → σf0;
+σ → σσ;
+σ1 → σσ1;
+σ2 → σσ2;
++2 → +l;
+
+end actualize

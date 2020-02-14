@@ -1,0 +1,16 @@
+generic specification
+  parameter elem
+  using heap-sep
+target
+
+functions
+_∃ .   : (elem → (heap → bool)) → (heap → bool);
+
+variables
+Pa: elem → (heap → bool);
+
+axioms
+
+exists: (_∃ Pa)(H) ↔ ∃ a. Pa(a)(H); used for: s,ls;
+
+end generic specification

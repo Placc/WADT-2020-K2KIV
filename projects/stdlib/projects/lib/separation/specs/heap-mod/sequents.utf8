@@ -1,0 +1,24 @@
+
+;; variables m : nat;
+
+lemmas
+
+modify-agree:
+modify*(rs)(H0,H1)
+  ↔ (H0 ≡ H1)(rs);
+
+modify+-sym:
+modify*(rs)(H0,H1)
+  ↔ modify*(rs)(H1,H0);
+
+modify-sym:
+modify(rs)(H0,H1)
+  ↔ modify(rs)(H1,H0);
+
+modify-footprint:
+footprint(rs,P,H0) ∧ modify(rs)(H0,H1)
+  → P(H0) = P(H1);
+
+precise-footprint:
+precise(P) ∧ footprint(rs0,P,H) ∧ footprint(rs1,P,H)
+  → rs0 = rs1;

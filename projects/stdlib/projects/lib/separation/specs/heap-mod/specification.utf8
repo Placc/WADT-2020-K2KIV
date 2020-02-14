@@ -1,0 +1,37 @@
+enrich rtc-heap, heap-sep with
+
+functions
+modify  : refset → heap × heap → bool;
+modify* : refset → heap × heap → bool;
+. ≡ . : heap × heap → refset → bool;
+
+predicates
+footprint : refset × (heap → bool) × heap;
+
+variables
+Prs,Prs0 : refset → bool;
+
+axioms
+
+modify:
+modify(rs)(H0, H1)
+  ↔   (∃ r.   ¬ r ∈ rs ∧ r ≠ null ∧ ¬ r ∈ H0 ∧ H1 = H0 ++ r)
+    ∨ (∃ r,o. ¬ r ∈ rs ∧ r ∈ H0 ∧ H1 = H0[r,o])
+    ∨ (∃ r.   ¬ r ∈ rs ∧ r ∈ H0 ∧ H1 = H0 -- r);
+
+modify+:
+modify*(rs)(H0, H1)
+  ↔ modify(rs) ^* (H0, H1);
+   
+footprint:
+footprint(rs, P, H0)
+  ↔ ∀ H1. modify*(rs)(H0, H1)
+      → P(H0) = P(H1);
+
+agree:
+(H0 ≡ H1)(rs)
+  ↔ ∀ r. r ∈ rs
+         →    (r ∈ H0 ↔ r ∈ H1)
+            ∧ (r ∈ H0 → H0[r] = H1[r]);
+
+end enrich

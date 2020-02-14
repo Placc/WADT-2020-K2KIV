@@ -1,0 +1,45 @@
+: successful
+### No save necessary ###
+### Next replay: cgetput ###
+cgetput: successful
+### No save necessary ###
+### Next replay: cngetput ###
+cngetput: successful
+### No save necessary ###
+### Next replay: ngp ###
+ngp: successful
+### No save necessary ###
+### Next replay: ngp-01 ###
+ngp-01: successful
+### No save necessary ###
+### Next replay: ngp-02 ###
+ngp-02: successful
+### No save necessary ###
+### Next replay: ngp-03 ###
+ngp-03: successful
+### No save necessary ###
+### Next replay: ngp-04 ###
+ngp-04: successful
+### No save necessary ###
+### Next replay: ngp-05 ###
+ngp-05: successful
+### No save necessary ###
+### Next replay: ngp-06 ###
+ngp-06: successful
+### No save necessary ###
+### Next replay: ngp-07 ###
+ngp-07: successful
+### No save necessary ###
+### Next replay: ngp-08 ###
+ngp-08: successful
+### No save necessary ###
+### Next replay: ngp-09 ###
+ngp-09: successful
+### No save necessary ###
+### Next replay: ngp-10 ###
+ngp-10: successful
+### No save necessary ###
+### Next replay: putgetinv ###
+putgetinv: successful
+### Done ###
+### Saving lemmas next ###

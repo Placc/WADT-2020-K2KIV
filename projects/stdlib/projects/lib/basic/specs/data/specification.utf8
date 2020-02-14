@@ -1,0 +1,7 @@
+specification
+
+sorts data;
+
+variables d, d0, d1, d2 : data;
+
+end specification

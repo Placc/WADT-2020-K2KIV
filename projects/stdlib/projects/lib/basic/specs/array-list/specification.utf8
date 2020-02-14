@@ -1,0 +1,42 @@
+enrich array-copy with
+
+constants
+
+[]: array;
+
+functions
+
+. + . : elem × array → array;
+
+
+predicates
+. < . : array × array;
+
+variables
+ar,ar0,ar1,ar2,ar3,ar4,ar5,ar6,ar7,ar8,ar9,ar10: array;
+
+partial functions
+. .first: array → elem with λ ar. ar ≠ [];
+. .rest:  array → array with λ ar. ar ≠ [];
+
+axioms
+
+nil:
+[] = mkarray(0);
+
+cons:
+a + ar
+  = copy(ar, 0, mkarray(# ar + 1), 1, # ar)[0, a];
+  
+first:
+ar.first = ar[0];
+
+rest:
+ar.rest = subarray(ar, 1, # ar - 1);
+
+postfix:
+ar0 < ar1
+  ↔ # ar0 < # ar1
+    ∧ ar0 = subarray(ar1, # ar1 - # ar0, # ar0);
+
+end enrich

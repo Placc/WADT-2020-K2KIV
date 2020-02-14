@@ -1,0 +1,22 @@
+
+;; variables m : nat;
+
+lemmas
+
+prefix-trans: σ ⊑ σ0 ∧ σ0 ⊑ σ1 → σ ⊑ σ1;
+used for: f,lf;
+
+mon-lem: mon(σσ), m ≤ n,  ⌜n⌝ < # σσ ⊦ σσ[m] ⊑ σσ[n];
+
+lim-exists: mon(σσ), σσ ≠ []
+⊦ ∃ σ.  (∀ n. ⌜n⌝ < # σσ → σσ[n] ⊑ σ)
+      ∧ ∀ m. ¬ # σ < ⌜m⌝ → ∃ n. ⌜n⌝ < # σσ ∧ σ to m ⊑ σσ[n];
+
+lim-unique:
+mon(σσ),  σσ ≠ [], ∀ n. (⌜n⌝ < # σσ → σσ[n] ⊑ σ),  ∀ n. (⌜n⌝ < # σσ → σσ[n] ⊑ σ0),
+∀ m. ¬ # σ < ⌜m⌝ → ∃ n. ⌜n⌝ < # σσ ∧ σ to m ⊑ σσ[n], 
+∀ m. ¬ # σ0 < ⌜m⌝ → ∃ n. ⌜n⌝ < # σσ ∧ σ0 to m ⊑ σσ[n]
+⊦ σ = σ0;
+
+;;; END
+

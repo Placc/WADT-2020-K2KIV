@@ -1,0 +1,41 @@
+specification
+
+using
+actualize list-del with pair by morphism
+
+	elem → pair; a → p; b → p0; c → p1; a0 → p2;
+	list → assoclist; x → ax; x0 → ax0; x1 → ax1; 
+	y → ay;  z → az; 
+
+end actualize
+
+functions
+
+       . [ . ] : assoclist × elem × data → assoclist;
+
+predicates
+
+	. ∈ .      : elem × assoclist;
+	unique_al  : assoclist;
+
+partial functions
+       . [ . ] : assoclist × elem → data with λ ax, a. a ∈ ax;
+       . [ . ] : assoclist × data → elem with λ ax, d. (∃ a. (a × d) ∈ ax);
+
+axioms
+assoc-yes  : ((a × d)' + ax)[a] = d; used for : s,ls;
+assoc-no   : a ≠ b → ((b × d)' + ax)[a] = ax[a]; used for : s,ls;
+
+rassoc-yes : ((a × d)' + ax)[d] = a; used for : s,ls;
+rassoc-no  : d ≠ d0 → ((a × d0)' + ax)[d] = ax[d]; used for : s,ls;
+
+inassoc    : a ∈ ax ↔ ∃ d. (a × d) ∈ ax; used for : ls;
+
+put-empty : [][a,d] = (a × d)'; used for : s,ls;
+put-yes   : ((a × d0)' + ax)[a,d] = (a × d)' + ax; used for : s,ls;
+put-no    : a ≠ b → ((b × d0)' + ax)[a,d] = (b × d0)' + ax[a,d]; used for : s,ls;
+
+unique-e : unique_al([]); used for : s,ls,nokodkodax;
+unique-r : unique_al((a × d) + ax) ↔ ¬ a ∈ ax ∧ unique_al(ax); used for : s,ls,nokodkodax;
+
+end specification

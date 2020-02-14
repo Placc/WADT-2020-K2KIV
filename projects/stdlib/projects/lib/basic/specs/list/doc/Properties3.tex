@@ -1,0 +1,426 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide,logicdefs,amssymb}
+
+\parindent0cm
+
+
+\begin{document}
+\raggedright
+              
+Spec theorems: 
+
+
+
+
+
+Simplifier rules: 
+
+
+{\bf Specification nat-basic1:}
+
+less-1: 
+ \Fol \Not n $<$ 0
+
+
+
+split-first
+
+\bigskip
+
+lf-01: 
+ \Fol m $<$ n \And n = \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+split-first
+
+\bigskip
+
+one-01: 
+ \Fol m $<$ 1 \Equiv m = 0
+
+
+
+split-first
+
+\bigskip
+
+f: 
+ \Fol m $<$ n \Imp n $\neq$ 0
+
+
+
+split-rest, split-first, len-03
+
+\bigskip
+
+ref-1: 
+ \Fol \Not n $<$ n
+
+
+
+split-rest, split-first, len-03
+
+\bigskip
+
+{\bf Specification list-data:}
+
+less-02: 
+ \Fol \Var{x}{0} $<$ a + x \Equiv \Var{x}{0} = x \Or \Var{x}{0} $<$ x
+
+
+
+less-append
+
+\bigskip
+
+size-02: 
+ \Fol \#(a + x) = (\# x)+1
+
+
+
+len-05
+
+\bigskip
+
+lf-01: 
+ \Fol \# x = 1 \Equiv x = x.first + []
+
+
+
+onein, len-02
+
+\bigskip
+
+size-01: 
+ \Fol \# [] = 0
+
+
+
+unequal, split-first, len-04, len-01, len
+
+\bigskip
+
+fr-02: 
+ \Fol x $\neq$ [] \Imp x.first + x.rest = x
+
+
+
+fr
+
+\bigskip
+
+elim-1: 
+ \Fol x $\neq$ [] \Imp (a = x.first \And \Var{x}{0} = x.rest \Equiv x = a + \Var{x}{0})
+
+
+
+first-app
+
+\bigskip
+
+l: 
+ \Fol \# x = 0 \Equiv x = []
+
+
+
+unequal, split-first, len-03, len-01, e-04
+
+\bigskip
+
+disj-1: 
+ \Fol [] $\neq$ a + x
+
+
+
+e-01, e
+
+\bigskip
+
+sel-1: 
+ \Fol (a + x).first = a
+
+
+
+len-02, first, c-08
+
+\bigskip
+
+sel-2: 
+ \Fol (a + x).rest = x
+
+
+
+rest, c-07
+
+\bigskip
+
+elim-list-c: 
+x $\neq$ []
+ \Fol a = x.first \And y = x.rest \Equiv x = a + y
+
+
+
+rest-01, onein, len-last-rest, inapp, in-rec, in-09, in-08, in-07, firstrest, firsteq-01, firsteq, first-app, first-02, first-01, c-02
+
+\bigskip
+
+inj-1: 
+ \Fol a + x = \Var{a}{0} + \Var{x}{0} \Equiv a = \Var{a}{0} \And x = \Var{x}{0}
+
+
+
+c-06, c-04, c-03, app-01
+
+\bigskip
+
+f: 
+ \Fol a + x = a + y \Equiv x = y
+
+
+
+len-02, c-03, c, a
+
+\bigskip
+
+{\bf Specification nat:}
+
+ls-03: 
+\Var{n}{0} $\le$ n
+ \Fol n - \Var{n}{0} $\le$ m \Equiv n $\le$ m + \Var{n}{0}
+
+
+
+split-rest
+
+\bigskip
+
+elim-sub: 
+n $\le$ m
+ \Fol \Var{n}{0} = m - n \Equiv m = \Var{n}{0} + n
+
+
+
+split-rest
+
+\bigskip
+
+lez-01: 
+ \Fol m $\le$ 0 \Equiv m = 0
+
+
+
+split-first
+
+\bigskip
+
+pred-03: 
+ \Fol n -1 = n - 1
+
+
+
+split-first
+
+\bigskip
+
+lez: 
+ \Fol 0 $\le$ m
+
+
+
+split-first
+
+\bigskip
+
+leprf: 
+ \Fol m $\le$ m - 1 \Imp m = 0
+
+
+
+split-first
+
+\bigskip
+
+le-one: 
+ \Fol m $\le$ n + 1 \And n $<$ \Var{n}{0} \Imp m $\le$ \Var{n}{0}
+
+
+
+split-first
+
+\bigskip
+
+fle: 
+ \Fol m $<$ n \And n $\le$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+split-rest, split-first
+
+\bigskip
+
+fle-01: 
+ \Fol m $\le$ n \And n $<$ \Var{n}{0} \Imp m $<$ \Var{n}{0}
+
+
+
+split-rest, split-first
+
+\bigskip
+
+lep: 
+ \Fol m $\le$ m + n
+
+
+
+split-rest, split-first
+
+\bigskip
+
+eq-02: 
+n $\le$ m
+ \Fol (m - n) + \Var{n}{0} = \Var{n}{1} \Equiv m + \Var{n}{0} = n + \Var{n}{1}
+
+
+
+split-first
+
+\bigskip
+
+lep-01: 
+ \Fol m + n $\le$ m \Equiv n = 0
+
+
+
+len-04
+
+\bigskip
+
+lep-02: 
+ \Fol m + n $\le$ m + \Var{n}{0} \Equiv n $\le$ \Var{n}{0}
+
+
+
+len-04
+
+\bigskip
+
+le-num-02: 
+\Var{n}{0} $<$ n
+ \Fol m + (* n) $\le$ \Var{m}{0} + (* \Var{n}{0}) \Equiv m + (n - \Var{n}{0}) $\le$ \Var{m}{0}
+
+
+
+len-04
+
+\bigskip
+
+lels-01: 
+ \Fol \Not m $\le$ n \Equiv n $<$ m
+
+
+
+split-rest, split-first, len-04
+
+\bigskip
+
+lels: 
+ \Fol \Not m $<$ n \Equiv n $\le$ m
+
+
+
+split-first, len-04, len-03
+
+\bigskip
+
+{\bf Specification nat-basic2:}
+
+l-02: 
+ \Fol \Not m + n $<$ m
+
+
+
+split-rest, len-03
+
+\bigskip
+
+oz: 
+ \Fol m + 1 $\neq$ 0
+
+
+
+unequal, len-04, len-01
+
+\bigskip
+
+z: 
+ \Fol 0 + m = m
+
+
+
+len-04, len
+
+\bigskip
+
+succ: 
+ \Fol m +1 = m + 1
+
+
+
+unequal, len-05, len
+
+\bigskip
+
+eq-01: 
+ \Fol m + n = m + \Var{n}{0} \Equiv n = \Var{n}{0}
+
+
+
+unequal, split-rest, len-last-rest, len-06, len-05, len-01, len
+
+\bigskip
+
+eq: 
+ \Fol m = m + n \Equiv n = 0
+
+
+
+e-04
+
+\bigskip
+
+z-01: 
+ \Fol m + n = 0 \Equiv m = 0 \And n = 0
+
+
+
+e-04
+
+\bigskip
+
+a: 
+ \Fol (m + \Var{n}{0}) + \Var{n}{1} = m + \Var{n}{0} + \Var{n}{1}
+
+
+
+unequal, split-rest, split-first, len-last-rest, len-06, len-05, len-04, len-03, len-01, len, e-04
+
+\bigskip
+
+c: 
+ \Fol m + n = n + m
+
+
+
+unequal, split-rest, split-first, len-last-rest, len-06, len-05, len-04, len-03, len-01, len, e-04
+
+\bigskip
+
+
+
+
+
+
+\end{document}
+

@@ -1,0 +1,180 @@
+\documentclass[a4paper]{article}
+
+\usepackage{latexsym,a4wide}
+
+% The definition of \ifundefined is exercise 7.7 in the \TeX book
+% \csname <Tokens> \endcsname is essentially \<Tokens>, i.e.
+% some kind of evaluation. However, <Tokens> may contain tex-commands
+% that are evaluated.
+% \relax does nothing. Does this mean that \ifx\csname#1\endcsname
+% is not evaluated when defining \ifundefined ?
+% \expandafter evaluates everything after \ifx and then puts \ifx
+% again in front.
+% \ifndef{x}{y} tests whether x is defined. If yes, \x is carried out
+% (the else part \csname#1\endcsname) otherwise y is the result.
+% \ifdef{x} does \x if defined, nothing otherwise
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\newcommand{\ifndef}[2]{\ifundefined{#1}{#2}\else{\csname#1\endcsname}\fi}
+\newcommand{\ifdef}[1]{\ifndef{#1}{}}
+
+\newenvironment{fma}%
+{\begin{equation}\begin{minipage}{0.85\linewidth}\raggedright}%
+{\end{minipage}\end{equation}}
+
+\newcommand{\udo}{$\langle$}
+\newcommand{\udc}{$\rangle$}
+\newcommand{\ubo}{$[$}
+\newcommand{\ubc}{$]$}
+\newcommand{\mkdia}[1]{\mbox{$\langle$#1$\rangle$}}
+\newcommand{\mkbox}[1]{\mbox{$[$#1$]$}}
+\newcommand{\tildesym}{\raisebox{-4pt}{\bf\~{}}}
+\newcommand{\hatsym}{\mbox{\bf\^{} }}
+
+\newcommand{\Fol}{\mbox{$\vdash\ $}}
+\newcommand{\Not}{\mbox{$\neg\ $}}
+\newcommand{\And}{\mbox{$\wedge\ $}}
+\newcommand{\Or}{\mbox{$\vee\ $}}
+\newcommand{\Imp}{\mbox{$\rightarrow\ $}}
+\newcommand{\Equiv}{\mbox{$\leftrightarrow\ $}}
+\newcommand{\All}{\mbox{$\forall\ $}}
+\newcommand{\Ex}{\mbox{$\exists\ $}}
+
+\newcommand{\tab}[1]{\mbox{$\phantom{\mbox{#1}}$}}
+\newcommand{\tabx}[1]{\hspace*{#1ex}}
+\newcommand{\tabif}{\tab{{\bf if}}}
+\newcommand{\tabbe}{\tab{{\bf be}}}
+\newcommand{\taball}{\mbox{$\phantom{\forall\ }$}}
+\newcommand{\tabex}{\mbox{$\phantom{\exists\ }$}}
+\newcommand{\taba}{\mbox{$\phantom{\wedge\ }$}}
+\newcommand{\tabbo}{\mbox{$\phantom{(}$}}
+\newcommand{\tabe}{\mbox{$\phantom{\leftrightarrow\ }$}}
+\newcommand{\tabi}{\mbox{$\phantom{\rightarrow\ }$}}
+\newcommand{\tabn}{\mbox{$\phantom{\neg\ }$}}
+\newcommand{\tabo}{\mbox{$\phantom{\vee\ }$}}
+\newcommand{\tabf}{\mbox{$\phantom{\vdash\ }$}}
+\newcommand{\tabudo}{\mbox{$\phantom{\langle}$}}
+\newcommand{\tabudc}{\mbox{$\phantom{\langle\ }$}}
+\newcommand{\tabubo}{\mbox{$\phantom{[}$}}
+\newcommand{\tabubc}{\mbox{$\phantom{]\ }$}}
+
+
+\parindent0cm
+\pagestyle{myheadings}
+\markright{one-01}
+
+\begin{document}
+\raggedright
+              
+
+
+
+\begin{minipage}{\textwidth}
+\begin{center}
+\input{one-01-tree}
+\end{center}
+\end{minipage}
+
+\vspace{5ex}
+
+{\Huge one-01}
+
+\vspace{5ex}
+
+ \Fol k $*$ m = 1 \Equiv k = 1 \And m = 1
+
+\begin{itemize}
+\item proofsteps: 2
+\item interactions: 0
+\item automation: 100.0 \%
+\item used lemmas: rsucc-01, zero, one, mult-c, mult-a 
+\item used simplifier rules:
+ \Fol m $\neq$ 1 \Imp (m + n = 1 \Equiv m = 0 \And n = 1)
+
+ \Fol m = m + n \Equiv n = 0
+
+ \Fol m + n = n + m
+
+ \Fol (m + $\mbox{n}_{0}$) + $\mbox{n}_{1}$ = m + $\mbox{n}_{0}$ + $\mbox{n}_{1}$
+
+ \Fol m +1 = m + 1
+
+ \Fol 0 $\neq$ 1
+
+
+
+               \end{itemize}
+
+
+
+\vspace{3ex}\rule{1\textwidth}{1mm}
+
+
+1) simplifier: simplifier \\
+ \Fol k $*$ m = 1 \Equiv k = 1 \And m = 1
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$2) lemma mult-a \\
+ \Fol k $*$ m $*$ n = (k $*$ m) $*$ n
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$3)  (from 1) lemma mult-c \\
+ \Fol m $*$ n = n $*$ m
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$4)  (from 1) lemma one \\
+ \Fol k $*$ 1 = k
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+5)  (from 1) structural induction: structural induction  for k\\
+k $*$ m = 1 \Fol k = 1 \And m = 1
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$6) lemma mult-a \\
+ \Fol k $*$ m $*$ n = (k $*$ m) $*$ n
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$7)  (from 5) lemma mult-c \\
+ \Fol m $*$ n = n $*$ m
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$8)  (from 5) lemma zero \\
+ \Fol 0 $*$ n = 0
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$9)  (from 5) lemma mult-a \\
+ \Fol k $*$ m $*$ n = (k $*$ m) $*$ n
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$10)  (from 5) lemma mult-c \\
+ \Fol m $*$ n = n $*$ m
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$11)  (from 5) lemma one \\
+ \Fol k $*$ 1 = k
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$12)  (from 5) lemma rsucc-01 \\
+ \Fol (m + 1) $*$ n = m $*$ n + n
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+$\bullet$13)  (from 5) lemma zero \\
+ \Fol 0 $*$ n = 0
+
+\vspace{-1.5ex}\_\hrulefill \_
+
+
+
+\end{document}
+

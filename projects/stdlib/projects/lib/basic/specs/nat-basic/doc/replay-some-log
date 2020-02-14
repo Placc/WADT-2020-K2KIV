@@ -1,0 +1,207 @@
+: successful
+### No save necessary ###
+### Next replay: a ###
+a: successful
+### No save necessary ###
+### Next replay: addex ###
+addex: successful
+### No save necessary ###
+### Next replay: between ###
+between: successful
+### No save necessary ###
+### Next replay: c ###
+c: successful
+### No save necessary ###
+### Next replay: eq ###
+eq: successful
+### No save necessary ###
+### Next replay: eq-01 ###
+eq-01: successful
+### No save necessary ###
+### Next replay: eq-inc-neq ###
+eq-inc-neq: successful
+### No save necessary ###
+### Next replay: eqs ###
+eqs: successful
+### No save necessary ###
+### Next replay: even ###
+even: successful
+### No save necessary ###
+### Next replay: even-01 ###
+even-01: successful
+### No save necessary ###
+### Next replay: even-02 ###
+even-01: successful
+### No save necessary ###
+### Next replay: even-04 ###
+even-04: successful
+### No save necessary ###
+### Next replay: even-05 ###
+even-05: successful
+### No save necessary ###
+### Next replay: even-06 ###
+even-06: successful
+### No save necessary ###
+### Next replay: ex-oddeven ###
+ex-oddeven: successful
+### No save necessary ###
+### Next replay: expand-nat ###
+expand-nat: successful
+### No save necessary ###
+### Next replay: k-two ###
+k-two: successful
+### No save necessary ###
+### Next replay: l ###
+l: successful
+### No save necessary ###
+### Next replay: l-01 ###
+l-01: successful
+### No save necessary ###
+### Next replay: l-02 ###
+l-02: successful
+### No save necessary ###
+### Next replay: l-03 ###
+l-03: successful
+### No save necessary ###
+### Next replay: l-04 ###
+l-04: successful
+### No save necessary ###
+### Next replay: l-05 ###
+l-05: successful
+### No save necessary ###
+### Next replay: l-06 ###
+l-06: successful
+### No save necessary ###
+### Next replay: l-07 ###
+l-07: successful
+### No save necessary ###
+### Next replay: l-08 ###
+l-08: successful
+### No save necessary ###
+### Next replay: l-addone ###
+l-addone: successful
+### No save necessary ###
+### Next replay: less ###
+less: successful
+### No save necessary ###
+### Next replay: less-01 ###
+less-01: successful
+### No save necessary ###
+### Next replay: less-02 ###
+less-02: successful
+### No save necessary ###
+### Next replay: less-03 ###
+less-03: successful
+### No save necessary ###
+### Next replay: less-04 ###
+less-04: successful
+### No save necessary ###
+### Next replay: less-05 ###
+less-05: successful
+### No save necessary ###
+### Next replay: less-06 ###
+less-06: successful
+### No save necessary ###
+### Next replay: lp ###
+lp: successful
+### No save necessary ###
+### Next replay: ls ###
+ls: successful
+### No save necessary ###
+### Next replay: lsls ###
+lsls: successful
+### No save necessary ###
+### Next replay: neq ###
+neq: successful
+### No save necessary ###
+### Next replay: neq-01 ###
+neq-01: successful
+### No save necessary ###
+### Next replay: neq-02 ###
+neq-02: successful
+### No save necessary ###
+### Next replay: nls-fst ###
+nls-fst: successful
+### No save necessary ###
+### Next replay: nls-snd ###
+nls-snd: successful
+### No save necessary ###
+### Next replay: one ###
+one: successful
+### No save necessary ###
+### Next replay: one-01 ###
+one-01: successful
+### No save necessary ###
+### Next replay: one-02 ###
+one-02: successful
+### No save necessary ###
+### Next replay: one-03 ###
+one-03: successful
+### No save necessary ###
+### Next replay: one-def ###
+one-def: successful
+### No save necessary ###
+### Next replay: oz ###
+oz: successful
+### No save necessary ###
+### Next replay: pe ###
+pe: successful
+### No save necessary ###
+### Next replay: pe-01 ###
+pe-01: successful
+### No save necessary ###
+### Next replay: pls ###
+pls: successful
+### No save necessary ###
+### Next replay: pred ###
+pred: successful
+### No save necessary ###
+### Next replay: ps ###
+ps: successful
+### No save necessary ###
+### Next replay: pse ###
+pse: successful
+### No save necessary ###
+### Next replay: q ###
+q: successful
+### No save necessary ###
+### Next replay: q-01 ###
+q-01: successful
+### No save necessary ###
+### Next replay: rec ###
+rec: successful
+### No save necessary ###
+### Next replay: s ###
+s: successful
+### No save necessary ###
+### Next replay: succ ###
+succ: successful
+### No save necessary ###
+### Next replay: succ-03 ###
+succ-03: successful
+### No save necessary ###
+### Next replay: three ###
+three: successful
+### No save necessary ###
+### Next replay: two ###
+two: successful
+### No save necessary ###
+### Next replay: two-01 ###
+two-01: successful
+### No save necessary ###
+### Next replay: two-02 ###
+two-02: successful
+### No save necessary ###
+### Next replay: twols ###
+twols: successful
+### No save necessary ###
+### Next replay: z ###
+z: successful
+### No save necessary ###
+### Next replay: z-01 ###
+z-01: successful
+### No save necessary ###
+### Next replay: zero-neq-one ###
+zero-neq-one: successful
+### Done ###
+### Saving lemmas next ###

@@ -1,0 +1,82 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+zero-neq-one
+z-01
+z
+twols
+two-02
+two-01
+two
+three
+succ-03
+succ
+s
+rec
+q-01
+q
+pse
+ps
+pred
+pls
+pe-01
+pe
+oz
+one-def
+one-03
+one-02
+one-01
+one
+nls-snd
+nls-fst
+neq-02
+neq-01
+neq
+lsls
+ls
+lp
+less-06
+less-05
+less-04
+less-03
+less-02
+less-01
+less
+l-addone
+l-08
+l-07
+l-06
+l-05
+l-04
+l-03
+l-02
+l-01
+l
+k-two
+expand-nat
+ex-oddeven
+even-06
+even-05
+even-04
+even-01
+even-01
+even
+eqs
+eq-inc-neq
+eq-01
+eq
+c
+between
+addex
+a
+
+
+*** Failures: ***
+
+

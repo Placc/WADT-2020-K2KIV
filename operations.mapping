@@ -1,0 +1,102 @@
+BOOL.not=not
+BOOL.and=and
+// BOOL.andThen -> null  = Short circuit evaluation cannot be defined as KIV operation for bool?
+BOOL.or=or
+// BOOL.orElse -> null   = Short circuit evaluation cannot be defined as KIV operation for bool?
+BOOL.xor=xor
+BOOL.implies=->
+BOOL.eq==
+BOOL.ne=xor
+      
+INT.add=+
+INT.sub=-
+INT.mul=*
+INT.tdiv=/
+INT.tmod=%
+INT.ediv=ediv
+INT.emod=mod
+INT.pow=^
+INT.shl=<<
+INT.shr=>>
+INT.not=bitwiseNot
+INT.and=bitwiseAnd
+INT.or=bitwiseOr
+INT.xor=bitwiseXor
+INT.min=min
+INT.max=max
+INT.abs=abs
+INT.eq==
+INT.ne=unequal
+INT.gt=>
+INT.ge=≥
+INT.lt=<
+INT.le=≤
+// INT.random -> null   = Random value?
+      
+STRING.concat=+
+STRING.eq==
+STRING.ne=unequal
+STRING.lt=<
+STRING.le=≤
+STRING.gt=>
+STRING.ge=≥
+STRING.length=size
+// STRING.ord -> null  = ordinal of ONLY character; string chars are not ordered?
+// STRING.chr -> null  = inverse of ord...
+STRING.substr=substr
+STRING.find=find
+STRING.rfind=rfind
+STRING.findChar=findChar
+STRING.rfindChar=rfindChar
+// STRING.categoryChar -> null  = unicode 
+// STRING.directionalityChar -> null   = unicode
+STRING.replaceAll=replaceAll
+STRING.replace=replaceN
+STRING.replaceFirst=replaceFirst
+STRING.countAllOccurrences=count
+            
+STRING.string2int=string2Int
+STRING.int2string=int2String
+// STRING.string2float -> null
+// STRING.float2string -> null
+// STRING.floatFormat -> null
+// STRING.token2string -> null
+// STRING.string2token -> null
+// STRING.string2id -> null
+STRING.string2base=string2Base
+STRING.base2string=base2String
+  
+LIST.concat=+
+LIST.unit=[]
+LIST.get=get
+LIST.in=∈
+LIST.size=size
+LIST.range=range
+      
+MAP.concat=⊕
+MAP.unit=∅
+MAP.element=|->
+MAP.lookup=]
+MAP.update=]
+MAP.remove=--
+MAP.difference=difference
+MAP.updateAll=updateAll
+MAP.removeAll=\
+MAP.keys=keys
+MAP.values=values
+MAP.size=size
+MAP.inclusion=⊆
+  
+SET.concat=∪
+SET.unit=∅
+SET.element=}
+SET.intersection=∩
+SET.difference=\
+SET.in=∈
+SET.inclusion=⊆
+SET.size=size
+SET.choice=choice
+
+KEQUAL.eq==
+KEQUAL.ne=unequal
+KEQUAL.ite=:

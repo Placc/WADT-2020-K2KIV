@@ -1,0 +1,33 @@
+specification
+
+using  actualize list-perm with gelem by morphism
+       end actualize
+
+functions
+
+	ins≤  : elem × list → list;
+	merge : list × list → list;
+
+predicates
+
+	ordered≤ : list;
+	ordered< : list;
+
+axioms
+
+le-e : ordered≤([]); used for : s,ls,nokodkodax;
+le-o : ordered≤(a '); used for : s,ls,nokodkodax;
+le-r : ordered≤(a ' + b ' + x) ↔ ¬ b < a ∧ ordered≤(b + x); used for : s,ls,nokodkodax;
+
+ls-e : ordered<([]); used for : s,ls,nokodkodax;
+ls-o : ordered<(a '); used for : s,ls,nokodkodax;
+ls-r : ordered<(a ' + b ' + x) ↔ a < b ∧ ordered<(b + x); used for : s,ls,nokodkodax;
+
+ins-e : ins≤(a,[]) = a '; used for : s,ls;
+ins-y : ¬ b < a → ins≤(a, b ' + x) = a + b + x; used for : s,ls;
+ins-n :   b < a → ins≤(a, b ' + x) = b + ins≤(a, x); used for : s,ls,lc;
+
+merge-empty: merge([], x) = x; used for:s,ls;
+merge-rec: merge(a ' + x0, x) = ins≤(a, merge(x0,x)); used for:s,ls;
+
+end specification

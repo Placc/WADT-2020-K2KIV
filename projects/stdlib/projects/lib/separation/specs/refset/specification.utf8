@@ -1,0 +1,14 @@
+actualize set-union with gref by morphism
+
+set → refset;
+s  → rs;
+s0 → rs0;
+s1 → rs1;
+s2 → rs2;
+
+elem → ref;
+a → r;
+b → r0;
+c → r1;
+
+end actualize

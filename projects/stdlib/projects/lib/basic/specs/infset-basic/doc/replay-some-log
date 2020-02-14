@@ -1,0 +1,66 @@
+: successful
+### No save necessary ###
+### Next replay: add-01 ###
+add-01: successful
+### No save necessary ###
+### Next replay: addthree ###
+addthree: successful
+### No save necessary ###
+### Next replay: addtwo ###
+addtwo: successful
+### No save necessary ###
+### Next replay: eq-01 ###
+eq-01: successful
+### No save necessary ###
+### Next replay: eq-02 ###
+eq-02: successful
+### No save necessary ###
+### Next replay: eq-03 ###
+eq-03: successful
+### No save necessary ###
+### Next replay: eq-04 ###
+eq-04: successful
+### No save necessary ###
+### Next replay: eqtwo ###
+eqtwo: successful
+### No save necessary ###
+### Next replay: eqtwo-01 ###
+eqtwo-01: successful
+### No save necessary ###
+### Next replay: in-05 ###
+in-05: successful
+### No save necessary ###
+### Next replay: ne ###
+ne: successful
+### No save necessary ###
+### Next replay: sub-add ###
+sub-add: successful
+### No save necessary ###
+### Next replay: sub-add-01 ###
+sub-add-01: successful
+### No save necessary ###
+### Next replay: sub-add-02 ###
+sub-add-02: successful
+### No save necessary ###
+### Next replay: sub-add-03 ###
+sub-add-03: successful
+### No save necessary ###
+### Next replay: sub-add-04 ###
+sub-add-04: successful
+### No save necessary ###
+### Next replay: sub-insert ###
+sub-insert: successful
+### No save necessary ###
+### Next replay: subset ###
+subset: successful
+### No save necessary ###
+### Next replay: subset-ins ###
+subset-ins: successful
+### No save necessary ###
+### Next replay: sw-01 ###
+sw-01: successful
+### No save necessary ###
+### Next replay: two ###
+two: successful
+### Done ###
+### Saving lemmas next ###

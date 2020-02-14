@@ -1,0 +1,7 @@
+specification
+
+sorts ref;
+constants null : ref;
+variables r,r0,r1 : ref;
+
+end specification

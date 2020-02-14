@@ -1,0 +1,10 @@
+generic data specification
+    parameter elem
+    using ref
+
+cell := . × .(. .val : elem; . .nxt : ref) prio 12;
+
+variables
+ce, ce0, ce1 : cell;
+
+end generic data specification

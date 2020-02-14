@@ -1,0 +1,25 @@
+(: must be identical to nat-minus in system/basicrules! :)
+
+enrich nat-basic with
+
+predicates 
+
+	. ≤ . : nat × nat;
+	. > . : nat × nat;
+	. ≥ . : nat × nat;
+
+
+partial functions
+
+	. - . : nat × nat → nat prio 8 left with λ n, m. n ≥ m;
+
+axioms
+
+	sub-base: m - 0 = m;
+	sub-rec: m - n +1 = (m - n) -1;
+
+	le-def: m ≤ n ↔ ¬ n < m;
+	gr-def: m > n ↔   n < m;
+	ge-def: m ≥ n ↔ ¬ m < n;
+
+end enrich

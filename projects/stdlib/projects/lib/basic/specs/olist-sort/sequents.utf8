@@ -1,0 +1,103 @@
+lemmas
+
+sort-append-three    :  ⊦ sort(x + x0 + x1) = sort(x0 + x + x1) ;
+;;; END
+;;; END
+ordered-perm-sort    :  ⊦ ordered≤(x) ∧ perm(x, x0) → sort(x0) = x ;
+;;;END
+combine-ordered-sublists : ⊦ 
+                         ordered≤(x1) ∧ (x0 ≠ [] ∧ x1 ≠ [] → ¬ x1 .first < sort(x0) .last)
+                       → sort(x0) + x1 = sort(x0 + x1) ;
+;;; END
+sort-append:
+sort(x + y) = sort(y + x);
+;;; END
+
+perm-01 :  ⊦ perm(ins≤(a, sort(x)), y) ↔ perm(a ' + x, y) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+rec     :  ⊦ sort(a ' + x) = ins≤(a, sort(x)) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+
+ins     :  ⊦ sort(ins≤(a, x)) = ins≤(a, sort(x)) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+ins-01  :  ⊦ sort(ins≤(a, x) + y) = ins≤(a, sort(x + y)) ;
+  used for : s, ls ;
+  remarks : proved ;
+ins-02  :  ⊦ ordered≤(x + (a ' + y)) → ins≤(a, sort(x + y)) = x + (a ' + y) ;
+  used for : s, ls ;
+  remarks : proved ;
+insdel  :  ⊦ ins≤(a, sort(x)) = y → sort(x) = y -1l a ;
+  remarks : proved ;
+ole     :  ⊦ ordered≤(x + (a ' + y)) → sort(x + ins≤(a, y)) = x + (a ' + y) ;
+  used for : s, ls ;
+  remarks : proved ;
+appins  :  ⊦ sort(x + ins≤(a, y)) = ins≤(a, sort(x + y)) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+;;; END
+del1    :  ⊦ sort(x -1l a) = sort(x) -1l a ;
+  used for : s, ls ;
+  remarks : proved ;
+empty   :  ⊦ sort([]) = [] ;
+  used for : s, ls ;
+  remarks : proved, used ;
+emptyp  :  ⊦ sort(x) = [] ↔ x = [] ;
+  used for : s, ls ;
+  remarks : proved ;
+eq      :  ⊦ ordered≤(x) → sort(x) = x ;
+  used for : s, ls ;
+  remarks : proved ;
+in      :  ⊦ a ∈ sort(x) ↔ a ∈ x ;
+  used for : s, ls ;
+  remarks : proved ;
+one     :  ⊦ sort(a ') = a ' ;
+  used for : s, ls ;
+  remarks : proved, used ;
+perm    :  ⊦ perm(sort(x), y) ↔ perm(x, y) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+size    :  ⊦ # sort(x) = # x ;
+  used for : s, ls ;
+  remarks : proved, used, invalid ;
+size-01 :  ⊦ # sort(a ' + x) = # x + 1 ;
+  used for : s, ls ;
+  remarks : proved, invalid ;
+sort    :  ⊦ sort(sort(x)) = sort(x) ;
+  used for : s, ls ;
+  remarks : proved, used ;
+sort-01 :  ⊦ sort(sort(x) + y) = sort(x + y) ;
+  used for : s, ls ;
+  remarks : proved ;
+sort-02 :  ⊦ sort(x + sort(y)) = sort(x + y) ;
+  used for : s, ls ;
+  remarks : proved ;
+sperm   :  ⊦ sort(x) = sort(y) ↔ perm(x, y) ;
+  remarks : proved, used ;
+two     :  ⊦ b < a → sort(a ' + b ') = b ' + a ' ;
+  used for : s, ls ;
+  remarks : proved ;
+two-01  :  ⊦ ¬ b < a → sort(a ' + b ') = a ' + b ' ;
+  used for : s, ls ;
+  remarks : proved ;
+
+
+
+
+exit
+
+;;; AXIOMS
+
+%lemmas
+
+Ordered :  ⊦ ordered≤(sort(x)) ;
+  used for : s, ls ;
+  remarks : used ;
+Perm    :  ⊦ perm(x, sort(x)) ;
+  remarks : used ;
+
+
+
+

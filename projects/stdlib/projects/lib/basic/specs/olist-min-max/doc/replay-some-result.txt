@@ -1,0 +1,29 @@
+Info about success of replay complete proofs:
+(Note: !!! means that the replay was successfull,
+but used significantly fewer proof steps. This 
+may be ok, but may also be the result of some 
+undesired effect. Therefore the new proof is 
+discarded so that you still have the old proof.
+
+*** Successful replayed: ***
+
+sort-max-max-list
+sort-max-last
+min-com
+max-sort-sublist
+max-ordered
+max-ins-max-last
+max-ins-max
+max-ins
+max-in-01
+max-ge-every
+max-ge
+max-com-01
+max-com
+max-append
+ins-max
+
+
+*** Failures: ***
+
+

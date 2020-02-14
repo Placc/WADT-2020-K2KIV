@@ -1,0 +1,31 @@
+(: must be identical to int-abs in system/basicrules! :)
+
+enrich int-basic2 with
+
+functions
+
+	. - . : int × int → int prio 8 left;
+	  ~ . : int → int;
+	  abs : int → int;
+
+predicates 
+
+	. ≤ . : int × int;
+	. > . : int × int;
+	. ≥ . : int × int;
+
+axioms
+
+Sub-def   : i + (j - i) = j; used for : s,ls;
+
+Minus-def : ~ i = 0 - i; used for : ls;
+
+Abs-neg   :   j < 0 → abs(j) = 0 - j; used for : ls, lc;
+Abs-pos   : ¬ j < 0 → abs(j) = j; used for : s,ls;
+
+	le-def: i ≤ j ↔ ¬ j < i;
+	gr-def: i > j ↔   j < i;
+	ge-def: i ≥ j ↔ ¬ i < j;
+
+end enrich
+

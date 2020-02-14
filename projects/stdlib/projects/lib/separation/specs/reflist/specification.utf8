@@ -1,0 +1,17 @@
+actualize list-last with gref by morphism
+
+list → reflist;
+elem → ref;
+
+a → r;
+b → r0;
+c → r1;
+a0 → r2;
+
+x  → rx ;
+x0 → rx0;
+x1 → rx1;
+y  → ry ;
+z  → rz ;
+
+end actualize

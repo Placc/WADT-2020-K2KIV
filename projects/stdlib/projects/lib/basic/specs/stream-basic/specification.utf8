@@ -1,0 +1,13 @@
+data specification
+
+       
+       using nat, list-del
+data types
+
+stream = ⌜ . ⌝ ( . .l : list) with finp
+       | ⌜ . ⌝ ( . .f : nat → elem);
+
+variables σ : stream;
+          nf : nat → elem;
+
+end data specification

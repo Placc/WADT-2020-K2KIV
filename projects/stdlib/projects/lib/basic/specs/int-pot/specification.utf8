@@ -1,0 +1,19 @@
+enrich int-square, intnat, int-min with
+
+comment: i ^ j means i raised to the j-th power. 
+Note: 0 ^ 0 = 1, 0 ^ j = 0 for positive j, 0 ^ j undefined for negative j
+(since i ^ -j = 1 / i ^ j). This also means that i ^ -j = 0 in most cases.
+-i ^ j is positive if j is even, negative otherwise.
+;
+
+partial functions
+
+         . ^ . : int × int → int prio 12 right with λ i, j. i = 0 → j ≥ 0;
+
+axioms
+
+Pot-zero  : j ^ 0 = 1; used for : s,ls;
+Pot-pos   : 0 < i → j ^ i = (j ^ (i -1)) * j; used for : ls;
+Pot-neg   : i < 0 → j ^ i = 1 / (j ^ abs(i)); used for : ls;
+
+end enrich

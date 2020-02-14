@@ -1,0 +1,4 @@
+simplifier:
+    simp delete dist-merge
+;;    simp add dist-split
+

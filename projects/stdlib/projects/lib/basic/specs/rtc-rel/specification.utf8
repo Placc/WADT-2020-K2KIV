@@ -1,0 +1,32 @@
+enrich nat , elem-rel with
+
+predicates 
+p*  : elem × elem;
+p+  : elem × elem;
+rtc : nat × elem × elem;
+inv : elem × (elem → bool);
+
+variables
+Pelem : elem → bool;
+
+axioms 
+rtc:
+p*(a, b) ↔ (∃ n. rtc(n, a, b));
+
+rtc+:
+p+(a, b) ↔ (∃ n. n ≠ 0 ∧ rtc(n, a, b));
+
+rtc-base:
+rtc(0, a, b) ↔ a = b;
+used for: ls;
+
+rtc-rec:
+rtc(n + 1, a, b) ↔ (∃ c. p(a, c) ∧ rtc(n, c, b));
+used for: ls;
+
+inv:
+inv(a, Pelem)
+  ↔ ∀ b. p*(a, b) → Pelem(b);
+
+end enrich
+

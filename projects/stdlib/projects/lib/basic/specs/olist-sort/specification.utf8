@@ -1,0 +1,12 @@
+enrich olist with
+
+functions
+
+	sort : list → list;
+
+axioms
+
+Ordered : ordered≤(sort(x)); used for : kodkodaxstrong;
+Perm    : perm(x,sort(x)); used for : kodkodaxstrong;
+
+end enrich

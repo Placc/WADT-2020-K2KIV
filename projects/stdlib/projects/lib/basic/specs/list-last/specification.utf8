@@ -1,0 +1,51 @@
+enrich list-dup with
+
+functions
+
+        rev        : list → list;
+        mklist     : elem × nat → list; comment: mklist(a, n), return list with n times a.;
+	 fillfirst  : nat × elem × list → list;
+
+predicates 
+
+	. ⊑ .    : list × list; comment: x ⊑ y = x is prefix of y;
+	. ⊒ .    : list × list; comment: x ⊒ y = x is postfix of y;
+
+partial functions
+        . .last    : list → elem with λ x. x ≠ [];
+        . .butlast : list → list with λ x. x ≠ [];
+	 butlastn   : nat × list → list with λ n, x. n ≤ # x; comment: return list except last n elements;
+
+
+axioms
+
+butlast-one: a ' .butlast = []; used for: s,ls;  ;; was lemma b
+last-one: a ' .last = a; used for: s,ls; ;; was lemma l
+butlast-rec: (a ' + b ' + x).butlast = a ' + (b ' + x).butlast; used for: s,ls; ;; was lemma btwo
+last-rec:  (b ' + a ' + x).last = (a ' + x).last; used for: s,ls; ;; was lemma l-05
+
+
+;;;last : x ≠ [] → x.butlast + x.last = x; used for : kodkodaxstrong;
+
+rev-e : rev([]) = []; used for : s,ls;
+rev-r : rev(a ' + x) = rev(x) + a; used for : s,ls;
+
+mk-zero: mklist(a, 0) = []; used for : s,ls;
+mk-succ: mklist(a, n + 1) = a ' + mklist(a, n);
+;; not used as simprule since often we want to unwind at the end
+
+(: jetzt lemmas
+mk-len  : # mklist(a,n) = n; used for : s,ls,nokodkodax;
+mk-elem : a ∈ mklist(b,n) → a = b; used for : f,lf,nokodkodax;
+:)
+
+butlastN-base : butlastn(0, x) = x; used for : s,ls;
+butlastN-rec  : butlastn(n + 1, x) = butlastn(n, x.butlast); used for : s,ls;
+
+fillfirst-longer : n ≤ # x → fillfirst(n, a, x) = x; used for : s,ls;
+fillfirst-fill   : # x < n → fillfirst(n, a, x) = mklist(a, n - # x) + x;
+
+prefix  : x ⊑ y ↔ ∃ z. x + z = y; used for : ls;
+postfix : x ⊒ y ↔ ∃ z. z + x = y; used for : ls;
+
+end enrich

@@ -1,0 +1,30 @@
+;; file: /quadly/swt/kiv/v6/projects/lib/basic/specs/store+set/specification
+enrich store, set-union with
+
+
+functions . \ . : store × set → store;
+          . | . : store × set → store;
+          dom .   : store → set;
+          . ⊕ . : store × store → store;
+
+predicates
+         . ∈ . : data  × store;
+
+axioms
+
+Dom : a ∈ dom st ↔ a ∈ st; used for: s,ls;
+
+
+Diff-base: st \ ∅ = st;
+used for:s,ls;
+Diff-rec: st \ (s ++ a) = (st \ s) -- a ;
+used for:ls;
+Data-in : d ∈ st ↔ ∃ a. a ∈ st ∧ st[a] = d;
+used for:ls;
+restrict: st | s = st \ (dom st \ s);
+used for:ls;
+oplus-l-in: a ∈ st0 ⊕ st1 ↔ a ∈ st0 ∨ a ∈ st1; used for : s,ls;
+oplus-l-at-left: a ∈ st0 → (st0 ⊕ st1)[a] = st0[a]; used for : s,ls;
+oplus-l-at-right: ¬ a ∈ st0 ∧ a ∈ st1 → (st0 ⊕ st1)[a] = st1[a]; used for : s,ls;
+
+end enrich

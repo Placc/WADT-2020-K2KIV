@@ -1,0 +1,15 @@
+: successful
+### No save necessary ###
+### Next replay: k-lsrec ###
+k-lsrec: successful
+### No save necessary ###
+### Next replay: ls-rec ###
+ls-rec: successful
+### No save necessary ###
+### Next replay: ls-zero ###
+ls-zero: failed
+### No save necessary ###
+### Next replay: num-ls-rec ###
+num-ls-rec: successful
+### Done ###
+### Saving lemmas next ###

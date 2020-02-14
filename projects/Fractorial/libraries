@@ -1,0 +1,14 @@
+kint           spec     lib-k2kiv
+int-pot        spec     lib-basic
+int-min        spec     lib-basic
+intnat         spec     lib-basic
+nat-div        spec     lib-basic
+nat-mult       spec     lib-basic
+nat            spec     lib-basic
+nat-basic      spec     lib-basic
+int-square     spec     lib-basic
+int-div        spec     lib-basic
+int-mult       spec     lib-basic
+int-abs        spec     lib-basic
+int-basic2     spec     lib-basic
+int-basic1     spec     lib-basic

@@ -1,0 +1,23 @@
+specification
+
+using
+actualize store with gelem by morphism
+end actualize, oset 
+
+functions 
+
+      
+      . .keys   : store → set;
+      
+partial functions
+      . .min    : store → elem with λ st. st ≠ ∅;
+      . .butmin : store → store with λ st. st ≠ ∅;
+
+axioms
+
+Min-in  : st ≠ ∅ → st.min ∈ st;     used for : lf,kodkodaxstrong;
+Min-min : a ∈ st → ¬ a < st.min;    used for : lf,kodkodaxstrong;
+Butmin  : st.butmin = st -- st.min; used for : ls;
+Keys    : a ∈ st.keys ↔ a ∈ st;     used for : ls,nokodkodax;
+
+end specification

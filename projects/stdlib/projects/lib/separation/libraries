@@ -1,0 +1,13 @@
+nat-basic     spec     lib-pbasic-new
+rtc           spec     lib-pbasic-new
+nat           spec     lib-pbasic-new
+elem          spec     lib-pbasic-new
+set-basic     spec     lib-pbasic-new
+set-union     spec     lib-pbasic-new
+list-data     spec     lib-pbasic-new
+list          spec     lib-pbasic-new
+data          spec     lib-pbasic-new
+elemdata      spec     lib-pbasic-new
+store         spec     lib-pbasic-new
+list-dup      spec     lib-pbasic-new
+list-last     spec     lib-pbasic-new

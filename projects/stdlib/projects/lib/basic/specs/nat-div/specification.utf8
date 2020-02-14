@@ -1,0 +1,15 @@
+
+enrich nat-mult with
+
+partial functions
+
+	. / . : nat × nat → nat prio 11 with λ n, m. m ≠ 0;
+	. % . : nat × nat → nat prio 11 with λ n, m. m ≠ 0;
+
+axioms
+
+Divdef : n ≠ 0 → (m / n) * n ≤ m ∧ m < (m / n) +1 * n; used for : nokodkodax;
+
+Moddef : n ≠ 0 → m = (m / n) * n + (m % n); used for : nokodkodax;
+
+end enrich

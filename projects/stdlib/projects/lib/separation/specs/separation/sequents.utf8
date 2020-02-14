@@ -1,0 +1,137 @@
+lemmas
+
+collapse-assigns:
+r ∈ H0 ∧ H2 ≡ H1[r, o2]
+ → (H1 ≡ H0[r, o0] ↔ H1 = H0[r, o0]);
+used for: s;
+
+assign-wp:
+H1 ≡ H0[r,o] ∧ r ∈ H0
+⊦ P(H1) ↔ (((r => o) -* P) * r =>_)(H0);
+
+(:
+assign-sp:
+H1 ≡ H0[r,o] ∧ r ∈ H0
+⊦ ¬ P(H0) ↔ ¬ (((r =>_) -⊗ P) * r => o)(H1);
+:)
+
+eq-at:
+r ∈ H0 ∨ r ∈ H1
+⊦ (H0 ≡ H1 ↔ H0 ≡ H1 ∧ H0[r] = H1[r] ∧ r ∈ H0 ∧ r ∈ H1);
+
+eq-same:
+H ≡ H;
+used for: s;
+
+eq-other:
+H0 ≠ H1 → ¬ H0 ≡ H1;
+used for: s;
+
+eq-cong-injl:
+H1 ≡ H0 → (H2 ≡ H0 ↔ H1 = H2);
+used for: s;
+
+eq-cong-injr:
+H0 ≡ H1 → (H0 ≡ H2 ↔ H1 = H2);
+used for: s;
+
+alloc:
+r ≠ null, ¬ r ∈ H0
+⊦ H1 ≡ H0 ++ r
+    → ((P0 * P1)(H0) ↔ (r =>_ * P0 * P1)(H1));
+used for: s;
+;; TODO: remove P0
+
+alloc-rw:
+H1 ≡ H0 ++ r ∧ ¬ r ∈ H0 ∧ P(H0)
+  → (r = null ↔ ¬ (r =>_ * P)(H1));
+used for: ss,lss;
+
+assign-known:
+H1 ≡ H0[r, o1]
+  → ((r => o0 * P)(H0)
+      ↔ (r => o1 * P)(H1) ∧ H0[r] = o0 ∧ r ∈ H0);
+used for: s;
+
+assign-unknown:
+H1 ≡ H0[r, o1]
+  → ((r =>_ * P)(H0)
+      ↔ (r => o1 * P)(H1) ∧ r ∈ H0);
+used for: s;
+
+free-known:
+H1 ≡ H0 -- r
+  → ((r => o * P)(H0)
+      ↔ P(H1) ∧ H0[r] = o ∧ r ∈ H0);
+used for: s;
+
+free-unknown:
+H1 ≡ H0 -- r
+  → ((r =>_ * P)(H0)
+      ↔ P(H1) ∧ r ∈ H0);
+used for: s;
+
+assign-new-other:
+H1 ≡ H0[r, o] ∧ ¬ r0 ∈ H0 ∧ r ∈ H0
+  → ¬ r0 ∈ H1;
+used for: f,lf;
+
+;;; END
+
+(: *** obsolete *** :)
+
+hide-alloc:
+P(H0)
+    → (¬ ¬ H1 = H0 ++ r
+        ↔ True(H1 = H0 ++ r));
+used for: s;
+
+hide-assign:
+(r => o0 * P)(H0)
+    → (¬ ¬ H1 = H0[r, o1]
+        ↔ True(H1 = H0[r, o1]));
+used for: s;
+
+hide-free:
+(r => o * P)(H0)
+    → (¬ ¬ H1 = H0 -- r
+        ↔ True(H1 = H0 -- r));
+used for: s;
+
+exec-alloc0:
+r ≠ null, ¬ r ∈ H0
+⊦ True(H1 = H0 ++ r)
+    → ((P0 * P1)(H0) ↔ (r =>_ * P0 * P1)(H1));
+used for: s;
+;; TODO: remove P0
+
+exec-assign0:
+True(H1 = H0[r, o1])
+  → ((r => o0 * P)(H0)
+      ↔ (r => o1 * P)(H1) ∧ True(H0[r] = o0) ∧ r ∈ H0);
+used for: s;
+
+exec-free0:
+True(H1 = H0 -- r)
+  → ((r => o * P)(H0)
+      ↔ P(H1) ∧ True(H0[r] = o ∧ r ∈ H0));
+used for: s;
+
+(: "weakest precondition" execution with magic wand, see
+   BI as an assertion language for mutable datastructures
+exec-assign-wp:
+True(H1 = H0[r, o1]) ∧ r ∈ H0
+  → (P(H1) ↔ (r =>_ * (r => o1 -* P))(H0));
+
+exec-assign-sp:
+True(H1 = H0[r, o1]) ∧ r ∈ H0
+  → (P(H0) ↔ ∃ o0. (r => o1 * (r => o0 -* P))(H1) ∧ True(H0[r] = o0));
+
+clean-sp:
+True(H0[r] = o0)
+  → ((r => o1 * (r => o0 -* (r => o0 * P)))(H1) 
+      ↔ (r => o1 * P)(H1));
+:)
+
+True-true:    True(true);  used for: s,ls;
+True-false: ¬ True(false); used for: s,ls;

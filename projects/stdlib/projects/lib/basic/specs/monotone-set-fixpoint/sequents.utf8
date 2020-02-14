@@ -1,0 +1,37 @@
+
+;; variables m : nat;
+
+lemmas
+prefixpoint-aux2:  monotone(f),  ∀ S. f(S) ⊆ S → S0 ⊆ S ⊦ S0 ⊆ μ(f);
+mu-is-IS: monotone(f) → μ(f) = IS(λ S. f(S) ⊆ S);
+nu-is-UN: monotone(f) → ν(f) = UN(λ S. S ⊆ f(S));
+;;; END
+
+prefixpoint-aux-nu: monotone(f), S ⊆ f(S) ⊦ S ⊆ ν(f);
+
+compl-monotone: monotone(f) → (¬ monotone(compl(f)) ↔ false);
+
+fixpoint-nu: monotone(f) ⊦ f(ν(f)) = ν(f);
+
+
+subset-trans: S ⊆ S0 ∧ S0 ⊆ S1 → S ⊆ S1; used for: f,lf;
+
+subset-refl: S ⊆ S; used for: s,ls;
+eq-bothsubset: S = S0 ↔ S ⊆ S0 ∧ S0 ⊆ S;
+
+prefixpoint-aux: monotone(f), f(S) ⊆ S ⊦ μ(f) ⊆ S;
+
+
+
+prefixpoint: monotone(f) ⊦ f(μ(f)) ⊆ μ(f);
+
+prefixpoint-rev: monotone(f) ⊦ μ(f) ⊆ f(μ(f));
+
+fixpoint: monotone(f) ⊦ f(μ(f)) = μ(f);
+
+least-fixpoint: monotone(f), f(S) = S ⊦ μ(f) ⊆ S; 
+
+
+
+;;; END
+
