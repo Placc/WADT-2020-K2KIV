@@ -2,6 +2,7 @@
 
 To run KIV conveniently, double-click on "start.bat" (on Windows) or "start.sh" (on UNIX).
 
+IMPORTANT: You need to have Java Version 8 installed (https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
 
 1. Create a new Project: 
    - Select "Projects" > "Create"
