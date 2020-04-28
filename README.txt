@@ -24,8 +24,8 @@ IMPORTANT: You need to have Java Version 8 installed (https://www.oracle.com/jav
 
 4. Import source code of an iterative variant of factorial (which needs an additional spec containing a KIV-defined factorial definition): 
    - Select "Project" > "Import"
-   - Select "Fractorial (normal)" as project
-   - Select fractorial in the tree and click "OK"
+   - Select "Factorial (normal)" as project
+   - Select factorial in the tree and click "OK"
    - Select "K2KIV" > "Import Source Code"
    - Select "IMP" as language specification
    - Select "fractorial" further specifications

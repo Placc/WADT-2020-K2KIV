@@ -1,0 +1,18 @@
+@$KivLemma("correctness"): @$initialConfig(@$this(@$KivInt("X"))) 
+  => @$exists(@$KivInt("F") . 
+    ´<k> .K </k><state>... f |-> @$KivInt("F") ...</state>´
+     @$and @$KivInt("F") ==K @$KivFunc("factorial" <- (@$KivInt("X")))) 
+  @$requires 0 <=Int @$KivInt("X") 
+
+x = @$KivInt("X")
+f = 1
+
+@$KivInvariant: @$exists(@$KivInt("J") . @$exists(@$KivInt("K") . 
+	´<state>... f |-> @$KivInt("J") x |-> @$KivInt("K") ...</state>´
+	@$and 0 <=Int @$KivInt("K") @$and 0 <Int @$KivInt("J")
+	@$and @$KivFunc("factorial" <- @$KivInt("X")) ==Int (@$KivInt("J") *Int @$KivFunc("factorial" <- @$KivInt("K")))))
+
+(while (x) {
+	f*=x
+	x--
+})
