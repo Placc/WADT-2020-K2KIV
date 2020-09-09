@@ -1,0 +1,3 @@
+@$KivLemma("acceptance1"): ´<threads> <k> @$this </k> </threads> <word> c :: a :: b :: b :: c :: c :: @nil </word>´ => ´<threads> .Bag </threads> <word> @nil </word> <accept> true </accept>´
+
+c . ( a . c + @fork ( b * ) ) * . c
