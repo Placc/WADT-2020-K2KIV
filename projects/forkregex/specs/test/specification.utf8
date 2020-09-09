@@ -1,0 +1,32 @@
+enrich
+   FORKREGEX
+with
+   
+
+   
+   constants  test : K;
+   
+   
+   
+   
+   
+   
+
+   
+
+   axioms test-def
+          : ⊦   test
+              = ´RX__._´
+                (´RX__._´
+                 (Letter_c, 
+                  RX__*
+                  (RX__+_
+                   (´RX__._´(Letter_a, Letter_c), 
+                    RX_@fork_(RX__*(Letter_b))))), 
+                 Letter_c);
+          used for: s, ls;
+
+   
+
+   
+end enrich

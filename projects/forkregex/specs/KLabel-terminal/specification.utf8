@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   klabel = KLabel(. .KLabel_string : string)
+          ;
+
+   variables  klabelVar : klabel;
+
+   
+
+   
+end data specification

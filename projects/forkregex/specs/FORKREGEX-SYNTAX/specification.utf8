@@ -1,0 +1,27 @@
+enrich
+   ksequence, 
+   kbag, 
+   FORKREGEX-SYNTAX-PREDICATES, 
+   klist, 
+   kset, 
+   kmap
+with
+   
+
+   
+   
+   
+   
+   
+   
+   
+   
+
+   
+
+   
+
+   
+
+   
+end enrich

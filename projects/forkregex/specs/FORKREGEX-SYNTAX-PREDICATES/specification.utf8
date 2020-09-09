@@ -1,0 +1,242 @@
+enrich
+   FORKREGEX-SYNTAX-BASE
+with
+   
+
+   
+   
+   
+   predicates  isString : K;
+               is#RuleTag : K;
+               is#CellProperties : K;
+               isId : K;
+               isKList : K;
+               isStrategy : K;
+               isWord : K;
+               isStrategyApplied : K;
+               isList : K;
+               isCell : K;
+               isRuleContent : K;
+               is#CellProperty : K;
+               isStrategyApply : K;
+               is#CellName : K;
+               isSet : K;
+               isFloat : K;
+               is#OptionalDots : K;
+               isKConfigVar : K;
+               isRX : K;
+               isMap : K;
+               isKSequence : K;
+               isHole : K;
+               is#KVariable : K;
+               isInt : K;
+               isKItem : K;
+               isLetter : K;
+               isK : K;
+               isIOError : K;
+               isKString : K;
+               isKLabel : K;
+               isKBott : K;
+               isBool : K;
+               isBag : K;
+               isStream : K;
+               isMInt : K;
+   
+   
+   
+   
+
+   
+
+   axioms isBag-def
+          : ⊦   isBag(k0)
+              ↔   (  (  (isCell(k0) ∨ is_Bag_#cells_(k0))
+                      ∨ is_Bag_#cells_BagxBag(k0))
+                   ∨ isKBott(k0))
+                ∨ isCast_kbag(k0);
+          used for: s, ls;
+          isBool-def
+          : ⊦   isBool(k0)
+              ↔   (  (  (  (  (  (  (  is_Bool_true(k0)
+                                     ∨ is_Bool_isInfinite(k0))
+                                  ∨ is_Bool_soverflowMInt(k0))
+                               ∨ isCast_bool(k0))
+                            ∨ is_Bool_uoverflowMInt(k0))
+                         ∨ is_Bool_overflowMInt(k0))
+                      ∨ is_Bool__=/=Float_(k0))
+                   ∨ is_Bool_false(k0))
+                ∨ is_Bool__dividesInt_(k0);
+          used for: s, ls;
+          isCell-def
+          : ⊦   isCell(k0)
+              ↔ is_Cell_#externalCell(k0) ∨ is_Cell_#configCell(k0);
+          used for: s, ls;
+          isCellName-def :  ⊦ is#CellName(k0) ↔ isCast_#cellname(k0);
+          used for: s, ls;
+          isCellProperties-def
+          : ⊦   is#CellProperties(k0)
+              ↔   is_#CellProperties_#cellPropertyList(k0)
+                ∨ is_#CellProperties_#cellPropertyListTerminator(k0);
+          used for: s, ls;
+          isCellProperty-def
+          : ⊦ is#CellProperty(k0) ↔ is_#CellProperty_#cellProperty(k0);
+          used for: s, ls;
+          isFloat-def
+          : ⊦   isFloat(k0)
+              ↔   (  (is_Float_minusInfinity(k0) ∨ is_Float_fpNaN(k0))
+                   ∨ is_Float_plusInfinity(k0))
+                ∨ is_Float_sqrtFloat(k0);
+          used for: s, ls;
+          isHole-def
+          : ⊦   isHole(k0)
+              ↔ is_Hole_#SHOLE(k0) ∨ ´is_Hole_#FROZEN(_)´(k0);
+          used for: s, ls;
+          isIOError-def
+          : ⊦   isIOError(k0)
+              ↔   (  (  (  (  (  (  (  (  (  is_IOError_#noparse(k0)
+                                           ∨ is_IOError_#EISDIR(k0))
+                                        ∨ is_IOError_#ENOENT(k0))
+                                     ∨ is_IOError_#EACCES(k0))
+                                  ∨ is_IOError_#ESPIPE(k0))
+                               ∨ is_IOError_#EOF(k0))
+                            ∨ is_IOError_#ENOTDIR(k0))
+                         ∨ is_IOError_#ENAMETOOLONG(k0))
+                      ∨ is_IOError_#EINVAL(k0))
+                   ∨ is_IOError_#EBADF(k0))
+                ∨ is_IOError_#ELOOP(k0);
+          used for: s, ls;
+          isId-def
+          : ⊦   isId(k0)
+              ↔   (isCast_id(k0) ∨ is_Id_String2Id(k0))
+                ∨ is_Id_freshId(k0);
+          used for: s, ls;
+          isInt-def
+          : ⊦   isInt(k0)
+              ↔   (  (  (  (  (  (  (  (  is_Int_#stdout(k0)
+                                        ∨ is_Int_freshInt(k0))
+                                     ∨ isCast_int(k0))
+                                  ∨ is_Int_uminMInt(k0))
+                               ∨ is_Int_sminMInt(k0))
+                            ∨ is_Int_#stderr(k0))
+                         ∨ is_Int_smaxMInt(k0))
+                      ∨ is_Int_umaxMInt(k0))
+                   ∨ is_Int_#stdin(k0))
+                ∨ ´is_Int_#open(_)´(k0);
+          used for: s, ls;
+          isK-def
+          : ⊦   isK(k0)
+              ↔   (is_K_#RESTORE_CONFIGURATION(k0) ∨ isBag(k0))
+                ∨ isKItem(k0);
+          used for: s, ls;
+          isKBott-def
+          :  ⊦ isKBott(k0) ↔ is#KVariable(k0) ∨ isKConfigVar(k0);
+          used for: s, ls;
+          isKConfigVar-def
+          :  ⊦ isKConfigVar(k0) ↔ isCast_kconfigvar(k0);
+          used for: s, ls;
+          isKItem-def
+          : ⊦   isKItem(k0)
+              ↔   (  (  (  (  (  (  (  (  (  (  (  (  (  isFloat(k0)
+                                                       ∨ isLetter(k0))
+                                                    ∨ isString(k0))
+                                                 ∨ isInt(k0))
+                                              ∨ isWord(k0))
+                                           ∨ isIOError(k0))
+                                        ∨ isKBott(k0))
+                                     ∨ isMap(k0))
+                                  ∨ isStream(k0))
+                               ∨ isList(k0))
+                            ∨ isRX(k0))
+                         ∨ ´is_KItem_#systemResult(_,_,_)´(k0))
+                      ∨ isId(k0))
+                   ∨ isSet(k0))
+                ∨ isBool(k0);
+          used for: s, ls;
+          isKLabel-def
+          :  ⊦ isKLabel(k0) ↔ isCast_klabel(k0) ∨ is#KVariable(k0);
+          used for: s, ls;
+          isKList-def :  ⊦ isKList(k0) ↔ isK(k0);
+          used for: s, ls;
+          isKSequence-def :  ⊦ isKSequence(k0) ↔ isCast_ksequence(k0);
+          used for: s, ls;
+          isKString-def :  ⊦ isKString(k0) ↔ isCast_kstring(k0);
+          used for: s, ls;
+          isKVariable-def
+          :  ⊦ is#KVariable(k0) ↔ isCast_#kvariable(k0);
+          used for: s, ls;
+          isLetter-def
+          : ⊦   isLetter(k0)
+              ↔ (is_Letter_c(k0) ∨ is_Letter_a(k0)) ∨ is_Letter_b(k0);
+          used for: s, ls;
+          isList-def
+          :  ⊦ isList(k0) ↔ isCast_klist(k0) ∨ is_List_ListItem(k0);
+          used for: s, ls;
+          isMInt-def
+          : ⊦   isMInt(k0)
+              ↔   (  (is_MInt_miMInt(k0) ∨ is_MInt_sMinMInt(k0))
+                   ∨ is_MInt_negMInt(k0))
+                ∨ is_MInt_sMaxMInt(k0);
+          used for: s, ls;
+          isMap-def :  ⊦ isMap(k0) ↔ isCast_kmap(k0);
+          used for: s, ls;
+          isOptionalDots-def
+          : ⊦   is#OptionalDots(k0)
+              ↔   is_#OptionalDots_#dots(k0)
+                ∨ is_#OptionalDots_#noDots(k0);
+          used for: s, ls;
+          isRX-def
+          : ⊦   isRX(k0)
+              ↔   (  (  (  (  (isLetter(k0) ∨ is_RX_@eps(k0))
+                            ∨ is_RX_@fork_(k0))
+                         ∨ ´is_RX__._´(k0))
+                      ∨ is_RX__+_(k0))
+                   ∨ is_RX__*(k0))
+                ∨ is_RX_@empty(k0);
+          used for: s, ls;
+          isRuleContent-def
+          : ⊦   isRuleContent(k0)
+              ↔   (  (  is_RuleContent_#ruleEnsures(k0)
+                      ∨ is_RuleContent_#ruleRequiresEnsures(k0))
+                   ∨ is_RuleContent_#ruleRequires(k0))
+                ∨ is_RuleContent_#ruleNoConditions(k0);
+          used for: s, ls;
+          isRuleTag-def :  ⊦ is#RuleTag(k0) ↔ isCast_#ruletag(k0);
+          used for: s, ls;
+          isSet-def :  ⊦ isSet(k0) ↔ isCast_kset(k0);
+          used for: s, ls;
+          isStrategy-def
+          : ⊦   isStrategy(k0)
+              ↔   (  (  (  (  (  (  (  ´is_Strategy__;_´(k0)
+                                     ∨ is_Strategy_if_then_else_(k0))
+                                  ∨ isStrategyApply(k0))
+                               ∨ is_Strategy__*(k0))
+                            ∨ is_Strategy_#STUCK(k0))
+                         ∨ is_Strategy__||_(k0))
+                      ∨ isHole(k0))
+                   ∨ isStrategyApplied(k0))
+                ∨ isBool(k0);
+          used for: s, ls;
+          isStrategyApplied-def
+          : ⊦   isStrategyApplied(k0)
+              ↔ is_StrategyApplied_#appliedRule(k0);
+          used for: s, ls;
+          isStrategyApply-def
+          :  ⊦ isStrategyApply(k0) ↔ is_StrategyApply_#applyRule(k0);
+          used for: s, ls;
+          isStream-def
+          : ⊦   isStream(k0)
+              ↔   (  (  is_Stream_#ostream(k0)
+                      ∨ is_Stream_#parseInput(k0))
+                   ∨ is_Stream_#istream(k0))
+                ∨ is_Stream_#buffer(k0);
+          used for: s, ls;
+          isString-def :  ⊦ isString(k0) ↔ isCast_string(k0);
+          used for: s, ls;
+          isWord-def
+          :  ⊦ isWord(k0) ↔ is_Word_@nil(k0) ∨ ´is_Word__::_´(k0);
+          used for: s, ls;
+
+   
+
+   
+end enrich

@@ -1,0 +1,25 @@
+lemmas
+acceptance1: ⊦{ 
+}⊦ (λ tcellVar. 
+        tcellVar
+      = TCell
+        (ThreadsCell({KCell(test.toSeq)} ), 
+         WordCell
+         (´Word__::_´
+          (Letter_c, 
+           ´Word__::_´
+           (Letter_a, 
+            ´Word__::_´
+            (Letter_b, 
+             ´Word__::_´
+             (Letter_b, 
+              ´Word__::_´(Letter_c, ´Word__::_´(Letter_c, Word_@nil))))))
+          .toSeq), 
+         acceptcellVar)
+   ) ⟨-->
+   ⟩° (λ tcellVar. 
+           tcellVar
+         = TCell
+           (ThreadsCell(∅), WordCell(Word_@nil.toSeq), 
+            AcceptCell(true))
+   );

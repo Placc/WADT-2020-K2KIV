@@ -1,0 +1,14 @@
+data specification
+   
+
+   using FORKREGEX-SYNTAX
+
+   kcell = KCell(. .ksequence_0 : ksequence)
+         ;
+
+   variables  kcellVar : kcell;
+
+   
+
+   
+end data specification

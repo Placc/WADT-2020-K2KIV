@@ -1,3 +1,4 @@
 lib-basic                     ?/stdlib/projects/lib/basic                       normal
 lib-k2kiv                     ?/lib-k2kiv                                       normal
 Factorial                     ?/Factorial                                       normal  
+forkregex                     ?/forkregex                                       normal  

@@ -1,0 +1,17 @@
+actualize
+   bag-union
+with
+   KCell-CELL
+
+   
+by morphism
+   :elem → kcell; 
+   :bag → kcellbag; 
+   bag → bagkcell; 
+   bag0 → bag0kcell; 
+   bag1 → bag1kcell; 
+   bag2 → bag2kcell; 
+   a → akcell; 
+   b → bkcell; 
+   c → ckcell; 
+end actualize

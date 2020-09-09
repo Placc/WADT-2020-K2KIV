@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   #ruletag = #RuleTag(. .#RuleTag_string : string)
+            ;
+
+   variables  #ruletagVar : #ruletag;
+
+   
+
+   
+end data specification

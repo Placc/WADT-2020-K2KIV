@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kbool
+
+   acceptcell = AcceptCell(. .bool_0 : bool)
+              ;
+
+   variables  acceptcellVar : acceptcell;
+
+   
+
+   
+end data specification

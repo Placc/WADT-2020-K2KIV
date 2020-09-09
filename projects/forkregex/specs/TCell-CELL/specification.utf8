@@ -1,0 +1,17 @@
+data specification
+   
+
+   using ThreadsCell-CELL, WordCell-CELL, AcceptCell-CELL
+
+   tcell
+    = TCell
+      (. .threadscell_0 : threadscell;. .wordcell_1 : wordcell;
+       . .acceptcell_2 : acceptcell)
+    ;
+
+   variables  tcellVar : tcell;
+
+   
+
+   
+end data specification

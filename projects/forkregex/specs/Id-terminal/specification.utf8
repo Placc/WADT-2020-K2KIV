@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   id = Id(. .Id_string : string)
+      ;
+
+   variables  idVar : id;
+
+   
+
+   
+end data specification

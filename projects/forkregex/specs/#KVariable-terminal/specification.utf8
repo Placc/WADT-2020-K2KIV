@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   #kvariable = #KVariable(. .#KVariable_string : string)
+              ;
+
+   variables  #kvariableVar : #kvariable;
+
+   
+
+   
+end data specification

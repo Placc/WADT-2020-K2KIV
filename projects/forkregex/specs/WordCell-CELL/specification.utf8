@@ -1,0 +1,14 @@
+data specification
+   
+
+   using FORKREGEX-SYNTAX
+
+   wordcell = WordCell(. .ksequence_0 : ksequence)
+            ;
+
+   variables  wordcellVar : wordcell;
+
+   
+
+   
+end data specification

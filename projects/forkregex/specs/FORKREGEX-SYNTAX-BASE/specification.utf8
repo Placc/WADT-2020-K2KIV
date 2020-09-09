@@ -1,0 +1,155 @@
+data specification
+   
+
+   using #RuleTag-terminal, collections, kint, #CellName-terminal, 
+         kbool, Id-terminal, #KVariable-terminal, kstring, 
+         KString-terminal, KLabel-terminal, KConfigVar-terminal
+
+   K
+    = ´Hole_#FROZEN(_)´(. .K_0 : K) with ´is_Hole_#FROZEN(_)´
+    | ´RX__._´(. .RX_0 : K;. .RX_1 : K) with ´is_RX__._´
+    | RuleContent_#ruleRequires
+      (. .K_0 : K;. .K_1 : K)
+      with is_RuleContent_#ruleRequires
+    | #CellProperties_#cellPropertyList
+      (. .#CellProperty_0 : K;. .#CellProperties_1 : K)
+      with is_#CellProperties_#cellPropertyList
+    | Bool_false with is_Bool_false
+    | StrategyApply_#applyRule
+      (. .#RuleTag_0 : K)
+      with is_StrategyApply_#applyRule
+    | StrategyApplied_#appliedRule
+      (. .#RuleTag_0 : K)
+      with is_StrategyApplied_#appliedRule
+    | #OptionalDots_#dots with is_#OptionalDots_#dots
+    | IOError_#EISDIR with is_IOError_#EISDIR
+    | K_#RESTORE_CONFIGURATION
+      (. .K_0 : K)
+      with is_K_#RESTORE_CONFIGURATION
+    | IOError_#EACCES with is_IOError_#EACCES
+    | _(. .klabel : klabel) with isCast_klabel
+    | RX_@eps with is_RX_@eps
+    | IOError_#noparse with is_IOError_#noparse
+    | IOError_#ENOENT with is_IOError_#ENOENT
+    | Stream_#parseInput
+      (. .String_0 : K;. .String_1 : K)
+      with is_Stream_#parseInput
+    | Float_sqrtFloat(. .Float_0 : K) with is_Float_sqrtFloat
+    | IOError_#ENOTDIR with is_IOError_#ENOTDIR
+    | _(. .klist : klist) with isCast_klist
+    | Bag_#cells with is_Bag_#cells_
+    | Bool_overflowMInt(. .List_0 : K) with is_Bool_overflowMInt
+    | Int_freshInt(. .Int_0 : K) with is_Int_freshInt
+    | _(. .#cellname : #cellname) with isCast_#cellname
+    | MInt_miMInt(. .List_0 : K) with is_MInt_miMInt
+    | List_ListItem(. .K_0 : K) with is_List_ListItem
+    | Strategy__*(. .Strategy_0 : K) with is_Strategy__*
+    | Word_@nil with is_Word_@nil
+    | ´Strategy__;_´
+      (. .Strategy_0 : K;. .Strategy_1 : K)
+      with ´is_Strategy__;_´
+    | RuleContent_#ruleNoConditions
+      (. .K_0 : K)
+      with is_RuleContent_#ruleNoConditions
+    | Letter_b with is_Letter_b
+    | Stream_#buffer(. .K_0 : K) with is_Stream_#buffer
+    | Letter_a with is_Letter_a
+    | IOError_#ENAMETOOLONG with is_IOError_#ENAMETOOLONG
+    | Int_umaxMInt(. .Int_0 : K) with is_Int_umaxMInt
+    | RX__+_(. .RX_0 : K;. .RX_1 : K) with is_RX__+_
+    | _(. .id : id) with isCast_id
+    | Int_#stdin with is_Int_#stdin
+    | _(. .#kvariable : #kvariable) with isCast_#kvariable
+    | Float_plusInfinity
+      (. .Int_0 : K;. .Int_1 : K)
+      with is_Float_plusInfinity
+    | MInt_sMinMInt(. .MInt_0 : K;. .MInt_1 : K) with is_MInt_sMinMInt
+    | IOError_#ESPIPE with is_IOError_#ESPIPE
+    | MInt_negMInt(. .MInt_0 : K) with is_MInt_negMInt
+    | Strategy_if_then_else_
+      (. .Strategy_0 : K;. .Strategy_1 : K;. .Strategy_2 : K)
+      with is_Strategy_if_then_else_
+    | _(. .ksequence : ksequence) with isCast_ksequence
+    | Int_sminMInt(. .Int_0 : K) with is_Int_sminMInt
+    | IOError_#EBADF with is_IOError_#EBADF
+    | IOError_#ELOOP with is_IOError_#ELOOP
+    | Strategy__||_
+      (. .Strategy_0 : K;. .Strategy_1 : K)
+      with is_Strategy__||_
+    | Stream_#ostream(. .Int_0 : K) with is_Stream_#ostream
+    | _(. .kconfigvar : kconfigvar) with isCast_kconfigvar
+    | IOError_#EINVAL with is_IOError_#EINVAL
+    | Int_#stdout with is_Int_#stdout
+    | _(. .bool : bool) with isCast_bool
+    | Bool_soverflowMInt
+      (. .Int_0 : K;. .Int_1 : K)
+      with is_Bool_soverflowMInt
+    | #OptionalDots_#noDots with is_#OptionalDots_#noDots
+    | Id_freshId(. .Int_0 : K) with is_Id_freshId
+    | Int_smaxMInt(. .Int_0 : K) with is_Int_smaxMInt
+    | #CellProperty_#cellProperty
+      (. .#CellName_0 : K;. .KString_1 : K)
+      with is_#CellProperty_#cellProperty
+    | _(. .#ruletag : #ruletag) with isCast_#ruletag
+    | ´KItem_#systemResult(_,_,_)´
+      (. .Int_0 : K;. .String_1 : K;. .String_2 : K)
+      with ´is_KItem_#systemResult(_,_,_)´
+    | Stream_#istream(. .Int_0 : K) with is_Stream_#istream
+    | Bool_isInfinite(. .Float_0 : K) with is_Bool_isInfinite
+    | Bool__dividesInt_
+      (. .Int_0 : K;. .Int_1 : K)
+      with is_Bool__dividesInt_
+    | Float_minusInfinity
+      (. .Int_0 : K;. .Int_1 : K)
+      with is_Float_minusInfinity
+    | _(. .int : int) with isCast_int
+    | Letter_c with is_Letter_c
+    | Int_uminMInt(. .Int_0 : K) with is_Int_uminMInt
+    | IOError_#EOF with is_IOError_#EOF
+    | Bag_#cells(. .Bag_0 : K;. .Bag_1 : K) with is_Bag_#cells_BagxBag
+    | Float_fpNaN(. .Int_0 : K;. .Int_1 : K) with is_Float_fpNaN
+    | Hole_#SHOLE with is_Hole_#SHOLE
+    | Strategy_#STUCK with is_Strategy_#STUCK
+    | RX__*(. .RX_0 : K) with is_RX__*
+    | _(. .kbag : kbag) with isCast_kbag
+    | ´Word__::_´(. .Letter_0 : K;. .Word_1 : K) with ´is_Word__::_´
+    | RX_@empty with is_RX_@empty
+    | _(. .string : string) with isCast_string
+    | #CellProperties_#cellPropertyListTerminator
+      with is_#CellProperties_#cellPropertyListTerminator
+    | ´Int_#open(_)´(. .String_0 : K) with ´is_Int_#open(_)´
+    | Id_String2Id(. .String_0 : K) with is_Id_String2Id
+    | MInt_sMaxMInt(. .MInt_0 : K;. .MInt_1 : K) with is_MInt_sMaxMInt
+    | Bool__=/=Float_
+      (. .Float_0 : K;. .Float_1 : K)
+      with is_Bool__=/=Float_
+    | RuleContent_#ruleRequiresEnsures
+      (. .K_0 : K;. .K_1 : K;. .K_2 : K)
+      with is_RuleContent_#ruleRequiresEnsures
+    | Cell_#configCell
+      (. .#CellName_0 : K;. .#CellProperties_1 : K;. .K_2 : K;
+       . .#CellName_3 : K)
+      with is_Cell_#configCell
+    | Bool_uoverflowMInt
+      (. .Int_0 : K;. .Int_1 : K)
+      with is_Bool_uoverflowMInt
+    | Bool_true with is_Bool_true
+    | _(. .kset : kset) with isCast_kset
+    | RuleContent_#ruleEnsures
+      (. .K_0 : K;. .K_1 : K)
+      with is_RuleContent_#ruleEnsures
+    | RX_@fork_(. .RX_0 : K) with is_RX_@fork_
+    | Cell_#externalCell
+      (. .#CellName_0 : K)
+      with is_Cell_#externalCell
+    | _(. .kmap : kmap) with isCast_kmap
+    | Int_#stderr with is_Int_#stderr
+    | _(. .kstring : kstring) with isCast_kstring
+    ;
+
+   variables  k : K;
+
+   
+
+   
+end data specification

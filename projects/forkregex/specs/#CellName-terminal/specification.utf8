@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   #cellname = #CellName(. .#CellName_string : string)
+             ;
+
+   variables  #cellnameVar : #cellname;
+
+   
+
+   
+end data specification

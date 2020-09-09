@@ -1,0 +1,14 @@
+data specification
+   
+
+   using KCell-BAG
+
+   threadscell = ThreadsCell(. .kcellbag_0 : kcellbag)
+               ;
+
+   variables  threadscellVar : threadscell;
+
+   
+
+   
+end data specification

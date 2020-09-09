@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   kstring = KString(. .KString_string : string)
+           ;
+
+   variables  kstringVar : kstring;
+
+   
+
+   
+end data specification

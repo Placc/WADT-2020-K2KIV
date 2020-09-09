@@ -1,0 +1,27 @@
+enrich
+   TCell-CELL
+with
+   
+
+   
+   
+   functions  initialConfig : K → tcell;
+   
+   
+   
+   
+   
+
+   
+
+   axioms initial-config-def
+          : ⊦   initialConfig(c)
+              = TCell
+                (ThreadsCell(∅ :: kcellbag ++ KCell(c.toSeq)), 
+                 WordCell(Word_@nil.toSeq), AcceptCell(false));
+          used for: s, ls;
+
+   
+
+   
+end enrich

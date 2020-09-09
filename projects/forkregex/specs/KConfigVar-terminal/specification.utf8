@@ -1,0 +1,14 @@
+data specification
+   
+
+   using kstring
+
+   kconfigvar = KConfigVar(. .KConfigVar_string : string)
+              ;
+
+   variables  kconfigvarVar : kconfigvar;
+
+   
+
+   
+end data specification

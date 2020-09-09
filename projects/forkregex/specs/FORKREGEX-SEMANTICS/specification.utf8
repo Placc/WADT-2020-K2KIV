@@ -1,0 +1,1067 @@
+enrich
+   FORKREGEX-CONFIG
+with
+   
+
+   
+   
+   
+   predicates  . --> . : tcell × tcell prio 9 right;
+   
+   
+   
+   
+
+   
+
+   axioms k0kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceAll(str1, str, str0)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (replaceN(str1, str, str0, count(str1, str)))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k0kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceAll(str1, str, str0)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceN(str1, str, str0, count(str1, str)))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k10kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(boolvar0 xor boolvar).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(_(¬(boolvar0 ↔ boolvar)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k10kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(boolvar0 xor boolvar).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(_(¬(boolvar0 ↔ boolvar)).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k11kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(count(str, str0)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (  1
+                          + count
+                            (substr
+                             (str, find(str, str0, 0) + size(str0), 
+                              size(str)), 
+                             str0))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k11kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(count(str, str0)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_
+                      (  1
+                       + count
+                         (substr
+                          (str, find(str, str0, 0) + size(str0), 
+                           size(str)), 
+                          str0))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k12kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(unequal(str, str0)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str ≠ str0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k12kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(unequal(str, str0)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str ≠ str0).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k13kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_#stdout.toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k13kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_#stdout.toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(1).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k14kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX_@eps.toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(ks3)}  ∪ bagkcell), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k14kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(RX_@eps.toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(ks3)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k14kiv-d1
+          : ⊦     TCell
+                  (ThreadsCell({KCell(RX_@eps.toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(.K)}  ∪ bagkcell), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k14kiv-d2
+          : ⊦     TCell
+                  (ThreadsCell({KCell(RX_@eps.toSeq)} ), wordcellVar, 
+                   acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(.K)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k15kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceFirst(str, str0, str1)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (  (substr(str, 0, find(str, str0, 0)) + str1)
+                          + substr
+                            (str, find(str, str0, 0) + size(str0), 
+                             size(str)))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k15kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceFirst(str, str0, str1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_
+                      (  (substr(str, 0, find(str, str0, 0)) + str1)
+                       + substr
+                         (str, find(str, str0, 0) + size(str0), 
+                          size(str)))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k15kiv-d1
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceFirst(str, str0, "")).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (  substr(str, 0, find(str, str0, 0))
+                          + substr
+                            (str, find(str, str0, 0) + size(str0), 
+                             size(str)))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k15kiv-d2
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceFirst(str, str0, "")).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_
+                      (  substr(str, 0, find(str, str0, 0))
+                       + substr
+                         (str, find(str, str0, 0) + size(str0), 
+                          size(str)))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k16kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(.K)}  ∪ bagkcell), wordcellVar, 
+                   acceptcellVar)
+              --> TCell
+                  (ThreadsCell(bagkcell), wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k16kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(.K)} ), wordcellVar, 
+                   acceptcellVar)
+              --> TCell
+                  (ThreadsCell(∅ :: kcellbag), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k17kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(str > str0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str0 < str).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k17kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(str > str0).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str0 < str).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k18kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceN(str1, str, str0, i1)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (  (  substr(str1, 0, find(str1, str, 0))
+                             + str0)
+                          + replaceN
+                            (substr
+                             (str1, find(str1, str, 0) + size(str), 
+                              size(str1)), 
+                             str, str0, i1 - 1))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k18kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceN(str1, str, str0, i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_
+                      (  (substr(str1, 0, find(str1, str, 0)) + str0)
+                       + replaceN
+                         (substr
+                          (str1, find(str1, str, 0) + size(str), 
+                           size(str1)), 
+                          str, str0, i1 - 1))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k18kiv-d1
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceN(str1, str, "", i1)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (  substr(str1, 0, find(str1, str, 0))
+                          + replaceN
+                            (substr
+                             (str1, find(str1, str, 0) + size(str), 
+                              size(str1)), 
+                             str, "", i1 - 1))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k18kiv-d2
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceN(str1, str, "", i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_
+                      (  substr(str1, 0, find(str1, str, 0))
+                       + replaceN
+                         (substr
+                          (str1, find(str1, str, 0) + size(str), 
+                           size(str1)), 
+                          str, "", i1 - 1))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k19kiv
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX_@fork_(c).toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   (({KCell(ks3)}  ∪ {KCell(c.toSeq)} ) ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k19kiv-d0
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX_@fork_(c).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(ks3)}  ∪ {KCell(c.toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k19kiv-d1
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX_@fork_(c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   (({KCell(.K)}  ∪ {KCell(c.toSeq)} ) ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k19kiv-d2
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX_@fork_(c).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(.K)}  ∪ {KCell(c.toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k1kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(false xor boolvar).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(boolvar).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k1kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(false xor boolvar).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(boolvar).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k20kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(Id_freshId(_(i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   Id_String2Id(_("_" + int2String(i1))).toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k20kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Id_freshId(_(i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (Id_String2Id(_("_" + int2String(i1))).toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k21kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_#stderr.toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(2).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k21kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_#stderr.toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(2).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k22kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(i mod i1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _((i % abs(i1) + abs(i1)) % abs(i1)).toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k22kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(i mod i1).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(_((i % abs(i1) + abs(i1)) % abs(i1)).toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k23kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(count(str, str0)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k23kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(count(str, str0)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(0).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k24kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(rfindChar(str0, "", i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(~1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k24kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(rfindChar(str0, "", i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(~1).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k25kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(boolvar xor false).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(boolvar).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k25kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(boolvar xor false).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(boolvar).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k26kiv
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX__+_(a, c).toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(c.toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k26kiv-d0
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__+_(a, c).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(c.toSeq ~> ks3)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k26kiv-d1
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX__+_(a, c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(c.toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k26kiv-d2
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__+_(a, c).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(c.toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k27kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(str ≤ str0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(¬ str0 < str).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k27kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(str ≤ str0).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(¬ str0 < str).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k28kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(ediv(i, i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(_((i - i mod i1) / i1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k28kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(ediv(i, i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_((i - i mod i1) / i1).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k29kiv
+          : isRX(a), isRX(c)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(´RX__._´(a, c).toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell((a.toSeq ~> c.toSeq) ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k29kiv-d0
+          : isRX(a), isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(´RX__._´(a, c).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell((a.toSeq ~> c.toSeq) ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k29kiv-d1
+          : isRX(a), isRX(c)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(´RX__._´(a, c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(a.toSeq ~> c.toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k29kiv-d2
+          : isRX(a), isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(´RX__._´(a, c).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(a.toSeq ~> c.toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k2kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_#stdin.toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k2kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_#stdin.toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(0).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k30kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(findChar(str, str0, i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   (find(str, substr(str0, 0, 1), i1) = ~1
+                         ⊃ _
+                           (findChar
+                            (str, substr(str0, 1, size(str0)), i1))
+                         ;(  findChar
+                             (str, substr(str0, 1, size(str0)), i1)
+                           = ~1
+                          ⊃ _(find(str, substr(str0, 0, 1), i1))
+                          ;_
+                           (min
+                            (find(str, substr(str0, 0, 1), i1), 
+                             findChar
+                             (str, substr(str0, 1, size(str0)), i1)))
+                          )
+                         )
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k30kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(findChar(str, str0, i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     ((find(str, substr(str0, 0, 1), i1) = ~1
+                      ⊃ _
+                        (findChar
+                         (str, substr(str0, 1, size(str0)), i1))
+                      ;(  findChar
+                          (str, substr(str0, 1, size(str0)), i1)
+                        = ~1
+                       ⊃ _(find(str, substr(str0, 0, 1), i1))
+                       ;_
+                        (min
+                         (find(str, substr(str0, 0, 1), i1), 
+                          findChar
+                          (str, substr(str0, 1, size(str0)), i1)))
+                       )
+                      )
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k31kiv
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX__*(c).toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(RX_@eps.toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k31kiv-d0
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__*(c).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(RX_@eps.toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k31kiv-d1
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__*(c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(RX_@eps.toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k31kiv-d2
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__*(c).toSeq)} ), wordcellVar, 
+                   acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(RX_@eps.toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k32kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceFirst(str, str0, str1)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k32kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceFirst(str, str0, str1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k33kiv
+          : ⊦     TCell
+                  (ThreadsCell(∅ :: kcellbag), wordcellVar, 
+                   AcceptCell(boolvar))
+              --> TCell
+                  (ThreadsCell(∅ :: kcellbag), wordcellVar, 
+                   AcceptCell(true));
+          used for: s, ls;
+          k34kiv
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX__*(c).toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   (  {KCell((c.toSeq ~> RX__*(c).toSeq) ~> ks3)} 
+                    ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k34kiv-d0
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__*(c).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell((c.toSeq ~> RX__*(c).toSeq) ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k34kiv-d1
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__*(c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell(c.toSeq ~> RX__*(c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k34kiv-d2
+          : isRX(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__*(c).toSeq)} ), wordcellVar, 
+                   acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(c.toSeq ~> RX__*(c).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k35kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(Int_freshInt(_(i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(i1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k35kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(Int_freshInt(_(i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(i1).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k36kiv
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(str ≥ str0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(¬ str < str0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k36kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(str ≥ str0).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(¬ str < str0).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k3kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (Bool__dividesInt_(_(i), _(i1)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(i1 % i = 0).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k3kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(Bool__dividesInt_(_(i), _(i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(i1 % i = 0).toSeq)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k4kiv
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX__+_(a, c).toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(a.toSeq ~> ks3)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k4kiv-d0
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__+_(a, c).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(a.toSeq ~> ks3)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k4kiv-d1
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(RX__+_(a, c).toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(a.toSeq)}  ∪ bagkcell), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k4kiv-d2
+          : isRX(c), isRX(a)
+            ⊦     TCell
+                  (ThreadsCell({KCell(RX__+_(a, c).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(a.toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k5kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(boolvar xor boolvar).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(false).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k5kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(boolvar xor boolvar).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(false).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k6kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(rfindChar(str, str0, i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (   _
+                         (max
+                          (rfind(str, substr(str0, 0, 1), i1), 
+                           rfindChar
+                           (str, substr(str0, 1, size(str0)), i1)))
+                         .toSeq
+                      ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k6kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(rfindChar(str, str0, i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_
+                      (max
+                       (rfind(str, substr(str0, 0, 1), i1), 
+                        rfindChar
+                        (str, substr(str0, 1, size(str0)), i1)))
+                      .toSeq)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k7kiv
+          : isLetter(a), isWord(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(a.toSeq ~> ks3)}  ∪ bagkcell), 
+                   WordCell(´Word__::_´(a, c).toSeq), acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(ks3)}  ∪ bagkcell), 
+                   WordCell(c.toSeq), acceptcellVar);
+          used for: s, ls;
+          k7kiv-d0
+          : isLetter(a), isWord(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(a.toSeq ~> ks3)} ), 
+                   WordCell(´Word__::_´(a, c).toSeq), acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(ks3)} ), WordCell(c.toSeq), 
+                   acceptcellVar);
+          used for: s, ls;
+          k7kiv-d1
+          : isLetter(a), isWord(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(a.toSeq)}  ∪ bagkcell), 
+                   WordCell(´Word__::_´(a, c).toSeq), acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(.K)}  ∪ bagkcell), 
+                   WordCell(c.toSeq), acceptcellVar);
+          used for: s, ls;
+          k7kiv-d2
+          : isLetter(a), isWord(c)
+            ⊦     TCell
+                  (ThreadsCell({KCell(a.toSeq)} ), 
+                   WordCell(´Word__::_´(a, c).toSeq), acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(.K)} ), WordCell(c.toSeq), 
+                   acceptcellVar);
+          used for: s, ls;
+          k8kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(unequal(i, i1)).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(i ≠ i1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k8kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell({KCell(_(unequal(i, i1)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(i ≠ i1).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+          k9kiv
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell
+                     (_(replaceN(str1, str, str0, 0)).toSeq ~> ks3)
+                    }
+                    ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str1).toSeq ~> ks3)} ), 
+                   wordcellVar, acceptcellVar);
+          used for: s, ls;
+          k9kiv-d0
+          : ⊦     TCell
+                  (ThreadsCell
+                   ({KCell(_(replaceN(str1, str, str0, 0)).toSeq)} ), 
+                   wordcellVar, acceptcellVar)
+              --> TCell
+                  (ThreadsCell({KCell(_(str1).toSeq)} ), wordcellVar, 
+                   acceptcellVar);
+          used for: s, ls;
+
+   
+
+   
+end enrich
